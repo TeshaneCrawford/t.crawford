@@ -6,8 +6,13 @@ One day I will be great at what I love.
 
 - Next.Js
 - Css Modules
-- Prisma
-- PostgreSQL
+- Chakra UI & Tailwind CSS
+- TypeScript
+- GraphQL
+- GraphCMS
+- Mdx
+- Mailchimp
+- Vercel
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
