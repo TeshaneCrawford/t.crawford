@@ -1,0 +1,18 @@
+
+$primaryColor: #e3ebf3;
+$secondaryColor: #71a6ec;
+$tertiaryColor: #325f3d;
+$accentColor: #c4ae8b;
+$successColor: #00b300;
+$warnColor: #f5a623;
+$errorColor: #f50000;
+
+:root {
+    --primaryColor: #{$primaryColor};
+    --secondaryColor: #{$secondaryColor};
+    --tertiaryColor: #{$tertiaryColor};
+    --accentColor: #{$accentColor};
+    --successColor: #{$successColor};
+    --warnColor: #{$warnColor};
+    --errorColor: #{$errorColor};
+}
