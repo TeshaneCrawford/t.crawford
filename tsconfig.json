@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "theme-ui/core" // or "@theme-ui/core"
+    // "jsx": "react-jsx",
+    "jsxImportSource": "theme-ui/core", // or "@theme-ui/core"
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
