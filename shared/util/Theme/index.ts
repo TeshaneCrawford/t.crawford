@@ -7,9 +7,18 @@ export const theme: Theme = {
       monospace: 'Menlo, monospace',
     },
     colors: {
-      text: '#000',
-      background: '#fff',
-      primary: '#33e',
+      text: 'hsl(233, 4%, 35%)',
+      title: 'hsl(233, 20%, 15%)',
+      background: 'hsl(2, 100%, 97%)',
+      primary: 'hsl(2, 100%, 61%)',
+      secondary: 'hsl(2, 88%, 53%)',
+      modes: {
+        dark: {
+          text: '#fff',
+          background: '#1a1919',
+          primary: '#502F4C',
+        }
+      }
     },
   }
 

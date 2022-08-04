@@ -6,9 +6,11 @@ import { useRouter } from 'next/router'
 const Home: NextPage = () => {
   return (
     <>
-      <h1 sx={{fontweight: 'bold', color: 'primary'}}>
-        Hello Next.js, Let's goooo yehhhh!!
-      </h1>
+      <main sx={{ bg: 'background'}}>
+        <h1 sx={{ fontweight: 'bold', color: 'primary' }}>
+          Hello Next.js, Lets goooo yehhhh!!
+        </h1>
+      </main>
     </>
   )
 }
