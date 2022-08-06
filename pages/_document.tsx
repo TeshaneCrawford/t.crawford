@@ -1,7 +1,7 @@
-/** @jsxImportSource theme-ui */
+import { ColorModeScript } from '@chakra-ui/react'
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
-import { InitializeColorMode } from 'theme-ui'
+import theme from '../shared/util/Theme';
 
 class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
@@ -13,17 +13,15 @@ class MyDocument extends Document {
     }
     render() {
         return (
-            <Html lang="en">
-                <Head />
-                    {/* <link rel="icon" type="image/x-icon" href="favicon.ico" />
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-                </Head> */}
-                <body>
-                    <InitializeColorMode />
-                    <Main />
-                    <NextScript />
-                </body>
-            </Html>
+            <Html lang='en'>
+            <Head />
+            <body>
+              {/* 👇 Here's the script */}
+              <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+              <Main />
+              <NextScript />
+            </body>
+          </Html>
         );
     }
 }

@@ -1,16 +1,15 @@
-/** @jsxImportSource theme-ui */
-import { ThemeProvider } from 'theme-ui'
-import { theme } from '.././shared/util/Theme'
-
+import { ChakraProvider, CSSReset } from '@chakra-ui/react'
+import theme from '.././shared/util/Theme'
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): React.ReactNode {
   return (
-    <ThemeProvider theme={theme}>
+    <ChakraProvider theme={theme}>
+      <CSSReset />
       <Component {...pageProps} />
-    </ThemeProvider>
+    </ChakraProvider>
   )
 }
 
