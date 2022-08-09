@@ -3,15 +3,16 @@ import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 
 const config: ThemeConfig = { 
   initialColorMode: "dark",
-  useSystemColorMode: false,
+  useSystemColorMode: true,
 };
 
 const theme = extendTheme({
+  config,
   colors:{
     brand:{
-      100:"#f7fafc",
+      100:"hsla(210, 17%, 98%, 1)",
       // ...
-      900: "#1a202c"
+      900: "hsla(210, 11%, 15%, 1)"
     }
   } 
 })

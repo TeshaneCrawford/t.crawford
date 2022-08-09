@@ -2509,6 +2509,11 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+lottie-web@^5.5.7:
+  version "5.9.6"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.9.6.tgz#62ae68563355d3e04aa75d53dec3dd4bea0e57c9"
+  integrity sha512-JFs7KsHwflugH5qIXBpB4905yC1Sub2MZWtl/elvO/QC6qj1ApqbUZJyjzJseJUtVpgiDaXQLjBlIJGS7UUUXA==
+
 lru-cache@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
@@ -3314,6 +3319,13 @@ react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
+
+react-useanimations@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/react-useanimations/-/react-useanimations-2.0.8.tgz#29ebfe4deda414b9dd2e6c8513d3d3972a2efa39"
+  integrity sha512-pjA5M8qA2NF3kvvu8yuBToOt79fdqXpx3Ba32ci8uG9zSv5XHz1d4OmDqqWARwaFWLIRS1Jan3HllpsqUWiKjw==
+  dependencies:
+    lottie-web "^5.5.7"
 
 react@18.2.0:
   version "18.2.0"
