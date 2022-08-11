@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { Box } from '@chakra-ui/react'
+// import { Box } from '@chakra-ui/react'
 import Hero from '../Layout/Hero'
 
 const Home: NextPage = () => {
@@ -9,19 +9,6 @@ const Home: NextPage = () => {
       <main>
         <div>
           <Hero />
-          <Box
-            as='button'
-            p={4}
-            color='white'
-            fontWeight='bold'
-            borderRadius='md'
-            bgGradient='linear(to-r, teal.500, green.500)'
-            _hover={{
-              bgGradient: 'linear(to-r, red.500, yellow.500)',
-            }}
-          >
-            Click here
-          </Box>
         </div>
       </main>
     </>
