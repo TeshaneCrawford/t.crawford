@@ -1,4 +1,9 @@
 import React from 'react'
+import Head from './Head'
+import { Navbar } from './Navbar'
+import { Footer } from './Footer'
+import { Container, Box } from '@chakra-ui/react';
+
 
 type Props = {
   children: React.ReactNode;
@@ -7,16 +12,16 @@ type Props = {
 const Layout: React.FunctionComponent<Props> = ({ children }) => {
   return (
     <React.Fragment>
-      {/* <Head>
-        <meta name="viewport" content="initial-scale-1, width=device-width" />
-      </Head> */}
+      <Head />
+      <Box>
       <main>
-        {/* <Navbar /> */}
-        <div className="flex justify-center bg-letterBox">
+        <Navbar />
+        <div className="flex justify-center">
           <div className="w-5/6">{children}</div>
         </div>
       </main>
-      <footer>{/* <Footer /> */}</footer>
+      <footer><Footer /></footer>
+      </Box>
     </React.Fragment>
   );
 };

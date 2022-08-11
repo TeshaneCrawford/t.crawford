@@ -1,32 +1,14 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import Code from '../components/Code'
-import Animation from '../shared/util/service/Animation'
-import { Text, Box } from '@chakra-ui/react'
-import Toggle from '../components/Toggle'
-import { Navbar } from '../Layout/Navbar'
+import { Box } from '@chakra-ui/react'
+import Hero from '../Layout/Hero'
 
 const Home: NextPage = () => {
   return (
     <>
       <main>
-        <header>
-          <Navbar />
-        </header>
-        <Toggle />
-        <Code />
-        <Animation />
         <div>
-          <Text
-            bgGradient='linear(to-l, #7928CA, #FF0080)'
-            bgClip='text'
-            fontSize='6xl'
-            fontWeight='extrabold'
-          >
-            Welcome to my portfolio, Teshane Crawford.
-          </Text>
-        </div>
-        <div>
+          <Hero />
           <Box
             as='button'
             p={4}

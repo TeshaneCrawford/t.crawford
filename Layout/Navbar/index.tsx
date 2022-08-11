@@ -24,14 +24,13 @@ import {
               {isDesktop ? (
                 <Flex justify="space-between" flex="1">
                   <ButtonGroup variant="link" spacing="8">
-                    {['Home', 'Projects', 'Skills', 'About Me'].map((item) => (
+                    {['About Me', 'Projects', 'Case Study', 'Skills'].map((item) => (
                       <Button key={item}>{item}</Button>
                     ))}
                   </ButtonGroup>
-                  {/* <HStack spacing="3">
-                    <Button variant="ghost">Sign in</Button>
-                    <Button variant="primary">Sign up</Button>
-                  </HStack> */}
+                  <HStack spacing="3">
+                    <Button variant="primary">Hire Me</Button>
+                  </HStack>
                 </Flex>
               ) : (
                 <IconButton
