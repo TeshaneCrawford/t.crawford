@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-// import { Box } from '@chakra-ui/react'
 import Hero from '../Layout/Hero'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
