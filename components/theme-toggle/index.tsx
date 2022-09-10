@@ -5,7 +5,7 @@ import {useTheme as useNextTheme} from "next-themes";
 import useIsMounted from "../../hooks/use-is-mounted";
 
 
-import Blockholder from "../blockholder";
+// import Blockholder from "../blockholder";
 import {Moon, Sun} from "../icons";
 
 interface Props {
@@ -33,12 +33,12 @@ export const ThemeToggle: React.FC<Props> = ({className, css}) => {
   const {setTheme} = useNextTheme();
   const {isDark} = useTheme();
 
-  if (!isMounted) {
-    return (
-      // to avoid layout shift on initial render
-      <Blockholder alt="toggle theme placeholder" height="20px" width="32px" />
-    );
-  }
+  // if (!isMounted) {
+  //   return (
+  //     to avoid layout shift on initial render
+  //     <Blockholder alt="toggle theme placeholder" height="20px" width="32px" />
+  //   );
+  // }
 
   const handleToggleTheme = () => {
     setTheme(isDark ? "light" : "dark");

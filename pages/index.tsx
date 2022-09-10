@@ -3,6 +3,8 @@ import { GetStaticProps } from "next";
 import router, { useRouter } from "next/router";
 import { Spacer } from "@nextui-org/react";
 
+import { Hero } from '../components/index'
+
 import Layout from '../Layout';
 
 
@@ -15,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <Layout>
       {/* Hero section */}
-      {/* <Hero /> */}
+      <Hero />
       {/* Main features */}
       {/* <Section>
         <FeaturesGrid features={landingContent.topFeatures} />
