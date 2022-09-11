@@ -2,7 +2,11 @@ import React, {useState, useEffect} from 'react'
 import {useRouter} from 'next/router'
 import NextLink from "next/link";
 import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
+
+import {darkTheme} from "../../shared/theme/index";
 import { AcmeLogo } from "./AcmeLogo.js";
+
+import {  ThemeToggle } from '../../components'
 
 
 export interface Props {
@@ -36,6 +40,20 @@ const Navigation:  React.FC<Props> = ({}) => {
           <Text b color="inherit" hideIn="xs">
             TJC
           </Text>
+          <ThemeToggle
+                  className="navbar__social-icon"
+                  css={{
+                    m: "0 6px",
+                    "& svg": {
+                      transition: "$default",
+                    },
+                    "&:hover": {
+                      "& svg": {
+                        opacity: 0.7,
+                      },
+                    },
+                  }}
+                />
         </Navbar.Brand>
         <Navbar.Content
           enableCursorHighlight
