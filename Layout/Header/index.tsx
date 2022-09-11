@@ -13,12 +13,12 @@ export interface HeaderProps {
 }
 
 const defaultProps = {
-  description: "Make beautiful websites regardless of your design experience.",
-  image: "/twitter-cards/nextui.jpeg",
+  description: "Transform design into code.",
+  image: "",
 };
 
 if (global.document) {
-  const info = [`Let's make the Web prettier 🚀`];
+  const info = [`Let me help you tansform the web 🚀`];
 
   for (const message of info) {
     // eslint-disable-next-line no-console
