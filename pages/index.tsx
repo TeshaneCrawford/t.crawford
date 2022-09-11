@@ -7,6 +7,7 @@ import { Hero } from '../components/index'
 
 import Layout from '../Layout';
 import Azure from '../components/icons/azure';
+import Dartlang from '../components/icons/dart';
 
 interface Props {
   // routes: Route[];
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
       {/* Hero section */}
       <Hero />
       <Azure />
+      <Dartlang />
       {/* Main features */}
       {/* <Section>
         <FeaturesGrid features={landingContent.topFeatures} />

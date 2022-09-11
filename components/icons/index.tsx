@@ -17,3 +17,4 @@ export const Icon = styled("svg", {});
 export {default as Moon} from "./moon";
 export {default as Sun} from "./sun";
 export {default as Azure } from "./azure";
+export {default as Dartlang } from "./dart";
