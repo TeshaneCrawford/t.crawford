@@ -6,7 +6,7 @@ import { Spacer } from "@nextui-org/react";
 import { Hero } from '../components/index'
 
 import Layout from '../Layout';
-
+import Azure from '../components/icons/azure';
 
 interface Props {
   // routes: Route[];
@@ -18,6 +18,7 @@ const Home: NextPage = () => {
     <Layout>
       {/* Hero section */}
       <Hero />
+      <Azure />
       {/* Main features */}
       {/* <Section>
         <FeaturesGrid features={landingContent.topFeatures} />
