@@ -6,8 +6,9 @@ import { Spacer } from "@nextui-org/react";
 import { Hero } from '../components/index'
 
 import Layout from '../Layout';
-import Azure from '../components/icons/azure';
-import Dartlang from '../components/icons/dart';
+import SkillSection from '../components/skills-section/index';
+
+import constantsContent from '../content/constants/index';
 
 interface Props {
   // routes: Route[];
@@ -19,8 +20,9 @@ const Home: NextPage = () => {
     <Layout>
       {/* Hero section */}
       <Hero />
-      <Azure />
-      <Dartlang />
+      {/* <Spacer y={2} /> */}
+      <SkillSection skills={constantsContent.techSkills} />
+      <Spacer y={2} />
       {/* Main features */}
       {/* <Section>
         <FeaturesGrid features={landingContent.topFeatures} />
