@@ -22,7 +22,7 @@ const index = () => {
           </Text>
           </Navbar.Brand>
         </Navbar.Content>
-        <Navbar.Content enableCursorHighlight activeColor="warning" hideIn="xs" variant="highlight-rounded">
+        <Navbar.Content enableCursorHighlight activeColor="warning" hideIn="xs" variant="highlight">
           <Navbar.Link href="#">Projects</Navbar.Link>
           <Navbar.Link isActive href="#">
             About
