@@ -12,10 +12,10 @@ const About: React.FC = () => {
           </div>
           <div>
             <p>
-              Hi, I'm Teshane J. Crawford. I help people make the world better through quality software.
+              Hi, I&apos;m Teshane J. Crawford. I help people make the world better through quality software.
             </p>
             <p>
-              I'm also a big extreme sports enthusiast. When I'm not hanging out with my friends & family or at the computer you can find me at the ball ground playing Football.
+              I&apos;m also a big extreme sports enthusiast. When I&apos;m not hanging out with my friends & family or at the computer you can find me at the ball ground playing Football.
             </p>
           </div>
         </div>

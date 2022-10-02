@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
             Teshane is a <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>full-stack</span> developer
           </h1>
           <p className='py-6 mt-4 text-lg text-gray-500'>
-            I'm a full-stack developer with a passion for building web applications
+            I&apos;m a full-stack developer with a passion for building web applications
             and APIs.
           </p>
         </div>
