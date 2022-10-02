@@ -1,7 +1,7 @@
 import React from 'react'
-import dynamic from "next/dynamic";
-import {useRouter} from "next/router";
-import Image from 'next/image';
+// import dynamic from "next/dynamic";
+// import {useRouter} from "next/router";
+// import Image from 'next/image';
 
 
 const Hero: React.FC = () => {
