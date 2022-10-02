@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider enableSystem={true} attribute="class">
         <NextUIProvider>
           <Layout>
-          <Component {...pageProps} />
+            <Component {...pageProps} />
           </Layout>
         </NextUIProvider>
       </ThemeProvider>

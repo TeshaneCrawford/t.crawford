@@ -11,7 +11,7 @@ const index = () => {
   ];
   return (
     <>
-        <Navbar isBordered variant="floating">
+        <Navbar variant="floating">
         <Navbar.Toggle showIn="xs" />
         <Navbar.Content>
           {/* <Navbar.Toggle aria-label="toggle navigation" /> */}

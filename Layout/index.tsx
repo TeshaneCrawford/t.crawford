@@ -18,21 +18,7 @@ const Layout: React.FC<React.PropsWithChildren<Props>> = ({children}) => {
     <Header />
     <Navbar />
     {/* hasNotify isHome routes={routes} */}
-    <Container
-      alignContent="space-between"
-      as="main"
-      className="main-container"
-      css={{
-        position: "relative",
-        minHeight: "100vh",
-        "@mdMax": {
-          overflowX: "hidden",
-        },
-      }}
-      display="flex"
-      id="main-container"
-      lg={true}
-    >
+    <Container>
       {children}
       <Footer />
     </Container>
