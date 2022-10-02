@@ -14,7 +14,7 @@ export interface Props {
 
 const Layout: React.FC<React.PropsWithChildren<Props>> = ({children}) => {
   return (
-    <div id="app-container">
+    <main className='container px-4 mx-auto'>
     <Header />
     <Navbar />
     {/* hasNotify isHome routes={routes} */}
@@ -22,7 +22,7 @@ const Layout: React.FC<React.PropsWithChildren<Props>> = ({children}) => {
       {children}
       <Footer />
     </Container>
-  </div>
+  </main>
   )
 }
 
