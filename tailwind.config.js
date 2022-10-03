@@ -4,9 +4,21 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  // darkMode: 'class',
+  darkMode: 'class',
   theme: {
-    extend: {},
+    typography: (theme) => ({}),
+    extend: {
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: 'white',
+          },
+        },
+      }),
+    },
+  },
+  variants: {
+    typography: ['dark'],
   },
   plugins: [],
 }

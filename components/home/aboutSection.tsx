@@ -5,7 +5,9 @@ const About: React.FC = () => {
   return (
     <section>
       <div>
-        <h2>About</h2>
+        <h2 className='py-2 font-bold text-center text-slate-600'>
+        <span className='text-3xl hover:underline'>About Me</span>
+        </h2>
         <div className='md:columns-2'>
           <div>
             <Image src='/tesh.jpg' alt='boy' height={300} width={300}/>

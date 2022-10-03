@@ -4,7 +4,6 @@ import Hero from '../components/hero'
 import Landing from '../components/home'
 
 
-
 const Home: NextPage = () => {
   return (
     <>
