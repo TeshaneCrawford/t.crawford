@@ -6,19 +6,7 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    typography: (theme) => ({}),
     extend: {
-      typography: (theme) => ({
-        dark: {
-          css: {
-            color: 'white',
-          },
-        },
-      }),
-    },
-  },
-  variants: {
-    typography: ['dark'],
   },
   plugins: [],
 }
