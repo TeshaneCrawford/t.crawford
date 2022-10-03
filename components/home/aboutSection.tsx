@@ -8,7 +8,7 @@ const About: React.FC = () => {
         <h2>About</h2>
         <div className='md:columns-2'>
           <div>
-            <Image src='/tesh.jpg' alt='boy' height={300} width={300}></Image>
+            <Image src='/tesh.jpg' alt='boy' height={300} width={300}/>
           </div>
           <div>
             <p>

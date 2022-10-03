@@ -8,8 +8,8 @@ const Landing: React.FC = () => {
   return (
     <>
       <About />
-      <Skills />
       <Services />
+      <Skills />
       <Projects />
     </>
   )
