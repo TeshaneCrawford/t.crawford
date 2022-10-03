@@ -3,7 +3,7 @@ import {Navbar, Text, Link} from "@nextui-org/react";
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 
-const index:React.FC = () => {
+const index = () => {
   const collapseItems = [
     "Projects",
     "About",
