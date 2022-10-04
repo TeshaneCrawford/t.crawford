@@ -4,9 +4,9 @@ import {MySkills} from '../../constant/skills'
 
 const Skills:React.FC = () => {
   return (
-    <section>
-      <h2>
-        <span className='text-3xl'>Technical Stack</span>
+    <section className='py-16'>
+      <h2 className='py-8 font-semibold'>
+        <span className='text-6xl '>Technical Stack</span>
       </h2>
       <div className='grid gap-10 lg:grid-cols-3'>
         <div className='p-10 my-10 text-center shadow-lg rounded-xl'>
