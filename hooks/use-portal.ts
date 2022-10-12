@@ -32,7 +32,7 @@ const usePortal = (
       parentElement.appendChild(el);
     }
     setElSnapshot(el);
-  }, []);
+  }, [getContainer, id]);
 
   return elSnapshot;
 };

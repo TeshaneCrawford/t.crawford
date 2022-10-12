@@ -1,6 +1,5 @@
 import '../styles/globals.css'
-import { ThemeProvider } from 'next-themes'
-import { NextUIProvider } from '@nextui-org/react';
+import { ChakraProvider } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 
 import Layout from '../Layout';
@@ -8,13 +7,11 @@ import Layout from '../Layout';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ThemeProvider enableSystem={true} attribute="class">
-        <NextUIProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </NextUIProvider>
-      </ThemeProvider>
+      <ChakraProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
     </>
   )
 }
