@@ -1,8 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import withDefaults from "../../shared/utils/with-defaults";
-import {toCapitalize} from "../../shared/utils/index";
-import {useTheme} from "@nextui-org/react";
 
 export interface HeaderProps {
   title?: string;
@@ -26,7 +24,6 @@ if (global.document) {
 }
 
 const Header: React.FC<HeaderProps> = ({title, description, image, url}) => {
-  const {theme, isDark} = useTheme();
 
   let pageTitle = title ? `${toCapitalize(title)} | ` : "";
 
@@ -39,14 +36,14 @@ const Header: React.FC<HeaderProps> = ({title, description, image, url}) => {
       {url && <meta content={url} property="og:url" />}
       <meta content={description} property="og:description" />
       <meta content={description} name="description" />
-      <meta
+      {/* <meta
         content={isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value}
         name="msapplication-TileColor"
       />
       <meta
         content={isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value}
         name="theme-color"
-      />
+      /> */}
       <meta
         key="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
@@ -57,13 +54,17 @@ const Header: React.FC<HeaderProps> = ({title, description, image, url}) => {
       <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
       <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
       <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
-      <link
+      {/* <link
         color={isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value}
         href="/safari-pinned-tab.svg"
         rel="mask-icon"
-      />
+      /> */}
     </Head>
   );
 };
 
 export default withDefaults(Header, defaultProps);
+
+function toCapitalize(title: string) {
+  throw new Error("Function not implemented.");
+}

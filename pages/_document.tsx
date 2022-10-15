@@ -1,6 +1,5 @@
 import React from 'react';
 import NextDocument, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
-// import { ColorModeScript } from '@chakra-ui/react'
 import { CssBaseline } from '@nextui-org/react';
 
 class MyDocument extends NextDocument {
@@ -22,7 +21,6 @@ class MyDocument extends NextDocument {
           rel="stylesheet"
         />
         <body className=''>
-        {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
           <Main />
           <NextScript />
         </body>
