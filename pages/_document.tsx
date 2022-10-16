@@ -1,6 +1,6 @@
 import React from 'react';
 import NextDocument, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
-import { CssBaseline } from '@nextui-org/react';
+
 
 class MyDocument extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
@@ -14,7 +14,7 @@ class MyDocument extends NextDocument {
   render() {
     return (
       <Html lang="en" className='dark'>
-        <Head>{CssBaseline.flush()}</Head>
+        <Head></Head>
         <link href="https://fonts.gstatic.com" rel="preconnect" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
