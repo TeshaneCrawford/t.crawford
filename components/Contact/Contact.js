@@ -1,6 +1,6 @@
 import React from "react";
 import { popUpFromBottomForText } from "../../content/FramerMotionVariants";
-import AnimatedHeading from "../FramerMotion/AnimatedHeading";
+import AnimatedHeading from "../FramerMotion/AnimateHeading";
 import "react-toastify/dist/ReactToastify.css";
 
 import ContactForm from "./ContactForm"; 

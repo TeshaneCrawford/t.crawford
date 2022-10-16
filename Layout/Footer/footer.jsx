@@ -4,13 +4,11 @@ import socialMedia from "/content/socialMedia";
 import { FadeContainer, popUp } from "/content/FramerMotionVariants";
 import { navigationRoutes } from "/constant/route";
 import { motion } from "framer-motion";
-import { SiSpotify } from "react-icons/si";
-import useSWR from "swr";
 
 export default function Footer() {
 
   return (
-    <footer className=" text-gray-600 dark:text-gray-400/50 w-screen font-inter mb-20 print:hidden">
+    <footer className="text-gray-600 dark:text-gray-400/50 w-screen font-inter mb-20 print:hidden">
       <motion.div
         initial="hidden"
         whileInView="visible"

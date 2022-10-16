@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-// import Header from "./Header";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import Navbar from "./Navbar";
 import Footer from "./Footer/footer.jsx";
 
@@ -15,13 +15,12 @@ export interface Props {
 const Layout: React.FC<React.PropsWithChildren<Props>> = ({ children }) => {
   return (
     <React.Fragment>
-      {/* <Header /> */}
       <Navbar />
-      {/* hasNotify isHome routes={routes} */}
       <main>
         {children}
       </main>
       <Footer />
+      <ScrollToTopButton />
     </React.Fragment>
   )
 }
