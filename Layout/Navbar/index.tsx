@@ -1,8 +1,11 @@
 import React from 'react'
+import TopNavigation from '../../components/TopNavigation/index';
 
-const Navbar = () => {
+const Navbar:React.FC = () => {
   return (
-    <div>Navigation Bar</div>
+    <div>
+      <TopNavigation />
+    </div>
   )
 }
 
