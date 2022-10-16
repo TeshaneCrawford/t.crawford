@@ -11,7 +11,6 @@ import {
 } from 'content/FramerMotionVariants';
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 import { navigationRoutes } from 'constant/route';
-import { popUp } from '../../content/FramerMotionVariants';
 
 
 const TopNavigation: React.FC = () => {
