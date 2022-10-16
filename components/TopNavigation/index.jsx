@@ -16,7 +16,7 @@ import { navigationRoutes } from 'constant/route';
 
 const TopNavigation = () => {
     const router = useRouter();
-    const navRef = useRef<HTMLInputElement | null>(null);
+    const navRef = useRef(null);
     const control = useAnimation();
     const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -43,7 +43,7 @@ const TopNavigation = () => {
             );
             control.start("hidden");
         }
-    }, [control, navRef]);
+    }, [control]);
 
     useEffect(() => {
         window.addEventListener("scroll", addShadow);
