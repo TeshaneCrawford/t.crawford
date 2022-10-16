@@ -12,8 +12,9 @@ import {
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 import { navigationRoutes } from 'constant/route';
 
+// declare var isDarkMode: any
 
-const TopNavigation: React.FC = () => {
+const TopNavigation = () => {
     const router = useRouter();
     const navRef = useRef<HTMLInputElement | null>(null);
     const control = useAnimation();
@@ -42,7 +43,7 @@ const TopNavigation: React.FC = () => {
             );
             control.start("hidden");
         }
-    }, [control]);
+    }, [control, navRef]);
 
     useEffect(() => {
         window.addEventListener("scroll", addShadow);
@@ -62,6 +63,10 @@ const TopNavigation: React.FC = () => {
         setIsNavOpen(!isNavOpen);
         scrollLock();
     }
+
+  function changeDarkMode() {
+    throw new Error('Function not implemented.');
+  }
 
     return (
         <nav className='fixed top-0 flex items-center
@@ -123,7 +128,7 @@ const TopNavigation: React.FC = () => {
              variants={popUp}
              className='z-30 transition rounded cursor-pointer-full active:scale-75'
              title='Toggle Theme'
-             onclick={() => changeDarkMode(!isDarkMode)}>
+             onClick={() => changeDarkMode(!isDarkMode)}>
                 {isDarkMode ? (
                     <HiOutlineMoon className='w-6 h-6 transition select-none sm:h-7 sm:w-7 active:scale-75' />
                 ) : (
@@ -202,6 +207,10 @@ function Hamburger({ open, handleClick}) {
     )
 }
 
+// interface MobileMenu {
+//     links: string[];
+//     handleClick: () => void;
+// }
 // Mobile navigation menu
 const MobileMenu = ({ links, handleClick }) => {
     return (

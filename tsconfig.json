@@ -21,6 +21,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/TopNavigation/index.jsx", "components/TopNavigation/index.jsx"],
   "exclude": ["node_modules"]
 }
