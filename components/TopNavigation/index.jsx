@@ -12,7 +12,7 @@ import {
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 import { navigationRoutes } from 'constant/route';
 
-// declare var isDarkMode: any
+var isDarkMode
 
 const TopNavigation = () => {
     const router = useRouter();
@@ -87,7 +87,7 @@ const TopNavigation = () => {
                      animate='visible'
                      variants={popUp}
                      className='relative hidden mr-3 sm:inline-flex'>
-                        <h1 className='text-xl font-sarina'>TC</h1>
+                        <h1 className='text-xl font-barlow'>TC</h1>
                     </motion.a>
                     <motion.p 
                      initial='hidden'
@@ -122,19 +122,20 @@ const TopNavigation = () => {
             </motion.nav>
             
             {/* Theme Toggle */}
-            <motion.div 
-             initial='hidden'
-             animate='visible'
-             variants={popUp}
-             className='z-30 transition rounded cursor-pointer-full active:scale-75'
-             title='Toggle Theme'
-             onClick={() => changeDarkMode(!isDarkMode)}>
-                {isDarkMode ? (
-                    <HiOutlineMoon className='w-6 h-6 transition select-none sm:h-7 sm:w-7 active:scale-75' />
-                ) : (
-                    <HiOutlineSun className='w-6 h-6 transition select-none sm:h-7 sm:w-7 active:scale-75' />
-                )}
-            </motion.div>
+            <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={popUp}
+        className="cursor-pointer rounded-full z-30 transition active:scale-75"
+        title="Toggle Theme"
+        onClick={() => changeDarkMode(!isDarkMode)}
+      >
+        {isDarkMode ? (
+          <HiOutlineMoon className="h-6 w-6 sm:h-7 sm:w-7 select-none transition active:scale-75" />
+        ) : (
+          <HiOutlineSun className="h-6 w-6 sm:h-7 sm:w-7 select-none transition active:scale-75" />
+        )}
+      </motion.div>
         </nav>
     )
 }

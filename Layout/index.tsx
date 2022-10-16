@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 
 import Header from "./Header";
-import Footer from "./Footer";
 import Navbar from "./Navbar";
+import Footer from "./Footer/footer.jsx";
+
 
 export interface Props {
   // routes: Route[];
