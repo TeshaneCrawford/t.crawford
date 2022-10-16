@@ -2,7 +2,7 @@
 
 // Page Components START----------
 // import BlogsSection from "@components/Home/BlogsSection";
-import SkillSection from "@components/Home/SkillSection";
+import SkillSection from "@components/HomeScreen/SkillSection";
 // Page Components END------------
 
 import Image from "next/image";
