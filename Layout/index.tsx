@@ -1,5 +1,4 @@
-import React from 'react'
-import {Container} from "@nextui-org/react";
+import React, { useState } from 'react'
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -12,17 +11,17 @@ export interface Props {
   slug?: string;
 }
 
-const Layout: React.FC<React.PropsWithChildren<Props>> = ({children}) => {
+const Layout: React.FC<React.PropsWithChildren<Props>> = ({ children }) => {
   return (
-    <main className='container px-4 mx-auto'>
-    <Header />
-    <Navbar />
-    {/* hasNotify isHome routes={routes} */}
-    <Container>
-      {children}
+    <React.Fragment>
+      <Header />
+      <Navbar />
+      {/* hasNotify isHome routes={routes} */}
+      <main>
+        {children}
+      </main>
       <Footer />
-    </Container>
-  </main>
+    </React.Fragment>
   )
 }
 
