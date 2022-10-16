@@ -1,20 +1,29 @@
 // import type { NextPage } from 'next'
 
-import Image from 'next/image'
-import { motion } from 'framer-motion';
-import { FiDownload } from 'react-icons/fi';
-import { Ripples } from 'react-ripples';
-import MetaData from '../components/MetaData';
-import pageMeta from '..content/meta.js'
-import { homeProfileImage } from 'constant/utils';
-import AnimatedHeading from '../components/AnimateHeading';
+// Page Components START----------
+// import BlogsSection from "@components/Home/BlogsSection";
+import SkillSection from "@components/Home/SkillSection";
+// Page Components END------------
+
+import Image from "next/image";
+import MetaData from "@components/MetaData";
+// import Contact from "@components/Contact";
 import {
   FadeContainer,
   headingFromLeft,
   opacityVariant,
   popUp,
-} from '../content/FramerMotionVariants';
-import { getSkills } from 'lib/dataFetch'
+} from "@content/FramerMotionVariants";
+import AnimatedHeading from "@components/FramerMotion/AnimateHeading";
+import { homeProfileImage } from "@constant/utils";
+import { getSkills } from "@lib/dataFetch";
+// import getRSS from "@lib/generateRSS";
+// import generateSitemap from "@lib/sitemap";
+import { motion } from "framer-motion";
+import { FiDownload } from "react-icons/fi";
+import Ripples from "react-ripples";
+// import MDXContent from "@lib/MDXContent";
+import pageMeta from "@content/meta";
 
 
 export default function Home({ blogs, skills }) {
@@ -56,13 +65,13 @@ export default function Home({ blogs, skills }) {
                   variants={opacityVariant}
                   className="text-5xl font-bold lg:text-6xl font-sarina"
                 >
-                  Jatin Sharma
+                  Teshane Crawford
                 </motion.h1>
                 <motion.p
                   variants={opacityVariant}
                   className="text-xs font-medium text-gray-500 md:text-sm lg:text-lg"
                 >
-                  React Developer, Competitive Programmer
+                  Software Engineer, Full-Stack Software Developer, Designer
                 </motion.p>
               </div>
 
@@ -70,8 +79,8 @@ export default function Home({ blogs, skills }) {
                 variants={opacityVariant}
                 className="text-sm font-medium text-center text-slate-500 dark:text-gray-300 md:text-base"
               >
-                I am currently perusing my Bachelor Degree in Computer Science.
-                I can code in Python, C, C++, etc.
+                Bachelor Degree in Computer Science.
+                I code in TypeScript, Python, C#, Dart etc.
               </motion.p>
             </div>
 
@@ -88,6 +97,9 @@ export default function Home({ blogs, skills }) {
             </motion.div>
           </div>
         </motion.section>
+        </div>
+        <div>
+        <SkillSection skills={skills} />
         </div>
       
     </>
@@ -106,7 +118,7 @@ export function HomeHeading({ title }) {
 }
 
 export async function getStaticProps() {
-  const skills = await getSkills();
+  const skills = getSkills();
 
   return {
     props: {

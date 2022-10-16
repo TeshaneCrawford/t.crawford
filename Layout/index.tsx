@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Header from "./Header";
+// import Header from "./Header";
 import Navbar from "./Navbar";
 import Footer from "./Footer/footer.jsx";
 
@@ -15,7 +15,7 @@ export interface Props {
 const Layout: React.FC<React.PropsWithChildren<Props>> = ({ children }) => {
   return (
     <React.Fragment>
-      <Header />
+      {/* <Header /> */}
       <Navbar />
       {/* hasNotify isHome routes={routes} */}
       <main>

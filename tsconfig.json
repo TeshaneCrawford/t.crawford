@@ -2,7 +2,33 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["/*"]
+      "@components/*": [
+        "components/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@content/*": [
+        "content/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@context/*": [
+        "context/*"
+      ],
+      "@layout/*": [
+        "layout/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@constant/*": [
+        "constant/*"
+      ],
     },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -21,6 +47,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/TopNavigation/index.jsx", "components/TopNavigation/index.jsx", "context/darkModeContext.js", "context/darkModeContext.js", "content/socialMedia.js", "Layout/Footer/footer.jsx", "pages/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/TopNavigation/index.jsx", "components/TopNavigation/index.jsx", "context/darkModeContext.js", "context/darkModeContext.js", "content/socialMedia.js", "Layout/Footer/footer.jsx", "pages/index.jsx", "constant/utils.js", "constant/utils.js"],
   "exclude": ["node_modules"]
 }

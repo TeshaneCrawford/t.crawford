@@ -1,5 +1,5 @@
 import Head from "next/head";
-import useWindowLocation from "@hooks/useWindowLocation";
+import useWindowLocation from "../hooks/useWindowLocation";
 
 export default function MetaData({
   title,

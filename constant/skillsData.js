@@ -56,7 +56,7 @@ module.exports = [
       pinned: false,
     },
     {
-      name: "Firebase",
+      name: "Angular",
       pinned: true,
     },
     {

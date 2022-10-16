@@ -1,30 +1,41 @@
-import { FadeContainer, popUp } from '../content/FramerMotionVariants';
-import { motion } from 'framer-motion';
-import { useDarkMode } from '../context/DarkModeContext';
-import * as WindowsAnimation from '../lib/windowsAnimation';
-import { HomeHeading } from '../../pages'
+import { FadeContainer, popUp } from "../../content/FramerMotionVariants";
+import { HomeHeading } from "../../pages";
+import { motion } from "framer-motion";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiPython,
+  SiGit,
+  SiMysql,
+  SiAngular,
+} from "react-icons/si";
+import { FaReact } from "react-icons/fa";
+import { useDarkMode } from "@context/darkModeContext";
+import * as WindowsAnimation from "@lib/windowsAnimation";
 
 export default function SkillSection({ skills }) {
-    const { isDarkMode } = useDarkMode();
+  const { isDarkMode } = useDarkMode();
 
-    return (
-        <section className="mx-5">
-            <HomeHeading title="Skills" />
+  return (
+    <section className="mx-5">
+      <HomeHeading title="My Top Skills" />
 
-            <motion.div 
-             initial="hidden"
-             whileInView="visible"
-             variants={FadeContainer}
-             viewport={{ once: true }}
-             className="grid grid-cols-3 gap-4 my-10"
-            >
-          {skills.map((skill, index) => {
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={FadeContainer}
+        viewport={{ once: true }}
+        className="grid grid-cols-3 gap-4 my-10"
+      >
+        {skills.map((skill, index) => {
           const Icon = chooseIcon(skill.name.toLowerCase());
           return (
             <motion.div
               variants={popUp}
-              key={`$skill-${index}`}
-            //   src={`/svg/${skill}.svg`}
+              key={index}
               title={skill.name}
               onMouseMove={(e) =>
                 WindowsAnimation.showHoverAnimation(e, isDarkMode)
@@ -41,9 +52,49 @@ export default function SkillSection({ skills }) {
             </motion.div>
           );
         })}
-                
-            </motion.div>
+      </motion.div>
+    </section>
+  );
+}
 
-        </section>
-    )
+function chooseIcon(title) {
+  let Icon;
+  switch (title) {
+    case "python":
+      Icon = SiPython;
+      break;
+    case "javascript":
+      Icon = SiJavascript;
+      break;
+    case "html":
+      Icon = SiHtml5;
+      break;
+    case "css":
+      Icon = SiCss3;
+      break;
+    case "next.js":
+      Icon = SiNextdotjs;
+      break;
+    case "react.js":
+      Icon = FaReact;
+      break;
+    case "tailwind css":
+      Icon = SiTailwindcss;
+      break;
+    case "angular":
+      Icon = SiAngular;
+      break;
+    case "git":
+      Icon = SiGit;
+      break;
+    case "git":
+      Icon = SiGit;
+      break;
+    case "mysql":
+      Icon = SiMysql;
+      break;
+    default:
+      break;
+  }
+  return Icon;
 }
