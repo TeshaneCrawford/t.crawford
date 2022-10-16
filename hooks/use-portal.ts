@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-import {getId} from "../shared/utils/collections";
+import {getId} from "../utils/collections";
 
 import useSSR from "./use-ssr";
 
