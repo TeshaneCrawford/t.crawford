@@ -1,8 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
-import { DarkModeProvider } from 'context/DarkModeContext';
-
 import Layout from '../Layout';
 import { DarkModeProvider } from '../context/darkModeContext';
 
