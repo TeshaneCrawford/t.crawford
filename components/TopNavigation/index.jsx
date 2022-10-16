@@ -97,7 +97,7 @@ const TopNavigation = () => {
                         visible: { opacity: 1, scale: 1, display: "inline-flex" },
                      }} 
                      className='absolute sm:!hidden w-fit left-0 right-0 mx-auto'>
-                        Teshane Crawford
+                        Teshane J Crawford
                     </motion.p>
                 </div>
             </Link>
