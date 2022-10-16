@@ -56,5 +56,35 @@
           }
         ]
       }
+    ],
+    "redirects": [
+      {
+        "source": "/home",
+        "destination": "/"
+      },
+      {
+        "source": "/rss",
+        "destination": "/feed.xml"
+      },
+      {
+        "source": "/sitemap",
+        "destination": "/sitemap.xml"
+      },
+      {
+        "source": "/newsletter",
+        "destination": "https://www.getrevue.co/profile/j471n"
+      },
+      {
+        "source": "/resume",
+        "destination": "/resume.pdf"
+      },
+      {
+        "source": "/cv",
+        "destination": "https://read.cv/j471n"
+      },
+      {
+        "source": "/social",
+        "destination": "https://linktr.ee/j471n"
+      }
     ]
-}
+  }
