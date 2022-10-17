@@ -8,6 +8,8 @@ import Typescript from "./Typescript";
 import Javascript from "./Javascript";
 import CSharp from "./CSharp";
 import Dotnet from "./Dotnet";
+import Python from "./Python";
+// import Dart from "./Dart";
 
 const SVG = {
   Ditto,
@@ -20,5 +22,7 @@ const SVG = {
   Javascript,
   CSharp,
   Dotnet,
+  Python,
+  // Dart,
 };
 export default SVG;

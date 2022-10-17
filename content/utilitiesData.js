@@ -51,7 +51,19 @@ const utilities = {
         description: "My first language",
         Icon: SVG.CSharp,
         link: "https://docs.microsoft.com/en-us/dotnet/csharp/",
-      }
+      },
+      {
+        name: "Python",
+        description: "Scripting language",
+        Icon: SVG.Python,
+        link: "https://www.python.org/",
+      },
+      // {
+      //   name: "Dart",
+      //   description: "Flutter language",
+      //   Icon: SVG.Dart,
+      //   link: "https://dart.dev/",
+      // }
     ]
   },
   framework: {
