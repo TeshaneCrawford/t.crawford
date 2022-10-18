@@ -10,6 +10,8 @@ import CSharp from "./CSharp";
 import Dotnet from "./Dotnet";
 import Python from "./Python";
 // import Dart from "./Dart";
+import Angular from "./Angular";
+import Angularjs from "./Angularjs";
 
 const SVG = {
   Ditto,
@@ -24,5 +26,7 @@ const SVG = {
   Dotnet,
   Python,
   // Dart,
+  Angular,
+  Angularjs
 };
 export default SVG;
