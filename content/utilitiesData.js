@@ -75,12 +75,12 @@ const utilities = {
         Icon: SVG.Dotnet,
         link: "https://dotnet.microsoft.com/",
       },
-      {
-        name: "Angular",
-        description: "Enterprise Frontend Framework",
-        Icon: SVG.Angular,
-        link: "https://angular.io/",
-      },
+      // {
+      //   name: "Angular",
+      //   description: "Enterprise Frontend Framework",
+      //   Icon: SVG.Angular,
+      //   link: "https://angular.io/",
+      // },
       {
         name: "Angularjs",
         description: "Enterprise Frontend Framework",
