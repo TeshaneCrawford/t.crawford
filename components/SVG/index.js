@@ -12,6 +12,8 @@ import Python from "./Python";
 // import Dart from "./Dart";
 import Angular from "./Angular";
 import Angularjs from "./Angularjs";
+import TailwindCSS from "./Tailwindcss";
+import Git from "./Git";
 
 const SVG = {
   Ditto,
@@ -27,6 +29,8 @@ const SVG = {
   Python,
   // Dart,
   Angular,
-  Angularjs
+  Angularjs,
+  TailwindCSS,
+  Git
 };
 export default SVG;
