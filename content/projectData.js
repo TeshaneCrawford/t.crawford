@@ -32,4 +32,14 @@ module.exports = [
       tools: ["React.js", "Vite.js", "Redux-Toolkit", "Redux", "CSS3", "Reactstrap", "Vercel"],
       pinned: true,
     },
+    {
+      id: 11,
+      name: "Startup Landing Page",
+      coverURL: "https://i.imgur.com/RR1PFkH.png",
+      description: "Landing page for startup agencies",
+      githubURL: "https://github.com/TeshaneCrawford/agency-landing-page",
+      previewURL: "https://agency-landing-page-three.vercel.app/",
+      tools: ["Next.js", "Theme UI", "Firebase", "Google Analytics", "SendGrid", "Vercel", "Netlify"],
+      pinned: true,
+    }
 ];
