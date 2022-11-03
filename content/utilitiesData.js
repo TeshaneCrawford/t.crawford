@@ -74,6 +74,12 @@ const utilities = {
         description: "My main framework",
         Icon: SVG.Dotnet,
         link: "https://dotnet.microsoft.com/",
+      },
+      {
+        name: "Angularjs",
+        description: "Enterprise Frontend Framework",
+        Icon: SVG.Angularjs,
+        link: "https://angular.io/",
       }
     ]
   },
@@ -85,12 +91,6 @@ const utilities = {
         description: "Primary Code editor",
         Icon: SiVisualstudiocode,
         link: "https://code.visualstudio.com/download",
-      },
-      {
-        name: "Sublime Text",
-        description: "Text editor",
-        Icon: SiSublimetext,
-        link: "https://www.techspot.com/downloads/5546-sublime-text.html",
       },
       {
         name: "Andromeda",
