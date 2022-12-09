@@ -3,6 +3,4 @@ export const navigationRoutes = [
     "about",
     "stack",
     "projects",
-    "newsletter",
-    "rss",
 ]

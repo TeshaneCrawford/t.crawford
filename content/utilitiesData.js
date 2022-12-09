@@ -195,12 +195,6 @@ const utilities = {
     title: "Software/Applications",
     data: [
       {
-        name: "Bitwarden",
-        description: "Password Manager to manage all the login",
-        Icon: SiBitwarden,
-        link: "https://bitwarden.com/",
-      },
-      {
         name: "OBS Studio",
         description: "Screen Recorder",
         Icon: SiObsstudio,
@@ -219,43 +213,10 @@ const utilities = {
         link: "https://www.grammarly.com/",
       },
       {
-        name: "Everything Search",
-        description: "For Quick searching in Windows",
-        Icon: FaSearch,
-        link: "https://www.voidtools.com/downloads/",
-      },
-
-      {
-        name: "ShareX",
-        description:
-          "To capture or record and share it with a single press of a ke",
-        Icon: SVG.ShareX,
-        link: "https://getsharex.com/downloads/",
-      },
-      {
-        name: "Ditto",
-        description: "Clipboard Manager",
-        Icon: SVG.Ditto,
-        link: "https://ditto-cp.sourceforge.io/",
-      },
-      {
-        name: "f.lux",
-        description: "To adjusts a display's color according to the time",
-        Icon: SVG.Flux,
-        link: "https://justgetflux.com/",
-      },
-
-      {
         name: "Microsoft Todo",
         description: "To manage all my todos",
         Icon: SVG.MicrosoftToDo,
         link: "https://todo.microsoft.com/tasks/",
-      },
-      {
-        name: "Raindrop.io",
-        description: "Bookmark Manager",
-        Icon: SVG.RainDrop,
-        link: "https://raindrop.io/",
       },
       {
         name: 'Azure',
