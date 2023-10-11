@@ -1,5 +1,9 @@
-import './globals.css'
+// import './globals.css'
+import '@/styles/panda.css'
 import type { Metadata } from 'next'
+import { css, cx } from '@/css'
+import { fontClassName } from '@/styles/font'
+import {Flex} from '@/jsx'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,8 +19,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en"
+    className={cx(
+      fontClassName,
+      css({ overflowX: 'hidden', fontFamily: 'body', fontSize: '0.9em' })
+    )}
+    suppressHydrationWarning
+    >
+      <body className={css({ overflowX: 'hidden', overflowY: 'auto' })}>
+      <Flex direction="column">{children}</Flex>
+      </body>
     </html>
   )
 }
