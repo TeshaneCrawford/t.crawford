@@ -1,8 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { css } from ".././styled-system/css";
+</script>
 
 <template>
   <div>
-    Component: PortfolioLayout
+    <AppNavbar />
+    <div :class="css({ fontSize: '3xl', fontWeight: 'bold' })">Hello 🐼!</div>
   </div>
 </template>
 
