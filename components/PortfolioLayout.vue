@@ -5,7 +5,7 @@ import { css } from ".././styled-system/css";
 <template>
   <div>
     <AppNavbar />
-    <div :class="css({ fontSize: '3xl', fontWeight: 'bold' })">Hello 🐼!</div>
+    <div :class="css({ fontSize: '5xl', fontWeight: 'bold' })">Hello 🐼!</div>
   </div>
 </template>
 

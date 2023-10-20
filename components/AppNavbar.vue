@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import {css} from '../styled-system/css'
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -26,21 +27,21 @@ const { y: scroll } = useWindowScroll()
       <div class="spacer" />
       <div class="right">
         <NuxtLink to="/projects" title="Projects">
-          <span class="hide">Projects</span>
-          <Icon name="i-ri-folders-line" class="hides" />
+          <span :class="css({ hideBelow: 'md' })">Projects</span>
+          <span :class="css({ hideFrom: 'md' })"><Icon name="i-ri-folders-line" /></span>
         </NuxtLink>
         <NuxtLink to="/blog" title="Blog">
-          <span class="hide">Blog</span>
+          <span :class="css({ hideBelow: 'md' })">Blog</span>
           <Icon name="i-ri-newspaper-line" class="hides" />
         </NuxtLink>
-        <NuxtLink to="/about" class="hide" title="About">
+        <NuxtLink to="/about" :class="css({ hideBelow: 'md' })" title="About">
           About
         </NuxtLink>
         <NuxtLink to="/resume" title="Resume">
-          <span class="hide">Resume</span>
+          <span :class="css({ hideBelow: 'md' })">Resume</span>
           <Icon name="i-ri-file-copy-2-line" class="hides" />
         </NuxtLink>
-        <NuxtLink to="/tools" class="hide" title="Tools">
+        <NuxtLink to="/tools" :class="css({ hideBelow: 'md' })" title="Tools">
           Tools
         </NuxtLink>
         <NuxtLink to="/chat" title="Let's Chat">
@@ -49,13 +50,13 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink to="/contact" title="Contact">
           <Icon name="i-ri-mail-line" />
         </NuxtLink>
-        <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="hide">
+        <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" :class="css({ hideBelow: 'md' })">
           <Icon name="ri-twitter-line" />
         </a>
-        <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="hide">
+        <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" :class="css({ hideBelow: 'md' })">
           <Icon name="i-uil-github-alt" />
         </a>
-        <a href="/feed.xml" target="_blank" title="RSS" class="hide">
+        <a href="/feed.xml" target="_blank" title="RSS" :class="css({ hideBelow: 'md' })">
           <Icon name="i-la-rss-square" style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
       </div>
@@ -112,6 +113,7 @@ const { y: scroll } = useWindowScroll()
   user-select: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
+  z-index: 40;
 }
 
 @media (min-width: 1280px) {
@@ -166,11 +168,11 @@ const { y: scroll } = useWindowScroll()
   margin: auto;
 }
 
-@media (max-width: 767.9px) {
+/* @media (max-width: 767.9px) {
   .hide {
     display: none;
   }
-}
+} */
 
 @media (min-width: 768px) {
   .hides {

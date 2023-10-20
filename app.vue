@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  // titleTemplate: title => `${title} . Portfolio` : 'Teshane Crawford: Software Engineer',
+  titleTemplate: title => title ? `${title} . Teshane Crawford` : 'Teshane Crawford: Software Engineer',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     // { key: 'theme-color', name: 'theme-color', content: color }
