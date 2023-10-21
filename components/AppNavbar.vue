@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import {css} from '../styled-system/css'
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -11,37 +10,41 @@ const { y: scroll } = useWindowScroll()
 </script>
 
 <template>
-  <header class="header">
-    <NuxtLink class="logo-sec" to="/" focusable="false">
+  <header class="header z-40">
+    <NuxtLink 
+    class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
+    to="/" 
+    focusable="false">
       Logo
     </NuxtLink>
     <button
       title="Scroll to top"
-      class="scroll-button"
-      :class="scroll"
+      fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full
+      hover-bg-hex-8883 transition duration-300 z-100 print:hidden
+      :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'"
       @click="toTop()"
     >
       <div i-ri-arrow-up-line />
     </button>
     <nav class="nav">
       <div class="spacer" />
-      <div class="right">
+      <div class="right" print:op0>
         <NuxtLink to="/projects" title="Projects">
-          <span :class="css({ hideBelow: 'md' })">Projects</span>
-          <span :class="css({ hideFrom: 'md' })"><Icon name="i-ri-folders-line" /></span>
+          <span class="lt-md:hidden">Projects</span>
+          <div i-ri-folders-line md:hidden />
         </NuxtLink>
         <NuxtLink to="/blog" title="Blog">
-          <span :class="css({ hideBelow: 'md' })">Blog</span>
-          <Icon name="i-ri-newspaper-line" class="hides" />
+          <span class="lt-md:hidden">Blog</span>
+          <div i-ri-newspaper-line class="md:hidden" />
         </NuxtLink>
-        <NuxtLink to="/about" :class="css({ hideBelow: 'md' })" title="About">
+        <NuxtLink to="/about" class="lt-md:hidden" title="About">
           About
         </NuxtLink>
         <NuxtLink to="/resume" title="Resume">
-          <span :class="css({ hideBelow: 'md' })">Resume</span>
-          <Icon name="i-ri-file-copy-2-line" class="hides" />
+          <span class="lt-md:hidden">Resume</span>
+          <div i-ri-file-copy-2-line class="md:hidden" />
         </NuxtLink>
-        <NuxtLink to="/tools" :class="css({ hideBelow: 'md' })" title="Tools">
+        <NuxtLink to="/tools" class="lt-md:hidden" title="Tools">
           Tools
         </NuxtLink>
         <NuxtLink to="/chat" title="Let's Chat">
@@ -50,15 +53,18 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink to="/contact" title="Contact">
           <Icon name="i-ri-mail-line" />
         </NuxtLink>
-        <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" :class="css({ hideBelow: 'md' })">
-          <Icon name="ri-twitter-line" />
+        <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="lt-md:hidden">
+          <Icon name="i-ri-twitter-x-line" />
         </a>
-        <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" :class="css({ hideBelow: 'md' })">
+        <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="lt-md:hidden">
           <Icon name="i-uil-github-alt" />
         </a>
-        <a href="/feed.xml" target="_blank" title="RSS" :class="css({ hideBelow: 'md' })">
+        <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <Icon name="i-la-rss-square" style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
+        <div class="text-gray-500">
+          <SwitchThemeMode />
+        </div>
       </div>
     </nav>
   </header>
@@ -67,59 +73,6 @@ const { y: scroll } = useWindowScroll()
 <style scoped>
 .header h1 {
   margin-bottom: 0;
-}
-
-.scroll-button {
-  position: fixed;
-  right: 0.75rem;
-  bottom: 0.75rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-  z-index: 100;
-}
-
-.scroll-button:hover {
-  opacity: 1;
-  --un-bg-opacity: 0.2;
-  background-color: rgba(136, 136, 136, var(--un-bg-opacity));
-}
-
-@media print {
-  .scroll-button {
-    display: none;
-  }
-}
-
-.scroll {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.scroll:hover {
-  opacity: 0.3;
-  pointer-events: auto;
-}
-
-.logo-sec {
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  margin: 1.25rem;
-  -webkit-user-select: none;
-  user-select: none;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-  z-index: 40;
-}
-
-@media (min-width: 1280px) {
-  .logo-sec {
-    position: fixed;
-  }
 }
 
 .logo {
@@ -166,17 +119,5 @@ const { y: scroll } = useWindowScroll()
 
 .nav .right>* {
   margin: auto;
-}
-
-/* @media (max-width: 767.9px) {
-  .hide {
-    display: none;
-  }
-} */
-
-@media (min-width: 768px) {
-  .hides {
-    display: none;
-  }
 }
 </style>

@@ -1,5 +1,5 @@
-import { createResolver } from '@nuxt/kit'
-const { resolve } = createResolver(import.meta.url)
+// import { createResolver } from '@nuxt/kit'
+// const { resolve } = createResolver(import.meta.url)
 
 // const docsSource: any = {
 //   name: 'nuxt-docs',
@@ -35,17 +35,6 @@ export default defineNuxtConfig({
   typescript: {
     shim: false
   },
-  alias: {
-    'styled-system': resolve('./styled-system')
-  },
-  css: [
-    '@/assets/css/main.css',
-  ],
-  postcss: {
-    plugins: {
-      '@pandacss/dev/postcss': {},
-    }
-  },
   modules: [
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
@@ -53,10 +42,29 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     '@nuxtjs/fontaine',
     'nuxt-icon',
+    '@unocss/nuxt',
+    '@nuxtjs/color-mode',
     '@nuxt/content',
   ],
+  // alias: {
+  //   'styled-system': resolve('./styled-system')
+  // },
+  css: [
+    '@/assets/css/main.css',
+    '@unocss/reset/tailwind.css',
+  ],
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classSuffix: '',
+  },
+  // postcss: {
+  //   plugins: {
+  //     '@pandacss/dev/postcss': {},
+  //   }
+  // },
   routeRules: {
-    '/about': { redirect: '/about-us' }
+    '/about': { redirect: '/about' }
   },
     $development: {
     runtimeConfig: {

@@ -1,3 +1,9 @@
+import unocss from '@unocss/eslint-config/flat'
+
+export default [
+    unocss,
+]
+
 module.exports = {
     root: true,
     extends: '@nuxt/eslint-config',

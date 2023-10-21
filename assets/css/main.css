@@ -1,7 +1,4 @@
-@layer reset, base, tokens, recipes, utilities;
-
 :root {
-  font-family: 'DM Sans' 'DM Sans fallback';
     --t-bg: #fff;
     --t-scrollbar: #eee;
     --t-scrollbar-hover: #bbb;
