@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio'
 import { SameAs, SiteDescription, SiteLanguage, SiteName, SiteTagLine, SiteUrl } from '../../scripts'
 import { serverQueryContent } from '#content/server'
 
-export async function generatedBlogFeed(event: any) {
+export async function generateBlogFeed(event: any) {
     // Fetch all documents
     const feed = new Feed({
         title: `${SiteTagLine} | ${SiteName}`,

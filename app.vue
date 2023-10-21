@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import SocialIcons from './components/SocialIcons.vue';
 
 useHead({
   titleTemplate: title => title ? `${title} . Teshane Crawford` : 'Teshane Crawford: Software Engineer',

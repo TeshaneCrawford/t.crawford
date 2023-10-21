@@ -22,6 +22,7 @@
     "@unocss/eslint-config": "^0.56.5",
     "@unocss/nuxt": "^0.56.5",
     "@zhead/schema-vue": "^0.9.9",
+    "@zhead/vue": "^0.9.9",
     "cheerio": "^1.0.0-rc.12",
     "eslint": "^8.52.0",
     "feed": "^4.2.2",
