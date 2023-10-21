@@ -1,3 +1,4 @@
+import { SiteLanguage, SiteUrl } from './scripts'
 // import { createResolver } from '@nuxt/kit'
 // const { resolve } = createResolver(import.meta.url)
 
@@ -45,7 +46,12 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/content',
+    'nuxt-schema-org'
   ],
+  schemaOrg: {
+    canonicalHost: SiteUrl,
+    defaultLanguage: SiteLanguage,
+  },
   // alias: {
   //   'styled-system': resolve('./styled-system')
   // },
@@ -89,9 +95,14 @@ export default defineNuxtConfig({
     navigation: {
       fields: ['titleTemplate']
     },
-    sources: {
-      // docsSource,
-      // examplesSource
-    }
+    highlight: {
+      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
+      theme: 'material-darker',
+    },
+    markdown: {
+      toc: {
+        depth: 2,
+      },
+    },
   },
 })
