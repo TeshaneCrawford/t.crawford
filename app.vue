@@ -24,17 +24,8 @@ useSeoMeta({
 
 <template>
   <body class="font-sans text-gray-700 dark:text-gray-200 antialiased">
-    <AppNavbar />
-  <main class="px-7 py-10 of-x-hidden">
-    <NuxtPage />
-  </main>
-  <footer class="px-5 sm:px-7 md:px-10 text-center text-sm my-5">
-    <div class="mb">
-      <SocialIcons />
-    </div>
-    <p class="mb-2">
-      <AppFooter />
-    </p>
-  </footer>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </body>
 </template>
