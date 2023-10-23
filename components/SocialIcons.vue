@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="mt-10 mb prose m-auto flex slide-enter animate-delay-1200!">
+  <div class="mt-10 mb">
     <NuxtLink target="_blank" to="https://twitter.com/_D_Shybrid" title="Twitter" class="group">
       <div i-ri-twitter-x-line alt="Twitter logo" />
     </NuxtLink>

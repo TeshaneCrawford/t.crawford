@@ -1,11 +1,12 @@
 <template>
     <NuxtLayout name="error">
         <div class="prose ma">
-            <h2>
-                <span class="text-red-500">404</span> - Page not found
-            </h2>
+            <h1>
+                <span class="text-red-500">404</span> - Stay calm and don't panic!
+            </h1>
             <p>
-                The page you are looking for does not exist.
+                Looks like you've found the doorway to the great nothing. You didn't break the internet, but I can't find
+                what you are looking for. Please visit my <strong>Homepage</strong> to get where you need to go.
             </p>
         </div>
     </NuxtLayout>
