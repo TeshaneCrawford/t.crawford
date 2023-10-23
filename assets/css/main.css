@@ -2,6 +2,13 @@
     --t-bg: #fff;
     --t-scrollbar: #eee;
     --t-scrollbar-hover: #bbb;
+
+    --gc-text: #1F2328;
+    --gc-level-0: #ebedf0;
+    --gc-level-1: #9be9a8;
+    --gc-level-2: #40c463;
+    --gc-level-3: #30a14e;
+    --gc-level-4: #216e39;
 }
 
 html {
@@ -14,6 +21,13 @@ html.dark {
     --t-bg: #050505;
     --t-scrollbar: #111;
     --t-scrollbar-hover: #222;
+
+    --gc-text: #adbac7;
+    --gc-level-0: #2d333b;
+    --gc-level-1: #0e4429;
+    --gc-level-2: #006d32;
+    --gc-level-3: #26a641;
+    --gc-level-4: #39d353;
 }
 
 ::selection {
@@ -168,4 +182,12 @@ html.dark {
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;
+  }
+
+  .prose h1 {
+    font-weight: 800;
+    font-size: 2.25em;
+    margin-top: 0;
+    margin-bottom: 0.8888889em;
+    line-height: 1.1111111;
   }

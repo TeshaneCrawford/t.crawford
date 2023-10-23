@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <footer class="prose ma px-5 sm:px-7 md:px-10 text-sm my-5 slide-enter animate-delay-1200!">
+  <footer class="py-2 prose ma slide-enter animate-delay-1200!">
     <div class="mb">
       <SocialIcons />
     </div>
