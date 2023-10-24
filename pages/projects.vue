@@ -24,7 +24,8 @@ useHead({
 <template>
     <div prose ma>
         <PageHeader title="Projects" description="List of projects that I am proud of." />
-        <!-- <RepoPanel v-for="(repos, key) in repoGroup" :key="key" :label="key" :data="repos" /> -->
+        <GitHubRepoPanel v-for="(repos, key) in repoGroup" :key="key" :label="key" :data="repos" />
+        <br>
         <BackButton />
     </div>
 </template>
