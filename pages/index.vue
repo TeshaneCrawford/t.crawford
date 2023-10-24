@@ -40,8 +40,7 @@ useHead({
       I have a wide range of interests, coding, watching wildlife documentaries, listening to music, learning foreign
       languages, playing games... Recently, I have been learning to develop native Android mobile applications, and I
       will become an
-      <i i-logos-kotlin-icon w-1.1em h-1.1em mr-1 />
-      <a linkInProse o="#ed7099" href="" target="_blank">Ace</a>.
+      <a linkInProse o="#ed7099" href="" target="_blank">Ace <i i-logos-kotlin-icon w-1.1em h-1.1em ml-1 /></a>.
     </p>
     <p>
       <a trans text-p-r class="group" hover-op-75>

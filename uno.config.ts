@@ -50,11 +50,13 @@ export default defineConfig({
     },
     [/^btn-(\w+)$/, ([_, color]) => `op50 px2.5 py1 transition-all duration-200 ease-out no-underline! hover:(op100 text-${color} bg-${color}/10) border border-base! rounded`],
 
-    // ['icon', 'w-5.5 h-5.5 cursor-pointer select-none transition-opacity-300 ease-in-out text'],
+    ['icon', 'w-4.5 h-4.5 cursor-pointer select-none transition-opacity-300 ease-in-out text'],
     ['icon-btn', 'icon color-inherit op64 hover-op100 hover-color-teal-500 dark-hover-color-inherit'],
     ['icon-link', 'icon color-inherit op64 hover:op100 hover-text-red-300 dark-hover-color-inherit'],
     ['icon-text', 'color-inherit op64 hover:op100 hover-text-purple dark-hover-color-inherit'],
     ['linkInProse', 'trans c-context'],
+
+    ['header-anchor', 'float-left mt-[0.125em] ml-[-0.8em] pr-[0.2em] text-[0.85em] op-0 group-hover-op-60 fw-600'],
 
     [/^badge-(.*)$/, ([, c]) => `bg-${c}4:10 text-${c}5 rounded`],
     [/^badge-xs-(.*)$/, ([, c]) => `badge-${c} text-xs px2 py0.5`],
