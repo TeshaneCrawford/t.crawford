@@ -1,4 +1,4 @@
-export type toolsType = {
+export type Tool = {
     title: string,
     toolData: {
         name: string,
@@ -8,7 +8,7 @@ export type toolsType = {
     }[]
 }
 
-export type toolsDataType = {
+export type ToolList = {
     lastUpdate: string,
-    toolsData: toolsType[]
+    toolsData: Tool[]
 }

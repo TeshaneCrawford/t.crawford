@@ -1,7 +1,7 @@
-import type { toolsDataType } from '../types/tools';
+import type { ToolList } from '../types/tools';
 
-const tools: toolsDataType = {
-    lastUpdate: 'Last Updated',
+const tools: ToolList = {
+    lastUpdate: '2021-10-20',
     toolsData: [
         {
             title: 'Programming Languages',
@@ -303,7 +303,7 @@ const tools: toolsDataType = {
                     link: 'https://www.mozilla.org/en-US/firefox/new/'
                 }
             ]
-        }
+        },
     ]
 }
 
