@@ -55,14 +55,6 @@ export default defineConfig({
     ['icon-link', 'icon color-inherit op64 hover:op100 hover-text-red-300 dark-hover-color-inherit'],
     ['icon-text', 'color-inherit op64 hover:op100 hover-text-purple dark-hover-color-inherit'],
     ['linkInProse', 'trans c-context'],
-
-    ['header-anchor', 'float-left mt-[0.125em] ml-[-0.8em] pr-[0.2em] text-[0.85em] op-0 group-hover-op-60 fw-600'],
-
-    [/^badge-(.*)$/, ([, c]) => `bg-${c}4:10 text-${c}5 rounded`],
-    [/^badge-xs-(.*)$/, ([, c]) => `badge-${c} text-xs px2 py0.5`],
-    [/^badge-sm-(.*)$/, ([, c]) => `badge-${c} text-sm px3 py0.6`],
-    [/^badge-lg-(.*)$/, ([, c]) => `badge-${c} px3 py0.8`],
-    [/^badge-square-(.*)$/, ([, c]) => `badge-${c} w-7 h-7 text-lg font-200 flex flex-none items-center justify-center`],
   ],
   rules: [
     [/^slide-enter-(\d+)$/, ([_, n]) => ({
@@ -119,7 +111,7 @@ export default defineConfig({
         'vertical-align': 'text-bottom',
       },
     }),
-    presetTypography(),
+    // presetTypography(),
     presetWebFonts({
       fonts: {
         sans: 'DM Sans',
