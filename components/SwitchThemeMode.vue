@@ -57,16 +57,20 @@ function toggleDark(event: MouseEvent) {
     <div class="icon">
       <ColorScheme>
         <template v-if="colorMode.value === 'dark'">
-          <!-- <div i-line-md-moon class="icon icon--off" /> -->
-          <div i-line-md-moon-twotone class="icon icon--on" />
+          <i i-line-md-moon-twotone class="icon icon--on" />
         </template>
         <template v-else>
-          <!-- <div i-line-md-sunny-outline class="icon icon--off" /> -->
-          <div i-line-md-sunny-outline-loop class="icon icon--on" />
+          <i i-line-md-sunny-outline-loop class="icon icon--on" />
         </template>
       </ColorScheme>
     </div>
   </button>
 </template>
+
+<!-- <template>
+  <a class="select-none" title="Toggle Color Scheme" @click="toggleDark">
+    <div i-ri-sun-line dark:i-ri-moon-line />
+  </a>
+</template> -->
 
 <style scoped></style>
