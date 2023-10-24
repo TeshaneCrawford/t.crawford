@@ -1,8 +1,8 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
-    Page: foo
+  <div class="prose ma">
+    <h1>Connect</h1>
   </div>
 </template>
 

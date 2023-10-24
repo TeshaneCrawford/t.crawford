@@ -9,7 +9,7 @@ useHead({
   <div class="prose ma">
     <h1>Teshane Crawford</h1>
     <p>
-      Hey, I'm <strong>Teshane Crawford</strong>, a software engineer & an open source entusiast.
+      Hey, I'm <strong>Teshane Crawford</strong>, a software engineer & an open source enthusiast.
     </p>
     <p>
       <i i-fluent-emoji-sparkles mr-1 />
