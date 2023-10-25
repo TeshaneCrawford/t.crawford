@@ -199,7 +199,7 @@ const tools: ToolList = {
                     name: 'GitHub Actions',
                     label: 'GitHub Actions',
                     icon: 'i-logos-github-actions',
-                    link: ''
+                    link: 'https://github.com'
                 },
                 {
                     name: 'Sentry',
