@@ -2,7 +2,7 @@
 
 <template>
   <div class="prose ma">
-    <h1>Resume</h1>
+    <PageHeader title="Resume" description="A timeline of my qualifications and achievements." />
   </div>
 </template>
 

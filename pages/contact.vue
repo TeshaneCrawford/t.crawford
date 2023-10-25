@@ -2,7 +2,8 @@
 
 <template>
   <div class="prose ma">
-    <h1>Contact</h1>
+    <PageHeader title="Connect"
+      description="I'm always open for new connections, here are my socials and email" />
   </div>
 </template>
 

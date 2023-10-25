@@ -2,7 +2,7 @@
 
 <template>
   <div class="prose ma">
-    <h1>About</h1>
+    <PageHeader title="About" description="This is the about page." />
   </div>
 </template>
 

@@ -23,6 +23,9 @@ useHead({
   <div class="prose ma">
     <PageHeader title="Blog"
       description="A curated list of my composed blog" />
+
+      <br>
+    <BackButton />
   </div>
 </template>
 
