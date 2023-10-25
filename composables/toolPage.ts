@@ -1,7 +1,7 @@
 import type { ToolList } from '../types/tools';
 
 const tools: ToolList = {
-    lastUpdate: '2021-10-20',
+    lastUpdate: '2023-10-20',
     toolsData: [
         {
             title: 'Programming Languages',
