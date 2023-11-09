@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { useTitle } from '@vueuse/core'
 
-useTitle('Blog')
+useTitle('About')
 useHead({
-  title: 'Blog',
+  title: 'About',
   meta: [
     {
       hid: 'description',
       name: 'description',
-      content: 'A list of blogs composed by me.',
+      content: 'A little about me',
     },
     {
       hid: 'keywords',
@@ -21,8 +21,8 @@ useHead({
 
 <template>
   <div class="prose ma">
-    <PageHeader title="Blog"
-      description="A curated list of my composed blog" />
+    <PageHeader title="About"
+      description="Get to know me more" />
 
       <br>
     <BackButton />

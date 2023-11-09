@@ -20,6 +20,6 @@ export interface Post extends ParsedContent {
 export interface Page extends Post {
 }
 
-export interface JsonParsedContent<T> extends ParsedContent {
-  body: T
-}
+// export interface JsonParsedContent<T> extends ParsedContent {
+//   body: T
+// }

@@ -43,6 +43,7 @@ export default defineConfig({
 
     ['linear-text', 'text-transparent bg-clip-text bg-gradient-to-r'],
     ['text-p-r', 'linear-text from-cyan to-indigo'],
+    ['text-p-r-r', 'linear-text from-teal to-indigo'],
 
     {
       'bg-base': 'bg-white dark:bg-black',

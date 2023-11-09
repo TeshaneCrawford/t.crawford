@@ -1,4 +1,3 @@
-import { useHead } from '#imports';
 <script lang="ts" setup>
 useHead({
   title: "Teshane Crawford",
@@ -43,9 +42,18 @@ useHead({
       <a linkInProse o="#ed7099" href="" target="_blank">Ace <i i-logos-kotlin-icon w-1.1em h-1.1em ml-1 /></a>.
     </p>
     <p>
+      I use quite a number of technologies, but I am most comfortable with
+      <i i-logos-vue w-1.1em h-1.1em mr-1 />
+      <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank">Vue</a>,
+      and <i i-logos-dotnet mr-1 />
+      <a linkInProse o="#512bd4" href="https://dotnet.microsoft.com/" target="_blank">.NET</a>.
+       If you're interested in 
+      knowing what other technologies I use, check out my <NuxtLink to="/tools" trans text-p-r-r>Tools</NuxtLink> page.
+    </p>
+    <p>
       <a trans text-p-r class="group" hover-op-75>
         Hire Me
-        <i trans group-hover="ml-2" i-ri:arrow-right-up-line bg-gradient-to-r />
+        <i trans group-hover="ml-1" i-ri:arrow-right-up-line bg-gradient-to-r />
       </a>
     </p>
   </div>

@@ -2,9 +2,9 @@
 import { useTitle } from '@vueuse/core'
 import tools from '~/composables/toolPage';
 
-useTitle('Tools | Teshane Crawford')
+useTitle('Tools')
 useHead({
-  title: 'Tools | Teshane Crawford',
+  title: 'Tools',
   meta: [
     {
       hid: 'description',

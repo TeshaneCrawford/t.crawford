@@ -37,7 +37,7 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Blog</span>
           <div i-ri-newspaper-line class="md:hidden" />
         </NuxtLink>
-        <NuxtLink to="/about" class="lt-md:hidden" title="About">
+        <NuxtLink to="/abouts" class="lt-md:hidden" title="About">
           About
         </NuxtLink>
         <NuxtLink to="/resume" title="Resume">

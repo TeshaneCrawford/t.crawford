@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     shim: false
   },
   modules: [
+    '@nuxt/content',
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
     '@nuxt/image',
@@ -45,7 +46,6 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
-    '@nuxt/content',
     'nuxt-schema-org'
   ],
   schemaOrg: {

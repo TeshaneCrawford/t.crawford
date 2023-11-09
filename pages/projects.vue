@@ -3,9 +3,9 @@ import { useTitle } from '@vueuse/core'
 
 const { data: repoGroup } = await useFetch('/api/repos')
 
-useTitle('Projects | Teshane Crawford')
+useTitle('Projects')
 useHead({
-    title: 'Projects | Teshane Crawford',
+    title: 'Projects',
     meta: [
         {
             hid: 'description',

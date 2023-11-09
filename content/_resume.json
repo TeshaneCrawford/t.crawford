@@ -1,0 +1,142 @@
+{
+    "body": [{
+        "header": {
+            "title": "Teshane Crawford",
+            "subtitle": "Software Engineer",
+            "phone": "+1 (876) 397-6315",
+            "email": "crawfordteshane@gmail.com",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "",
+                    "icon": "i-ri-github-fill"
+                },
+                {
+                    "name": "LinkedIn",
+                    "url": "i-logos-linkedin-icon",
+                    "icon": "linkedin"
+                }
+            ]
+        }, "summary": {
+            "title": "Summary",
+            "content": "I am a software engineer with over 4 years of professional experience.",
+            "bullets": [
+                "5+ years of experience with JavaScript, HTML, & CSS",
+                "6+ years of experience with C# & .NET - 2+ years of professional experience",
+                "4+ years of experience with Vue.js - 3+ years of professional experience",
+                "3+ years of experience with React - 2+ years of professional experience",
+                "4+ years of experience with Angular"
+            ]
+        }, "experience": {
+            "title": "Professional Experience",
+            "jobs": [
+                {
+                    "title": "Software Developer (Intern)",
+                    "company": "National Commercial Bank Jamaica Limited",
+                    "location": "Kingston, St. Andrew Jamaica",
+                    "date": "October 2021 - November 2022",
+                    "description": {
+                        "title": "Project: Smart Retirement Plan",
+                        "content": "It's a customer onboarding application for NCB insurance Smart Retirement Plan",
+                        "bullets": [
+                            "Provided support for the application using the SRUM agile methodology; which was managed in Jira",
+                            "Developed the frontend of the application using React.js v18 and TypeScript",
+                            "Developed the backend of the application using Java Spring Boot",
+                            "Developed the database using MySQL and Redis",
+                            "Used Azure DevOps for CI/CD"
+                        ]
+                    }
+                },
+                {
+                    "title": "Software Engineer",
+                    "company": "",
+                    "location": "Kingston, St. Andrew Jamaica",
+                    "date": "May 2019 - Present",
+                    "description": ""
+                }
+            ]
+        }, "skills": {
+            "title": "Technical Skills",
+            "tools": [
+                {
+                    "name": "JavaScript",
+                    "icon": "i-logos-javascript"
+                },
+                {
+                    "name": "TypeScript",
+                    "icon": "i-logos-typescript-icon"
+                },
+                {
+                    "name": "HTML",
+                    "icon": "i-devicon-html5"
+                },
+                {
+                    "name": "CSS",
+                    "icon": "i-devicon-css3"
+                },
+                {
+                    "name": "C#",
+                    "icon": "i-devicon-csharp"
+                },
+                {
+                    "name": ".NET",
+                    "icon": "i-logos-dotnet"
+                },
+                {
+                    "name": "Vue.js",
+                    "icon": "i-logos-vue"
+                },
+                {
+                    "name": "React",
+                    "icon": "i-logos-react"
+                },
+                {
+                    "name": "Angular",
+                    "icon": "i-logos-angular-icon"
+                },
+                {
+                    "name": "Nest.js",
+                    "icon": "i-logos-nestjs"
+                },
+                {
+                    "name": "PostgreSQL",
+                    "icon": "i-logos-postgresql"
+                },
+                {
+                    "name": "MS SQL Server",
+                    "icon": "i-simple-icons-microsoftsqlserver"
+                },
+                {
+                    "name": "Redis",
+                    "icon": "i-logos-redis"
+                },
+                {
+                    "name": "Azure",
+                    "icon": "i-logos-microsoft-azure"
+                },
+                {
+                    "name": "Git",
+                    "icon": "i-logos-git-icon"
+                }
+            ]
+        }, "education": {
+            "title": "Education",
+            "schools": [
+                {
+                    "name": "University of Technology, Jamaica",
+                    "location": "Kingston, St. Andrew Jamaica",
+                    "degree": "Bachelor of Science in Computing",
+                    "date": "2017 - 2021",
+                    "description": ""
+                },
+                {
+                    "name": "University of Technology, Jamaica",
+                    "location": "Kingston, Jamaica",
+                    "degree": "Bachelor of Science in Computing",
+                    "date": "2015 - 2019",
+                    "description": ""
+                }
+            ]
+        }
+    }]
+}
