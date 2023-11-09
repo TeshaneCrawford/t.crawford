@@ -1,5 +1,5 @@
 {
-    "body": [{
+    "resumes": [{
         "header": {
             "title": "Teshane Crawford",
             "subtitle": "Software Engineer",
@@ -8,13 +8,13 @@
             "links": [
                 {
                     "name": "Github",
-                    "url": "",
+                    "url": "https://github.com/TeshaneCrawford",
                     "icon": "i-ri-github-fill"
                 },
                 {
                     "name": "LinkedIn",
-                    "url": "i-logos-linkedin-icon",
-                    "icon": "linkedin"
+                    "url": "https://www.linkedin.com/in/teshanecrawford/",
+                    "icon": "i-logos-linkedin-icon"
                 }
             ]
         }, "summary": {
