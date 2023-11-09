@@ -88,7 +88,8 @@ export default defineNuxtConfig({
     display: 'swap',
     download: true,
     families: {
-      'DM+Sans': [400, 500, 600, 700]
+      'DM+Sans': [400, 500, 600, 700],
+      'Cormorant+Garamond': [400],
     }
   },
   content: {

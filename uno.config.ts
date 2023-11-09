@@ -116,7 +116,8 @@ export default defineConfig({
     presetWebFonts({
       fonts: {
         sans: 'DM Sans',
-        serif: 'DM Serif Display',
+        // serif: 'DM Serif Display',
+        serif: 'Coromorant Garamond',
         mono: 'DM Mono',
       },
     }),
