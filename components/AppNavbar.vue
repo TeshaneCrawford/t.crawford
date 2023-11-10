@@ -11,11 +11,11 @@ const { y: scroll } = useWindowScroll()
 
 <template>
   <header class="header z-40">
-    <NuxtLink 
-    class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
-    to="/" 
+    <NuxtLink
+    class="font-mono font-bold w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
+    to="/"
     focusable="false">
-      Logo
+      Teshane Crawford
     </NuxtLink>
     <button
       title="Scroll to top"
