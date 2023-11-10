@@ -11,7 +11,7 @@ useHead({
       Hey, I'm <strong>Teshane Crawford</strong>, a software engineer & an open source enthusiast.
     </p>
     <p>
-      <i i-fluent-emoji-sparkles mr-1 />
+      <!-- <i i-fluent-emoji-sparkles mr-1 />
       Team member of
       <i i-my-logos-unocss mr-1 />
       <a trans linear-text shape-bl class="c-context::#818181" from="#ccc" via="#858585" to="#4d4d4d"
@@ -23,8 +23,8 @@ useHead({
       <i i-my-logos-onu-ui w-1.1em h-1.1em mr-1 />
       <a trans linear-text shape-bl class="c-context::#C084FC" from="#ACC1EE" to="#C084FC"
         href="https://github.com/onu-ui" target="_blank"><strong>Onu UI</strong></a>
-      <i i-fluent-emoji-sparkles ml-1 />
-      <br>
+      <i i-fluent-emoji-sparkles ml-1 /> -->
+      <!-- <br> -->
       I am passionate about building software that solves real-world problems. I am a big admirer of the
       <i i-logos-vitejs w-1.1em h-1.1em mr-1 />
       <a trans linear-text shape-bottom-right class="c-context::#bd34fe" from="#41d1ff" to="#bd34fe"
@@ -47,7 +47,7 @@ useHead({
       <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank">Vue</a>,
       and <i i-logos-dotnet mr-1 />
       <a linkInProse o="#512bd4" href="https://dotnet.microsoft.com/" target="_blank">.NET</a>.
-       If you're interested in 
+       If you're interested in
       knowing what other technologies I use, check out my <NuxtLink to="/tools" trans text-p-r-r>Tools</NuxtLink> page.
     </p>
     <p>

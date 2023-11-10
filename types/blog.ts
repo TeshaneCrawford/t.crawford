@@ -1,25 +1,16 @@
-import type { ParsedContent as DefaultParsedContent } from '@nuxt/content/dist/runtime/types'
-import type { StorageMeta } from 'unstorage'
+import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
-export interface ParsedContent extends DefaultParsedContent {
-  storageMeta: StorageMeta
-  prose?: boolean
-  schemaOrg: Record<string, any>
+export interface BlogArticleAuthor {
+  name: string
+  avatarUrl: string
+  link: string
 }
 
-export interface Post extends ParsedContent {
-  readingMins: number
+export interface BlogArticle extends ParsedContent {
   description: string
-  publishedAt: Date
-  modifiedAt: Date
-  path: string
-  renderer: 'post' | 'page'
-  icon?: string
-  nav?: boolean
+  date: Date
+  image: string
+  authors: BlogArticleAuthor[]
+  tags: string[]
+  category: string
 }
-export interface Page extends Post {
-}
-
-// export interface JsonParsedContent<T> extends ParsedContent {
-//   body: T
-// }
