@@ -41,6 +41,7 @@ useHead({
         <p text-center>
           <span v-for="link in resume.header.links">
             <NuxtLink :to="link.url" target="_blank">
+              <icon v-if="link.icons" :name="link.icons" pb-1 w-1.1em h-1.1em mr-1 />
               {{ link.name }}
             </NuxtLink>
             <span mr-4 />
