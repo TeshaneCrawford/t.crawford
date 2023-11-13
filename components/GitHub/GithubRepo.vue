@@ -15,7 +15,7 @@ defineProps<{
     text-xs
     shadow-sm
     trans
-    hover="bg-orange bg-op-3"
+    hover="bg-gray bg-op-3"
     dark-hover="bg-white bg-op-3"
   >
     <a :href="repo.homepage || repo.html_url" target="_blank" decoration-none flex="~ col gap-3" h-full>
