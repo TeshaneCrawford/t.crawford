@@ -53,7 +53,7 @@ useHead({
         <h5 class="pl-2">{{ resume.summary.content }}</h5>
         <ul pl-6>
           <li list-none v-for="item in resume.summary.bullets" :key="item">
-            <p><i i-mdi-circle-small mr-1 />{{ item }}</p>
+            <p><i i-octicon-check-16 mr-1 />{{ item }}</p>
           </li>
         </ul>
       </section>
@@ -78,33 +78,33 @@ useHead({
       <section>
         <h3 hover-op-90 class="pl-2">{{ resume.skills.title }}</h3>
         <h6 class="pl-2">{{ resume.skills.languages.content }}</h6>
-        <ul grid grid-cols-3 pl-6>
+        <ul pl-6>
           <li list-none v-for="item in resume.skills.languages.bullets" :key="item">
-            <p><i i-mdi-circle-small mr-1 />{{ item }}</p>
+            <p><i i-octicon-code-16 mr-2 />{{ item }}</p>
           </li>
         </ul>
         <h6 class="pl-2">{{ resume.skills.frameworks.content }}</h6>
-        <ul grid grid-cols-3 gap-2 pl-6>
+        <ul pl-6>
           <li list-none v-for="item in resume.skills.frameworks.bullets" :key="item">
-            <p><i i-mdi-circle-small mr-1 />{{ item }}</p>
+            <p><i i-octicon-command-palette-16 mr-2 />{{ item }}</p>
           </li>
         </ul>
         <h6 class="pl-2">{{ resume.skills.databases.content }}</h6>
-        <ul grid grid-cols-3 gap-2 pl-6>
+        <ul pl-6>
           <li list-none v-for="item in resume.skills.databases.bullets" :key="item">
-            <p><i i-mdi-circle-small mr-1 />{{ item }}</p>
+            <p><i i-octicon-database-16 mr-2 />{{ item }}</p>
           </li>
         </ul>
         <h6 class="pl-2">{{ resume.skills.cloud.content }}</h6>
-        <ul grid grid-cols-3 gap-2 pl-6>
+        <ul pl-6>
           <li list-none v-for="item in resume.skills.cloud.bullets" :key="item">
-            <p><i i-mdi-circle-small mr-1 />{{ item }}</p>
+            <p><i i-octicon-cloud-16 mr-2 />{{ item }}</p>
           </li>
         </ul>
         <h6 class="pl-2">{{ resume.skills.tools.content }}</h6>
-        <ul grid grid-cols-3 gap-2 pl-6>
+        <ul pl-6>
           <li list-none v-for="item in resume.skills.tools.bullets" :key="item">
-            <p><i i-mdi-circle-small mr-1 />{{ item }}</p>
+            <p><i i-octicon-terminal-16 mr-2 />{{ item }}</p>
           </li>
         </ul>
       </section>

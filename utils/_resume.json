@@ -52,54 +52,27 @@
             "tools": {
                 "content": "Tools:",
                 "bullets": [
-                    "Visual Studio Code",
-                    "Visual Studio",
-                    "Postman",
-                    "Git",
-                    "Jira",
-                    "Azure DevOps",
-                    "Figma",
-                    "Adobe Photoshop",
-                    "Adobe Illustrator"
+                    "Visual Studio Code, Visual Studio, IntelliJ IDEA, Android Studio, Windows, Linux, PowerShell, Git, GitHub"
                 ]
             }, "languages": {
                 "content": "Programming Languages:",
                 "bullets": [
-                    "JavaScript",
-                    "TypeScript",
-                    "C#",
-                    "Kotlin",
-                    "HTML",
-                    "CSS",
-                    "SQL"
+                    "JavaScript, TypeScript, C#, Kotlin, HTMl & CSS"
                 ]
             }, "frameworks": {
                 "content": "Frameworks:",
                 "bullets": [
-                    "Vue.js",
-                    "React.js",
-                    "Angular",
-                    "ASP.NET Core",
-                    "ASP.NET MVC",
-                    "ASP.NET Web API",
-                    "Entity Framework Core",
-                    "Entity Framework",
-                    "Material UI",
-                    "Tailwind CSS"
+                    "Vue.js/Nuxt.js, React.js/Next.js, Angular, .NET, Node.js, Nestjs, React Native/Expo, UnoCSS, Material UI, Tailwind CSS, & Sass"
                 ]
             }, "databases": {
                 "content": "Databases:",
                 "bullets": [
-                    "PostgreSQL",
-                    "Microsoft SQL Server",
-                    "MongoDB",
-                    "Redis"
+                    "PostgreSQL, Microsoft SQL Server, MongoDB, MySQL, Supabase, & Redis"
                 ]
             }, "cloud": {
                 "content": "Cloud Services:",
                 "bullets": [
-                    "Microsoft Azure",
-                    "Amazon Web Services"
+                    "Microsoft Azure"
                 ]
             }
 
