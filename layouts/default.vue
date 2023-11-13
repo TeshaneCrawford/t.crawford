@@ -4,9 +4,9 @@
   <div>
     <AppNavbar />
     <main class="px-7 py-10 of-x-hidden">
-    <slot />
+      <slot />
+      <AppFooter />
     </main>
-    <AppFooter />
   </div>
 </template>
 
