@@ -50,9 +50,6 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink to="/chat" title="Let's Chat">
           <Icon name="i-ri-chat-1-line" />
         </NuxtLink>
-        <NuxtLink to="/contact" title="Contact">
-          <Icon name="i-ri-mail-line" />
-        </NuxtLink>
         <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="lt-md:hidden">
           <Icon name="i-ri-twitter-x-line" />
         </a>
