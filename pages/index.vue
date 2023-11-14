@@ -37,14 +37,17 @@ useHead({
     </p>
     <p>
       I have a wide range of interests, coding, watching wildlife documentaries, listening to music, learning foreign
-      languages, playing games... Recently, I have been learning to develop native Android mobile applications, and I
-      will become an
-      <a linkInProse o="#ed7099" href="" target="_blank">Ace <i i-logos-kotlin-icon w-1.1em h-1.1em ml-1 /></a>.
+      languages, playing games... Recently, I have been learning to develop native Android mobile applications, using
+      <a linkInProse o="#ed7099" href="" target="_blank">Kotlin <i i-logos-kotlin-icon w-1.1em h-1.1em ml-1 /></a>.
     </p>
     <p>
       I use quite a number of technologies, but I am most comfortable with
       <i i-logos-vue w-1.1em h-1.1em mr-1 />
       <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank">Vue</a>,
+      <span mr-1 />
+      <i i-logos-angular-icon mr-1 />
+      <a linkInProse o="#c3002f" href="https://angular.dev/" target="_blank">Angular</a>,
+      <span mr-1 />
       and <i i-logos-dotnet mr-1 />
       <a linkInProse o="#512bd4" href="https://dotnet.microsoft.com/" target="_blank">.NET</a>.
        If you're interested in
