@@ -10,7 +10,6 @@
     "typescript"
   ],
   "scripts": {
-    "prepare": "panda codegen",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -25,7 +24,6 @@
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/google-fonts": "^3.0.2",
-    "@pandacss/dev": "^0.18.0",
     "@unocss/eslint-config": "^0.57.3",
     "@unocss/nuxt": "^0.57.3",
     "@zhead/schema-vue": "^0.9.9",
