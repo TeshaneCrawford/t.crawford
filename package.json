@@ -2,6 +2,13 @@
   "name": "t.crawford",
   "private": true,
   "type": "module",
+  "keywords": [
+    "blog",
+    "vue3",
+    "nuxt3",
+    "unocss",
+    "typescript"
+  ],
   "scripts": {
     "prepare": "panda codegen",
     "build": "nuxt build",
