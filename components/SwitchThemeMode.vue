@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const colorMode = useColorMode()
-const isDark = colorMode.preference === 'light'
 
 function toggleDark(event: MouseEvent) {
   // @ts-expect-error experimental API
@@ -50,7 +49,7 @@ function toggleDark(event: MouseEvent) {
 <template>
   <button
     aria-label="Color Mode"
-    :title="`Enable ${isDark ? 'Light' : 'Dark'} Mode`"
+    :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`"
     class="pr-2 link inline-block hover:text-gray-700 dark:hover:text-gray-300 group"
     @click.prevent="toggleDark"
   >
