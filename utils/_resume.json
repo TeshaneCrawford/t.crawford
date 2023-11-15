@@ -19,33 +19,63 @@
             ]
         }, "summary": {
             "title": "Summary",
-            "content": "I am a software engineer with over 4 years of professional experience.",
+            "content": "I am a software engineer with over 4 years of professional experience. My passion for software lies with dreaming up ideas and making them come true with elegant interfaces. I take great care in the experience, architecture, and code quality of the things I build. I am always looking to learn new technologies and improve my skills.",
             "bullets": [
                 "5+ years of experience with JavaScript, HTML, & CSS",
                 "6+ years of experience with C# & .NET - 2+ years of professional experience",
+                "4+ years of experience with Angular",
                 "4+ years of experience with Vue.js - 3+ years of professional experience",
-                "3+ years of experience with React - 2+ years of professional experience",
-                "4+ years of experience with Angular"
+                "3+ years of experience with React - 2+ years of professional experience"
             ]
         }, "experience": {
             "title": "Professional Experience",
-            "jobs": {
-                    "title": "Software Developer (Intern)",
-                    "company": "National Commercial Bank Jamaica Limited",
-                    "location": "Kingston, St. Andrew Jamaica",
-                    "date": "October 2021 - November 2022",
-                    "description": {
-                        "title": "Project Smart Retirement Plan",
-                        "content": "It's a customer onboarding application for NCB insurance Smart Retirement Plan",
-                        "bullets": [
-                            "Provided support for the application using the SRUM agile methodology; which was managed in Jira",
-                            "Developed the frontend of the application using React.js v18 and TypeScript",
-                            "Developed the backend of the application using Java Spring Boot",
-                            "Developed the database using MySQL and Redis",
-                            "Used Azure DevOps for CI/CD"
-                        ]
-                    }
+            "jobs": [
+              {
+                "title": "Software Developer (Contract)",
+                "company": "JMMB Group Jamaica Limited",
+                "location": "Kingston, St. Andrew Jamaica",
+                "date": "December 2022 - March 2022",
+                "description": {
+                    "title": "POS System",
+                    "content": "Worked on developing POS system in C#.NET and ASP.NET",
+                    "bullets": [
+                        "Improved back-end ASP.NET server performance by optimizing SQL compounding algorithms"
+                    ]
                 }
+            },
+              {
+                "title": "Software Developer (Intern)",
+                "company": "National Commercial Bank Jamaica Limited",
+                "location": "Kingston, St. Andrew Jamaica",
+                "date": "July 2021 - October 2022",
+                "description": {
+                    "title": "Project Smart Retirement Plan",
+                    "content": "It's a customer onboarding application for NCB insurance Smart Retirement Plan",
+                    "bullets": [
+                        "Provided support for the application using the SRUM agile methodology; which was managed in Jira",
+                        "Developed the frontend of the application using React.js v18 and TypeScript",
+                        "Developed the backend of the application using Java Spring Boot",
+                        "Developed the database using MySQL and Redis"
+                    ]
+                }
+            },
+            {
+              "title": "Frontend Developer",
+              "company": "SLA Courier Shipping Company",
+              "location": "Portmore St. Catherine Jamaica",
+              "date": "June 2019 - January 2020",
+              "description": {
+                  "title": "Courier Shipping Company",
+                  "content": "It's a courier shipping company that allows customers to ship packages from abroad to Jamaica",
+                  "bullets": [
+                      "Developed the frontend of the application using Vue.js v2 and JavaScript",
+                      "Developed the backend of the application using Node.js and JavaScript",
+                      "Developed the database using PostgreSQL"
+                  ]
+              }
+          }
+
+            ]
             },
          "skills": {
             "title": "Technical Skills",

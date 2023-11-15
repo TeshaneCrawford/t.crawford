@@ -50,7 +50,7 @@ useHead({
       </header>
       <section>
         <h3 hover-op-90 class="pl-2">{{ resume.summary.title }}</h3>
-        <h5 class="pl-2">{{ resume.summary.content }}</h5>
+        <h6 class="pl-2 font-500">{{ resume.summary.content }}</h6>
         <ul pl-6>
           <li list-none v-for="item in resume.summary.bullets" :key="item">
             <p><i i-octicon-check-16 mr-1 />{{ item }}</p>
@@ -59,21 +59,21 @@ useHead({
       </section>
       <section>
         <h3 hover-op-90 class="pl-2">{{ resume.experience.title }}</h3>
-        <div>
-          <h4 class="pl-2">{{ resume.experience.jobs.title }}</h4>
-          <h6 class="pl-2">{{ resume.experience.jobs.company }}</h6>
-          <h6 class="pl-2">{{ resume.experience.jobs.location }}</h6>
-          <h6 class="pl-2">{{ resume.experience.jobs.date }}</h6>
-        </div>
-        <div>
-          <p class="pl-2">{{ resume.experience.jobs.description.title }}: {{ resume.experience.jobs.description.content }}
+        <div v-for="job in resume.experience.jobs">
+          <h5 class="pl-2">{{ job.title }}</h5>
+          <h6 class="pl-2 font-500">{{ job.company }}</h6>
+          <h6 class="pl-2 font-500">{{ job.location }}</h6>
+          <h6 class="pl-2 font-500">{{ job.date }}</h6>
+          <div>
+          <p class="pl-2">{{ job.description.title }}: {{ job.description.content }}
           </p>
         </div>
         <ul pl-6>
-          <li list-none v-for="item in resume.experience.jobs.description.bullets" :key="item">
+          <li list-none v-for="item in job.description.bullets" :key="item">
             <p><i i-mdi-circle-small mr-1 />{{ item }}</p>
           </li>
         </ul>
+        </div>
       </section>
       <section>
         <h3 hover-op-90 class="pl-2">{{ resume.skills.title }}</h3>
