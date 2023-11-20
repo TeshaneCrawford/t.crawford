@@ -45,11 +45,12 @@ useHead({
       <i i-logos-vue w-1.1em h-1.1em mr-1 />
       <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank">Vue</a>,
       <span mr-1 />
-      <i i-my-logos-angular-icon mr-1 />
+      <!-- <i i-my-logos-angular-icon mr-1 />
+      <a trans linear-text shape-bl class="c-context::#c3002f" from="#9717E7" via="#F20755" to="#FF31D9"
+        href="https://angular.dev/" target="_blank"><strong> Angular</strong></a>, -->
+      <icon name="i-logos-angular-icon" mr-1 />
       <a trans linear-text shape-bl class="c-context::#c3002f" from="#9717E7" via="#F20755" to="#FF31D9"
         href="https://angular.dev/" target="_blank"><strong> Angular</strong></a>,
-      <!-- <i i-logos-angular-icon mr-1 />
-      <a linkInProse o="#c3002f" href="https://angular.dev/" target="_blank">Angular</a>, -->
       <span mr-1 />
       and <i i-logos-dotnet mr-1 />
       <a linkInProse o="#512bd4" href="https://dotnet.microsoft.com/" target="_blank">.NET</a>.
