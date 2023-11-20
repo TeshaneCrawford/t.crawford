@@ -13,7 +13,7 @@ useHead({
     <p>
       <!-- <i i-fluent-emoji-sparkles mr-1 />
       Team member of
-      <i i-my-logos-unocss mr-1 />
+      <i i-my-logos-angular-icon mr-1 />
       <a trans linear-text shape-bl class="c-context::#818181" from="#ccc" via="#858585" to="#4d4d4d"
         href="https://github.com/unocss/unocss" target="_blank"><strong> UnoCSS</strong></a>,
       <i i-my-logos-elk mr-1 />
@@ -23,8 +23,8 @@ useHead({
       <i i-my-logos-onu-ui w-1.1em h-1.1em mr-1 />
       <a trans linear-text shape-bl class="c-context::#C084FC" from="#ACC1EE" to="#C084FC"
         href="https://github.com/onu-ui" target="_blank"><strong>Onu UI</strong></a>
-      <i i-fluent-emoji-sparkles ml-1 /> -->
-      <!-- <br> -->
+      <i i-fluent-emoji-sparkles ml-1 />
+      <br> -->
       I am passionate about building software that solves real-world problems. I am a big admirer of the
       <i i-logos-vitejs w-1.1em h-1.1em mr-1 />
       <a trans linear-text shape-bottom-right class="c-context::#bd34fe" from="#41d1ff" to="#bd34fe"
@@ -45,8 +45,11 @@ useHead({
       <i i-logos-vue w-1.1em h-1.1em mr-1 />
       <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank">Vue</a>,
       <span mr-1 />
-      <i i-logos-angular-icon mr-1 />
-      <a linkInProse o="#c3002f" href="https://angular.dev/" target="_blank">Angular</a>,
+      <i i-my-logos-angular-icon mr-1 />
+      <a trans linear-text shape-bl class="c-context::#c3002f" from="#9717E7" via="#F20755" to="#FF31D9"
+        href="https://angular.dev/" target="_blank"><strong> Angular</strong></a>,
+      <!-- <i i-logos-angular-icon mr-1 />
+      <a linkInProse o="#c3002f" href="https://angular.dev/" target="_blank">Angular</a>, -->
       <span mr-1 />
       and <i i-logos-dotnet mr-1 />
       <a linkInProse o="#512bd4" href="https://dotnet.microsoft.com/" target="_blank">.NET</a>.
