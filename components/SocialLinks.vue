@@ -31,7 +31,7 @@ const links = [
   },
   {
     name: "Telegram",
-    url: "",
+    url: "https://t.me/TeshaneCrawford",
     icon: "i-ri-telegram-line",
   },
   {
