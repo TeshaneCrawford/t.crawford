@@ -31,24 +31,24 @@ const { y: scroll } = useWindowScroll()
       <div class="right" print:op0>
         <NuxtLink to="/projects" title="Projects">
           <span class="lt-md:hidden">Projects</span>
-          <div i-ri-folders-line md:hidden />
+          <div i-fluent-document-folder-24-regular md:hidden />
         </NuxtLink>
         <NuxtLink to="/blog" title="Blog">
           <span class="lt-md:hidden">Blog</span>
-          <div i-ri-newspaper-line class="md:hidden" />
+          <div i-fluent-news-24-regular class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/abouts" class="lt-md:hidden" title="About">
           About
         </NuxtLink>
         <NuxtLink to="/resume" title="Resume">
           <span class="lt-md:hidden">Resume</span>
-          <div i-ri-file-copy-2-line class="md:hidden" />
+          <div i-fluent-document-one-page-sparkle-24-regular class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/tools" class="lt-md:hidden" title="Tools">
           Tools
         </NuxtLink>
         <NuxtLink to="/chat" title="Let's Chat">
-          <Icon name="i-ri-chat-1-line" />
+          <Icon name="i-fluent-chat-24-regular" />
         </NuxtLink>
         <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="lt-md:hidden">
           <Icon name="i-ri-twitter-x-line" />
