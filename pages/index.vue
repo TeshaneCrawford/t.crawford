@@ -43,7 +43,7 @@ useHead({
     <p>
       I use quite a number of technologies, but I am most comfortable with
       <i i-logos-vue w-1.1em h-1.1em mr-1 />
-      <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank">Vue</a>,
+      <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank"><strong>Vue</strong></a>,
       <span mr-1 />
       <!-- <i i-my-logos-angular-icon mr-1 />
       <a trans linear-text shape-bl class="c-context::#c3002f" from="#9717E7" via="#F20755" to="#FF31D9"
@@ -53,9 +53,9 @@ useHead({
         href="https://angular.dev/" target="_blank"><strong> Angular</strong></a>,
       <span mr-1 />
       and <i i-logos-dotnet mr-1 />
-      <a linkInProse o="#512bd4" href="https://dotnet.microsoft.com/" target="_blank">.NET</a>.
+      <a linkInProse o="#512bd4" href="https://dotnet.microsoft.com/" target="_blank"><strong>.NET</strong></a>.
        If you're interested in
-      knowing what other technologies I use, check out my <NuxtLink to="/tools" trans text-p-r-r>Tools</NuxtLink> page.
+      knowing what other technologies I use, check out my <NuxtLink to="/tools" trans text-p-r-r><strong>Tools</strong></NuxtLink> page.
     </p>
     <p>
       <a trans text-p-r class="group" hover-op-75>
