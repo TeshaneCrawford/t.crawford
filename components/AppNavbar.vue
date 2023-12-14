@@ -37,11 +37,11 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Blog</span>
           <div i-fluent-news-24-regular class="md:hidden" />
         </NuxtLink>
-        <NuxtLink to="/abouts" class="lt-md:hidden" title="About">
+        <!-- <NuxtLink to="/abouts" class="lt-md:hidden" title="About">
           About
-        </NuxtLink>
-        <NuxtLink to="/resume" title="Resume">
-          <span class="lt-md:hidden">Resume</span>
+        </NuxtLink> -->
+        <NuxtLink to="/abouts" title="About">
+          <span class="lt-md:hidden">About</span>
           <div i-fluent-document-one-page-sparkle-24-regular class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/tools" class="lt-md:hidden" title="Tools">
