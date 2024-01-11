@@ -42,7 +42,7 @@ const tools: ToolList = {
             title: 'Frameworks & Libraries',
             toolData: [
                 {
-                    name: 'ASP.NET Core',
+                    name: 'ASP.NET',
                     label: 'ASP.NET Core',
                     icon: 'i-logos-dotnet',
                     link: 'https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0'
@@ -84,13 +84,13 @@ const tools: ToolList = {
                     link: 'https://astro.build/'
                 },
                 {
-                    name: 'React Native',
-                    label: 'Expo',
+                    name: 'Expo',
+                    label: 'Expo (React Native)',
                     icon: 'i-logos-expo-icon',
                     link: 'https://expo.dev/'
                 },
                 {
-                    name: 'Jetpack Compose',
+                    name: 'Jetpack',
                     label: 'Jetpack Compose',
                     icon: 'i-logos-compose-multiplatform',
                     link: 'https://developer.android.com/jetpack/compose'
@@ -119,8 +119,8 @@ const tools: ToolList = {
             title: 'Databases',
             toolData: [
                 {
-                    name: 'SQL Server',
-                    label: 'SQL Server',
+                    name: 'SQL',
+                    label: 'MSSQL Server',
                     icon: 'i-simple-icons:microsoftsqlserver',
                     link: 'https://www.microsoft.com/en-us/sql-server/sql-server-2019'
                 },
@@ -155,7 +155,7 @@ const tools: ToolList = {
                     link: 'https://azure.microsoft.com/en-us/'
                 },
                 {
-                    name: 'Azure Cloud',
+                    name: 'Azure DB',
                     label: 'Azure Cloud',
                     icon: 'i-logos-azure-icon',
                     link: 'https://azure.microsoft.com/en-us/'
@@ -196,7 +196,7 @@ const tools: ToolList = {
                     link: 'https://github.com'
                 },
                 {
-                    name: 'GitHub Actions',
+                    name: 'GitHub CI',
                     label: 'GitHub Actions',
                     icon: 'i-logos-github-actions',
                     link: 'https://github.com'
