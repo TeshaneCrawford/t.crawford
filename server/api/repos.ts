@@ -7,14 +7,16 @@ export default defineEventHandler(async() => {
   const publicAndNotForkRepos = publicRepos.filter(repo => !repo.fork)
 
   const repoGroups: Record<string, Repo[]> = {
-    'Vue Ecosystem': filterRepos(publicAndNotForkRepos, 'vue'),
-    'Apps': filterRepos(publicAndNotForkRepos, 'apps'),
     'Angular': filterRepos(publicAndNotForkRepos, 'angular'),
+    'Vue Ecosystem': filterRepos(publicAndNotForkRepos, 'vue'),
     'React': filterRepos(publicAndNotForkRepos, 'react'),
+    'C#': filterRepos(publicAndNotForkRepos, 'csharp'),
+    'TypeScript': filterRepos(publicAndNotForkRepos, 'typescript'),
+    'JavaScript': filterRepos(publicAndNotForkRepos, 'javascript'),
+    'Python': filterRepos(publicAndNotForkRepos, 'python'),
+    'Apps': filterRepos(publicAndNotForkRepos, 'apps'),
     'Mobile': filterRepos(publicRepos, 'mobile'),
     'UI': filterRepos(publicRepos, 'ui'),
-    'C#': filterRepos(publicAndNotForkRepos, 'csharp'),
-    'Python': filterRepos(publicAndNotForkRepos, 'python'),
     'API': filterRepos(publicAndNotForkRepos, 'api'),
     'Library': filterRepos(publicAndNotForkRepos, 'library'),
     'Templates': filterRepos(publicAndNotForkRepos, 'template'),
