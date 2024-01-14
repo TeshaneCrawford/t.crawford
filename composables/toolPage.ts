@@ -196,7 +196,7 @@ const tools: ToolList = {
                     link: 'https://github.com'
                 },
                 {
-                    name: 'GitHub CI',
+                    name: 'CI/CD',
                     label: 'GitHub Actions',
                     icon: 'i-logos-github-actions',
                     link: 'https://github.com'
