@@ -17,6 +17,10 @@ useHead({
     },
   ],
 })
+
+const { data: articles } = await useAsyncData("all-articles", () =>
+  queryContent("/articles").sort({ published: -1 }).find()
+);
 </script>
 
 <template>
