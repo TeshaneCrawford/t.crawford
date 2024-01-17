@@ -1,6 +1,6 @@
 # Teshane Crawford
 
-**[teshanecrawford.dev](https://teshanecrawford.dev)**
+**[teshanecrawford.live](https://teshanecrawford.live)**
 
 My personal website, built with [Nuxt 3](https://nuxt.com/), [Vue.js](https://vuejs.org/), [UnoCSS](https://unocss.dev), and [Vercel](https://www.vercel.com/).
 <br>
