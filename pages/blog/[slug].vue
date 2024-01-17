@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { withoutTrailingSlash, joinURL } from 'ufo'
 import type { BlogArticle } from '~/types'
 
@@ -53,18 +53,53 @@ if (article.value.image) {
     return [
       {
         icon: 'i-simple-icons-linkedin',
-        to: `https://www.linkedin.com/sharing/share-offsite/?url=https://teshane.tech${path}`
+        to: `https://www.linkedin.com/sharing/share-offsite/?url=https://teshane.live${path}`
       },
       {
         icon: 'i-simple-icons-x',
-        to: `https://twitter.com/intent/tweet?url=https://teshane.tech${path}`
+        to: `https://twitter.com/intent/tweet?url=https://teshane.live${path}`
       }
     ]
   })
 
   function copyLink () {
   if (article.value) {
-    copy(`https://teshane.tech${article.value._path}`)
+    copy(`https://teshane.live${article.value._path}`)
   }
 }
+</script> -->
+
+<script setup lang="ts">
+const route = useRoute()
+const slug = route.params.slug;
+
+useSeoMeta({
+  ogImage: `https://teshane.live/blog/${slug}.png`,
+  twitterImage: `https://teshane.live/blog/${slug}.png`,
+  // articleAuthor: 'Teshane Crawford',
+})
 </script>
+
+<template>
+  <main class="screenheight">
+    <div class="prose">
+      <ContentDoc v-slot="{ doc }" tag="article">
+        <article>
+          <h1>{{ doc.title }}</h1>
+          <ContentRenderer :value="doc" />
+        </article>
+      </ContentDoc>
+    </div>
+  </main>
+</template>
+
+<style scoped>
+.screenheight {
+  min-height: 100dvh;
+}
+
+.prose h2 a,
+.prose h3 a {
+  @apply no-underline;
+}
+</style>

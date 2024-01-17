@@ -17,14 +17,20 @@ useHead({
     },
   ],
 })
+
+const { data: articles } = await useAsyncData("all-articles", () =>
+  queryContent("/articles").sort({ published: -1 }).find()
+);
 </script>
 
 <template>
-  <div class="prose ma">
-    <PageHeader title="Blog"
-      description="A curated list of my composed blog" />
+  <div class="ma prose">
+    <PageHeader
+      title="Blog"
+      description="A curated list of my composed blog"
+    />
 
-      <br>
+    <br>
     <BackButton />
   </div>
 </template>
