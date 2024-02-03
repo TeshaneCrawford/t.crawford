@@ -25,17 +25,23 @@ const tools: ToolList = {
                     link: 'https://www.typescriptlang.org/'
                 },
                 {
-                    name: 'Kotlin',
-                    label: 'Kotlin',
-                    icon: 'i-logos-kotlin-icon',
-                    link: 'https://kotlinlang.org/'
+                  name: 'Java',
+                  label: 'Java',
+                  icon: 'i-logos-java',
+                  link: 'https://www.java.com/'
                 },
-                {
-                    name: 'Python',
-                    label: 'Python',
-                    icon: 'i-logos-python',
-                    link: 'https://www.python.org/'
-                }
+                // {
+                //     name: 'Kotlin',
+                //     label: 'Kotlin',
+                //     icon: 'i-logos-kotlin-icon',
+                //     link: 'https://kotlinlang.org/'
+                // },
+                // {
+                //     name: 'Python',
+                //     label: 'Python',
+                //     icon: 'i-logos-python',
+                //     link: 'https://www.python.org/'
+                // }
             ]
         },
         {
@@ -52,6 +58,12 @@ const tools: ToolList = {
                     label: 'NestJS',
                     icon: 'i-logos-nestjs',
                     link: 'https://nestjs.com/'
+                },
+                {
+                  name: 'Spring',
+                  label: 'Spring Boot',
+                  icon: 'i-logos-spring-icon',
+                  link: 'https://spring.io/projects/spring-boot'
                 },
                 {
                     name: 'Vue.js',
@@ -101,12 +113,12 @@ const tools: ToolList = {
                     icon: 'i-logos-material-ui',
                     link: 'https://mui.com/'
                 },
-                {
-                    name: 'UnoCSS',
-                    label: 'UnoCSS',
-                    icon: 'i-logos-unocss',
-                    link: 'https://unocss.com/'
-                },
+                // {
+                //     name: 'UnoCSS',
+                //     label: 'UnoCSS',
+                //     icon: 'i-logos-unocss',
+                //     link: 'https://unocss.com/'
+                // },
                 {
                     name: 'Sass',
                     label: 'Sass',
