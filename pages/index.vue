@@ -37,8 +37,12 @@ useHead({
     </p>
     <p>
       I have a wide range of interests, coding, watching wildlife documentaries, listening to music, learning foreign
-      languages, playing games... Recently, I have been learning to develop native Android mobile applications, using
-      <a linkInProse o="#ed7099" href="" target="_blank">Kotlin <i i-logos-kotlin-icon w-1.1em h-1.1em ml-1 /></a>.
+      languages, playing games... Recently, I have been working on the backend, using
+      <i i-logos-java  mr-1 />
+      <a linkInProse o="#f46d01" href="" target="_blank">Java</a>
+      <span mr-1 />
+      and <i i-logos-spring-icon mr-1 />
+      <a linkInProse o="#6bd33f" href="" target="_blank">SpringBoot</a>.
     </p>
     <p>
       I use quite a number of technologies, but I am most comfortable with
