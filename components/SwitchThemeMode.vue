@@ -50,16 +50,16 @@ function toggleDark(event: MouseEvent) {
   <button
     aria-label="Color Mode"
     :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`"
-    class="pr-2 link inline-block hover:text-gray-700 dark:hover:text-gray-300 group"
+    class="link group inline-block pr-2 hover:text-gray-700 dark:hover:text-gray-300"
     @click.prevent="toggleDark"
   >
     <div class="icon">
       <ColorScheme>
         <template v-if="colorMode.value === 'dark'">
-          <i i-line-md-moon-twotone class="icon icon--on" />
+          <i i-line-md-moon-twotone class="icon--on icon" />
         </template>
         <template v-else>
-          <i i-line-md-sunny-outline-loop class="icon icon--on" />
+          <i i-line-md-sunny-outline-loop class="icon--on icon" />
         </template>
       </ColorScheme>
     </div>

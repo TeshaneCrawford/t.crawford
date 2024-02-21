@@ -19,14 +19,14 @@ defineProps<{
 
 <template>
   <div>
-        <ol ml8>
+    <ol ml8>
       <li
         v-for="item, index in items"
         :key="`${index}-${item.company?.text ?? item.company}`"
         class="timeline-item w-md" text-xs
       >
-        <h3 text-base text-lg font-bold mt2 line-height-none>
-          <Icon v-if="item.icon" :name="item.icon" :class="{ 'rotate-180 filter-saturate-500': item.title === 'Persian' }" mt--1 mr1 />
+        <h3 mt2 text-base text-lg font-bold line-height-none>
+          <Icon v-if="item.icon" :name="item.icon" :class="{ 'rotate-180 filter-saturate-500': item.title === 'Persian' }" mr1 mt--1 />
           {{ item.title }}
           <br>
         </h3>
