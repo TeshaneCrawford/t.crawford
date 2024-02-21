@@ -5,7 +5,7 @@ published: 2023/08/25
 slug: "dealing-with-the-downleveliteration-error-in-typescript"
 ---
 
-> This article was created using ChatGPT and meant as a placeholder
+> This article was inspired by an error I encountered while working on a TypeScript project. I hope it helps you resolve the same error in your projects.
 
 In the world of TypeScript development, encountering errors is a common occurrence. One such error that developers might encounter is the `Type 'string' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher error` message. This error often arises when you're working with string iterations in a certain configuration.
 
