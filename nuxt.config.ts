@@ -65,7 +65,11 @@ export default defineNuxtConfig({
     }
   },
     content: {
-      // documentDriven: true,
+      documentDriven: {
+        // navigation: true,
+        // page: true,
+        injectPage: true
+      },
       highlight: {
         // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
         theme: {

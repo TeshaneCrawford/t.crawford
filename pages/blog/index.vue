@@ -24,20 +24,22 @@ const { data: articles } = await useAsyncData("all-articles", () =>
 </script>
 
 <template>
-  <div class="ma prose">
-    <PageHeader
-      title="Blog"
-      description="A curated list of my composed blog"
-    />
-    <ul>
-      <li v-for="article in articles" :key="article._id">
-        <AppArticleCard :article="article" />
-      </li>
-    </ul>
+  <NuxtLayout name="default">
+    <div class="ma prose">
+      <PageHeader
+        title="Blog"
+        description="A curated list of my composed blog"
+      />
+      <ul>
+        <li v-for="article in articles" :key="article._id">
+          <AppArticleCard :article="article" />
+        </li>
+      </ul>
 
-    <br>
-    <BackButton />
-  </div>
+      <br>
+      <BackButton />
+    </div>
+  </NuxtLayout>
 </template>
 
 <style scoped></style>

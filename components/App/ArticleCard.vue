@@ -6,11 +6,11 @@ defineProps({
   },
 })
 
-const getReadTime = (content: string) => {
-  const wordsPerMinute = 200
-  const textLength = content.split(' ').length
-  return Math.ceil(textLength / wordsPerMinute)
-}
+// const getReadTime = (content: string) => {
+//   const wordsPerMinute = 200
+//   const textLength = content.split(' ').length
+//   return Math.ceil(textLength / wordsPerMinute)
+// }
 
 const getFormattedDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-US', {
@@ -44,9 +44,6 @@ const getFormattedDateTime = (date: string) => {
       <time :datetime="article.date">
         {{ getFormattedDateTime(article.published) }}
       </time>
-      <span>
-        {{ getReadTime(article.content) }} min read
-      </span>
     </div>
   </NuxtLink>
 </template>
