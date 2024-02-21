@@ -12,20 +12,6 @@ useHead({
         Hey, I'm <strong>Teshane Crawford</strong>, a software engineer & an open source enthusiast.
       </p>
       <p>
-        <!-- <i i-fluent-emoji-sparkles mr-1 />
-      Team member of
-      <i i-my-logos-angular-icon mr-1 />
-      <a trans linear-text shape-bl class="c-context::#818181" from="#ccc" via="#858585" to="#4d4d4d"
-        href="https://github.com/unocss/unocss" target="_blank"><strong> UnoCSS</strong></a>,
-      <i i-my-logos-elk mr-1 />
-      <a linkInProse o="#c18139" href="https://github.com/elk-zone" target="_blank"><strong>Elk</strong> <sub
-          bottom-0>farm</sub></a>,
-      Creator of
-      <i i-my-logos-onu-ui w-1.1em h-1.1em mr-1 />
-      <a trans linear-text shape-bl class="c-context::#C084FC" from="#ACC1EE" to="#C084FC"
-        href="https://github.com/onu-ui" target="_blank"><strong>Onu UI</strong></a>
-      <i i-fluent-emoji-sparkles ml-1 />
-      <br> -->
         I am passionate about building software that solves real-world problems. I am a big admirer of the
         <i i-logos-vitejs mr-1 h-1.1em w-1.1em />
         <a
