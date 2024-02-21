@@ -28,7 +28,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <body class="font-sans text-gray-700 dark:text-gray-200 antialiased">
+  <body class="font-sans text-gray-700 antialiased dark:text-gray-200">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

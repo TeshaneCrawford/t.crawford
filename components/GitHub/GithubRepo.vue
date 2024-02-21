@@ -18,14 +18,12 @@ defineProps<{
     hover="bg-gray bg-op-3"
     dark-hover="bg-white bg-op-3"
   >
-    <a :href="repo.homepage || repo.html_url" target="_blank" decoration-none flex="~ col gap-3" h-full>
+    <a :href="repo.homepage || repo.html_url" target="_blank" flex="~ col gap-3" h-full decoration-none>
       <h5 m0 fsc gap-1 text-sm>
         <i i-ri:git-repository-line />
         <span>{{ repo.name }}</span>
         <span
-          fw-normal
-          inline-block
-          important-rounded-full
+          inline-block fw-normal important-rounded-full
           :class="repo.is_template ? 'dark-badge-xs-yellow badge-xs-blue' : 'dark-badge-xs-teal badge-xs-red'"
         >
           {{ repo.private ? 'Private' : 'Public' }}
@@ -35,12 +33,10 @@ defineProps<{
       <p m0 flex-1>
         {{ repo.description }}
       </p>
-      <p fsc gap-4 m0>
+      <p m0 fsc gap-4>
         <span v-if="repo.language" fsc gap-1>
           <i
-            w-3
-            h-3
-            rounded-full
+            h-3 w-3 rounded-full
             :style="{ backgroundColor: repo.language ? getLanguageColor(repo.language) : '' }"
           />
           {{ repo.language }}
@@ -59,10 +55,8 @@ defineProps<{
         <a
           v-if="repo.forks_count"
           target="_blank"
-          decoration-none
           :href="`https://github.com/${repo.full_name}/network/members`"
-          fsc
-          gap-1
+          fsc gap-1 decoration-none
         >
           <i i-carbon:direction-fork />
           {{ repo.forks_count }}

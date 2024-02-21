@@ -7,13 +7,11 @@ defineProps<{
 
 <template>
   <h1
-    md-text-3xl
-    mb4
-    mt-0
+    mb4 mt-0 md-text-3xl
   >
     {{ title }}
   </h1>
-  <p font-mono text-xs md-text-sm italic>
+  <p text-xs font-mono italic md-text-sm>
     {{ description }}
   </p>
 </template>

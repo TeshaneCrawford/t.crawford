@@ -49,10 +49,10 @@ const links = [
       <NuxtLink v-for="link in links" :key="link.icon" :to="link.url" target="_blank" external class="flex items-end gap-4 dark:hover:text-gray-300">
         <span>{{ link.name }}</span>
         <div
-          class="flex-1 border-b border-dashed border-gray-300 hover:border-gray-700 transition-colors"
-        ></div>
-        <div border border-rounded p-2 dark:border-base>
-          <icon class="w-6 h-6" :name="link.icon" />
+          class="flex-1 border-b border-gray-300 border-dashed transition-colors hover:border-gray-700"
+        />
+        <div border dark:border-base border-rounded p-2>
+          <icon class="h-6 w-6" :name="link.icon" />
         </div>
       </NuxtLink>
     </div>
