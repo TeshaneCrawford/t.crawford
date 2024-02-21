@@ -3,7 +3,7 @@
 <template>
   <div>
     <AppNavbar />
-    <main class="px-7 py-10 of-x-hidden">
+    <main class="ma of-x-hidden px-7 py-10 prose">
       <slot />
       <AppFooter />
     </main>

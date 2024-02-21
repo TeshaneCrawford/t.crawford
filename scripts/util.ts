@@ -1,8 +1,8 @@
 export function groupBy<T extends {}>(values: T[], fn: (v: T) => any) {
-    return values.reduce((rv, x) => {
-        (rv[fn(x)] = rv[fn(x)] || []).push(x)
-        return rv
-    }, {})
+  return values.reduce((rv: { [key: string]: T[] }, x) => {
+    (rv[fn(x)] = rv[fn(x)] || []).push(x)
+    return rv
+  }, {})
 }
 
 export function dayNth(input: string) {

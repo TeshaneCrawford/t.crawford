@@ -1,4 +1,3 @@
-import { SiteLanguage, SiteUrl } from './scripts'
 // import { createResolver } from '@nuxt/kit'
 // const { resolve } = createResolver(import.meta.url)
 
@@ -19,12 +18,12 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
-    'nuxt-schema-org'
+    // 'nuxt-schema-org'
   ],
-  schemaOrg: {
-    canonicalHost: SiteUrl,
-    defaultLanguage: SiteLanguage,
-  },
+  // schemaOrg: {
+  //   canonicalHost: SiteUrl,
+  //   defaultLanguage: SiteLanguage,
+  // },
   // alias: {
   //   'styled-system': resolve('./styled-system')
   // },
@@ -65,18 +64,39 @@ export default defineNuxtConfig({
       'Cormorant+Garamond': [400],
     }
   },
-  content: {
-    navigation: {
-      fields: ['titleTemplate']
-    },
-    highlight: {
-      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
-      // theme: 'material-darker',
-    },
-    markdown: {
-      toc: {
-        depth: 2,
+    content: {
+      documentDriven: {
+        // navigation: true,
+        // page: true,
+        injectPage: true
+      },
+      highlight: {
+        // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
+        theme: {
+          default: 'material-theme-lighter',
+          dark: 'material-theme-palenight'
+        },
+        langs: [
+          'js',
+          'ts',
+          'c#',
+          'java',
+          'vue',
+          'jsx',
+          'css',
+          'scss',
+          'sass',
+          'html',
+          'bash',
+          'md',
+          'mdc',
+          'json'
+        ]
+      },
+      markdown: {
+        toc: {
+          depth: 2,
+        },
       },
     },
-  },
 })
