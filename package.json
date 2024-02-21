@@ -19,7 +19,7 @@
   "devDependencies": {
     "@giscus/vue": "^2.4.0",
     "@iconify-json/line-md": "^1.1.36",
-    "@iconify/json": "^2.2.184",
+    "@iconify/json": "^2.2.185",
     "@nuxt/devtools": "^1.0.8",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/color-mode": "^3.3.2",
@@ -41,7 +41,7 @@
     "unplugin-icons": "^0.18.5",
     "unplugin-vue-components": "^0.26.0",
     "vue": "^3.4.19",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.3.0"
   },
   "dependencies": {
     "@nuxt/content": "^2.12.0",
