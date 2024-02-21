@@ -26,15 +26,16 @@ const { data: articles } = await useAsyncData("all-articles", () =>
 <template>
   <NuxtLayout name="default">
     <div class="ma prose">
-      <PageHeader
-        title="Blog"
-        description="A curated list of my composed blog"
-      />
-      <ul>
-        <li v-for="article in articles" :key="article._id">
-          <AppArticleCard :article="article" />
-        </li>
-      </ul>
+      <PageHeader title="Blog" description="A curated list of my composed blog" />
+      <div>
+        <div>
+          <ul list-none>
+            <li v-for="article in articles" :key="article._id">
+              <AppArticleCard :article="article" />
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <br>
       <BackButton />

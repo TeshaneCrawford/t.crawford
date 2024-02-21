@@ -34,7 +34,7 @@ const getFormattedDateTime = (date: string) => {
 
 <template>
   <NuxtLink :to="article._path" class="">
-    <h2>
+    <h2 class="text-2xl hover:(underline)">
       {{ article.title }}
     </h2>
     <p>
