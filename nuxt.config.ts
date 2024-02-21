@@ -1,4 +1,3 @@
-import { SiteLanguage, SiteUrl } from './scripts'
 // import { createResolver } from '@nuxt/kit'
 // const { resolve } = createResolver(import.meta.url)
 
@@ -66,12 +65,29 @@ export default defineNuxtConfig({
     }
   },
     content: {
+      // documentDriven: true,
       highlight: {
         // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
         theme: {
-          default: 'min-light',
-          light: 'min-dark'
-        }
+          default: 'material-theme-lighter',
+          dark: 'material-theme-palenight'
+        },
+        langs: [
+          'js',
+          'ts',
+          'c#',
+          'java',
+          'vue',
+          'jsx',
+          'css',
+          'scss',
+          'sass',
+          'html',
+          'bash',
+          'md',
+          'mdc',
+          'json'
+        ]
       },
       markdown: {
         toc: {
