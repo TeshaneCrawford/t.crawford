@@ -29,6 +29,11 @@ const { data: articles } = await useAsyncData("all-articles", () =>
       title="Blog"
       description="A curated list of my composed blog"
     />
+    <ul>
+      <li v-for="article in articles" :key="article._id">
+        <AppArticleCard :article="article" />
+      </li>
+    </ul>
 
     <br>
     <BackButton />
