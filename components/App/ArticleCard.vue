@@ -42,7 +42,7 @@ const getFormattedDateTime = (date: string) => {
     </p>
     <div>
       <time :datetime="article.date">
-        {{ getFormattedDateTime(article.date) }}
+        {{ getFormattedDateTime(article.published) }}
       </time>
       <span>
         {{ getReadTime(article.content) }} min read
