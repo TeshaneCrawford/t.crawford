@@ -34,6 +34,7 @@ import { SiteLanguage, SiteUrl } from './scripts'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   typescript: {
+    strict: true,
     shim: false
   },
   modules: [
@@ -98,7 +99,7 @@ export default defineNuxtConfig({
     },
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
-      theme: 'material-darker',
+      // theme: 'material-darker',
     },
     markdown: {
       toc: {
