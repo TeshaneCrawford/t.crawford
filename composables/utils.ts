@@ -1,5 +1,7 @@
 const language2Color: Record<string, string> = {
     'vue': '#41b883',
+    'react': '#61dafb',
+    'angular': '#b52e31',
     'typescript': '#3178c6',
     'javascript': '#f1e05a',
     'html': '#e34c26',
@@ -25,24 +27,24 @@ const language2Color: Record<string, string> = {
     'powershell': '#012456',
     'astro': '#BC52EE',
   }
-  
+
   export function getLanguageColor(language: string) {
     return language2Color[language.toLowerCase()] || '#ddd'
   }
-  
+
   export function getDataUrlFromArr(arr: Uint8ClampedArray, w: number, h: number) {
     if (typeof w === 'undefined' || typeof h === 'undefined')
       w = h = Math.sqrt(arr.length / 4)
-  
+
     const canvas = document.createElement('canvas')
     const ctx = canvas.getContext('2d')!
-  
+
     canvas.width = w
     canvas.height = h
-  
+
     const imgData = ctx.createImageData(w, h)
     imgData.data.set(arr)
     ctx.putImageData(imgData, 0, 0)
-  
+
     return canvas.toDataURL()
   }
