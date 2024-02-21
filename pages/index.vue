@@ -47,10 +47,10 @@ useHead({
     <p>
       I use quite a number of technologies, but I am most comfortable with
       <i i-logos-react w-1.1em h-1.1em mr-1 />
-      <a linkInProse o="#61dafb" href="https://react.dev/" target="_blank"><strong>React</strong></a>,
+      <a linkInProse o="#61dafb" href="https://react.dev/" target="_blank"><strong>React.js</strong></a>,
       <span mr-1 />
       <i i-logos-vue w-1.1em h-1.1em mr-1 />
-      <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank"><strong>Vue</strong></a>,
+      <a linkInProse o="#64b687" href="https://vuejs.org/" target="_blank"><strong>Vue.js</strong></a>,
       <span mr-1 />
       <!-- <i i-my-logos-angular-icon mr-1 />
       <a trans linear-text shape-bl class="c-context::#c3002f" from="#9717E7" via="#F20755" to="#FF31D9"
