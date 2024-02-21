@@ -19,12 +19,12 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
-    'nuxt-schema-org'
+    // 'nuxt-schema-org'
   ],
-  schemaOrg: {
-    canonicalHost: SiteUrl,
-    defaultLanguage: SiteLanguage,
-  },
+  // schemaOrg: {
+  //   canonicalHost: SiteUrl,
+  //   defaultLanguage: SiteLanguage,
+  // },
   // alias: {
   //   'styled-system': resolve('./styled-system')
   // },
@@ -65,18 +65,18 @@ export default defineNuxtConfig({
       'Cormorant+Garamond': [400],
     }
   },
-  content: {
-    navigation: {
-      fields: ['titleTemplate']
-    },
-    highlight: {
-      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
-      // theme: 'material-darker',
-    },
-    markdown: {
-      toc: {
-        depth: 2,
+    content: {
+      highlight: {
+        // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
+        theme: {
+          default: 'min-light',
+          light: 'min-dark'
+        }
+      },
+      markdown: {
+        toc: {
+          depth: 2,
+        },
       },
     },
-  },
 })
