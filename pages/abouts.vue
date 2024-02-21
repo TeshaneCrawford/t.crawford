@@ -20,11 +20,13 @@ useHead({
 </script>
 
 <template>
-  <div class="prose ma">
-    <PageHeader title="About"
-      description="Get to know me more" />
+  <div class="ma prose">
+    <PageHeader
+      title="About"
+      description="Get to know me more"
+    />
 
-      <br>
+    <br>
     <BackButton />
   </div>
 </template>
