@@ -122,9 +122,9 @@ export default defineConfig({
     // presetTypography(),
     presetWebFonts({
       fonts: {
-        sans: 'DM Sans',
+        sans: 'DM Sans:400, 500, 600, 700',
         // serif: 'DM Serif Display',
-        serif: 'Coromorant Garamond',
+        serif: 'Coromorant Garamond:400',
         mono: 'DM Mono',
       },
     }),

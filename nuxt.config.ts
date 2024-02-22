@@ -56,14 +56,14 @@ export default defineNuxtConfig({
   fontMetrics: {
     fonts: ['DM Sans']
   },
-  googleFonts: {
-    display: 'swap',
-    download: true,
-    families: {
-      'DM+Sans': [400, 500, 600, 700],
-      'Cormorant+Garamond': [400],
-    }
-  },
+  // googleFonts: {
+  //   display: 'swap',
+  //   download: true,
+  //   families: {
+  //     'DM+Sans': [400, 500, 600, 700],
+  //     'Cormorant+Garamond': [400],
+  //   }
+  // },
     content: {
       // documentDriven: true,
       highlight: {
