@@ -5,10 +5,10 @@
 
     --gc-text: #1F2328;
     --gc-level-0: #ebedf0;
-    --gc-level-1: #9be9a8;
+    /* --gc-level-1: #9be9a8;
     --gc-level-2: #40c463;
     --gc-level-3: #30a14e;
-    --gc-level-4: #216e39;
+    --gc-level-4: #216e39; */
 }
 
 html {
@@ -24,10 +24,10 @@ html.dark {
 
     --gc-text: #adbac7;
     --gc-level-0: #2d333b;
-    --gc-level-1: #0e4429;
+    /* --gc-level-1: #0e4429;
     --gc-level-2: #006d32;
     --gc-level-3: #26a641;
-    --gc-level-4: #39d353;
+    --gc-level-4: #39d353; */
 }
 
 ::selection {
@@ -70,34 +70,34 @@ html.dark {
   ::-webkit-scrollbar-thumb:hover {
     background: var(--t-scrollbar-hover);
   }
-  
+
   h2 + p > em:first-child {
     opacity: 0.5;
     display: block;
     margin-top: -20px;
     font-size: 0.9em;
   }
-  
+
   .dark [img-light] {
     display: none;
   }
-  
+
   html:not(.dark) [img-dark] {
     display: none;
   }
-  
+
   @keyframes slide-enter {
     0% {
       transform: translateY(10px);
       opacity: 0
     }
-  
+
     to {
       transform: translateY(0);
       opacity: 100
     }
   }
-  
+
   @media (prefers-reduced-motion:no-preference) {
     html:not(.no-sliding) [slide-enter],
     html:not(.no-sliding) .slide-enter,
@@ -108,7 +108,7 @@ html.dark {
       animation: slide-enter 1s both 1;
       animation-delay: calc(var(--enter-initial) + var(--enter-stage) * var(--enter-step));
     }
-  
+
     .slide-enter-content > *:nth-child(1) { --enter-stage: 1 !important; }
     .slide-enter-content > *:nth-child(2) { --enter-stage: 2 !important; }
     .slide-enter-content > *:nth-child(3) { --enter-stage: 3 !important; }
@@ -130,7 +130,7 @@ html.dark {
     .slide-enter-content > *:nth-child(19) { --enter-stage: 19 !important; }
     .slide-enter-content > *:nth-child(20) { --enter-stage: 20 !important; }
   }
-  
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
@@ -148,37 +148,37 @@ html.dark {
   .dark::view-transition-new(root) {
     z-index: 1;
   }
-  
-  
+
+
   /* Overrides Floating Vue */
   .v-popper--theme-dropdown .v-popper__inner,
   .v-popper--theme-tooltip .v-popper__inner {
     --at-apply: bg-base text-base rounded border border-base shadow;
     box-shadow: 0 6px 30px #0000001a;
   }
-  
+
   .v-popper--theme-tooltip .v-popper__arrow-inner,
   .v-popper--theme-dropdown .v-popper__arrow-inner {
     visibility: visible;
     --at-apply: border-white dark:border-black;
   }
-  
+
   .v-popper--theme-tooltip .v-popper__arrow-outer,
   .v-popper--theme-dropdown .v-popper__arrow-outer {
     --at-apply: border-base;
   }
-  
+
   .v-popper--theme-tooltip.v-popper--shown,
   .v-popper--theme-tooltip.v-popper--shown * {
     transition: none !important;
   }
-  
+
   /* Transitions */
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity 0.2s ease;
   }
-  
+
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;

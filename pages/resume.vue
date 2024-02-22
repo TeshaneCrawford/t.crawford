@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useTitle } from '@vueuse/core'
 
-const { data: page } = await useAsyncData('index', () => queryContent('/utils/_resume.json').findOne())
+// const { data: page } = await useAsyncData('index', () => queryContent('/utils/_resume.json').findOne())
 
 import { resumes } from '@/utils/_resume.json'
 

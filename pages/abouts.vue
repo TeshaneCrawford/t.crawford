@@ -20,17 +20,17 @@ useHead({
 </script>
 
 <template>
-  <NuxtLayout name="default">
-    <div class="ma prose">
-      <PageHeader
-        title="About"
-        description="Get to know me more"
-      />
+  <!-- <NuxtLayout name="default"> -->
+  <div class="ma prose">
+    <PageHeader
+      title="About"
+      description="Get to know me more"
+    />
 
-      <br>
-      <BackButton />
-    </div>
-  </NuxtLayout>
+    <br>
+    <BackButton />
+  </div>
+  <!-- </NuxtLayout> -->
 </template>
 
 <style scoped></style>
