@@ -1,5 +1,5 @@
 export const SiteName = 'Teshane Crawford';
-export const SiteUrl = 'https://teshanecrawford.com';
+export const SiteUrl = 'https://teshanecrawford.live';
 export const SiteImage = '/';
 export const SiteLogo = '/';
 export const SiteLanguage = 'en';
