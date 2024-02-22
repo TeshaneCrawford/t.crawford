@@ -5,8 +5,8 @@ useHead({
 </script>
 
 <template>
-  <NuxtLayout name="default">
-    <div class="ma prose">
+  <!-- <NuxtLayout name="default"> -->
+    <div class="">
       <h1>Teshane Crawford</h1>
       <p>
         Hey, I'm <strong>Teshane Crawford</strong>, a software engineer & an open source enthusiast.
@@ -64,7 +64,7 @@ useHead({
         </a>
       </p>
     </div>
-  </NuxtLayout>
+  <!-- </NuxtLayout> -->
 </template>
 
 <style scoped></style>

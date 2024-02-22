@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <NuxtLayout name="default">
+  <!-- <NuxtLayout name="default"> -->
     <div class="ma prose">
       <PageHeader
         title="Oh hai, I'm Teshane."
@@ -9,7 +9,7 @@
       />
       <SocialLinks />
     </div>
-  </NuxtLayout>
+  <!-- </NuxtLayout> -->
 </template>
 
 <style scoped></style>

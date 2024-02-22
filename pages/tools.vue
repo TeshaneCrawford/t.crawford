@@ -21,7 +21,7 @@ useHead({
 </script>
 
 <template>
-  <NuxtLayout name="default">
+  <!-- <NuxtLayout name="default"> -->
     <div class="ma prose">
       <PageHeader
         title="Tools"
@@ -57,7 +57,7 @@ useHead({
       <br>
       <BackButton />
     </div>
-  </NuxtLayout>
+  <!-- </NuxtLayout> -->
 </template>
 
 <style scoped></style>
