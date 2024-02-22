@@ -21,15 +21,15 @@ useHead({
 
 <template>
   <!-- <NuxtLayout name="default"> -->
-    <div class="ma prose">
-      <PageHeader
-        title="About"
-        description="Get to know me more"
-      />
+  <div class="ma prose">
+    <PageHeader
+      title="About"
+      description="Get to know me more"
+    />
 
-      <br>
-      <BackButton />
-    </div>
+    <br>
+    <BackButton />
+  </div>
   <!-- </NuxtLayout> -->
 </template>
 
