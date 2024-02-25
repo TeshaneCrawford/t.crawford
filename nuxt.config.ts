@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/image',
     'nuxt-og-image',
-    // '@nuxtjs/fontaine',
     'nuxt-icon',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
@@ -36,11 +35,7 @@ export default defineNuxtConfig({
       }
     }
   },
-  // fontMetrics: {
-  //   fonts: ['DM Sans']
-  // },
   content: {
-    // documentDriven: true,
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
       theme: {
