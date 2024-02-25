@@ -18,8 +18,8 @@ useHead({
   ],
 })
 
-const { data: articles } = await useAsyncData("all-articles", () =>
-  queryContent("/articles").sort({ published: -1 }).find()
+const { data: blog } = await useAsyncData("all-blog", () =>
+  queryContent("/blog").sort({ published: -1 }).find()
 );
 </script>
 
@@ -29,7 +29,7 @@ const { data: articles } = await useAsyncData("all-articles", () =>
     <div>
       <div>
         <ul list-none>
-          <li v-for="article in articles" :key="article._id">
+          <li v-for="article in blog" :key="article._id">
             <AppArticleCard :article="article" />
           </li>
         </ul>

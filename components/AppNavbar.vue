@@ -33,7 +33,7 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Projects</span>
           <div i-fluent-document-folder-24-regular md:hidden />
         </NuxtLink>
-        <NuxtLink to="/articles" title="Blog">
+        <NuxtLink to="/blog" title="Blog">
           <span class="lt-md:hidden">Blog</span>
           <div i-fluent-news-24-regular class="md:hidden" />
         </NuxtLink>
