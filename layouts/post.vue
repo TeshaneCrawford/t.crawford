@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-const { page: post} = useContent()
 </script>
 
 <template>

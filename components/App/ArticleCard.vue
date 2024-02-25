@@ -20,15 +20,15 @@ const getFormattedDate = (date: string) => {
   })
 }
 
-const getFormattedTime = (date: string) => {
-  return new Date(date).toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-  })
-}
+// const getFormattedTime = (date: string) => {
+//   return new Date(date).toLocaleTimeString('en-US', {
+//     hour: '2-digit',
+//     minute: '2-digit',
+//   })
+// }
 
 const getFormattedDateTime = (date: string) => {
-  return `${getFormattedDate(date)} at ${getFormattedTime(date)}`
+  return `${getFormattedDate(date)}`
 }
 </script>
 
@@ -37,7 +37,7 @@ const getFormattedDateTime = (date: string) => {
     <h2 class="text-2xl hover:(underline)">
       {{ article.title }}
     </h2>
-    <p>
+    <p ___ text-gray-500>
       {{ article.description }}
     </p>
     <div>

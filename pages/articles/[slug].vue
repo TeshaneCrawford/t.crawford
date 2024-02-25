@@ -3,9 +3,9 @@ const route = useRoute()
 const slug = route.params.slug;
 
 useSeoMeta({
-  ogImage: `https://teshane.live/blog/${slug}.png`,
-  twitterImage: `https://teshane.live/blog/${slug}.png`,
-  // articleAuthor: 'Teshane Crawford',
+  ogImage: `https://teshane.live/articles/${slug}.png`,
+  twitterImage: `https://teshane.live/articles/${slug}.png`,
+  // articleAuthor: 'Teshane Crawford'
 })
 </script>
 

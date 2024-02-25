@@ -24,7 +24,6 @@ const { data: articles } = await useAsyncData("all-articles", () =>
 </script>
 
 <template>
-  <!-- <NuxtLayout name="default"> -->
   <div class="ma prose">
     <PageHeader title="Blog" description="A curated list of my composed blog" />
     <div>
@@ -40,7 +39,6 @@ const { data: articles } = await useAsyncData("all-articles", () =>
     <br>
     <BackButton />
   </div>
-  <!-- </NuxtLayout> -->
 </template>
 
 <style scoped></style>
