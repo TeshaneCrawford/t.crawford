@@ -1,21 +1,18 @@
 <script setup lang="ts">
-const { slug } = useRoute().params
+const route = useRoute()
+const slug = route.params.slug;
 
 useSeoMeta({
-  ogImage: `https://teshane.live/blog/${slug}.png`,
-  twitterImage: `https://teshane.live/blog/${slug}.png`,
-  // articleAuthor: 'Teshane Crawford',
-})
-
-definePageMeta({
-  layout: 'post',
+  ogImage: `https://teshane.live/articles/${slug}.png`,
+  twitterImage: `https://teshane.live/articles/${slug}.png`,
+  // articleAuthor: 'Teshane Crawford'
 })
 </script>
 
 <template>
   <main class="screenheight">
     <div class="prose">
-      <ContentDoc v-slot="{ doc }" :path="`/articles/${slug}`" tag="article">
+      <ContentDoc v-slot="{ doc }" tag="article">
         <article>
           <h1>{{ doc.title }}</h1>
           <ContentRenderer :value="doc" />
