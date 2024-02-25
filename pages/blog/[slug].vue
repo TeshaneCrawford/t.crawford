@@ -8,7 +8,7 @@ useSeoMeta({
 })
 
 definePageMeta({
-  layout: 'post'
+  layout: 'post',
 })
 </script>
 
