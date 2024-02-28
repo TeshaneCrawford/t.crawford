@@ -27,17 +27,19 @@ const getFormattedDateTime = (date: string) => {
 
 <template>
   <NuxtLink :to="article._path" class="">
-    <h2 class="text-2xl hover:(underline)">
-      {{ article.title }}
-    </h2>
-    <p ___ text-gray-500>
-      {{ article.description }}
-    </p>
-    <div>
-      <time :datetime="article.date">
-        {{ getFormattedDateTime(article.published) }}
-      </time>
-    </div>
+    <article class="">
+      <h2 class="text-2xl hover:(underline)">
+        {{ article.title }}
+      </h2>
+      <p ___ text-gray-500>
+        {{ article.description }}
+      </p>
+      <div class="block">
+        <time :datetime="article.date">
+          {{ getFormattedDateTime(article.published) }}
+        </time>
+      </div>
+    </article>
   </NuxtLink>
 </template>
 
