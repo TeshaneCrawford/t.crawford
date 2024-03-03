@@ -32,7 +32,7 @@ tsc --downlevelIteration your-file.ts
 
 Another way to resolve the error is by adjusting the '--target' compiler option to 'es2015' or a higher version in your TypeScript configuration (tsconfig.json):
 
-``` json
+```json [tsconfig.json]
 {
   "compilerOptions": {
     "target": "es2015",
@@ -48,7 +48,7 @@ This will allow you to use for...of loops with strings without encountering the 
 
 This option, 'importHelpers', is handy for dealing with common helper functions, like iterating strings. When enabled, TypeScript emits import statements for helper functions. To utilize this::
 
-``` json
+```json [tsconfig.json]
 {
   "compilerOptions": {
     "importHelpers": true,
@@ -62,7 +62,7 @@ This option, 'importHelpers', is handy for dealing with common helper functions,
 
 It's crucial to remember that TypeScript's compiler options provide flexibility. If '--downlevelIteration' and 'importHelpers' don't fit your project's context, alternative solutions, like using Array.from(), exist.:
 
-``` typescript
+```ts [your-file.ts]
 const myString = "Hello, world!";
 const charArray = Array.from(myString);
 
