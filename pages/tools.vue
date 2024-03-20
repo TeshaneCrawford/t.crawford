@@ -39,7 +39,7 @@ useHead({
             class="flex flex-col items-center justify-center transition-all hover:z-10 hover:origin-center active:!scale-80 lg:hover:!scale-110"
           >
             <NuxtLink v-if="value.link" :to="value.link" target="_blank" :title="value.label" class="flex items-center">
-              <icon v-if="value.icon" :name="value.icon" h-2.1em w-2.1em />
+              <Icon v-if="value.icon" :name="value.icon" h-2.1em w-2.1em :color="value.color" />
             </NuxtLink>
             <p class="select-none text-center text-[10px]">
               {{ value.name }}
