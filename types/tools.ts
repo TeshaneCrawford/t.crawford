@@ -4,7 +4,8 @@ export type Tool = {
         name: string,
         label: string,
         icon: string,
-        link: string
+        link: string,
+        color?: string
     }[]
 }
 

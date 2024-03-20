@@ -9,7 +9,8 @@ const tools: ToolList = {
                 {
                     name: 'C#',
                     label: 'C#',
-                    icon: 'i-logos-c-sharp',
+                    icon: 'i-simple-icons:csharp',
+                    color: '#512BD4',
                     link: 'https://docs.microsoft.com/en-us/dotnet/csharp/'
                 },
                 {
@@ -134,6 +135,7 @@ const tools: ToolList = {
                     name: 'SQL',
                     label: 'MSSQL Server',
                     icon: 'i-simple-icons:microsoftsqlserver',
+                    color: '#CC2927',
                     link: 'https://www.microsoft.com/en-us/sql-server/sql-server-2019'
                 },
                 {
