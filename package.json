@@ -19,21 +19,21 @@
   },
   "devDependencies": {
     "@giscus/vue": "^3.0.0",
-    "@iconify-json/line-md": "^1.1.36",
-    "@iconify/json": "^2.2.193",
+    "@iconify-json/line-md": "^1.1.37",
+    "@iconify/json": "^2.2.196",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
-    "@nuxt/devtools": "^1.0.8",
+    "@nuxt/devtools": "^1.1.5",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/color-mode": "^3.3.3",
-    "@unocss/eslint-config": "^0.58.6",
-    "@unocss/nuxt": "^0.58.6",
+    "@unocss/eslint-config": "^0.58.8",
+    "@unocss/nuxt": "^0.58.8",
     "@zhead/schema-vue": "^0.9.9",
     "@zhead/vue": "^0.9.9",
     "cheerio": "^1.0.0-rc.12",
     "eslint": "^8.56.0",
     "feed": "^4.2.2",
     "nuxt": "^3.11.1",
-    "nuxt-icon": "^0.6.9",
+    "nuxt-icon": "^0.6.10",
     "nuxt-schema-org": "^3.3.6",
     "nuxt-zero-js": "^0.1.3",
     "parse5": "^7.1.2",
@@ -52,7 +52,7 @@
     "nuxt-og-image": "^3.0.0-rc.47",
     "octokit": "^3.1.2",
     "sitemap": "^7.1.1",
-    "ufo": "^1.5.2"
+    "ufo": "^1.5.3"
   },
   "release-it": {
     "github": {
