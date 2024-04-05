@@ -20,13 +20,13 @@
   "devDependencies": {
     "@giscus/vue": "^3.0.0",
     "@iconify-json/line-md": "^1.1.37",
-    "@iconify/json": "^2.2.196",
+    "@iconify/json": "^2.2.197",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxt/devtools": "^1.1.5",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/color-mode": "^3.3.3",
-    "@unocss/eslint-config": "^0.58.8",
-    "@unocss/nuxt": "^0.58.8",
+    "@unocss/eslint-config": "^0.59.0-beta.1",
+    "@unocss/nuxt": "^0.59.0-beta.1",
     "@zhead/schema-vue": "^0.9.9",
     "@zhead/vue": "^0.9.9",
     "cheerio": "^1.0.0-rc.12",
@@ -45,12 +45,12 @@
     "vue-router": "^4.3.0"
   },
   "dependencies": {
-    "@nuxt/image": "^1.4.0",
+    "@nuxt/image": "^1.5.0",
     "@vueuse/components": "^10.9.0",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
-    "nuxt-og-image": "^3.0.0-rc.47",
-    "octokit": "^3.1.2",
+    "nuxt-og-image": "^3.0.0-rc.50",
+    "octokit": "^3.2.0",
     "sitemap": "^7.1.1",
     "ufo": "^1.5.3"
   },
