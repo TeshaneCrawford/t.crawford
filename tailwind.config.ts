@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
   content: [],
@@ -20,6 +21,20 @@ export default {
         }
       }
     },
+    fontFamily: {
+      sans: [
+        'DM Sans',
+        ...defaultTheme.fontFamily.sans,
+      ],
+      mono: [
+        'DM Mono',
+        ...defaultTheme.fontFamily.mono,
+      ],
+      serif: [
+        'Cormorant Garamond',
+        ...defaultTheme.fontFamily.serif,
+      ]
+    }
   },
   plugins: [],
 } satisfies Config
