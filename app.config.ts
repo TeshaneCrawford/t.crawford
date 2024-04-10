@@ -5,5 +5,10 @@ export default defineAppConfig({
     button: {
       base: 'transition ease-in'
     }
+  },
+  nuxtIcon: {
+    aliases: {
+      'postgresql': 'logos:postgresql',
+    }
   }
 })
