@@ -4,5 +4,7 @@ export default defineNuxtConfig({
     typeCheck: true,
     strict: true,
   },
-  devtools: { enabled: true }
+
+  devtools: { enabled: true },
+  modules: ["@nuxt/eslint"]
 })
