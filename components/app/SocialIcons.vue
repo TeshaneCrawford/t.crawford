@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="mb-1">
+  <div class="mb-1 flex gap-3">
     <NuxtLink target="_blank" to="https://twitter.com/_D_Shybrid" title="Twitter" class="group">
       <UIcon name="i-ri-twitter-x-line" class="hover:text-gray-600" alt="Twitter logo" />
     </NuxtLink>
