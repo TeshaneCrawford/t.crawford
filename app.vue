@@ -1,12 +1,16 @@
 <script setup lang="ts"></script>
 
 <template>
+<body class="text-gray-700 font-sans antialiased dark:text-gray-200">
   <div>
     <NuxtPwaManifest />
     <AppNavbar />
-    <NuxtPage />
-    <AppFooter />
+    <main class="overflow-x-hidden px-7 py-10 min-h-dvh">
+      <NuxtPage />
+    </main>
+    <AppFooter class="relative ml-7" />
   </div>
+</body>
 </template>
 
 <style scoped>
