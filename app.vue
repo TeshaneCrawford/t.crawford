@@ -5,6 +5,7 @@
     <NuxtPwaManifest />
     <AppNavbar />
     <NuxtPage />
+    <AppFooter />
   </div>
 </template>
 
