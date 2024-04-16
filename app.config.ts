@@ -4,9 +4,13 @@ export default defineAppConfig({
     gray: 'cool',
     button: {
       base: 'transition ease-in'
-    }
+    },
+    icons: {
+      size: '24px',
+    },
   },
   nuxtIcon: {
+    size: '24px',
     aliases: {
       'postgresql': 'logos:postgresql',
     }

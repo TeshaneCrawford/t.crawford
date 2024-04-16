@@ -15,17 +15,43 @@ const { y: scroll } = useWindowScroll();
     </NuxtLink>
     <button
       title="Scroll to top" aria-label="Scroll to top"
-      class="fixed bottom-3 right-3 z-[100] h-10 w-10 rounded-full transition duration-300 print:hidden hover-bg-hex-8883 hover:opacity-100"
-      :class="scroll > 300 ? 'opacity-30' : 'opacity-0! pointer-events-none'" @click="toTop()">
+      class="fixed bottom-3 right-3 z-[100] h-10 w-10 rounded-full transition duration-300 print:hidden hover:bg-[8883] hover:opacity-100"
+      :class="scroll > 300 ? 'opacity-30' : 'opacity-0 pointer-events-none'" @click="toTop()">
       <Icon name="i-ri-arrow-up-line" />
     </button>
     <nav class="nav">
       <div class="spacer" />
       <div class="right print:opacity-0">
         <NuxtLink to="projects" title="Projects">
-          <span class="">Projects</span>
-          <Icon name="i-ri-folder-open-line" class="md:hidden" />
+          <span class="hidden md:block">Projects</span>
+          <UIcon name="i-ri-folder-open-line" class="md:hidden" />
         </NuxtLink>
+        <NuxtLink to="/blog" title="Blog">
+          <span class="hidden md:block">Blog</span>
+          <UIcon name="i-ri-article-line" class="md:hidden" />
+        </NuxtLink>
+        <NuxtLink to="/about" title="About">
+          <span class="hidden md:block">About</span>
+          <UIcon name="i-ri-user-line" class="md:hidden" />
+        </NuxtLink>
+        <NuxtLink to="/tools" title="Tools" class="hidden md:block">
+          Tools
+        </NuxtLink>
+        <NuxtLink to="/chat" title="Let's Chat">
+          <UIcon name="i-ri-chat-1-line" />
+        </NuxtLink>
+        <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="hidden md:block">
+          <UIcon name="i-ri-twitter-x-line" />
+        </a>
+        <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="hidden md:block">
+          <UIcon name="i-ri-github-line" />
+        </a>
+        <a href="/feed.xml" target="_blank" title="RSS" class="hidden md:block">
+          <UIcon name="i-ri-rss-line" style="margin: 0 -0.125rem;" />
+        </a>
+        <a class="text-gray-500">
+          <AppSwitchThemeMode />
+        </a>
       </div>
     </nav>
   </header>

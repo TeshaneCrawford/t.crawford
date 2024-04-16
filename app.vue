@@ -3,6 +3,7 @@
 <template>
   <div>
     <NuxtPwaManifest />
+    <AppNavbar />
     <NuxtPage />
   </div>
 </template>
