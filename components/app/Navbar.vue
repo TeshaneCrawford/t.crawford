@@ -38,19 +38,19 @@ const { y: scroll } = useWindowScroll();
           Tools
         </NuxtLink>
         <NuxtLink to="/chat" title="Let's Chat">
-          <UIcon name="i-ri-chat-1-line" />
+          <UIcon name="i-ri-chat-1-line" class="icon" />
         </NuxtLink>
         <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="hidden md:block">
-          <UIcon name="i-ri-twitter-x-line" />
+          <UIcon name="i-ri-twitter-x-line" class="icon" />
         </a>
         <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="hidden md:block">
-          <UIcon name="i-ri-github-line" />
+          <UIcon name="i-ri-github-line" class="icon" />
         </a>
         <a href="/feed.xml" target="_blank" title="RSS" class="hidden md:block">
-          <UIcon name="i-ri-rss-line" style="margin: 0 -0.125rem;" />
+          <UIcon name="i-ri-rss-line" style="margin: 0 -0.125rem;" class="icon" />
         </a>
         <a class="text-gray-500">
-          <AppSwitchThemeMode />
+          <AppSwitchThemeMode class="icon" />
         </a>
       </div>
     </nav>
@@ -106,5 +106,14 @@ const { y: scroll } = useWindowScroll();
 
 .nav .right>* {
   margin: auto;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.icon {
+  size: 1.2em;
+  font-size: 1.2rem;
 }
 </style>

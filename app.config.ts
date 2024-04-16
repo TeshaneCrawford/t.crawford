@@ -6,7 +6,8 @@ export default defineAppConfig({
       base: 'transition ease-in'
     },
     icons: {
-      size: '24px',
+      height: '1.2em',
+      width: '1.2em',
     },
   },
   nuxtIcon: {
