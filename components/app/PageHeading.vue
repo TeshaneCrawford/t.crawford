@@ -18,7 +18,7 @@ defineProps<{
               {{ title }}
             </slot>
           </AppPageTitle>
-          <p class="max-w-lg text-gray-500 dark:text-gray-400">
+          <p class="max-w-3xl text-gray-500 dark:text-gray-400 font-mono">
             <slot name="description">
               {{ description }}
             </slot>

@@ -3,13 +3,14 @@ import type { Toc } from '@nuxt/content/dist/runtime/types'
 import type { Method } from '~/types/methods'
 import { NuxtLink } from '#components'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   filename: string
   methods?: Method[]
   toc: Toc
 }>()
 
-const github = usePortfolio().value.github
+// const github = usePortfolio().value.github
 
 const communityLinks = [
   {
@@ -17,11 +18,11 @@ const communityLinks = [
     to: 'https://github.com/TeshaneCrawford/t.crawford',
     class: 'i-line-md-star-alt-twotone'
   },
-  {
-    name: 'Edit Page',
-    to: `https://github.com/${github.owner}/edit/${github.branch}/content/${props.filename}`,
-    class:'i-line-md-edit-twotone'
-  },
+  // {
+  //   name: 'Edit Page',
+  //   to: `https://github.com/${github.owner}/edit/${github.branch}/content/${props.filename}`,
+  //   class:'i-line-md-edit-twotone'
+  // },
   {
     name: 'Follow on X',
     to: 'https://x.com/_d_shybrid',

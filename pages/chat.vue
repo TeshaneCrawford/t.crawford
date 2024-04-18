@@ -4,8 +4,8 @@ const { data: doc } = await useAsyncData(route.path, () => queryContent(route.pa
 </script>
 
 <template>
-  <div>
-    <h2>
+  <AppPageHeading :title="doc?.title" :description="doc?.description">
+    <h2 class="text-4xl font-medium">
       {{ doc && doc.heading }}
     </h2>
     <div class="space-y-5">
@@ -22,12 +22,12 @@ const { data: doc } = await useAsyncData(route.path, () => queryContent(route.pa
 
         <div class="flex-1 border-b border-gray-300 border-dashed transition-colors hover:border-gray-700" />
 
-        <div class="border dark:border-gray-700 rounded-md p-2">
+        <div class="border dark:border-gray-700 rounded p-2">
           <Icon class="h-6 w-6 flex-none fill-gray-500" :name="link.icon" />
         </div>
       </NuxtLink>
     </div>
-  </div>
+  </AppPageHeading>
 </template>
 
 <style scoped></style>

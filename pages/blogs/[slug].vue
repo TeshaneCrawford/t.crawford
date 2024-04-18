@@ -51,10 +51,10 @@ useSchemaOrg([
   ),
 ])
 
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryContent('/blog')
-  .where({ _extension: 'md', navigation : { $ne: false } })
-  .without(['body', 'excerpt'])
-  .findSurround(route.path))
+// const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryContent('/blog')
+//   .where({ _extension: 'md', navigation : { $ne: false } })
+//   .without(['body', 'excerpt'])
+//   .findSurround(route.path))
 </script>
 
 <template>
