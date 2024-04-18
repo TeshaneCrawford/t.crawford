@@ -1,6 +1,6 @@
 ---
 title: "Let's Chat"
-description: "I'm always open to chat about anything, whether it's about tech, life, or anything else. Feel free to reach out to me on any of the platforms below."
+description: "I'm a software engineer with a passion for building things that make a difference. I'm always open to chat about anything, whether it's about tech, life, or anything else in scope of interest. Feel free to reach out to me on any of the platforms below."
 heading: "Find me on these platforms"
 links:
   - name: "LinkendIn"
