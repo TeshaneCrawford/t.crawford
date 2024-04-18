@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   },
 
   ui: {
-    icons: ['ri', 'logos', 'simple-icons', 'line-md', 'twemoji']
+    icons: ['ri', 'logos', 'simple-icons', 'line-md', 'twemoji', 'fluent']
   },
 
   app: {

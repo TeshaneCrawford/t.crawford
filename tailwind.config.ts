@@ -18,7 +18,8 @@ export default {
           '800': '#0861c5',
           '900': '#0d549b',
           '950': '#0e335d',
-        }
+        },
+        darkSecondary: "#25282A",
       }
     },
     fontFamily: {
