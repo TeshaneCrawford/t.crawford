@@ -51,19 +51,25 @@ useSchemaOrg([
   ),
 ])
 
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryContent('/blogs')
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryContent('/blog')
   .where({ _extension: 'md', navigation : { $ne: false } })
   .without(['body', 'excerpt'])
   .findSurround(route.path))
 </script>
 
 <template>
-  <div>
-    <ProseLayout :title="page?.title" :date="page?.datePublished" :toc="page?.toc" :filename="page?._file || ''" :methods="page?.methods">
-      <ContentRenderer :value="page?.value" />
-    </ProseLayout>
-    <PrevNext :prev="surround && surround[0] ? { _path: surround[0]._path, title: surround[0].title } : null" :next="surround && surround[1] ? { _path: surround[1]._path, title: surround[1].title } : null" />
-  </div>
+    <AppPageHeading>
+    <!--
+      <ProseLayout :title="page.title" :date="page.datePublished" :toc="page.body.toc" :filename="page._file" :methods="page.methods">
+        <ContentRenderer :value="page" />
+      </ProseLayout>
+      <PrevNext :prev="surround[0]" :next="surround[1]" />
+    </AppPageHeading>
+  -->
+  <h1>
+    Blog
+  </h1>
+  </AppPageHeading>
 </template>
 
 <style scoped></style>

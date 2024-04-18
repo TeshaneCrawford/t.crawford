@@ -34,7 +34,7 @@ const communityLinks = [
   <nav class="space-y-6 divide-y divide-gray-200 dark:divide-gray-800">
     <ProseNavigationGroup icon="i-ri-list-unordered">
       <template #title>
-        Sommaire
+        Summary
       </template>
       <ProseNavigationToc :toc="toc" />
     </ProseNavigationGroup>
