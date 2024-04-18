@@ -12,10 +12,10 @@ if (error.value) {
 }
 
 useSeoMeta({
-  title: page.value.title,
-  ogTitle: page.value.title,
-  description: page.value.description,
-  ogDescription: page.value.description,
+  title: page.value?.title,
+  ogTitle: page.value ? page.value.title : '',
+  description: page.value?.description,
+  ogDescription: page.value?.description,
 })
 
 useServerHead({
@@ -31,12 +31,12 @@ useServerHead({
     {
       name: 'publish_date',
       property: 'og:article:publish_date',
-      content: ISODate(page.value.datePublished),
-    },
-    {
-      name: 'modified_date',
-      property: 'og:article:modified_date',
-      content: ISODate(page.value.dateModified),
+        content: page.value ? ISODate(page.value.datePublished) : null,
+      },
+      {
+        name: 'modified_date',
+        property: 'og:article:modified_date',
+        content: page.value ? ISODate(page.value.dateModified) : null,
     },
   ]
 })
@@ -44,9 +44,9 @@ useServerHead({
 useSchemaOrg([
   defineArticle(
     {
-      image: page.value.image ?? '',
-      datePublished: ISODate(page.value.datePublished),
-      dateModified: ISODate(page.value.dateModified),
+      image: page.value?.image ?? '',
+      datePublished: page.value ? ISODate(page.value.datePublished) : null,
+      dateModified: page.value?.dateModified ? ISODate(page.value.dateModified) : null,
     },
   ),
 ])
@@ -59,10 +59,10 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => qu
 
 <template>
   <div>
-    <ProseLayout :title="page.title" :date="page.datePublished" :toc="page.body.toc" :filename="page._file" :methods="page.methods">
-      <ContentRenderer :value="page" />
+    <ProseLayout :title="page?.title" :date="page?.datePublished" :toc="page?.toc" :filename="page?._file || ''" :methods="page?.methods">
+      <ContentRenderer :value="page?.value" />
     </ProseLayout>
-    <PrevNext :prev="surround[0]" :next="surround[1]" />
+    <PrevNext :prev="surround && surround[0] ? { _path: surround[0]._path, title: surround[0].title } : null" :next="surround && surround[1] ? { _path: surround[1]._path, title: surround[1].title } : null" />
   </div>
 </template>
 

@@ -32,7 +32,7 @@ const communityLinks = [
 
 <template>
   <nav class="space-y-6 divide-y divide-gray-200 dark:divide-gray-800">
-    <ProseNavigationGroup icon="i-heroicons-list-bullet-20-solid">
+    <ProseNavigationGroup icon="i-ri-list-unordered">
       <template #title>
         Sommaire
       </template>

@@ -3,10 +3,10 @@ const route = useRoute()
 const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 
 useSeoMeta({
-  title: page.value.title,
-  ogTitle: page.value.title,
-  description: page.value.description,
-  ogDescription: page.value.description,
+  title: page?.value?.title,
+  ogTitle: page?.value?.title,
+  description: page?.value?.description,
+  ogDescription: page?.value?.description,
 })
 
 useSchemaOrg([
@@ -15,7 +15,7 @@ useSchemaOrg([
   }),
 ])
 
-const { data: blogs } = await useAsyncData('articles', () => queryContent('/blogs/').only(['_path', 'title', 'description', 'datePublished']).find())
+const { data: blogs } = await useAsyncData('blogs', () => queryContent('/blogs/').only(['_path', 'title', 'description', 'datePublished']).find())
 
 const search = ref('')
 const searchDebounced = refDebounced(search, 150)
@@ -55,10 +55,10 @@ const results = computed(() => {
     return currentBlogs
 
   return currentBlogs.sort((a, b) => {
-    if (a[orderBy.value] < b[orderBy.value])
+    if ((a as never)[orderBy.value] < (b as never)[orderBy.value])
       return -1 * order.value
 
-    if (a[orderBy.value] > b[orderBy.value])
+    if ((a as never)[orderBy.value] > (b as never)[orderBy.value])
       return 1 * order.value
 
     return 0
@@ -68,9 +68,50 @@ const results = computed(() => {
 </script>
 
 <template>
-  <div>
-    Page: blog/index
+  <AppPageHeading :title="page?.title" :description="page?.hero?.description ?? page?.description">
+    <div class="flex flex-col gap-8">
+    <div class="flex justify-between">
+        <UInput
+          v-model="search"
+          icon="i-heroicons-magnifying-glass-20-solid"
+          size="sm"
+          variant="outline"
+          color="white"
+          :trailing="false"
+          name="input"
+          placeholder="Search for an item"
+        />
+        <UButtonGroup size="sm" orientation="horizontal">
+          <UButton
+            :icon="order === 1 ? 'i-heroicons-bars-arrow-up-20-solid' : 'i-heroicons-bars-arrow-down-20-solid'"
+            color="white"
+            :title="order === 1 ? 'Ascending order' : 'Descending order'"
+            @click="toggleOrder()"
+          />
+          <USelectMenu
+            v-model="orderBy"
+            class="w-32"
+            :options="orderByOptions"
+            color="white"
+            placeholder="Trier par"
+            select-class="cursor-pointer"
+            value-attribute="id"
+            option-attribute="label"
+          >
+            <template #label>
+              {{ currentOrderBy?.label }}
+            </template>
+          </USelectMenu>
+        </UButtonGroup>
+      </div>
+      <AppGrid v-if="results.length">
+        <AppCard v-for="blog in results" :key="blog._path" :to="blog._path" :title="blog.title" :description="blog.description" :date="blog.datePublished" />
+      </AppGrid>
+      <p v-else class="text-center text-gray-500 dark:text-gray-400">
+        No blogs match your search.
+      </p>
   </div>
+  </AppPageHeading>
 </template>
 
 <style scoped></style>
