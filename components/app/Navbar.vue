@@ -24,27 +24,27 @@ const { y: scroll } = useWindowScroll();
       <div class="right print:opacity-0">
         <NuxtLink to="projects" title="Projects">
           <span class="hidden md:block">Projects</span>
-          <UIcon name="i-ri-folder-open-line" class="md:hidden" />
+          <UIcon name="i-fluent-folder-open-24-regular" class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/blogs" title="Blog">
           <span class="hidden md:block">Blog</span>
-          <UIcon name="i-ri-article-line" class="md:hidden" />
+          <UIcon name="i-line-md-text-box-multiple" class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/about" title="About">
           <span class="hidden md:block">About</span>
-          <UIcon name="i-ri-user-line" class="md:hidden" />
+          <UIcon name="i-fluent-document-one-page-sparkle-24-regular" class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/tools" title="Tools" class="hidden md:block">
           Tools
         </NuxtLink>
         <NuxtLink to="/chat" title="Let's Chat">
-          <UIcon name="i-ri-chat-1-line" class="icon" />
+          <UIcon name="i-fluent-chat-12-regular" class="icon" />
         </NuxtLink>
         <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="hidden md:block">
           <UIcon name="i-ri-twitter-x-line" class="icon" />
         </a>
         <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="hidden md:block">
-          <UIcon name="i-ri-github-line" class="icon" />
+          <UIcon name="i-line-md-github" class="icon" />
         </a>
         <a href="/feed.xml" target="_blank" title="RSS" class="hidden md:block">
           <UIcon name="i-ri-rss-line" style="margin: 0 -0.125rem;" class="icon" />
