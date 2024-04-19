@@ -24,7 +24,7 @@ const { y: scroll } = useWindowScroll();
       <div class="right print:opacity-0">
         <NuxtLink to="projects" title="Projects">
           <span class="hidden md:block">Projects</span>
-          <UIcon name="i-fluent-folder-open-24-regular" class="md:hidden" />
+          <UIcon name="i-fluent-folder-open-24-regular" class="md:hidden icon" />
         </NuxtLink>
         <NuxtLink to="/blogs" title="Blog">
           <span class="hidden md:block">Blog</span>

@@ -18,9 +18,9 @@ const { data: doc } = await useAsyncData(route.path, () => queryContent(route.pa
             :title="data.label"
             class="flex items-center"
             >
-            <icon v-if="data.icon" class="h-12 w-12 flex-none" :name="data.icon" :color="data.color" />
+            <icon v-if="data.icon" class="h-10 w-10" :name="data.icon" :color="data.color" />
           </NuxtLink>
-            <p class="text-center text-[13px] font-mono font-medium select-none">
+            <p class="text-center text-[12px] font-mono font-medium select-none">
                {{ data.name }}
             </p>
           </div>
