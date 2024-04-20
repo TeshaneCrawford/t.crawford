@@ -25,9 +25,13 @@ defineOgImageComponent('OgImagePage', {
 </script>
 
 <template>
-  <div>
-    Page: index
-  </div>
+  <main v-if="doc" class="">
+    <HomeHeroSection
+      class=""
+      :title="doc.hero.title"
+      :description="doc.hero.description"
+    />
+  </main>
 </template>
 
 <style scoped></style>

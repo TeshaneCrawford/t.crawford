@@ -32,7 +32,7 @@ const { data: doc } = await useAsyncData(route.path, () => queryContent(route.pa
             size="lg"
           /> -->
 
-        <div class="border dark:border-gray-700 hover:bg-gray-50 rounded p-2">
+        <div class="border dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-black/15 rounded p-2">
           <Icon class="h-6 w-6 flex-none fill-gray-500" :name="link.icon" />
         </div>
       </NuxtLink>
