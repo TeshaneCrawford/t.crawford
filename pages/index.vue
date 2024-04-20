@@ -27,10 +27,11 @@ defineOgImageComponent('OgImagePage', {
 <template>
   <main v-if="doc" class="">
     <HomeHeroSection
-      class=""
+      class="mt-28"
       :title="doc.hero.title"
       :description="doc.hero.description"
     />
+    <HomeSection :title="doc?.title"></HomeSection>
   </main>
 </template>
 

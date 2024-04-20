@@ -26,7 +26,7 @@ const subtileLinks = [{
     <sapn class="flex justify-center">
       <UBreadcrumb
       :ui="{
-        ol: 'gap-x-3',
+        ol: 'gap-x-1',
       }" :links="subtileLinks">
       <template #default="{ isActive, link }">
         <span :class="isActive ? 'text-gray-500 dark:text-gray-400' : 'text-gray-500 dark:text-gray-400'">{{ link.label }}</span>
