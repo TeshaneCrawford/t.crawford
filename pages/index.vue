@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: page } = await useAsyncData('home', () => queryContent('/').findOne())
+const { data: doc } = await useAsyncData('home', () => queryContent('/').findOne())
 
 const title = 'Teshane Crawford'
 
