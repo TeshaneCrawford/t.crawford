@@ -17,7 +17,7 @@ links:
     icon: "i-ri-twitter-x-line"
   - name: "Telegram"
     url: "https://t.me/TeshaneCrawford"
-    icon: "i-ri-telegram-line"
+    icon: "i-line-md-telegram"
   - name: "Threads"
     url: "https://www.threads.net/@teshanecrawford"
     icon: "i-ri-threads-line"

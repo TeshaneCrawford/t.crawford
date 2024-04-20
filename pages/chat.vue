@@ -22,9 +22,18 @@ const { data: doc } = await useAsyncData(route.path, () => queryContent(route.pa
 
         <div class="flex-1 border-b border-gray-300 border-dashed transition-colors hover:border-gray-700" />
 
-        <div class="border dark:border-gray-700 rounded p-2">
+        <UButton
+            class=""
+            :icon="link.icon"
+            variant="outline"
+            square
+            color="gray"
+            size="lg"
+          />
+
+        <!-- <div class="border dark:border-gray-700 rounded p-2">
           <Icon class="h-6 w-6 flex-none fill-gray-500" :name="link.icon" />
-        </div>
+        </div> -->
       </NuxtLink>
     </div>
   </AppPageHeading>
