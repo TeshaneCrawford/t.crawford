@@ -13,6 +13,7 @@ const { data: doc } = await useAsyncData(route.path, () => queryContent(route.pa
         v-for="link in doc?.links"
         :key="link.name"
         :to="link.url"
+        target="_blank"
         class="flex items-end gap-4 dark:hover:text-gray-300"
         >
 
