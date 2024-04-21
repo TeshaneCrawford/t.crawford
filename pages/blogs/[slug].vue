@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ISODate } from '~/utils/date';
 const route = useRoute()
 const { data: page, error } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 
@@ -31,12 +30,12 @@ useServerHead({
     {
       name: 'publish_date',
       property: 'og:article:publish_date',
-        content: page.value ? ISODate(page.value.datePublished) : null,
+        content: page.value ? toISODateString(page.value.datePublished) : null,
       },
       {
         name: 'modified_date',
         property: 'og:article:modified_date',
-        content: page.value ? ISODate(page.value.dateModified) : null,
+        content: page.value ? toISODateString(page.value.dateModified) : null,
     },
   ]
 })
@@ -45,8 +44,8 @@ useSchemaOrg([
   defineArticle(
     {
       image: page.value?.image ?? '',
-      datePublished: page.value ? ISODate(page.value.datePublished) : null,
-      dateModified: page.value?.dateModified ? ISODate(page.value.dateModified) : null,
+      datePublished: page.value ? toISODateString(page.value.datePublished) : null,
+      dateModified: page.value?.dateModified ? toISODateString(page.value.dateModified) : null,
     },
   ),
 ])
