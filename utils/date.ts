@@ -1,17 +1,15 @@
-export function formatDate(date: string | Date): string {
-  if (typeof date === 'string')
-    date = new Date(date)
+function toDate(date: string | Date | number) {
+  return new Date(date)
+}
 
-  return new Intl.DateTimeFormat('fr-FR', {
+export function toLocaleDateString(date: string | Date | number) {
+  return toDate(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-  }).format(date)
+  })
 }
 
-export function ISODate(date: string | Date): string {
-  if (typeof date === 'string')
-    date = new Date(date)
-
-  return date.toISOString()
+export function toISODateString(date: string | Date | number) {
+  return toDate(date).toISOString()
 }
