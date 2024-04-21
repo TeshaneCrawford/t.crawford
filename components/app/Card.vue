@@ -26,9 +26,9 @@ defineProps<{
           Date of publication
         </dt>
         <dd>
-          <time :datetime="ISODate(date)">
+          <!-- <time :datetime="ISODate(date)">
             {{ formatDate(date) }}
-          </time>
+          </time> -->
         </dd>
       </dl>
     </template>
