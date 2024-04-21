@@ -33,7 +33,7 @@ defineOgImageComponent('OgImagePage', {
     />
     <AppPageHeading class="mt-4">
       <ProseContentBody>
-        <ContentDoc v-slot="{ doc }" tag="about">
+        <ContentDoc tag="home">
         <article>
           <ContentRenderer :value="doc" />
         </article>
