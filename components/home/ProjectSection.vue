@@ -1,9 +1,18 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import type { ProjectCard } from '~/types/project';
+
+defineProps<{
+  title?: string;
+  cards: ProjectCard[];
+}>();
+</script>
 
 <template>
-  <div>
-    Component: home/ProjectSection
-  </div>
+      <HomeSection
+      :title="title || 'Projects'"
+    >
+    <HomeProjectCard v-for="card in cards" :key="card.title" :card="card" />
+  </HomeSection>
 </template>
 
 <style scoped></style>

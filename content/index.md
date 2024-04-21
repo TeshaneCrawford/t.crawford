@@ -1,15 +1,27 @@
 ---
 title: Teshane Crawford
 description: Solving problems and turning ideas in reality through programming
+projects:
+  cards:
+  - title: Project 1
+    description: This is a project that I worked on that does something really cool.
+    link: https://www.example.com
+    source: https://www.github.com
+    tools:
+      - JavaScript
+      - React
+      - Node.js
+  - title: Project 2
+    description: This is another project that I worked on that does something really cool.
+    link: https://www.example.com
+    source: https://www.github.com
+    tools:
+      - JavaScript
+      - Vue
+      - Nuxt
+      - Python
 section:
   - title: Projects
-  - projects:
-      - title: Project 1
-        description: This is a project that I worked on that does something really cool.
-        link: https://www.example.com
-      - title: Project 2
-        description: This is another project that I worked on that does something really cool.
-        link: https://www.example.com
   - title: Recent Posts
   - posts:
       - title: Post 1

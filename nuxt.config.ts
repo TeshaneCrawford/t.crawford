@@ -16,7 +16,8 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     "@vueuse/nuxt",
     "@nuxt/content",
-    "@vite-pwa/nuxt"
+    "@vite-pwa/nuxt",
+    "@nuxt/image"
   ],
 
   runtimeConfig: {

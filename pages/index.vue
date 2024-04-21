@@ -40,12 +40,9 @@ defineOgImageComponent('OgImagePage', {
       </ContentDoc>
       </ProseContentBody>
     </AppPageHeading>
-    <HomeSection
-      v-for="link in doc?.section"
-      :key="link.title"
-      :title="link.title"
-    >
-  </HomeSection>
+    <HomeProjectSection
+    :cards="doc.projects.cards"
+    />
   </main>
 </template>
 
