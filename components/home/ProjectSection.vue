@@ -2,7 +2,7 @@
 import type { ProjectCard } from '~/types/project';
 
 defineProps<{
-  subtitle?: string;
+  projecttitle?: string;
   cards: ProjectCard[];
 }>();
 
@@ -11,7 +11,7 @@ defineProps<{
 
 <template>
       <HomeSection
-      :title="subtitle || 'Projects'"
+      :title="projecttitle || 'Projects'"
     >
     <HomeProjectCard v-for="card in cards" :key="card.title" :card="card" />
   </HomeSection>

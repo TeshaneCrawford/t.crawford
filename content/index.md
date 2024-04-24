@@ -1,7 +1,16 @@
 ---
 title: Teshane Crawford
-subtitle: Recent Projects
+projecttitle: Recent Projects
+blogtitle: Recent Posts
 description: Solving problems and turning ideas in reality through programming
+# about section
+about:
+  title: About Me
+  content: I am a software engineer with experience in various technologies including **JavaScript**, **C#**, **TypeScript**, **ASP.NET Core**, **React**, **Vue**, **Nuxt**, **Angular**, and **Python**. I have a passion for building scalable and efficient applications that solve real-world problems.
+  resume: https://www.example.com
+  email: mailto:
+
+# project section
 projects:
   cards:
   - title: Project 1
@@ -21,9 +30,9 @@ projects:
       - Vue
       - Nuxt
       - Python
-section:
-  - title: Projects
-  - title: Recent Posts
+# blog section
+blogs:
+  cards:
   - posts:
       - title: Post 1
         description: This is a post that I wrote about something really cool.
