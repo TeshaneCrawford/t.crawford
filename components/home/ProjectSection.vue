@@ -2,14 +2,16 @@
 import type { ProjectCard } from '~/types/project';
 
 defineProps<{
-  title?: string;
+  subtitle?: string;
   cards: ProjectCard[];
 }>();
+
+
 </script>
 
 <template>
       <HomeSection
-      :title="title || 'Projects'"
+      :title="subtitle || 'Projects'"
     >
     <HomeProjectCard v-for="card in cards" :key="card.title" :card="card" />
   </HomeSection>

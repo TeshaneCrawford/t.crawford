@@ -1,5 +1,6 @@
 ---
 title: Teshane Crawford
+subtitle: Recent Projects
 description: Solving problems and turning ideas in reality through programming
 projects:
   cards:

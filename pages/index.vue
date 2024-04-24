@@ -41,6 +41,7 @@ defineOgImageComponent('OgImagePage', {
       </ProseContentBody>
     </AppPageHeading>
     <HomeProjectSection
+    :subtitle="doc.subtitle"
     :cards="doc.projects.cards"
     />
   </main>
