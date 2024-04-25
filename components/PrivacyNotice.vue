@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <p>
+    <p class="text-sm font-normal mt-6 border-t pt-4 text-gray-500">
       <slot />
     </p>
   </div>
