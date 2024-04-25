@@ -32,16 +32,16 @@ defineProps<{
         :ui="{
           font: 'font-semibold'
         }"
-        :label="'Contact Me'"
+        :label="'Got an idea? . Contact Me&nbsp;&nbsp;💬'"
         :icon="'i-line-md-email'"
-        to="mailto:crawfordteshane@gmail.com"
+        to="/chat"
         target="_blank"
       />
       <UButton
         class="mt-4 ml-4 "
         size="xl"
         color="gray" variant="solid"
-        :label="'View my Work'"
+        :label="'See my work'"
         :icon="'i-line-md-github'"
         to="https:github.com/TeshaneCrawford"
         target="_blank"

@@ -2,7 +2,7 @@
 title: Teshane Crawford
 projecttitle: Recent Projects
 blogtitle: Recent Posts
-description: Solving problems and turning ideas in reality through programming
+description: Solving problems with exceptional software solutions.
 # about section
 about:
   title: About Me
@@ -44,4 +44,4 @@ blogs:
     content: If you would like to get in touch with me, you can reach me at [
 ---
 
-I am a software engineer with experience in various technologies including **JavaScript**, **C#**, **TypeScript**, **ASP.NET Core**, **React**, **Vue**, **Nuxt**, **Angular**, and **Python**. I have a passion for building scalable and efficient applications that solve real-world problems.
+I am a software engineer with experience in various technologies including **JavaScript**, **C#**, **TypeScript**, **ASP.NET Core**, **React**, **Vue**, **Nuxt**, **Angular**, and **Python**. I create high-quality software solutions for your business needs.
