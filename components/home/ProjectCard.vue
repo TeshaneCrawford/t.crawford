@@ -10,15 +10,22 @@ defineProps<{
   <div>
     <div>
       <!-- <NuxtImg :src="card.image" alt="project" class="w-full h-48 object-cover" /> -->
-      <span>{{ card.tools }}</span>
+      <span>{{ card.tags }}</span>
       <h3 class="text-xl font-bold mt-4">{{ card.title }}</h3>
     </div>
     <div>
       <p>{{ card.description }}</p>
     </div>
     <div>
-      <NuxtLink :to="card.link" target="_blank" class="btn btn-primary">View Demo</NuxtLink>
-      <NuxtLink :to="card.source" target="_blank" class="btn btn-secondary">View Source</NuxtLink>
+      <ProjectTagList :tags="card.tags" />
+      <NuxtLink :to="card.link" target="_blank" class="btn btn-primary">
+        <Icon name="i-line-md-external-link-rounded" class="mr-2" />
+        <span>Demo</span>
+      </NuxtLink>
+      <NuxtLink :to="card.source" target="_blank" class="btn btn-secondary">
+        <Icon name="i-ri-github-fill" class="mr-2" />
+        <span>Source</span>
+      </NuxtLink>
     </div>
   </div>
 </template>

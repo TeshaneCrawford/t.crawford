@@ -4,5 +4,5 @@ export interface ProjectCard {
   // image: string
   link: string
   source: string
-  tools: string[]
+  tags: string[]
 }
