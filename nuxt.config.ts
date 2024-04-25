@@ -17,7 +17,8 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/content",
     "@vite-pwa/nuxt",
-    "@nuxt/image"
+    "@nuxt/image",
+    "@dargmuesli/nuxt-cookie-control"
   ],
 
   runtimeConfig: {
