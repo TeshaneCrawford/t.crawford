@@ -1,3 +1,4 @@
+import { cookieConfig } from './config/cookie'
 import { pwa } from './config/pwa'
 import { appDescription } from './utils/appmetadata'
 
@@ -75,4 +76,23 @@ export default defineNuxtConfig({
   },
 
   pwa,
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'],
+    }
+  },
+
+  sitemap: {
+    autoLastmod: true,
+    exclude: ['/data-protection', '/imprint', '/privacy-policy', '/terms-and-conditions'],
+  },
+
+  cookieControl: cookieConfig,
+
+  experimental: {
+    typedPages: true,
+    inlineRouteRules: true,
+  },
 })
