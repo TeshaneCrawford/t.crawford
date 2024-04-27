@@ -8,7 +8,7 @@ import { locale } from '~/config/cookie';
       <p>
         This website uses cookies to analyze site performance and to deliver an interactive experience. By
 				clicking "<strong class="!font-bold">Accept all</strong>", you consent to our
-				<NuxtLink :to="{ name: 'privacy' }" class="UILink">Cookie Policy</NuxtLink>. You may change your
+				<NuxtLink :to="{ name: 'data-protection' }" class="UILink">Cookie Policy</NuxtLink>. You may change your
 				settings at any time.
       </p>
     </template>
