@@ -8,7 +8,7 @@ about:
   title: About Me
   content: I am a software engineer with experience in various technologies including **JavaScript**, **C#**, **TypeScript**, **ASP.NET Core**, **React**, **Vue**, **Nuxt**, **Angular**, and **Python**. I have a passion for building scalable and efficient applications that solve real-world problems.
   resume: https://www.example.com
-  email: mailto:
+  email: mailto:@
 
 # project section
 projects:

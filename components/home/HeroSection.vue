@@ -24,7 +24,7 @@ defineProps<{
       </span>
     </p>
     <p class="text-center mt-4 text-lg">{{ description }}</p>
-    <div class="flex justify-center">
+    <div class="flex justify-center flex-wrap sm:flex-nowrap">
       <UButton
         class="mt-4 dark:bg-gray-300 dark:hover:bg-gray-200"
         size="xl"
@@ -33,7 +33,7 @@ defineProps<{
           font: 'font-semibold'
         }"
         :label="'Got an idea? . Contact Me&nbsp;&nbsp;💬'"
-        :icon="'i-line-md-email'"
+        :icon="''"
         to="/chat"
         target="_blank"
       />

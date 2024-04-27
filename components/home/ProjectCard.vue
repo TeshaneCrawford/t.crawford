@@ -19,7 +19,7 @@ defineProps<{
     <div>
       <ProjectTagList :tags="card.tags" />
       <NuxtLink :to="card.link" target="_blank" class="btn btn-primary">
-        <Icon name="i-line-md-external-link-rounded" class="mr-2" />
+        <Icon name="i-ri-link" class="mr-2" />
         <span>Demo</span>
       </NuxtLink>
       <NuxtLink :to="card.source" target="_blank" class="btn btn-secondary">
