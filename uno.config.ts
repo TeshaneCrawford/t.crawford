@@ -92,6 +92,7 @@ export default defineConfig({
         [`--${n}`]: v,
       }
     }],
+    [/^view-transition-([\w-]+)$/, ([, name]) => ({ 'view-transition-name': name })],
   ],
   theme: {
     colors: {
