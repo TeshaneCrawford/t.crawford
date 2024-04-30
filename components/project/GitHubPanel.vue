@@ -19,6 +19,7 @@ interface Projects {
 const { data: projects } = useFetch<Array<Projects>>(`https://api.github.com/users/${github.handle}/repos`)
 
 const formattedProjects = computed(() => {
+  // eslint-disable-next-line vue/no-side-effects-in-computed-properties
   const data = projects.value?.sort((a, b) => b.stargazers_count - a.stargazers_count)
   return data?.filter((el, ind) => ind < 50)
 })
