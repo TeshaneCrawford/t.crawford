@@ -1,5 +1,12 @@
 <script lang="ts" setup>
-import type { ProjectCard } from '~/types/project';
+export interface ProjectCard {
+  title: string
+  description: string
+  // image: string
+  link: string
+  source: string
+  tags: string[]
+}
 
 defineProps<{
   projecttitle?: string;
