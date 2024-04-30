@@ -8,6 +8,8 @@ const items = [{
   label: 'GitHub',
   description: 'Highlighted github repositories'
 }]
+
+// const { data: repoGroup } = await useFetch('/api/repos')
 </script>
 
 <template>
@@ -17,9 +19,9 @@ const items = [{
         <ProjectCard />
       </div>
 
-      <div v-else-if="item.key === 'github'">
-        <ProjectGitHubPanel />
-      </div>
+      <!-- <div v-else-if="item.key === 'github'">
+        <ProjectGitHubPanel v-for="(repos, key) in repoGroup" :key="key.toString()" :label="key.toString()" :data="repos" />
+      </div> -->
     </template>
   </UTabs>
 </template>
