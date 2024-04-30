@@ -22,6 +22,7 @@
     "@nuxtjs/seo": "^2.0.0-rc.10",
     "@vite-pwa/nuxt": "^0.6.0",
     "nuxt": "^3.11.2",
+    "octokit": "^3.2.0",
     "vue": "^3.4.25",
     "vue-router": "^4.3.2"
   },
