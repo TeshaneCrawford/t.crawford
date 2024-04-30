@@ -1,75 +1,14 @@
-# Nuxt 3 Minimal Starter
+# Teshane Crawford
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+**[teshanecrawford.live](https://teshanecrawford.live)**
 
-## Setup
+My personal website, built with [Nuxt 3](https://nuxt.com/), [Vue.js 3](https://vuejs.org/), [Tailwind CSS](https://tailwindcss.com), and [Vercel](https://www.vercel.com/).
+<br>
 
-Make sure to install the dependencies:
+<samp>Code is licensed under <a href='./LICENSE'>MIT</a>,<br> Words and images are licensed under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>.
 
-```bash
-# npm
-npm install
+## Activity
 
-# pnpm
-pnpm install
+Recent activity from my GitHub profile.
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+![Teshane's GitHub stats](https://github-readme-stats.vercel.app/api?username=teshanecrawford&count_private=true&show_icons=true&theme=light)
