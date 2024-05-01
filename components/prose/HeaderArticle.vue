@@ -42,7 +42,7 @@ defineProps<{
             <dd class="capitalize">
               <ul class="categories flex gap-1">
                 <li v-for="(category, index) in categories" :key="category" class="flex">
-                  <NuxtLink :to="`/blog/categories/${category}`">
+                  <NuxtLink :to="`/blogs/categories/${category}`">
                     {{ category }}
                   </NuxtLink>
                   <span v-if="index !== categories.length - 1">,</span>
@@ -62,7 +62,7 @@ defineProps<{
           <ul class="mt-6 flex flex-wrap gap-4 md:gap-8">
             <li v-for="author in authors" :key="author.name">
               <address class="flex items-center gap-2 not-italic">
-                <img :src="author.picture" :alt="`Profil picture of ${author.name}`" width="36" height="36" class="w-9 h-9 rounded-full">
+                <img :src="author.picture" :alt="`Profile picture of ${author.name}`" width="36" height="36" class="w-9 h-9 rounded-full">
                 <div class="text-sm">
                   <div class="text-gray-950 dark:text-gray-50 leading-none font-light">
                     {{ author.name }}

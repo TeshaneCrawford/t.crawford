@@ -1,0 +1,4 @@
+---
+title: "My Blogs"
+description: "Welcome to my blog! Here you will find a collection of articles on software development, technology, and other topics that interest me. I hope you enjoy reading them!"
+---

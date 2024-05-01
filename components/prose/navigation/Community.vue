@@ -17,7 +17,7 @@ defineProps<{
       >
         Star on GitHub
       </ProseNavigationGroupLink>
-      <ProseNavigationGroupLink v-if="filename" :to="toEditPage(filename)" target="_blank" icon="i-heroicons-pencil-square-20-solid">
+      <ProseNavigationGroupLink v-if="filename" :to="(filename)" target="_blank" icon="i-heroicons-pencil-square-20-solid">
         Edit this page
       </ProseNavigationGroupLink>
     </template>

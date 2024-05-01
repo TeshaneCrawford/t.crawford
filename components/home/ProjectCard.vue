@@ -17,7 +17,7 @@ defineProps<{
   <div>
     <div>
       <!-- <NuxtImg :src="card.image" alt="project" class="w-full h-48 object-cover" /> -->
-      <span>{{ card.tags }}</span>
+      <!-- <span>{{ card.tags }}</span> -->
       <h3 class="text-xl font-bold mt-4">{{ card.title }}</h3>
     </div>
     <div>

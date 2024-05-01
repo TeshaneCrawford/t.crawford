@@ -17,15 +17,15 @@ projects:
     description: This is a project that I worked on that does something really cool.
     link: https://www.example.com
     source: https://www.github.com
-    tools:
+    tags:
       - JavaScript
       - React
-      - Node.js
+      - Nestjs
   - title: Project 2
     description: This is another project that I worked on that does something really cool.
     link: https://www.example.com
     source: https://www.github.com
-    tools:
+    tags:
       - JavaScript
       - Vue
       - Nuxt
