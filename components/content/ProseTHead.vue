@@ -1,9 +1,18 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
-    Component: content/ProseTHead
-  </div>
+  <thead>
+    <slot />
+  </thead>
 </template>
 
-<style scoped></style>
+<style scoped>
+:deep(th) {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-color: theme('colors.zinc.300');
+
+  text-align: left;
+}
+</style>
