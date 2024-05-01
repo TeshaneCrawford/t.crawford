@@ -33,7 +33,6 @@ defineProps<{
           font: 'font-semibold'
         }"
         :label="'Got an idea? . Contact Me&nbsp;&nbsp;💬'"
-        :icon="''"
         to="/chat"
         target="_blank"
       />
@@ -42,9 +41,8 @@ defineProps<{
         size="xl"
         color="gray" variant="solid"
         :label="'See my work'"
-        :icon="'i-line-md-github'"
-        to="https:github.com/TeshaneCrawford"
-        target="_blank"
+        :icon="'i-line-md-briefcase-filled'"
+        to="/projects"
       />
     </div>
   </section>
