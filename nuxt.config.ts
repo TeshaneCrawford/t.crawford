@@ -12,11 +12,11 @@ export default defineNuxtConfig({
   },
   modules: [
     "@nuxt/eslint",
+    "@nuxt/content",
     "@nuxt/ui",
     "@nuxt/fonts",
     "@nuxtjs/seo",
     "@vueuse/nuxt",
-    "@nuxt/content",
     "@vite-pwa/nuxt",
     "@nuxt/image",
     "@dargmuesli/nuxt-cookie-control"
