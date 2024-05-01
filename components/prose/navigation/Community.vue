@@ -12,7 +12,7 @@ defineProps<{
     <template #links>
       <slot name="before" />
       <ProseNavigationGroupLink
-        to="https://github.com/unjs/website" target="_blank"
+        to="https://github.com/TeshaneCrawford" target="_blank"
         icon="i-simple-icons-github"
       >
         Star on GitHub
