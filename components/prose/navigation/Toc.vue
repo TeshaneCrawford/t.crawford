@@ -1,35 +1,37 @@
 <script lang="ts" setup>
 import type { Toc } from '@nuxt/content/dist/runtime/types'
-import { NuxtLink } from '#components'
 
-defineProps<{
-  toc: Toc
-}>()
+const toc = inject<Toc>('toc')
 
 const { activeHeadings } = useScrollSpyHeadings()
 
-function isActive(id: string) {
-  return activeHeadings.value.includes(id)
+function activeClass(id: string): string {
+  return activeHeadings.value.includes(id) ? '!dark:text-primary !text-primary-600' : '' // Important to override text-zinc-900
 }
 </script>
 
 <template>
-  <ul class="text-gray-500 dark:text-gray-400 text-sm space-y-2">
-    <li v-for="link in toc.links" :key="link.id">
-      <ProseNavigationGroupItem :is="NuxtLink" :to="`#${link.id}`" class="block" :class="isActive(link.id) ? 'text-sky-500 dark:text-sky-400!' : ''">
-        {{ link.text }}
-      </ProseNavigationGroupItem>
-      <template v-if="link.children">
-        <ul class="ml-2 pl-4 my-2 border-l border-gray-300 dark:border-gray-700 space-y-2">
-          <li v-for="child in link.children" :key="child.id">
-            <ProseNavigationGroupItem :is="NuxtLink" :to="`#${child.id}`" class="block" :class="isActive(child.id) ? 'text-sky-500 dark:text-sky-400!' : ''">
-              {{ child.text }}
-            </ProseNavigationGroupItem>
-          </li>
-        </ul>
-      </template>
-    </li>
-  </ul>
+  <ProseNavigationGroup icon="i-heroicons-bars-3-solid">
+    <template #title>
+      On this page
+    </template>
+    <template #links>
+      <ol v-if="toc" class="text-gray-500 dark:text-gray-400">
+        <li v-for="link in toc.links" :key="link.id">
+          <ProseNavigationGroupLink :to="`#${link.id}`" :class="activeClass(link.id)">
+            {{ link.text }}
+          </ProseNavigationGroupLink>
+          <ol v-if="link.children" class="ml-4 text-gray-500 dark:text-gray-400">
+            <li v-for="child in link.children" :key="child.id">
+              <ProseNavigationGroupLink :to="`#${child.id}`" :class="activeClass(child.id)">
+                {{ child.text }}
+              </ProseNavigationGroupLink>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </template>
+  </ProseNavigationGroup>
 </template>
 
 <style scoped></style>
