@@ -2,9 +2,9 @@
 title: H3 1.8 - Towards the Edge of the Web
 description: New h3 release with web and plain adapters, web streams support, object syntax event handlers, typed event handler requests and more!
 authors:
-  - name: Pooya Parsa
+  - name: Teshane Crawford
     picture: https://github.com/TeshaneCrawford.png
-    twitter: _pi0_
+    twitter: _d_shybrid
 categories:
   - h3
   - release

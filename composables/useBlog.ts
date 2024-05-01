@@ -6,7 +6,7 @@ import type { BlogPostCard } from '~/types/blog'
 import type { Author } from '~/types/author'
 
 export function useBlog() {
-  const fields = ['_path', 'title', 'description', 'publishedAt', 'authors', 'packages', 'categories']
+  const fields = ['_path', 'title', 'description', 'publishedAt', 'authors', 'categories']
   const miniSearch = new MiniSearch({
     idField: 'title',
     fields: ['title', 'description'],
@@ -28,7 +28,7 @@ export function useBlog() {
 
   // This is important to avoid a merge the URL and some data in storage for each missing query in URL. We cannot directly check for query to avoid having UTM breaking the system.
   const hasQuery = computed(() => {
-    return route.query.q || route.query['categories[]'] || route.query['packages[]'] || route.query['authors[]'] || route.query.order || route.query.orderby
+    return route.query.q || route.query['categories[]'] || route.query['authors[]'] || route.query.order || route.query.orderby
   })
 
   const defaultQ: string = ''
@@ -102,7 +102,7 @@ export function useBlog() {
     return route.query.orderBy as LocationQueryValue || defaultOrderBy
   })
 
-  const updateQuery = (query?: { 'q'?: string, 'categories[]'?: string[], 'packages[]'?: string[], 'authors[]'?: string[], 'order'?: Order, 'orderBy'?: string }) => {
+  const updateQuery = (query?: { 'q'?: string, 'categories[]'?: string[], 'authors[]'?: string[], 'order'?: Order, 'orderBy'?: string }) => {
     navigateTo({
       query: {
         ...route.query,
@@ -166,7 +166,7 @@ export function useBlog() {
   }
 
   const fetchBlogArticles = async () => {
-    const { data: res, error } = await useAsyncData('content:use-blog:data', () => queryContent('/blog/').only(fields).sort({ publishedAt: -1 }).find())
+    const { data: res, error } = await useAsyncData('content:use-blog:data', () => queryContent('/blogs/').only(fields).sort({ publishedAt: -1 }).find())
 
     if (error.value) {
       throw createError({
@@ -184,7 +184,6 @@ export function useBlog() {
   const storage = useStorage('blog', {
     'q': '' as null | string,
     'categories[]': [] as null | string | (string | null)[],
-    'packages[]': [] as null | string | (string | null)[],
     'authors[]': [] as null | string | (string | null)[],
     'order': -1 as null | Order,
     'orderBy': orderByOptions[0].id as null | string,
@@ -198,7 +197,6 @@ export function useBlog() {
     // Do not define default value. Must be defined in the query.
     const q = query.q as LocationQueryValue
     const categories = query['categories[]'] as LocationQueryValue[]
-    const packages = query['packages[]'] as LocationQueryValue[]
     const authors = query['authors[]'] as LocationQueryValue[]
     const order = Number(query.order as LocationQueryValue) as Order
     const orderBy = query.orderBy as LocationQueryValue as string
@@ -206,7 +204,6 @@ export function useBlog() {
     storage.value = {
       q,
       'categories[]': categories,
-      'packages[]': packages,
       'authors[]': authors,
       order,
       orderBy,
