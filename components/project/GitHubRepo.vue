@@ -1,56 +1,62 @@
-<script setup lang="ts">
-interface Props {
-  name: string
-  description: string
-  star: number
-  language: string
-  link: string
-}
+<script lang="ts" setup>
+import type { Repo } from '~/types/project';
 
-withDefaults(defineProps<Props>(), {
-  name: 'no name',
-  description: 'no description ',
-  star: 0,
-  language: 'no language',
-  link: '-',
-})
+defineProps<{
+  repo: Repo
+}>()
+
+// const getLanguageColor = (language: string): string => {
+//   // Add your implementation here
+//   return '';
+// }
 </script>
 
 <template>
-  <a
-    :href="link"
-    target="_blank"
-    class="overflow-hidden border dark:border-gray-700 shadow rounded-xl"
-  >
-    <div
-      class="flex flex-col justify-between gap-y-2  hover:scale-[1.01] ease-out transition-transform px-5 py-3"
-    >
-      <div class="flex flex-col gap-y-2">
-        <div class="flex items-center space-x-2">
-          <Icon name="logos:github-octocat" size="20" />
-          <p class="text-xl font-medium">{{ name }}</p>
-        </div>
-        <p>{{ description }}</p>
-      </div>
-      <div class="flex items-center gap-x-5">
-        <div class="flex space-x-2 items-center">
-          <Icon name="heroicons:star" size="20" class="dark:text-cyan-500" />
-          <span>{{ star }}</span>
-        </div>
-        <div class="flex space-x-2 items-center">
-          <!-- <Icon name="heroicons:tag" size="20" class="dark:text-cyan-500" /> -->
-          <span >
+  <article>
+    <NuxtLink :to="repo.homepage || repo.html_url" target="_blank">
+      <h5>
+        <Icon name="i-ri-git-repository-line" />
+        <span>{{ repo.name }}</span>
+        <span
+          class="inline-block fw-normal important-rounded-full"
+          :class="repo.is_template ? 'dark-badge-xs-yellow badge-xs-blue' : 'dark-badge-xs-teal badge-xs-red'"
+        >
+          {{ repo.private ? 'Private' : 'Public' }}
+          {{ repo.is_template ? 'Template' : '' }}
+        </span>
+      </h5>
+      <p>{{ repo.description }}</p>
+      <p>
+        <span v-if="repo.language">
           <div
             class="h-3 w-3 inline-flex rounded-full"
-            :style="{ backgroundColor: language ? getLanguageColor(language) : '' }"
+            :style="{ backgroundColor: repo.language ? getLanguageColor(repo.language) : '' }"
           />
-          {{ language }}
+          {{ repo.language }}
         </span>
-          <!-- <div class="">{{ language }}</div> -->
-        </div>
-      </div>
-    </div>
-  </a>
+        <NuxtLink
+          v-if="repo.stargazers_count"
+          target="_blank"
+          class="decoration-inherit"
+          :to="`https://github.com/${repo.full_name}/stargazers`"
+        >
+          <span v-if="repo.stargazers_count" class="gap-1">
+            <Icon name="i-ri-star-line" />
+            {{ repo.stargazers_count }}
+          </span>
+        </NuxtLink>
+        <NuxtLink
+          v-if="repo.forks_count"
+          target="_blank"
+          :to="`https://github.com/${repo.full_name}/network/members`"
+          class="fsc gap-1 decoration-inherit"
+        >
+          <Icon name="i-ri-git-fork-line" />
+          {{ repo.forks_count }}
+        </NuxtLink>
+      </p>
+    </NuxtLink>
+  </article>
 </template>
 
 <style scoped></style>
