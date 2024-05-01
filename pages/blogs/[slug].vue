@@ -36,7 +36,7 @@ useSchemaOrg([
     })),
   }),
 ])
-defineOgImageComponent('OgImageBlog')
+// defineOgImageComponent('OgImageBlog')
 // useTrackPageview()
 
 const packages = ref<{ _path: string, title: string }[] | null>()

@@ -20,7 +20,7 @@ useSchemaOrg([
     '@type': 'CollectionPage',
   }),
 ])
-defineOgImageComponent('OgImagePage')
+// defineOgImageComponent('OgImagePage')
 // useTrackPageview()
 
 const categories = computed(() => {

@@ -18,10 +18,10 @@ useSeoMeta({
   description: doc.value?.description,
 })
 
-defineOgImageComponent('OgImagePage', {
-  title: 'Teshane Crawford',
-  illustration: ''
-})
+// defineOgImageComponent('OgImagePage', {
+//   title: 'Teshane Crawford',
+//   illustration: ''
+// })
 </script>
 
 <template>

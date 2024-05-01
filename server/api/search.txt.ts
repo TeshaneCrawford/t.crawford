@@ -1,5 +1,6 @@
 import MiniSearch from 'minisearch'
 import { serverQueryContent } from '#content/server'
+import { splitPageIntoSections } from '../utils/search'
 
 export default defineEventHandler(async (event) => {
   const files = await serverQueryContent(event).find()

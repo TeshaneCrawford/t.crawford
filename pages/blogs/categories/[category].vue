@@ -3,9 +3,9 @@ import type { NuxtError } from '#app'
 import type { BlogPostCard } from '~/types/blog'
 
 const route = useRoute()
-const category = route.params.category as string
+const category = (route.params as { category?: string }).category || '';
 
-const { data, error } = await useAsyncData(`blog:categories:${category}`, () => queryContent('/blogs/').only(['_path', 'title', 'description', 'publishedAt', 'authors', 'packages']).where({ categories: { $contains: category } }).find()) as { data: Ref<BlogPostCard[]>, error: Ref<NuxtError | null> }
+const { data, error } = await useAsyncData(`blog:categories:${category}`, () => queryContent('/blogs/').only(['_path', 'title', 'description', 'publishedAt', 'authors']).where({ categories: { $contains: category } }).find()) as { data: Ref<BlogPostCard[]>, error: Ref<NuxtError | null> }
 
 if (error.value) {
   throw createError({
@@ -31,14 +31,14 @@ useSchemaOrg([
     '@type': 'CollectionPage',
   }),
 ])
-defineOgImageComponent('OgImagePage')
+// defineOgImageComponent('OgImagePage')
 // useTrackPageview()
 </script>
 
 <template>
-  <Head>
+  <!-- <Head>
     <SchemaOrgWebPage :type="['CollectionPage']" />
-  </Head>
+  </Head> -->
   <AppMain v-if="data">
     <template #header>
       <AppPageHeading :description="description">

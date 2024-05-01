@@ -20,9 +20,9 @@ useSchemaOrg([
     '@type': 'CollectionPage',
   }),
 ])
-defineOgImageComponent('OgImagePage', {
-  illustration: '/assets/header/dark/blog.png',
-})
+// defineOgImageComponent('OgImagePage', {
+//   illustration: '/assets/header/dark/blog.png',
+// })
 // useTrackPageview()
 
 const {
