@@ -1,74 +1,78 @@
 <script lang="ts" setup>
+import type { BlogPost } from '~/types/blog'
+
 const route = useRoute()
-const { data: page, error } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
+
+const { data: page, error } = await useAsyncData(route.path, () => queryContent<BlogPost>(route.path).findOne())
 
 if (error.value) {
   throw createError({
     statusCode: 404,
     message: 'Page not found',
-    fatal: true
+    fatal: true,
   })
 }
 
+useHead({
+  templateParams: {
+    subtitle: 'Blog',
+  },
+  titleTemplate: '%s %separator %subtitle %separator %siteName',
+})
 useSeoMeta({
   title: page.value?.title,
-  ogTitle: page.value ? page.value.title : '',
   description: page.value?.description,
-  ogDescription: page.value?.description,
+  articlePublishedTime: page.value?.publishedAt,
+  articleModifiedTime: page.value?.modifiedAt,
 })
-
-useServerHead({
-  meta: [
-    {
-      name: 'Author',
-      content: 'Teshane Crawford'
-    },
-    {
-      property: 'og:article:author',
-      content: 'Teshane Crawford'
-    },
-    {
-      name: 'publish_date',
-      property: 'og:article:publish_date',
-        content: page.value ? toISODateString(page.value.datePublished) : null,
-      },
-      {
-        name: 'modified_date',
-        property: 'og:article:modified_date',
-        content: page.value ? toISODateString(page.value.dateModified) : null,
-    },
-  ]
-})
-
 useSchemaOrg([
-  defineArticle(
-    {
-      image: page.value?.image ?? '',
-      datePublished: page.value ? toISODateString(page.value.datePublished) : null,
-      dateModified: page.value?.dateModified ? toISODateString(page.value.dateModified) : null,
-    },
-  ),
+  defineArticle({
+    '@type': 'BlogPosting',
+    'datePublished': page.value?.publishedAt,
+    'dateModified': page.value?.modifiedAt,
+    'author': page.value?.authors?.map(author => ({
+      name: author.name,
+      url: `https://x.com/${author.twitter}`,
+    })),
+  }),
 ])
+defineOgImageComponent('OgImageBlog')
+// useTrackPageview()
 
-// const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryContent('/blog')
-//   .where({ _extension: 'md', navigation : { $ne: false } })
-//   .without(['body', 'excerpt'])
-//   .findSurround(route.path))
+const packages = ref<{ _path: string, title: string }[] | null>()
+if (page.value?.packages) {
+  const { data } = await useAsyncData(`packages:${page.value?.packages.join(':')}`, () => queryContent('/packages/').only(['_path', 'title']).where({ _path: { $containsAny: page.value?.packages } }).find(), { watch: [() => page.value?.packages], default: () => [] }) as { data: Ref<{ _path: string, title: string }[]> }
+
+  if (data.value)
+    packages.value = data.value
+}
 </script>
 
 <template>
-    <AppPageHeading>
-    <!--
-      <ProseLayout :title="page.title" :date="page.datePublished" :toc="page.body.toc" :filename="page._file" :methods="page.methods">
-        <ContentRenderer :value="page" />
-      </ProseLayout>
-      <PrevNext :prev="surround[0]" :next="surround[1]" />
-    </AppPageHeading>
-  -->
-  <h1>
-    Blog
-  </h1>
-  </AppPageHeading>
+  <Main v-if="page">
+    <Prose :toc="page.body?.toc">
+      <template #header>
+        <ProseHeaderArticle
+          v-if="page.title"
+          :title="page.title"
+          :date="page.publishedAt"
+          :categories="page.categories"
+          :authors="page.authors"
+        />
+      </template>
+
+      <ContentRenderer :value="page" />
+
+      <template #nav>
+        <!-- <template v-if="packages">
+          <UDivider />
+          <ProseNavPackages :packages="packages" />
+        </template> -->
+        <UDivider />
+        <ProseNavigationCommunity :filename="page._file" />
+      </template>
+    </Prose>
+  </Main>
 </template>
 
 <style scoped></style>

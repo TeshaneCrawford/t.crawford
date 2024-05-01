@@ -1,117 +1,135 @@
 <script lang="ts" setup>
 const route = useRoute()
-const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
+
+const { data: page, error } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    message: error.value.message,
+    fatal: true,
+  })
+}
 
 useSeoMeta({
-  title: page?.value?.title,
-  ogTitle: page?.value?.title,
-  description: page?.value?.description,
-  ogDescription: page?.value?.description,
+  title: page.value?.title,
+  description: page.value?.description,
 })
-
 useSchemaOrg([
   defineWebPage({
     '@type': 'CollectionPage',
   }),
 ])
-
-const { data: blogs } = await useAsyncData('blogs', () => queryContent('/blogs/').only(['_path', 'title', 'description', 'datePublished']).find())
-
-const search = ref('')
-const searchDebounced = refDebounced(search, 150)
-
-const { results: searchResults } = useMiniSearch(searchDebounced, blogs.value!, {
-  idField: '_path',
-  fields: ['title', 'description'],
-  storeFields: ['_path', 'title', 'description', 'datePublished'],
-  searchOptions: {
-    prefix: true,
-    fuzzy: 0.2,
-  },
+defineOgImageComponent('OgImagePage', {
+  illustration: '/assets/header/dark/blog.png',
 })
+// useTrackPageview()
 
-const order = ref<1 | -1>(-1)
-const toggleOrder = function () {
-  order.value = order.value === 1 ? -1 : 1
-}
+const {
+  fetchBlogArticles,
+  updateQuery,
+  reset,
+  articles,
+  q,
+  categories,
+  categoriesOptions,
+  authors,
+  authorsOptions,
+  order,
+  orderBy,
+  orderByOptions,
+} = useBlog()
 
-const orderByOptions = [
-  {
-    id: 'datePublished',
-    label: 'Publication',
-  },
-  {
-    id: 'title',
-    label: 'Title',
-  },
-]
-const orderBy = ref<string>('datePublished')
-const currentOrderBy = computed(() => orderByOptions.find(option => option.id === orderBy.value))
+await fetchBlogArticles()
 
-const results = computed(() => {
-  const currentBlogs = searchDebounced.value ? [...searchResults.value] : [...blogs.value!]
+// Track search to analytics
+// watchDebounced(q, () => {
+//   if (!q.value)
+//     return
 
-  if (!orderBy.value)
-    return currentBlogs
-
-  return currentBlogs.sort((a, b) => {
-    if ((a as never)[orderBy.value] < (b as never)[orderBy.value])
-      return -1 * order.value
-
-    if ((a as never)[orderBy.value] > (b as never)[orderBy.value])
-      return 1 * order.value
-
-    return 0
-  })
-})
-
+//   useTrackEvent('Blog Search', { props: { query: q.value } })
+// }, { debounce: 500 })
 </script>
 
 <template>
-  <AppPageHeading :title="page?.title" :description="page?.hero?.description ?? page?.description">
-    <div class="flex flex-col gap-8">
-    <div class="flex justify-between">
-        <UInput
-          v-model="search"
-          icon="i-heroicons-magnifying-glass-20-solid"
-          size="sm"
-          variant="outline"
-          color="white"
-          :trailing="false"
-          name="input"
-          placeholder="Search for an item"
-        />
-        <UButtonGroup size="sm" orientation="horizontal">
-          <UButton
-            :icon="order === 1 ? 'i-heroicons-bars-arrow-up-20-solid' : 'i-heroicons-bars-arrow-down-20-solid'"
-            color="white"
-            :title="order === 1 ? 'Ascending order' : 'Descending order'"
-            @click="toggleOrder()"
-          />
+  <AppMain v-if="page">
+    <template #header>
+      <AppPageHeading :title="page.title" :description="page.description">
+        <!-- <template #right>
+          <div>
+            <AppColorModeImage light="/assets/header/light/blog.png" dark="/assets/header/dark/blog.png" alt="Illustration" aria-hidden="true" class="absolute left-24 top-0 opacity-70 w-80" />
+          </div>
+        </template> -->
+      </AppPageHeading>
+    </template>
+
+    <section>
+      <h2 class="sr-only">
+        List of blog posts
+      </h2>
+
+      <AppListTopBar
+        :search="q" :order="order" :order-by="orderBy" search-placeholder="Search an article" :order-by-options="orderByOptions"
+        @update:search="updateQuery({ q: $event })" @update:order="updateQuery({ order: $event })" @update:order-by="updateQuery({ orderBy: $event })"
+        @reset="reset"
+      >
+        <template #right>
           <USelectMenu
-            v-model="orderBy"
-            class="w-32"
-            :options="orderByOptions"
-            color="white"
-            placeholder="Trier par"
+            :model-value="authors"
+            :options="authorsOptions"
+            color="gray"
+            variant="outline"
+            size="lg"
+            placeholder="Authors"
             select-class="cursor-pointer"
-            value-attribute="id"
-            option-attribute="label"
+            value-attribute="name"
+            option-attribute="name"
+            multiple
+            @update:model-value="updateQuery({ 'authors[]': $event })"
           >
-            <template #label>
-              {{ currentOrderBy?.label }}
+            <template #option="{ option: author }">
+              <UAvatar size="2xs" :src="author.picture" :alt="`Avatar of ${author.name}`" />
+              <span class="truncate">
+                {{ author.name }}
+              </span>
             </template>
           </USelectMenu>
-        </UButtonGroup>
-      </div>
-      <AppGrid v-if="results.length">
-        <AppCard v-for="blog in results" :key="blog._path" :to="blog._path" :title="blog.title" :description="blog.description" :date="blog.datePublished" />
-      </AppGrid>
-      <p v-else class="text-center text-gray-500 dark:text-gray-400">
-        No blogs match your search.
-      </p>
-  </div>
-  </AppPageHeading>
+          <USelectMenu
+            :model-value="categories"
+            :options="categoriesOptions"
+            color="gray"
+            variant="outline"
+            size="lg"
+            placeholder="Categories"
+            select-class="cursor-pointer"
+            multiple
+            @update:model-value="updateQuery({ 'categories[]': $event })"
+          >
+            <template #option="{ option: category }">
+              <span class="truncate capitalize">
+                {{ category }}
+              </span>
+            </template>
+          </USelectMenu>
+        </template>
+      </AppListTopBar>
+
+      <AppListGrid class="mt-8">
+        <AppListGridItem v-for="item in articles" :key="item._path">
+          <BlogCard
+            :path="item._path!"
+            :title="item.title"
+            :description="item.description"
+            :published-at="item.publishedAt"
+            :authors="item.authors"
+          />
+        </AppListGridItem>
+        <AppListGridEmpty v-if="articles && articles.length === 0">
+          No articles found
+        </AppListGridEmpty>
+      </AppListGrid>
+    </section>
+  </AppMain>
 </template>
 
 <style scoped></style>
