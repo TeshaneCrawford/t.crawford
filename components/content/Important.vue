@@ -1,9 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
-    Component: content/Important
-  </div>
+  <AppAlert title="Important">
+    <ContentSlot :use="$slots.default" unwrap="p" />
+  </AppAlert>
 </template>
 
 <style scoped></style>
