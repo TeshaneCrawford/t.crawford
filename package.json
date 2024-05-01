@@ -20,10 +20,10 @@
     "@nuxt/image": "^1.6.0",
     "@nuxt/ui": "^2.15.2",
     "@nuxtjs/seo": "^2.0.0-rc.10",
-    "@vite-pwa/nuxt": "^0.6.0",
+    "@vite-pwa/nuxt": "^0.7.0",
     "nuxt": "^3.11.2",
     "octokit": "^3.2.0",
-    "vue": "^3.4.25",
+    "vue": "^3.4.26",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "@iconify-json/line-md": "^1.1.37",
     "@iconify-json/logos": "^1.1.42",
     "@iconify-json/ri": "^1.1.20",
-    "@iconify-json/simple-icons": "^1.1.100",
+    "@iconify-json/simple-icons": "^1.1.101",
     "@iconify-json/twemoji": "^1.1.15",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
