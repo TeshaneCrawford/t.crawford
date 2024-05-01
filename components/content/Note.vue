@@ -1,9 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
-    Component: content/Note
-  </div>
+  <AppAlert title="Note">
+    <ContentSlot :use="$slots.default" unwrap="p" />
+  </AppAlert>
 </template>
 
 <style scoped></style>
