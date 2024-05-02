@@ -27,4 +27,13 @@ defineProps<{
   display: block;
   min-height: 2rem;
 }
+
+:deep(pre) {
+  @apply bg-gray-100 dark:bg-gray-950;
+  @media (prefers-color-scheme: dark) {
+    @apply bg-gray-900;
+  }
+  @apply rounded-t-none;
+}
 </style>
+
