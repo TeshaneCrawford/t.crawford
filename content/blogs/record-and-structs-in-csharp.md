@@ -20,7 +20,7 @@ In C#, both `records` and `structs` are used to create user-defined types that c
 
 A `struct`, or structure, is a value type in C#. It is used to encapsulate small groups of related variables. Here is an example of a struct:
 
-```ts [program.cs]
+```csharp [program.cs]
 public struct Point
 {
     public int X { get; set; }
@@ -38,7 +38,7 @@ public struct Point
 
 Records were introduced in C# 9.0 as a way to create immutable reference types. Here is an example of a record:
 
-```ts [program.cs]
+```csharp [program.cs]
 public record Point(int X, int Y);
 ```
 
