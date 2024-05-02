@@ -38,6 +38,22 @@ export default defineNuxtConfig({
         default: 'material-theme-lighter',
         dark: 'material-theme-palenight'
       },
+      langs: [
+        'js',
+        'ts',
+        'c#',
+        'java',
+        'vue',
+        'jsx',
+        'css',
+        'scss',
+        'sass',
+        'html',
+        'bash',
+        'md',
+        'mdc',
+        'json'
+      ]
     }
   },
 
