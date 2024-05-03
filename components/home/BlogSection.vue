@@ -35,7 +35,7 @@ defineProps<{
   <HomeSection
     :title="blogtitle || 'RecentBlog'"
   >
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8" v-for="item in articles" :key="item._path">
+    <div v-for="item in articles" :key="item._path" class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
       <BlogCard
             :path="item._path!"
             :title="item.title"
@@ -44,7 +44,7 @@ defineProps<{
             :authors="item.authors"
           />
     </div>
-    <NuxtLink class="text-gray-800 font-semibold hover:underline" to="/blogs">
+    <NuxtLink class="text-gray-800 dark:text-gray-100 font-semibold hover:underline" to="/blogs">
       Read all blogs
     </NuxtLink>
   </HomeSection>

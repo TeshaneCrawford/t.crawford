@@ -23,7 +23,7 @@ defineProps<{
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
       <HomeProjectCard v-for="card in cards" :key="card.title" :card="card" />
     </div>
-    <NuxtLink class="text-gray-800 font-semibold hover:underline" to="/projects">
+    <NuxtLink class="text-gray-800 dark:text-gray-100 font-semibold hover:underline" to="/projects">
       View all projects
     </NuxtLink>
   </HomeSection>
