@@ -5,7 +5,7 @@ import type { BlogPostCard } from '~/types/blog'
 const route = useRoute()
 const category = (route.params as { category?: string }).category || '';
 
-const { data, error } = await useAsyncData(`blogs:categories:${category}`, () => queryContent('/blogs').only(['_path', 'title', 'description', 'publishedAt', 'authors']).where({ categories: { $contains: category } }).find()) as { data: Ref<BlogPostCard[]>, error: Ref<NuxtError | null> }
+const { data, error } = await useAsyncData(`blogs:categories:${category}`, () => queryContent('/blogs/').only(['_path', 'title', 'description', 'publishedAt', 'authors']).where({ categories: { $contains: category } }).find()) as { data: Ref<BlogPostCard[]>, error: Ref<NuxtError | null> }
 
 if (error.value) {
   throw createError({
