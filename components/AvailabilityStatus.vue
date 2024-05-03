@@ -1,20 +1,20 @@
 import { useRuntimeConfig } from '#imports';
 <script lang="ts" setup>
 const runtimeConfig = useRuntimeConfig().public
-const isAvailable = ref<'true' | 'false'>(runtimeConfig.available ? 'true' : 'false')
+const isAvailable = ref<'true' | 'false'>(runtimeConfig.available as 'true' | 'false')
 
 
 const availability = ref([
   {
     status: 'available',
-    message: 'Available for hire',
+    message: 'Available for new opportunities',
     color: 'bg-green-600/80',
     bgColor: 'bg-green-500/80',
     textColor: 'text-green-500/80',
   },
   {
     status: 'unavailable',
-    message: 'Not available for hire',
+    message: 'Not available for new opportunities',
     color: 'bg-red-500',
     bgColor: 'bg-red-400',
     textColor: 'text-red-400',
@@ -36,7 +36,7 @@ const currentAvailability = computed(() => {
 <template>
   <div
     class="flex items-center rounded-full"
-    :class="{ 'border border-white/10 bg-zinc-900/80 px-5 py-2 backdrop-blur-3xl': background }"
+    :class="{ 'border dark:border-white/10 bg-gray-50/10 dark:bg-zinc-900/80 px-5 py-2 backdrop-blur-3xl': background }"
   >
     <span class="relative flex size-3">
       <span
@@ -52,7 +52,7 @@ const currentAvailability = computed(() => {
       class="ml-2 text-sm font-medium"
       :class="currentAvailability.textColor"
     >
-      {{ $t("availability." + currentAvailability.status) }}
+      {{ currentAvailability.message }}
     </span>
   </div>
 </template>

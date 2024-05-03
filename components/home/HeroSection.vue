@@ -24,6 +24,11 @@ defineProps<{
       </span>
     </p>
     <p class="text-center mt-4 text-lg">{{ description }}</p>
+    <div class="mt-3 flex items-center justify-center">
+      <AvailabilityStatus
+background
+       />
+    </div>
     <div class="flex justify-center flex-wrap sm:flex-nowrap">
       <UButton
         class="mt-4 dark:bg-gray-300 dark:hover:bg-gray-200"
