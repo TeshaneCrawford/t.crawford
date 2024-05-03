@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: doc, error } = await useAsyncData('blogs', () => queryContent('/blogs/').findOne());
+const { error } = await useAsyncData('blogs', () => queryContent('/blogs/').findOne());
 
 if (error.value) {
   throw createError({
@@ -11,17 +11,7 @@ if (error.value) {
 
 const {
   fetchBlogArticles,
-  updateQuery,
-  reset,
   articles,
-  q,
-  categories,
-  categoriesOptions,
-  authors,
-  authorsOptions,
-  order,
-  orderBy,
-  orderByOptions,
 } = useBlog()
 
 await fetchBlogArticles()
