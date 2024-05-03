@@ -24,6 +24,14 @@ export default defineNuxtConfig({
 
   css: ['~/assets/scss/main.scss'],
 
+  site: {
+    url: process.env.NUXT_SITE_URL || 'https://teshanecrawford.live',
+    identity: {
+      type: 'Person',
+    },
+    twitter: '@_d_shybrid',
+  },
+
   runtimeConfig: {
     public: {
       trailingSlash: true,
