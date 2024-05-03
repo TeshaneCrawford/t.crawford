@@ -22,6 +22,8 @@ export default defineNuxtConfig({
     "@dargmuesli/nuxt-cookie-control"
   ],
 
+  css: ['~/assets/scss/main.scss'],
+
   runtimeConfig: {
     public: {
       trailingSlash: true,
