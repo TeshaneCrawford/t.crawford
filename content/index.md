@@ -1,6 +1,7 @@
 ---
 title: Teshane Crawford
 projecttitle: Recent Projects
+subtitle: Recent Projects
 blogtitle: Recent Posts
 description: Solving problems with exceptional software solutions.
 # about section

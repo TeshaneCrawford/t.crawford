@@ -41,8 +41,11 @@ useSeoMeta({
       </ProseContentBody>
     </AppPageHeading>
     <HomeProjectSection
-    :subtitle="doc.subtitle"
+    :projecttitle="doc.projecttitle"
     :cards="doc.projects.cards"
+    />
+    <HomeBlogSection
+    :blogtitle="doc.blogtitle"
     />
   </main>
 </template>
