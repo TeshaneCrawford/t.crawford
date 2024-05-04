@@ -29,7 +29,7 @@ defineProps<{
         {{ project.release === "soon" ? $t("global.soon") + "..." : project.release }}
       </span>
     </NuxtLink>
-    <div class="mt-4 flex justify-center">
+    <div class="mt-4">
       <button
         class="btn-primary"
         @click="useRouter().push('/projects')"
