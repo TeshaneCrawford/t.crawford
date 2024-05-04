@@ -48,7 +48,7 @@ const items = [{
 <template>
   <UTabs :items="items">
     <template #item="{ item }">
-      <div v-if="item.key === 'showcase'">
+      <div v-if="item.key === 'showcase'" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <ProjectCard
         v-for="project in projects"
         :key="project.name"
