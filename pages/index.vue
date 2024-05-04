@@ -42,7 +42,6 @@ useSeoMeta({
     </AppPageHeading>
     <HomeProjectSection
     :projecttitle="doc.projecttitle"
-    :cards="doc.projects.cards"
     />
     <HomeBlogSection
     :blogtitle="doc.blogtitle"

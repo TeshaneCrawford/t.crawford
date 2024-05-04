@@ -1,31 +1,43 @@
 <script lang="ts" setup>
-export interface ProjectCard {
-  title: string
-  description: string
-  // image: string
-  link: string
-  source: string
-  tags: string[]
-}
+import projects from '~/data/projects'
 
 defineProps<{
   projecttitle?: string;
-  cards: ProjectCard[];
 }>();
 
 
 </script>
 
 <template>
-      <HomeSection
+    <HomeSection
       :title="projecttitle || 'Projects'"
     >
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
-      <HomeProjectCard v-for="card in cards" :key="card.title" :card="card" />
-    </div>
-    <NuxtLink class="text-gray-800 dark:text-gray-100 font-semibold hover:underline" to="/projects">
-      View all projects
+    <div class="flex w-full flex-col gap-4">
+    <NuxtLink
+      v-for="project in projects.filter((projects) => projects.featured)"
+      :key="project.name"
+      class="flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 hover:bg-secondary hover:text-main"
+      :to="project.release === 'soon' ? '/' : project.link"
+      :aria-label="project.name + ' project link'"
+      :target="project.release === 'soon' ? '_self' : '_blank'"
+    >
+      <span class="whitespace-nowrap">
+        {{ project.name }}
+      </span>
+      <div class="mx-2 h-[0.1px] w-full bg-muted" />
+      <span class="whitespace-nowrap text-muted">
+        {{ project.release === "soon" ? $t("global.soon") + "..." : project.release }}
+      </span>
     </NuxtLink>
+    <div class="mt-4 flex justify-center">
+      <button
+        class="btn-primary"
+        @click="useRouter().push('/projects')"
+      >
+        {{ $t("global.see_more") }}
+      </button>
+    </div>
+  </div>
   </HomeSection>
 </template>
 
