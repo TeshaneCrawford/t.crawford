@@ -19,7 +19,8 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@vite-pwa/nuxt",
     "@nuxt/image",
-    "@dargmuesli/nuxt-cookie-control"
+    "@dargmuesli/nuxt-cookie-control",
+    "@nuxtjs/i18n"
   ],
 
   css: ['~/assets/scss/main.scss'],
