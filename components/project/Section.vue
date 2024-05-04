@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import projects from '~/data/projects';
 import type { Repo } from '~/types/project';
 
 onMounted(async () => {
@@ -48,7 +49,11 @@ const items = [{
   <UTabs :items="items">
     <template #item="{ item }">
       <div v-if="item.key === 'showcase'">
-        <ProjectCard />
+        <ProjectCard
+        v-for="project in projects"
+        :key="project.name"
+        :project
+        />
       </div>
 
       <div v-else-if="item.key === 'gitHub'">
