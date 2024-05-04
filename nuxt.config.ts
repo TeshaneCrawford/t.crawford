@@ -43,6 +43,27 @@ export default defineNuxtConfig({
     }
   },
 
+  i18n: {
+    strategy: 'no_prefix',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
+    baseUrl: '/',
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+      },
+      {
+        code: 'fr',
+        iso: 'fr-FR',
+      },
+    ],
+    vueI18n: '~/i18n.config.ts',
+  },
+
   content: {
     highlight: {
       theme: {
@@ -65,7 +86,9 @@ export default defineNuxtConfig({
         'mdc',
         'json'
       ]
-    }
+    },
+    locales: ['en', 'fr'],
+    defaultLocale: 'en',
   },
 
   ui: {
