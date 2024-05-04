@@ -7,14 +7,14 @@ const isAvailable = ref<'true' | 'false'>(runtimeConfig.available as 'true' | 'f
 const availability = ref([
   {
     status: 'available',
-    message: 'Available for new opportunities',
+    message: 'Available for hire',
     color: 'bg-green-600/80',
     bgColor: 'bg-green-500/80',
     textColor: 'text-green-500/80',
   },
   {
     status: 'unavailable',
-    message: 'Not available for new opportunities',
+    message: 'Not available for hire',
     color: 'bg-red-500',
     bgColor: 'bg-red-400',
     textColor: 'text-red-400',
@@ -52,7 +52,7 @@ const currentAvailability = computed(() => {
       class="ml-2 text-sm font-medium"
       :class="currentAvailability.textColor"
     >
-      {{ currentAvailability.message }}
+    {{ $t("availability." + currentAvailability.status) }}
     </span>
   </div>
 </template>
