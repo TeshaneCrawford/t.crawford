@@ -34,7 +34,7 @@ defineProps<{
         class="btn-primary"
         @click="useRouter().push('/projects')"
       >
-      <span class="font-sans text-white-shadow cursor-pointer text-sm">
+      <span class="text-white-shadow font-semibold cursor-pointer ">
         {{ $t("global.see_more") }}
       </span>
       </button>
