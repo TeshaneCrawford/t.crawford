@@ -15,7 +15,7 @@ const { y: scroll } = useWindowScroll();
     </NuxtLink>
     <button
       title="Scroll to top" aria-label="Scroll to top"
-      class="fixed bottom-3 right-3 z-[100] h-10 w-10 rounded-full transition duration-300 print:hidden hover:bg-[8883] hover:opacity-100"
+      class="fixed bottom-3 right-3 z-[100] h-10 w-10 rounded-full transition duration-300 print:hidden bg-gray-200 dark:bg-gray-700 hover:bg-[#8883] hover:opacity-100"
       :class="scroll > 300 ? 'opacity-30' : 'opacity-0 pointer-events-none'" @click="toTop()">
       <Icon name="i-ri-arrow-up-line" />
     </button>
