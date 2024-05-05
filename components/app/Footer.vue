@@ -8,10 +8,10 @@
       <AppSocialIcons />
     </div>
     <div class="mb-2">
-      <span class="text-sm opacity-50"><a
-        target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      <span class="text-sm opacity-50"><NuxtLink
+        target="_blank" to="https://creativecommons.org/licenses/by-nc-sa/4.0/"
         style="color:inherit"
-      >CC BY-NC-SA 4.0</a> 2023-PRESENT © Teshane Crawford</span>
+      >CC BY-NC-SA 4.0</NuxtLink> 2023-PRESENT © Teshane Crawford</span>
       <div class="flex-auto" />
     </div>
   </footer>
