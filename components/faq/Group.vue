@@ -25,8 +25,8 @@ provide('details-context', {
 </script>
 
 <template>
-  <div>
-    Component: faq/Group
+  <div ref="container">
+    <slot />
   </div>
 </template>
 
