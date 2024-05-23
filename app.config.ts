@@ -1,6 +1,6 @@
 export default defineAppConfig({
   ui: {
-    primary: 'cyan',
+    primary: 'cool',
     gray: 'cool',
     button: {
       base: 'transition ease-in',

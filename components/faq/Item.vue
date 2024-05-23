@@ -1,4 +1,10 @@
 <script lang="ts" setup>
+interface Context {
+  peers: Ref<HTMLElement[]> | undefined;
+  activeItem: Ref<number>;
+  setActive: (index: number) => void;
+}
+
 defineProps({
   as: {
     type: String,
@@ -7,13 +13,6 @@ defineProps({
 })
 
 const container = ref()
-
-interface Context {
-  peers: Ref<HTMLElement[]> | undefined;
-  activeItem: Ref<number>;
-  setActive: (index: number) => void;
-}
-
 const context = inject<Context>('details-context');
 
 const index = computed(() => {
@@ -38,7 +37,8 @@ provide('isActive', isActive)
   >
     <slot
       :toggle
-      :is-active
+      
+    />
     />
   </component>
 </template>
