@@ -37,7 +37,7 @@ defineProps<{
           />
     </AppListGridItem>
     <AppListGridEmpty v-if="articles && articles.length === 0">
-          No articles found
+      No articles found
     </AppListGridEmpty>
   </AppListGrid>
     <NuxtLink class="text-gray-800 dark:text-gray-100 font-semibold hover:underline" to="/blogs">
