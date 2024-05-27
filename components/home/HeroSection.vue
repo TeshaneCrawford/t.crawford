@@ -46,7 +46,7 @@ background
         size="xl"
         color="gray" variant="solid"
         :label="'See my work'"
-        :icon="'i-line-md-briefcase-filled'"
+        :icon="'i-ri-briefcase-2-fill'"
         to="/projects"
       />
     </div>
