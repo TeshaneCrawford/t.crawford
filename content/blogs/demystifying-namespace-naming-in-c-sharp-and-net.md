@@ -1,6 +1,7 @@
 ---
 title: Demystifying Namespace Naming in C# and .NET
 description: Learn how to name your namespaces in C# and .NET.
+authors:
   - name: Teshane Crawford
     picture: https://github.com/TeshaneCrawford.png
     twitter: _d_shybrid
