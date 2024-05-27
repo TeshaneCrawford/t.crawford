@@ -1,3 +1,4 @@
+import { AppListGrid } from '../../.nuxt/components';
 <script lang="ts" setup>
 const { error } = await useAsyncData('blogs', () => queryContent('/blogs/').findOne());
 
@@ -25,7 +26,8 @@ defineProps<{
   <HomeSection
     :title="blogtitle || 'RecentBlog'"
   >
-    <div v-for="item in articles" :key="item._path" class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+  <AppListGrid>
+    <AppListGridItem v-for="item in articles" :key="item._path" class="">
       <BlogCard
             :path="item._path!"
             :title="item.title"
@@ -33,7 +35,11 @@ defineProps<{
             :published-at="item.publishedAt"
             :authors="item.authors"
           />
-    </div>
+    </AppListGridItem>
+    <AppListGridEmpty v-if="articles && articles.length === 0">
+          No articles found
+    </AppListGridEmpty>
+  </AppListGrid>
     <NuxtLink class="text-gray-800 dark:text-gray-100 font-semibold hover:underline" to="/blogs">
       Read all blogs
     </NuxtLink>
