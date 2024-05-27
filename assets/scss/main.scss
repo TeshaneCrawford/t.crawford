@@ -15,17 +15,22 @@ html, body, #__nuxt, #__layout {
   font-family: "DM Sans", sans-serif;
 
   ::-webkit-scrollbar {
-    width: 0.5rem;
-    padding: 0.5rem;
+    width: 6px;
+  }
+  ::-webkit-scrollbar:horizontal {
+    height: 6px;
   }
 
-  ::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
     background: var(--bg-secondary);
+    border-radius: 10px;
   }
-
   ::-webkit-scrollbar-thumb {
     background: var(--bg-card);
-    border-radius: 0.5rem;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-secondary);
   }
 }
 
