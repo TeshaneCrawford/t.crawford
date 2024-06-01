@@ -46,6 +46,7 @@ useSeoMeta({
     <HomeBlogSection
     :blogtitle="doc.blogtitle"
     />
+    <HomeContactSection />
   </main>
 </template>
 
