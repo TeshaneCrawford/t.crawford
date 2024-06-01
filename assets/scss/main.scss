@@ -34,6 +34,9 @@ html, body, #__nuxt, #__layout {
   }
 }
 
+// -----------------------------------------------------------------------------------//
+// Layering the custom styles
+
 @layer components {
   .font-testimonial {
     // font-family: "DM Sans", sans-serif;
@@ -76,11 +79,51 @@ html, body, #__nuxt, #__layout {
     font-style: italic;
     @apply tracking-wider;
   }
+
+  .UILink {
+		@apply underline font-semibold;
+		@apply text-accent-700 decoration-accent-700/25 underline;
+		@apply transition hover:text-accent-700/80;
+	}
+
+	.UIButtonGroup {
+		@apply flex gap-4;
+	}
+
+	.UIButton {
+		@apply inline-flex items-center justify-center whitespace-pre;
+		@apply font-semibold;
+		@apply px-6 md:px-8 h-14 rounded-full disabled:opacity-25;
+		@apply transition;
+
+		/** only primary */
+		@apply  dark:text-white text-gray-800;
+		@apply border;
+		@apply hover:bg-gray-50/90 dark:hover:bg-black/15;
+	}
+
+	.UIButton-secondary {
+		@apply bg-gradient-to-b from-frost to-frost-200 text-accent-700;
+		@apply shadow-border-and-shadow-sm;
+		@apply hover:text-accent-700/70 hover:bg-frost-200;
+	}
+
+	.UIInput {
+		@apply h-12 appearance-none block w-full px-4 bg-frost-200 shadow-border rounded-xl;
+	}
+
+	textarea.UIInput {
+		@apply h-auto py-3;
+	}
+
+	.UICard {
+		@apply bg-frost-200 shadow-border rounded-xl overflow-hidden safari-overflow-fix;
+	}
 }
 
 @layer utilities {
 	.H1Like {
-		@apply text-4xl lg:text-5xl font-bold tracking-tighter !leading-[1.15] mb-8;
+		@apply text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.15] mb-8;
 	}
 
 	.H2Like {
@@ -108,52 +151,10 @@ html, body, #__nuxt, #__layout {
 	}
 
 	.PreLike {
-		@apply !border-none shadow-border p-4 rounded-box text-sm overflow-x-auto;
+		@apply border-none shadow-border p-4 rounded-box text-sm overflow-x-auto;
 	}
 
 	.safari-overflow-fix {
 		transform: translateZ(0);
-	}
-}
-
-@layer components {
-	.UILink {
-		@apply underline font-semibold;
-		@apply text-accent-700 decoration-accent-700/25 underline;
-		@apply transition hover:text-accent-700/80;
-	}
-
-	.UIButtonGroup {
-		@apply flex gap-4;
-	}
-
-	.UIButton {
-		@apply inline-flex items-center justify-center whitespace-pre;
-		@apply font-semibold;
-		@apply px-6 md:px-8 h-14 rounded-full disabled:opacity-25;
-		@apply transition;
-
-		/** only primary */
-		@apply bg-gradient-to-b from-accent-700/80 to-accent-700 text-white;
-		@apply shadow-border-accent-700;
-		@apply hover:bg-accent-700/90;
-	}
-
-	.UIButton-secondary {
-		@apply bg-gradient-to-b from-frost to-frost-200 text-accent-700;
-		@apply shadow-border-and-shadow-sm;
-		@apply hover:text-accent-700/70 hover:bg-frost-200;
-	}
-
-	.UIInput {
-		@apply h-12 appearance-none block w-full px-4 bg-frost-200 shadow-border rounded-xl;
-	}
-
-	textarea.UIInput {
-		@apply h-auto py-3;
-	}
-
-	.UICard {
-		@apply bg-frost-200 shadow-border rounded-xl overflow-hidden safari-overflow-fix;
 	}
 }
