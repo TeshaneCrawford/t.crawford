@@ -7,6 +7,7 @@
     <NuxtPwaManifest />
     <AppNavbar />
     <main class="overflow-x-hidden px-7 py-10 min-h-dvh">
+      <CookieControlBanner />
       <NuxtPage />
     </main>
     <AppFooter class="relative ml-7" />
