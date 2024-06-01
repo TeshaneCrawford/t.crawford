@@ -44,9 +44,13 @@ export default defineNuxtConfig({
       siteName: 'Teshane Crawford',
       siteDescription: 'Teshane Crawford is a software engineer based in New York City.',
       language: 'en',
-      // calcomUrl: process.env.NUXT_PUBLIC_CALCOM_URL,
     }
   },
+
+	// @nuxtjs/turnstile
+	turnstile: {
+		siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY || '',
+	},
 
   i18n: {
     strategy: 'no_prefix',
