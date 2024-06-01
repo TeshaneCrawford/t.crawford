@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
+import colors from 'tailwindcss/colors'
 
 // import plugin from 'tailwindcss/plugin'
 // import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
@@ -13,6 +14,9 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 //     return `rgb(var(${variableName}))`
 //   }
 // }
+
+const borderColorDefault = 'rgb(31 41 55 / 0.1)' // border-gray-800/10
+const accentColor700 = 'rgb(42, 90, 203)' // custom accent color
 
 export default {
   content: [],
@@ -32,6 +36,18 @@ export default {
           '900': '#0d549b',
           '950': '#0e335d',
         },
+        // new colors
+        accent: {
+					700: accentColor700,
+				},
+				optSecondary: {
+					DEFAULT: 'rgb(212, 178, 255)',
+				},
+        frost: {
+					DEFAULT: `rgb(255 255 255 / 0.25)`, // white/25
+					200: `rgb(255 255 255 / 0.75)`, // white/75
+				},
+        // old colors
         darkSecondary: "#25282A",
         main: 'var(--bg-main)',
         // 'main-opacity': withOpacity('--bg-main-opacity'),
@@ -55,6 +71,16 @@ export default {
         sm: '1px',
         md: '2px',
       },
+      boxShadow: {
+				'border': `0 0 0 1px ${borderColorDefault}`,
+				'border-accent-700': `0 0 0 1px ${accentColor700}`,
+				'border-and-shadow-sm': `0 0 0 1px ${borderColorDefault}, ${defaultTheme.boxShadow['sm']}`,
+				'border-and-shadow-lg': `0 0 0 1px ${borderColorDefault}, ${defaultTheme.boxShadow['lg']}`,
+				'border-and-inner': `0 0 0 1px ${borderColorDefault}, ${defaultTheme.boxShadow.inner}`,
+				'border-2': `0 0 0 2px ${borderColorDefault}`,
+				'border-2-and-shadow-lg': `0 0 0 2px ${borderColorDefault}, ${defaultTheme.boxShadow['lg']}`,
+				'border-2-and-shadow-xl': `0 0 0 2px ${borderColorDefault}, ${defaultTheme.boxShadow['xl']}`,
+			},
       animation: {
         marquee: 'marquee 30s linear infinite',
       },
