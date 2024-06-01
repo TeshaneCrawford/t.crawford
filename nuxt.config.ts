@@ -20,7 +20,8 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
     "@nuxt/image",
     "@dargmuesli/nuxt-cookie-control",
-    "@nuxtjs/i18n"
+    "@nuxtjs/i18n",
+    "@nuxtjs/turnstile"
   ],
 
   css: ['~/assets/scss/main.scss'],
@@ -34,12 +35,16 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    turnstile: {
+			secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY,
+		},
     public: {
       trailingSlash: true,
       siteUrl: 'https://teshanecrawford.live',
       siteName: 'Teshane Crawford',
       siteDescription: 'Teshane Crawford is a software engineer based in New York City.',
       language: 'en',
+      // calcomUrl: process.env.NUXT_PUBLIC_CALCOM_URL,
     }
   },
 
