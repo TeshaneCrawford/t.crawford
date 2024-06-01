@@ -5,6 +5,7 @@ const { data: doc } = await useAsyncData(route.path, () => queryContent(route.pa
 
 <template>
   <AppPageHeading :title="doc?.title" :description="doc?.description">
+    <ChatBookingCard />
     <h2 class="text-4xl font-medium">
       {{ doc && doc.heading }}
     </h2>
