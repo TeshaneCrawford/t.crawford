@@ -48,6 +48,7 @@ const getLanguageIcon = (language: string, filename?: string) => {
     yarn: 'vscode-icons:file-type-yarn',
     bun: 'vscode-icons:file-type-bun',
     yml: 'vscode-icons:file-type-yaml',
+    xml: 'vscode-icons:file-type-xml',
     terminal: 'i-heroicons-command-line',
     bash: 'i-logos-bash-icon',
     csharp : 'i-devicon-csharp',
