@@ -63,7 +63,7 @@ import { locale } from '~/config/cookie';
 
 		.cookieControl__Bar {
 			@apply border-t-2 md:border-0 md:shadow-border-2;
-			@apply md:rounded-box shadow-border-2-and-shadow-xl;
+			@apply md:rounded-sm shadow-border-2-and-shadow-xl;
 			@apply md:right-6 md:bottom-6 w-full md:w-min;
 
 			.cookieControl__BarContainer {
@@ -108,7 +108,7 @@ import { locale } from '~/config/cookie';
 
 		.cookieControl__ModalContent {
 			@apply md:rounded-2xl px-0 pb-0 overflow-hidden;
-			@apply bg-white text-gray-body;
+			@apply bg-white text-gray-800;
 
 			.cookieControl__ModalClose {
 				@apply UIButton-secondary;
