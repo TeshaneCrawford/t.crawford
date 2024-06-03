@@ -44,6 +44,9 @@ export default defineNuxtConfig({
       siteName: 'Teshane Crawford',
       siteDescription: 'Teshane Crawford is a software engineer based in New York City.',
       language: 'en',
+    },
+    private: {
+      resendApiKey: process.env.NUXT_PRIVATE_RESEND_API_KEY,
     }
   },
 
