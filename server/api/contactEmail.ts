@@ -10,7 +10,7 @@ export default defineEventHandler(async (event: H3Event) => {
     const { name, email, message } = body
     return await resend.emails.send({
       from: 'Teshane Crawford <crawfordteshane@gmail.com>',
-      to: [''],
+      to: ['crawfordteshane@gmail.com'],
       subject: 'Contact Form Submission',
       html: `
         <h1>Contact Form Submission</h1>
