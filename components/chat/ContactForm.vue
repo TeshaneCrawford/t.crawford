@@ -21,7 +21,7 @@
 			state.status = 'pending'
 			if (!turnstileToken.value) throw new Error('No turnstile token')
 
-			await $fetch('/api/contact-form', {
+			await $fetch('/api/contactEmail', {
 				method: 'POST',
 				body: {
 					name: state.form.name,
