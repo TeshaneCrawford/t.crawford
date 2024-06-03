@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 import type { H3Event } from 'h3';
 import type { ContactMail } from '~/types/mail';
 
-const resend = new Resend(process.env.NUXT_RESEND_API_KEY)
+const resend = new Resend(process.env.NUXT_PRIVATE_RESEND_API_KEY)
 
 export default defineEventHandler(async (event: H3Event) => {
   try {
