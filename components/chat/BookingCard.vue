@@ -46,7 +46,7 @@
 <template>
 		<ClientOnly>
 			<div class="mt-8 mb-16 border-b pb-16">
-				<section class="bg-frost-200 dark:bg-transparent p-6 shadow-border dark:border first:mt-0 last:mb-0 rounded-sm">
+				<section class="bg-frost-200 dark:bg-transparent p-6 shadow-border dark:border first:mt-0 last:mb-0 rounded-2xl">
 					<div class="flex flex-col md:flex-row gap-6 md:items-center">
 						<div class="flex-1">
 							<h2 class="H3Like mb-2">Book a free call</h2>
