@@ -40,7 +40,7 @@ export default defineNuxtConfig({
 		},
     public: {
       trailingSlash: true,
-      siteUrl: 'https://teshanecrawford.live',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
       siteName: 'Teshane Crawford',
       siteDescription: 'Teshane Crawford is a software engineer based in New York City.',
       language: 'en',
