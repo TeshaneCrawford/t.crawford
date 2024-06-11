@@ -89,7 +89,7 @@ const getLanguageIcon = (language: string, filename?: string) => {
 }
 
 :deep(pre) {
-  @apply bg-gray-100 dark:bg-gray-950;
+  @apply bg-white dark:bg-gray-800;
   @media (prefers-color-scheme: dark) {
     @apply bg-gray-900;
   }
