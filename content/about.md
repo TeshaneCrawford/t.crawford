@@ -1,9 +1,9 @@
 ---
 title: "Get to know me more"
-description: "I am a software engineer with experience in various technologies including JavaScript, C#, TypeScript, ASP.NET Core, React, Vue, Nuxt, Angular, and Python. I have a passion for building scalable and efficient applications that solve real-world problems."
+description: "I am a software engineer with experience in various technologies including JavaScript, C#, TypeScript, ASP.NET Core, React, Vue, Nuxt, and Angular. I have a passion for building scalable and efficient applications that solve real-world problems."
 ---
 
-I am a software engineer with experience in various technologies including **JavaScript**, **C#**, **TypeScript**, **ASP.NET Core**, **React**, **Vue**, **Nuxt**, **Angular**, and **Python**. I have a passion for building scalable and efficient applications that solve real-world problems.
+I am a software engineer with experience in various technologies including **JavaScript**, **C#**, **TypeScript**, **ASP.NET Core**, **React**, **Vue**, **Nuxt**, and **Angular**. I have a passion for building scalable and efficient applications that solve real-world problems.
 
 Throughout my career, I have worked on a wide range of projects, from developing web applications using modern frameworks like **React** and **Angular**, to building RESTful APIs with **ASP.NET Core**. I am comfortable working in both frontend and backend development, and I enjoy the challenge of learning new technologies and staying up-to-date with industry trends.
 
