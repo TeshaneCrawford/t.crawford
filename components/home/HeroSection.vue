@@ -37,7 +37,7 @@ background
         :ui="{
           font: 'font-semibold'
         }"
-        :label="'Got an idea? . Contact Me&nbsp;&nbsp;💬'"
+        :label="'Contact Me&nbsp;&nbsp;💬'"
         to="/chat"
         target="_blank"
       />
@@ -45,7 +45,7 @@ background
         class="mt-4 ml-4 "
         size="xl"
         color="gray" variant="solid"
-        :label="'See my work'"
+        :label="'My work'"
         :icon="'i-ri-briefcase-2-fill'"
         to="/projects"
       />
