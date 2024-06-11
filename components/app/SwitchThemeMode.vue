@@ -56,10 +56,10 @@ function toggleDark(event: MouseEvent) {
   >
       <ColorScheme>
         <template v-if="colorMode.value === 'dark'">
-          <UIcon name="i-line-md-moon-twotone " class="icon--on icon" />
+          <UIcon name="i-ri-moon-clear-fill" class="icon--on icon" />
         </template>
         <template v-else>
-          <UIcon name="i-line-md-sunny-filled" class="icon--on icon" />
+          <UIcon name="i-ri-sun-fill" class="icon--on icon" />
         </template>
       </ColorScheme>
   </button>
