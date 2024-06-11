@@ -57,15 +57,15 @@
 
 				<div class="flex justify-between flex-wrap gap-8 mt-8 mb-4">
 					<div class="order-2 md:order-1">
-						<Turnstile
+						<!-- <Turnstile
 							v-if="turnstileIsPermitted"
 							ref="turnstileRef"
 							v-model="turnstileToken"
 							:options="{
 								theme: 'light',
-							}" />
+							}" /> -->
 
-						<CookieControlDenied v-else />
+						<!-- <CookieControlDenied v-else /> -->
 
 						<PrivacyNotice>
 							By submitting this form, you agree to my
