@@ -1,8 +1,8 @@
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
-// import colors from 'tailwindcss/colors'
+import colors from 'tailwindcss/colors'
 
-// import plugin from 'tailwindcss/plugin'
+import plugin from 'tailwindcss/plugin'
 // import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 
 // function withOpacity(variableName: string) {
@@ -110,6 +110,35 @@ export default {
       ]
     }
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents }) {
+      addComponents({
+        '.badge': {
+          padding: '.25rem .5rem',
+          fontSize: '.75em',
+          fontWeight: '400',
+          whiteSpace: 'nowrap',
+          textAlign: 'center',
+          borderRadius: '9999px',
+        },
+        '.badge-primary': {
+          color: colors.blue[800],
+          backgroundColor: colors.blue[100],
+        },
+        '.badge-secondary': {
+          color: colors.emerald[700],
+          backgroundColor: colors.emerald[100],
+        },
+        '.badge-accent': {
+          color: colors.red[800],
+          backgroundColor: colors.red[100],
+        },
+        '.badge-success': {
+          color: colors.amber[700],
+          backgroundColor: colors.amber[100],
+        },
+      })
+    })
+  ],
 } satisfies Config
 
