@@ -17,7 +17,7 @@ defineProps<{
       <h5 class="m-0 font-semibold text-sm flex gap-1">
         <Icon name="i-ri-git-repository-line" />
         <span>{{ repo.name }}</span>
-        <span :class="repo.is_template ? 'dark:text-yellow-500 text-blue-500' : 'dark:text-teal-500 text-red-500'">
+        <span :class="repo.is_template ? ' badge dark:badge-success badge-primary' : 'badge dark:badge-secondary badge-accent'">
           {{ repo.private ? 'Private' : 'Public' }}
           {{ repo.is_template ? 'Template' : '' }}
         </span>
