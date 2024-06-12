@@ -27,7 +27,7 @@ useSeoMeta({
 <template>
   <main v-if="doc" class="">
     <HomeHeroSection
-      class="sm:mt-28"
+      class="sm:mt-20"
       :title="doc.title"
       :description="doc.description"
     />
