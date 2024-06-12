@@ -11,7 +11,7 @@ defineProps<{
 
 <template>
   <section class="flex justify-center flex-col gap-2">
-    <h1 class="text-4xl font-bold tracking-tight text-gray-800 dark:text-gray-100 sm:text-7xl text-center">{{ title }}</h1>
+    <h1 class="text-4xl font-bold tracking-tight text-gray-800 dark:text-gray-100 sm:text-7xl text-center mb-8">{{ title }}</h1>
     <p class="flex justify-center text-xs sm:text-base">
       <span>
         Software Engineer
