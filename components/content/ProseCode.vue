@@ -39,6 +39,7 @@ const getLanguageIcon = (language: string, filename?: string) => {
     cjs: 'vscode-icons:file-type-js',
     js: 'vscode-icons:file-type-js',
     jsx: 'vscode-icons:file-type-js',
+    mdx: 'vscode-icons:file-type-mdx',
     md: 'vscode-icons:file-type-markdown',
     py: 'vscode-icons:file-type-python',
     ico: 'vscode-icons:file-type-favicon',
