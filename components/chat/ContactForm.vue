@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-	const turnstileIsPermitted = computed(() => useIsCookiePermitted('cloudflare'))
+	// const turnstileIsPermitted = computed(() => useIsCookiePermitted('cloudflare'))
 	const turnstileRef = ref()
 	const turnstileToken = ref()
-	const turnstileIsDone = computed(() => {
-		if (!turnstileIsPermitted.value) return false
-		return !!turnstileToken.value?.length
-	})
+	// const turnstileIsDone = computed(() => {
+	// 	if (!turnstileIsPermitted.value) return false
+	// 	return !!turnstileToken.value?.length
+	// })
 
 	const state = reactive({
 		form: {
@@ -75,7 +75,7 @@
 						</PrivacyNotice>
 					</div>
 
-					<button :disabled="!turnstileIsDone" class="order-1 md:order-2 w-full md:w-[33%] UIButton">
+					<button class="order-1 md:order-2 w-full md:w-[33%] UIButton">
 						Send!
 					</button>
 				</div>
