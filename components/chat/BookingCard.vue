@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-	const turnstileIsPermitted = computed(() => useIsCookiePermitted('cloudflare'))
+	// const turnstileIsPermitted = computed(() => useIsCookiePermitted('cloudflare'))
 	const turnstileRef = ref()
 	const turnstileToken = ref()
-	const turnstileIsDone = computed(() => {
-		if (!turnstileIsPermitted.value) return false
-		return !!turnstileToken.value?.length
-	})
+	// const turnstileIsDone = computed(() => {
+	// 	if (!turnstileIsPermitted.value) return false
+	// 	return !!turnstileToken.value?.length
+	// })
 
 	const state = reactive({
 		form: {
@@ -85,7 +85,7 @@
 
 				<div class="flex justify-between flex-wrap gap-8 mt-8 mb-4">
 					<div class="order-2 md:order-1">
-						<Turnstile
+						<!-- <Turnstile
 							v-if="turnstileIsPermitted"
 							ref="turnstileRef"
 							v-model="turnstileToken"
@@ -93,7 +93,7 @@
 								theme: 'light',
 							}" />
 
-						<CookieControlDenied v-else />
+						<CookieControlDenied v-else /> -->
 
 						<PrivacyNotice>
 							By submitting this form, you agree to my
@@ -103,7 +103,7 @@
 						</PrivacyNotice>
 					</div>
 
-					<button :disabled="!turnstileIsDone" class="order-1 md:order-2 w-full md:w-[33%] UIButton">
+					<button class="order-1 md:order-2 w-full md:w-[33%] UIButton">
 						Send!
 					</button>
 				</div>
