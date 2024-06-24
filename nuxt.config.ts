@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@dargmuesli/nuxt-cookie-control",
     "@nuxtjs/i18n",
-    "@nuxtjs/turnstile"
+    // "@nuxtjs/turnstile"
   ],
 
   css: ['~/assets/scss/main.scss'],
@@ -35,9 +35,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    turnstile: {
-			secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY,
-		},
+    // turnstile: {
+		// 	secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY,
+		// },
     public: {
       trailingSlash: true,
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
@@ -51,9 +51,9 @@ export default defineNuxtConfig({
   },
 
 	// @nuxtjs/turnstile
-	turnstile: {
-		siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY || '',
-	},
+	// turnstile: {
+	// 	siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY || '',
+	// },
 
   i18n: {
     strategy: 'no_prefix',
