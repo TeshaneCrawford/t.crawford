@@ -17,10 +17,17 @@ defineProps<{
       <h5 class="m-0 font-semibold text-sm flex gap-1">
         <Icon name="i-ri-git-repository-line" />
         <span>{{ repo.name }}</span>
-        <span :class="repo.is_template ? ' badge dark:badge-success badge-primary' : 'badge dark:badge-secondary badge-accent'">
+        <!-- <span :class="repo.is_template ? ' badge dark:badge-success badge-primary' : 'badge dark:badge-secondary badge-accent'">
           {{ repo.private ? 'Private' : 'Public' }}
           {{ repo.is_template ? 'Template' : '' }}
-        </span>
+        </span> -->
+        <UBadge
+          :color="repo.is_template ? 'cyan' : 'red'"
+          variant="subtle"
+        >
+          {{ repo.private ? 'Private' : 'Public' }}
+          {{ repo.is_template ? 'Template' : '' }}
+        </UBadge>
       </h5>
       <p class="m-0 flex-1">{{ repo.description }}</p>
       <p class="m-0 flex gap-4">
