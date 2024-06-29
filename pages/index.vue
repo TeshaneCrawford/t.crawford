@@ -40,9 +40,9 @@ useSeoMeta({
       </ContentDoc>
       </ProseContentBody>
     </AppPageHeading>
-    <HomeProjectSection
+    <!-- <HomeProjectSection
     :projecttitle="doc.projecttitle"
-    />
+    /> -->
     <HomeBlogSection
     :blogtitle="doc.blogtitle"
     />
