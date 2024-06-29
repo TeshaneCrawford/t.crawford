@@ -24,9 +24,9 @@
 			await $fetch('/api/contactEmail', {
 				method: 'POST',
 				body: {
-					name: state.form.name,
-					email: state.form.email,
-					message: state.form.message,
+					name: name,
+					email: email,
+					message: message,
 					turnstileToken: turnstileToken.value,
 				},
 			})
@@ -49,10 +49,10 @@
 				<h2 class="H3Like">Get in touch with me</h2>
 				<div class="flex gap-6 flex-col mt-8">
 					<div class="flex flex-col md:flex-row gap-6">
-						<input v-model="state.form.name" type="text" placeholder="Name" required class="UIInput dark:bg-transparent dark:border" >
-						<input v-model="state.form.email" type="email" placeholder="Email" required class="UIInput dark:bg-transparent dark:border" >
+						<input v-model="name" type="text" placeholder="Name" required class="UIInput dark:bg-transparent dark:border" >
+						<input v-model="email" type="email" placeholder="Email" required class="UIInput dark:bg-transparent dark:border" >
 					</div>
-					<textarea v-model="state.form.message" placeholder="Message" required rows="5" class="UIInput dark:bg-transparent dark:border" />
+					<textarea v-model="message" placeholder="Message" required rows="5" class="UIInput dark:bg-transparent dark:border" />
 				</div>
 
 				<div class="flex justify-between flex-wrap gap-8 mt-8 mb-4">
