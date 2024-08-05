@@ -1,7 +1,7 @@
 <script lang='ts' setup>
 import { useTitle } from '@vueuse/core'
 
-const { data: repoGroup } = await useFetch('/api/repos')
+const { data: repoGroup } = await useLazyFetch('/api/repos')
 
 useTitle('Projects')
 useHead({
