@@ -45,18 +45,18 @@ const { y: scroll } = useWindowScroll()
           Uses
         </NuxtLink>
         <NuxtLink to="/chat" title="Let's Chat">
-          <Icon name="i-hugeicons:conversation" />
+          <Icon name="i-hugeicons:conversation" style="" />
         </NuxtLink>
         <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="lt-md:hidden">
-          <Icon name="i-hugeicons:new-twitter" />
+          <Icon name="i-hugeicons:new-twitter" style="" />
         </a>
         <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="lt-md:hidden">
           <Icon name="i-hugeicons-github" />
         </a>
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
-          <Icon name="i-hugeicons-rss" style="font-size:1.25rem; margin: 0 -0.125rem;" />
+          <Icon name="i-hugeicons-rss" style="font-size:1.25rem; margin: -0.5;" />
         </a>
-        <a class="text-gray-500">
+        <a class="text-manatee-500">
           <SwitchThemeMode />
         </a>
       </div>

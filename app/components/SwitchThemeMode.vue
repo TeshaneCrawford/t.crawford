@@ -2,7 +2,7 @@
 const colorMode = useColorMode()
 
 function toggleDark(event: MouseEvent) {
-  const isAppearanceTransition = document.startViewTransition
+  const isAppearanceTransition = document.startViewTransition()
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   if (!isAppearanceTransition) {
@@ -17,7 +17,7 @@ function toggleDark(event: MouseEvent) {
     Math.max(x, innerWidth - x),
     Math.max(y, innerHeight - y),
   )
-  const transition = document.startViewTransition(async() => {
+  const transition = document.startViewTransition(async () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     colorMode.value === 'light' ? (colorMode.preference = 'dark') : (colorMode.preference = 'light')
     await nextTick()
@@ -50,26 +50,24 @@ function toggleDark(event: MouseEvent) {
   <button
     aria-label="Color Mode"
     :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`"
-    class="link group inline-block pr-2 hover:text-gray-700 dark:hover:text-gray-300"
+    class="link group inline-block pr-2 hover:text-manatee-700 dark:hover:text-manatee-300"
     @click.prevent="toggleDark"
   >
     <div class="icon">
       <ColorScheme>
         <template v-if="colorMode.value === 'dark'">
-          <Icon name="i-hugeicons:moon-01" class="icon--on icon" />
+          <Icon name="i-hugeicons-moon-01"
+            class="icon--on icon"
+          />
         </template>
         <template v-else>
-          <Icon name="i-hugeicons:sun-02" class="icon--on icon" />
+          <Icon name="i-hugeicons-sun-02"
+            class="icon--on icon"
+          />
         </template>
       </ColorScheme>
     </div>
   </button>
 </template>
-
-<!-- <template>
-  <a class="select-none" title="Toggle Color Scheme" @click="toggleDark">
-    <div i-ri-sun-line dark:i-ri-moon-line />
-  </a>
-</template> -->
 
 <style scoped></style>

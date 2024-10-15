@@ -1,0 +1,49 @@
+:root {
+  /* Manatee palette */
+  --manatee-50: #f6f6f7;
+  --manatee-100: #eef0f1;
+  --manatee-200: #e0e2e5;
+  --manatee-300: #cdd0d4;
+  --manatee-400: #b7bbc2;
+  --manatee-500: #a4a7b0;
+  --manatee-600: #9497a1;
+  --manatee-700: #7b7d87;
+  --manatee-800: #65686e;
+  --manatee-900: #54565b;
+  --manatee-950: #313235;
+
+
+  /* Light mode */
+  --text-primary-light: var(--manatee-900);
+  --text-secondary-light: var(--manatee-700);
+  --background-primary-light: var(--manatee-50);
+  --background-secondary-light: var(--manatee-100);
+  --accent-light: var(--manatee-500);
+
+  /* Dark mode */
+  --text-primary-dark: var(--manatee-100);
+  --text-secondary-dark: var(--manatee-300);
+  --background-primary-dark: var(--manatee-950);
+  --background-secondary-dark: var(--manatee-900);
+  --accent-dark: var(--manatee-400);
+}
+
+/* Light mode (default) */
+:root {
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --background-primary: var(--background-primary-light);
+  --background-secondary: var(--background-secondary-light);
+  --accent: var(--accent-light);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --background-primary: var(--background-primary-dark);
+    --background-secondary: var(--background-secondary-dark);
+    --accent: var(--accent-dark);
+  }
+}
