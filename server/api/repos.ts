@@ -1,4 +1,4 @@
-import type { Repo } from '../../types'
+import type { Repo } from '~~/types/project'
 
 export default defineEventHandler(async() => {
   const data = await $fetch<Repo[]>('https://api.github.com/users/TeshaneCrawford/repos?per_page=100&type=owner&sort=updated')

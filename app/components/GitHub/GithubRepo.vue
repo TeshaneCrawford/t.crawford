@@ -1,5 +1,5 @@
 <script lang='ts' setup>
-import type { Repo } from '../../types'
+import type { Repo } from '~~/types/project'
 
 defineProps<{
   repo: Repo
@@ -20,7 +20,7 @@ defineProps<{
   >
     <a :href="repo.homepage || repo.html_url" target="_blank" flex="~ col gap-3" h-full decoration-none>
       <h5 m0 fsc gap-1 text-sm>
-        <i i-ri:git-repository-line />
+        <Icon name="i-hugeicons-repository" />
         <span>{{ repo.name }}</span>
         <span
           inline-block fw-normal important-rounded-full
@@ -35,7 +35,7 @@ defineProps<{
       </p>
       <p m0 fsc gap-4>
         <span v-if="repo.language" fsc gap-1>
-          <i
+          <div
             h-3 w-3 rounded-full
             :style="{ backgroundColor: repo.language ? getLanguageColor(repo.language) : '' }"
           />
@@ -48,7 +48,7 @@ defineProps<{
           :href="`https://github.com/${repo.full_name}/stargazers`"
         >
           <span v-if="repo.stargazers_count" fsc gap-1>
-            <i i-ri:star-line />
+            <Icon name="i-hugeicons-star" />
             {{ repo.stargazers_count }}
           </span>
         </a>
@@ -58,7 +58,7 @@ defineProps<{
           :href="`https://github.com/${repo.full_name}/network/members`"
           fsc gap-1 decoration-none
         >
-          <i i-carbon:direction-fork />
+          <Icon name="i-hugeicons-git-fork" />
           {{ repo.forks_count }}
         </a>
       </p>

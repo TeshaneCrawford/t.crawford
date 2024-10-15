@@ -12,11 +12,11 @@ const { y: scroll } = useWindowScroll()
 <template>
   <header class="header z-40">
     <NuxtLink
-      class="absolute m-5 h-12 w-12 select-none font-bold font-mono outline-none xl:fixed"
+      class="absolute m-5 h-12 w-12 select-none pt-4 font-bold font-mono outline-none xl:fixed"
       to="/"
       focusable="false"
     >
-      Teshane Crawford
+      T.Crawford
     </NuxtLink>
     <button
       title="Scroll to top"
@@ -31,33 +31,30 @@ const { y: scroll } = useWindowScroll()
       <div class="right" print:op0>
         <NuxtLink to="/projects" title="Projects">
           <span class="lt-md:hidden">Projects</span>
-          <div i-fluent-document-folder-24-regular md:hidden />
+          <Icon name="i-hugeicons:dashboard-circle-edit" md:hidden />
         </NuxtLink>
         <NuxtLink to="/blog" title="Blog">
           <span class="lt-md:hidden">Blog</span>
-          <div i-fluent-news-24-regular class="md:hidden" />
+          <Icon name="i-hugeicons:quill-write-02" class="md:hidden" />
         </NuxtLink>
-        <!-- <NuxtLink to="/abouts" class="lt-md:hidden" title="About">
-          About
-        </NuxtLink> -->
-        <NuxtLink to="/abouts" title="About">
-          <span class="lt-md:hidden">About</span>
-          <div i-fluent-document-one-page-sparkle-24-regular class="md:hidden" />
+        <NuxtLink to="/photos" title="Photos">
+          <span class="lt-md:hidden">Photos</span>
+          <Icon  name="i-hugeicons:camera-01" class="md:hidden" />
         </NuxtLink>
-        <NuxtLink to="/tools" class="lt-md:hidden" title="Tools">
-          Tools
+        <NuxtLink to="/uses" class="lt-md:hidden" title="Uses">
+          Uses
         </NuxtLink>
         <NuxtLink to="/chat" title="Let's Chat">
-          <Icon name="i-fluent-chat-24-regular" />
+          <Icon name="i-hugeicons:conversation" />
         </NuxtLink>
         <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="lt-md:hidden">
-          <Icon name="i-ri-twitter-x-line" />
+          <Icon name="i-hugeicons:new-twitter" />
         </a>
         <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="lt-md:hidden">
-          <Icon name="i-uil-github-alt" />
+          <Icon name="i-hugeicons-github" />
         </a>
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
-          <Icon name="i-ri-rss-line" style="font-size:1.25rem; margin: 0 -0.125rem;" />
+          <Icon name="i-hugeicons-rss" style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
         <a class="text-gray-500">
           <SwitchThemeMode />

@@ -1,18 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
+  compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+
   typescript: {
+    typeCheck: true,
     strict: true,
-    shim: false
+    shim: true,
   },
   modules: [
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxt/image',
-    'nuxt-og-image',
-    'nuxt-icon',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxt/fonts'
   ],
   css: [
     '@/assets/css/main.css',
@@ -24,7 +31,6 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   routeRules: {
-    '/about': { redirect: '/about' }
   },
   $development: {
     runtimeConfig: {
@@ -34,36 +40,6 @@ export default defineNuxtConfig({
         }
       }
     }
-  },
-  content: {
-    highlight: {
-      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
-      theme: {
-        default: 'material-theme-lighter',
-        dark: 'material-theme-palenight'
-      },
-      langs: [
-        'js',
-        'ts',
-        'c#',
-        'java',
-        'vue',
-        'jsx',
-        'css',
-        'scss',
-        'sass',
-        'html',
-        'bash',
-        'md',
-        'mdc',
-        'json'
-      ]
-    },
-    markdown: {
-      toc: {
-        depth: 2,
-      },
-    },
   },
   experimental: {
     viewTransition: true,

@@ -2,11 +2,11 @@
 const colorMode = useColorMode()
 
 function toggleDark(event: MouseEvent) {
-  // @ts-expect-error experimental API
   const isAppearanceTransition = document.startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   if (!isAppearanceTransition) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     colorMode.value === 'light' ? (colorMode.preference = 'dark') : (colorMode.preference = 'light')
     return
   }
@@ -17,8 +17,8 @@ function toggleDark(event: MouseEvent) {
     Math.max(x, innerWidth - x),
     Math.max(y, innerHeight - y),
   )
-  // @ts-expect-error: Transition API
   const transition = document.startViewTransition(async() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     colorMode.value === 'light' ? (colorMode.preference = 'dark') : (colorMode.preference = 'light')
     await nextTick()
   })
@@ -56,10 +56,10 @@ function toggleDark(event: MouseEvent) {
     <div class="icon">
       <ColorScheme>
         <template v-if="colorMode.value === 'dark'">
-          <i i-line-md-moon-twotone class="icon--on icon" />
+          <Icon name="i-hugeicons:moon-01" class="icon--on icon" />
         </template>
         <template v-else>
-          <i i-line-md-sunny-outline-loop class="icon--on icon" />
+          <Icon name="i-hugeicons:sun-02" class="icon--on icon" />
         </template>
       </ColorScheme>
     </div>
