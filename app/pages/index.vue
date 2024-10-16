@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-useHead({
-  title: "Teshane Crawford",
+useSeoMeta({
+  title: 'Teshane Crawford',
+  description: 'Teshane Crawford\'s personal website, where you can learn more about him, his work experience and projects.'
 })
 </script>
 
@@ -15,7 +16,7 @@ useHead({
       I am passionate about building software that solves real-world problems. I am a big admirer of the
       <i i-logos-vitejs mr-1 h-1.1em w-1.1em />
       <a
-        linear-text shape-bottom-right trans class="c-context::#bd34fe" from="#41d1ff" to="#bd34fe"
+           linear-text trans shape-bottom-right  class="c-context::#bd34fe" from="#41d1ff" to="#bd34fe"
         href="https://github.com/vitejs/vite" target="_blank"
       >Vite</a>、
       <i i-logos-vue mr-1 h-1.1em w-1.1em />
@@ -46,21 +47,21 @@ useHead({
         href="https://angular.dev/" target="_blank"><strong> Angular</strong></a>, -->
       <icon name="i-logos-angular-icon" mr-1 />
       <a
-        linear-text shape-bl trans class="c-context::#c3002f" from="#9717E7" via="#F20755" to="#FF31D9"
+           linear-text trans shape-bl  class="c-context::#c3002f" from="#9717E7" via="#F20755" to="#FF31D9"
         href="https://angular.dev/" target="_blank"
       ><strong> Angular</strong></a>,
       <span mr-1 />
       and <i i-logos-dotnet mr-1 />
       <a linkInProse o="#512bd4" href="https://dotnet.microsoft.com/" target="_blank"><strong>.NET</strong></a>.
       If you're interested in
-      knowing what other technologies I use, check out my <NuxtLink to="/tools" text-p-r-r trans>
+      knowing what other technologies I use, check out my <NuxtLink to="/uses" text-p-r-r trans>
         <strong>Tools</strong>
       </NuxtLink> page.
     </p>
     <p>
       <a class="group" text-p-r trans hover-op-75>
         Hire Me
-        <i group-hover="ml-1" i-ri:arrow-right-up-line bg-gradient-to-r trans />
+        <i group-hover="ml-1"    i-ri:arrow-right-up-line trans bg-gradient-to-r  />
       </a>
     </p>
   </div>

@@ -23,7 +23,7 @@ useHead({
 
 <template>
   <!-- <NuxtLayout name="default"> -->
-  <div ma prose>
+  <div>
     <PageHeader title="Projects" description="List of projects that I am proud of." />
     <GitHubRepoPanel v-for="(repos, key) in repoGroup" :key="key.toString()" :label="key.toString()" :data="repos" />
     <br>
