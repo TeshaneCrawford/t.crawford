@@ -12,6 +12,7 @@ export default defineCachedEventHandler(async (_event) => {
     followers: userData.followers,
     following: userData.following,
     public_repos: userData.public_repos,
+    location: userData.location,
   }
 
   return user

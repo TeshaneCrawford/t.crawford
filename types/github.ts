@@ -6,6 +6,7 @@ export interface User {
   followers: number;
   following: number;
   public_repos: number;
+  location: string | null;
 }
 
 export interface Repository {
