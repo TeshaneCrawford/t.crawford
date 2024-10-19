@@ -19,13 +19,13 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     '@nuxt/icon',
-    '@nuxt/fonts'
+    '@nuxt/fonts',
+    'nuxt-time'
   ],
   css: [
     '@/assets/css/main.css',
     '@unocss/reset/tailwind.css',
-    '@/assets/css/variables.css',
-    '@/assets/css/default-theme.css'
+    '@/assets/css/font.css'
   ],
   colorMode: {
     preference: 'system',

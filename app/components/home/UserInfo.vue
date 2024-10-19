@@ -16,7 +16,7 @@ const { data: userData } = await useFetch<User>('/api/github-user')
           <span class="op50">{{ userData?.bio }}</span>
         </div>
       </div>
-      <span class="flex items-center gap-1 lt-md:hidden">
+      <span class="flex items-center gap-1 op50 lt-md:hidden">
         <Icon name="i-hugeicons-location-01" /> {{  userData?.location }}
       </span>
     </div>
@@ -33,7 +33,7 @@ const { data: userData } = await useFetch<User>('/api/github-user')
         </a>
       </p>
     </div>
-    <div class="prose-container">
+    <div class="prose max-w-4xl!">
       <p class="mb-8 leading-12">
         <StaticMarkdownRender path="/home" />
       </p>

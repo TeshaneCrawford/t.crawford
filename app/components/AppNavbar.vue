@@ -20,11 +20,11 @@ const { y: scroll } = useWindowScroll()
     </NuxtLink>
     <button
       title="Scroll to top"
-      fixed bottom-3 right-3 z-100 h-10 w-10 rounded-full transition duration-300 print:hidden hover-bg-hex-8883 hover:op100
+      fixed bottom-3 right-3 z-100 h-10 w-10 rounded-full bg-manatee-300 transition duration-300 print:hidden hover-bg-hex-8883 hover:op100
       :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'"
       @click="toTop()"
     >
-      <div i-ri-arrow-up-line />
+      <Icon name="i-hugeicons-arrow-up-01" />
     </button>
     <nav class="nav">
       <div class="spacer" />
@@ -53,7 +53,7 @@ const { y: scroll } = useWindowScroll()
         <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="lt-md:hidden">
           <Icon name="i-hugeicons-github" />
         </a>
-        <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
+        <a href="/rss.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <Icon name="i-hugeicons-rss" style="font-size:1.25rem; margin: -0.5;" />
         </a>
         <a class="text-manatee-500">

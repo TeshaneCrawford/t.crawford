@@ -10,28 +10,20 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  content: {
+    filesystem: ['content/**/*.md'],
+  },
   shortcuts: [
-    // ...
+    ['prose-container', 'prose max-w-4xl!']
   ],
   theme: {
     fontFamily: {
       sans: 'DM Sans',
-      mono: 'DM Mono'
+      mono: 'DM Mono',
+      serif: 'DM Serif Display',
+      dank: 'dank'
     },
     colors: {
-        manatee: {
-          50: 'var(--manatee-50)',
-          100: 'var(--manatee-100)',
-          200: 'var(--manatee-200)',
-          300: 'var(--manatee-300)',
-          400: 'var(--manatee-400)',
-          500: 'var(--manatee-500)',
-          600: 'var(--manatee-600)',
-          700: 'var(--manatee-700)',
-          800: 'var(--manatee-800)',
-          900: 'var(--manatee-900)',
-          950: 'var(--manatee-950)',
-        },
         text: {
           primary: 'var(--text-primary)',
           secondary: 'var(--text-secondary)',
@@ -55,13 +47,8 @@ export default defineConfig({
       '4xl': 'var(--font-size-4xl)',
     },
   },
-  // extendTheme: (theme) => {
-  //   theme.colors.veryCool = '#0000ff'
-  //   theme.colors.background = ''
-  //   theme.colors.brand = {
-  //     primary: 'hsl(var(--hue, 217) 78% 51%)',
-  //   }
-  // },
+  rules: [
+  ],
   presets: [
     presetUno(),
     presetAttributify(),
@@ -72,7 +59,26 @@ export default defineConfig({
         'min-width': '1.2em',
       },
     }),
-    presetTypography(),
+    presetTypography({
+      selectorName: "prose",
+			cssExtend: {
+				"p,a,li,ul,ol": {
+					color: "#eeeee",
+          'line-height': "2"
+				},
+        a: {
+          "text-decoration": "none"
+        },
+        'a:hover': {
+          color: '#f43f5e',
+          "text-decoration": "underline",
+          "text-underline-offset": "8px"
+        },
+        // 'a:visited': {
+        //   color: '#14b8a6',
+        // },
+			},
+    }),
     presetWebFonts({
       fonts: {
         // ...

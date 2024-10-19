@@ -3,10 +3,11 @@
 <template>
   <div>
     <AppNavbar />
-    <main class="ma of-x-hidden px-7 py-10 prose md:px-0">
+    <HomeHeaderSection />
+    <main class="ma max-w-3xl of-x-hidden px-7 py-10 min-h-dvh md:px-0">
       <slot />
-      <AppFooter />
     </main>
+    <AppFooter />
   </div>
 </template>
 
