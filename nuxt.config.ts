@@ -20,7 +20,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/fonts',
-    'nuxt-time'
+    'nuxt-time',
+    'nuxt-og-image'
   ],
   css: [
     '@/assets/css/main.css',
@@ -34,6 +35,13 @@ export default defineNuxtConfig({
   },
   routeRules: {
   },
+
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.NUXT_SITE_URL || 'https://teshanecrawford.com'
+    }
+  },
+
   $development: {
     runtimeConfig: {
       public: {
@@ -43,6 +51,28 @@ export default defineNuxtConfig({
       }
     }
   },
+
+  app: {
+    head: {
+      htmlAttrs: { lang: 'en' },
+      title: 'Teshane Crawford',
+    },
+    pageTransition: false,
+    layoutTransition: false,
+  },
+
+  site: {
+    url: 'https://teshanecrawford.com',
+  },
+
+  ogImage: {
+    zeroRuntime: true,
+    fonts: [
+      'DM+Sans:400',
+      'DM+Sans:600',
+    ],
+  },
+
   experimental: {
     viewTransition: true,
     componentIslands: true,

@@ -32,6 +32,7 @@
     "@unocss/nuxt": "^0.63.4",
     "feed": "^4.2.2",
     "nuxt": "^3.13.2",
+    "nuxt-og-image": "^3.0.6",
     "nuxt-time": "^1.0.2",
     "release-it": "^17.10.0",
     "typescript": "^5.6.3",
