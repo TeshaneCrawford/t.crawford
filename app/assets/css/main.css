@@ -1,4 +1,45 @@
 :root {
+  /*
+  Space Scale
+  */
+  /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1140,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|xs-xl */
+  --space-3xs: clamp(0.25rem, calc(0.2rem + 0.24vw), 0.38rem);
+  --space-2xs: clamp(0.5rem, calc(0.4rem + 0.49vw), 0.75rem);
+  --space-xs: clamp(0.75rem, calc(0.6rem + 0.73vw), 1.13rem);
+  --space-s: clamp(1rem, calc(0.8rem + 0.98vw), 1.5rem);
+  --space-m: clamp(1.5rem, calc(1.21rem + 1.46vw), 2.25rem);
+  --space-l: clamp(2rem, calc(1.61rem + 1.95vw), 3rem);
+  --space-xl: clamp(3rem, calc(2.41rem + 2.93vw), 4.5rem);
+  --space-2xl: clamp(4rem, calc(3.22rem + 3.9vw), 6rem);
+  --space-3xl: clamp(6rem, calc(4.83rem + 5.85vw), 9rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.25rem, calc(0.05rem + 0.98vw), 0.75rem);
+  --space-2xs-xs: clamp(0.5rem, calc(0.26rem + 1.22vw), 1.13rem);
+  --space-xs-s: clamp(0.75rem, calc(0.46rem + 1.46vw), 1.5rem);
+  --space-s-m: clamp(1rem, calc(0.51rem + 2.44vw), 2.25rem);
+  --space-m-l: clamp(1.5rem, calc(0.91rem + 2.93vw), 3rem);
+  --space-l-xl: clamp(2rem, calc(1.02rem + 4.88vw), 4.5rem);
+  --space-xl-2xl: clamp(3rem, calc(1.83rem + 5.85vw), 6rem);
+  --space-2xl-3xl: clamp(4rem, calc(2.05rem + 9.76vw), 9rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1rem, calc(0.22rem + 3.9vw), 3rem);
+  --space-xs-xl: clamp(0.75rem, calc(-0.71rem + 7.32vw), 4.5rem);
+
+  /*
+  Type Scale
+  */
+  /* @link https://utopia.fyi/type/calculator?c=320,16,1.067,1140,16,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+  --step--2: clamp(0.64rem, calc(0.97rem + -0.46vw), 0.88rem);
+  --step--1: clamp(0.8rem, calc(0.99rem + -0.27vw), 0.94rem);
+  --step-0: clamp(1rem, calc(1rem + 0vw), 1rem);
+  --step-1: clamp(1.07rem, calc(1rem + 0.36vw), 1.25rem);
+  --step-2: clamp(1.14rem, calc(0.97rem + 0.83vw), 1.56rem);
+  --step-3: clamp(1.22rem, calc(0.93rem + 1.44vw), 1.95rem);
+  --step-4: clamp(1.3rem, calc(0.85rem + 2.23vw), 2.44rem);
+  --step-5: clamp(1.38rem, calc(0.73rem + 3.26vw), 3.05rem);
+
   --background-primary: #ffffff;
   --background-secondary: #ecedec;
   --text-primary: #54565b;
@@ -16,19 +57,19 @@
     --font-size-lg: 1.125rem;
     --font-size-xl: 1.25rem;
     --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-4xl: 2rem;
 }
 
 /* Responsive font */
 @media (min-width: 640px) {
   :root {
     --font-size-base: 1rem;
-    --font-size-lg: 1.25rem;
-    --font-size-xl: 1.5rem;
-    --font-size-2xl: 1.875rem;
-    --font-size-3xl: 2.25rem;
-    --font-size-4xl: 2.5rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-4xl: 2rem;
   }
 }
 
@@ -78,6 +119,11 @@ a {
   outline-offset: 2px;
 } */
 
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
 
 ::selection {
   background: var(--accent);
@@ -183,20 +229,25 @@ html:not(.dark) [img-dark] {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
+  animation-duration: 0.5s;
 }
+
 ::view-transition-old(root) {
-  z-index: 1;
+  animation: fade-out 0.5s ease-in-out;
 }
+
 ::view-transition-new(root) {
-  z-index: 9999;
+  animation: fade-in 0.5s ease-in-out;
 }
-.dark::view-transition-old(root) {
-  z-index: 9999;
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
-.dark::view-transition-new(root) {
-  z-index: 1;
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Overrides Floating Vue */
@@ -235,30 +286,30 @@ html:not(.dark) [img-dark] {
 
 /* Heading styles with responsive font sizes */
 .prose h1 {
-  font-weight: 600;
+  /* font-weight: 600; */
   font-size: var(--font-size-4xl);
   margin-top: 0;
-  margin-bottom: 0.8888889em;
+  margin-bottom: 0.1em;
   line-height: 1.1111111;
 }
 
 .prose h2 {
   font-size: var(--font-size-3xl);
-  margin-top: 2em;
-  margin-bottom: 1em;
-  line-height: 1.3333333;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  line-height: 1;
 }
 
-.prose h3 {
+/* .prose h3 {
   font-size: var(--font-size-2xl);
-  margin-top: 1.6em;
+  margin-top: 0.6em;
   margin-bottom: 0.6em;
-  line-height: 1.6;
+  line-height: 1;
 }
 
 .prose h4 {
   font-size: var(--font-size-xl);
-  margin-top: 1.5em;
+  margin-top: 0.5em;
   margin-bottom: 0.5em;
   line-height: 1.5;
-}
+} */
