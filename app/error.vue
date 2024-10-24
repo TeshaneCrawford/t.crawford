@@ -1,14 +1,137 @@
+<script lang="ts" setup>
+import type { NuxtError } from '#app'
+
+defineProps({
+  error: Object as () => NuxtError,
+})
+
+// eslint-disable-next-line vue/no-dupe-keys
+const error = useError()
+const position = ref({ x: 50, y: 50 })
+const isHovering = ref(false)
+
+// Move the error text randomly when user hovers
+const handleHover = () => {
+  if (!isHovering.value) {
+    isHovering.value = true
+    position.value = {
+      x: Math.random() * 80,
+      y: Math.random() * 80,
+    }
+    setTimeout(() => isHovering.value = false, 1)
+  }
+}
+
+// Clear error and return to home page
+const handleError = () => {
+  clearError()
+  navigateTo('/')
+}
+
+useSeoMetaConfig({
+  title: 'Error',
+  description: 'An error occurred while rendering the page.',
+});
+
+definePageMeta({
+  title: 'Error'
+});
+
+useSeoMeta({
+  ogTitle: 'Error',
+  ogDescription: 'An error occurred while rendering the page.',
+  twitterTitle: 'Error',
+  twitterDescription: 'An error occurred while rendering the page.',
+  twitterCard: 'summary_large_image',
+  ogImage: '/logo/TV.png',
+  twitterImage: '/logo/TV.png',
+})
+
+useHead({
+  bodyAttrs: {
+    class: 'font-sans antialiased text-neutral-6 dark:text-neutral-2',
+  },
+})
+</script>
+
 <template>
   <NuxtLayout name="error">
-    <div class="ma prose">
-      <h1>
-        <span class="text-red-500">404</span> - Stay calm and don't panic!
+    <!-- <main class="relative z-20 mx-auto mt-16 max-w-4xl w-full px-7 font-dank lg:mt-8 md:mt-24 xl:px-0">
+      <h1 class="mb-24 text-8xl font-bold">
+        Oh No!
       </h1>
-      <p>
-        Looks like you've found the doorway to the great nothing. You didn't break the internet, but I can't find
-        what you are looking for. Please visit my <strong>Homepage</strong> to get where you need to go.
+      <h2 class="mb-2 text-5xl text-red-6 font-bold">
+        Error {{ error?.statusCode }}
+      </h2>
+      <p class="mb font-sans">
+        An error occurred while rendering the page.
       </p>
-      <BackButton />
+      <pre mb-4>{{ error?.message }}</pre>
+      <NuxtLink
+        to="/"
+        class="uppercase hover:underline hover:underline-neutral hover:underline-offset-4"
+      >
+        Go back home
+      </NuxtLink>
+    </main> -->
+    <main class="flex flex-col items-center justify-center p-4">
+    <!-- Animated 404 -->
+    <div
+      ref="errorText"
+      class="cursor-pointer select-none text-8xl text-neutral-6 font-bold transition-all duration-2 dark:text-neutral-2"
+      :style="{
+        position: 'relative',
+        left: `${position.x}%`,
+        top: `${position.y}%`,
+        transform: 'translate(-50%, -50%)'
+      }"
+      @mouseenter="handleHover"
+    >
+      {{ error?.statusCode }}
     </div>
+
+    <!-- Error text -->
+    <div class="mt-8 text-center">
+      <h1 class="mb-8 animate-pulse text-5xl text-neutral-6 font-bold font-serif dark:text-neutral-3">
+        {{ error?.statusCode === 404 ? 'Oops! This page is playing hide and seek' : 'Uh oh! Something went wrong' }}
+      </h1>
+      <p class="mb-12 text-neutral-6 dark:text-neutral-3">
+        {{ error?.message || (error?.statusCode === 404 ? 'Try to catch the 404 above! (Spoiler: It\'s quite shy)' : 'Our team is on it!') }}
+      </p>
+
+      <div class="flex items-center justify-center gap-4">
+        <Icon name="i-hugeicons:search-02" class="animate-bounce text-neutral-5" />
+        <p class="text-neutral-5 font-serif italic">
+          Still searching for that page...
+        </p>
+      </div>
+    </div>
+
+    <button
+      class="mt-12 flex items-center gap-2 text-neutral-5 underline-offset-6 transition-colors dark:text-neutral-4 hover:underline dark:hover:text-neutral-3"
+      as="link"
+      @click="handleError"
+    >
+      <Icon name="i-hugeicons:arrow-left-04" />
+      Take Me Home
+    </button>
+  </main>
   </NuxtLayout>
 </template>
+
+<style scoped>
+/* .animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 1% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+} */
+</style>
