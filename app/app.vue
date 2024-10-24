@@ -1,9 +1,13 @@
 <script setup lang="ts">
+const route = useRoute()
 
 useHead({
-  titleTemplate: title => title ? `${title} . Teshane Crawford` : 'Teshane Crawford: Software Engineer',
+  title: () => (route.meta.title as string) || '',
+  titleTemplate: title => title ? `${title} - Teshane Crawford` : 'Teshane Crawford: Software Engineer',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'white' },
+    { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#222222' },
     // { key: 'theme-color', name: 'theme-color', content: color }
   ],
   link: [
@@ -31,6 +35,18 @@ useSeoMeta({
   <body class="font-sans antialiased">
     <NuxtLayout>
       <NuxtPage />
+      <BackgroundCanvas />
     </NuxtLayout>
+    <!-- <BackgroundCanvas /> -->
   </body>
+  <!-- <BackgroundCanvas /> -->
 </template>
+<!--
+<body class="font-sans antialiased">
+  <DynamicBackground>
+  <NuxtLayout>
+    <div>Current time: {{ formattedTime }}</div>
+    <NuxtPage />
+  </NuxtLayout>
+</DynamicBackground>
+</body> -->
