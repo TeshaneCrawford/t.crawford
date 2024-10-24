@@ -24,7 +24,8 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     'nuxt-carousel',
     '@vueuse/motion/nuxt',
-    '@nuxthq/studio'
+    '@nuxthq/studio',
+    '@nuxthub/core'
   ],
   css: [
     '@/assets/css/main.css',
@@ -35,6 +36,10 @@ export default defineNuxtConfig({
     preference: 'system',
     fallback: 'light',
     classSuffix: '',
+  },
+
+  hub: {
+    // NuxtHub options
   },
 
   vite: {
