@@ -11,8 +11,8 @@ const { random } = Math
 const size = reactive(useWindowSize())
 
 const start = ref<Fn>(() => {})
-const MIN_BRANCH = 30 // Restored to original value
-const len = ref(15) // Keeping longer segments for lightning effect
+const MIN_BRANCH = 30 
+const len = ref(15)
 const stopped = ref(false)
 
 function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi?: number) {
