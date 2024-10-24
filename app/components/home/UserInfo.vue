@@ -5,7 +5,7 @@ const { data: userData } = await useFetch<User>('/api/github-user')
 </script>
 
 <template>
-  <div>
+  <div lg:px-0 md:px-8>
     <div class="flex justify-between">
       <div class="flex flex-row items-center pb-12 space-x-3">
         <a :href="`https://github.com/${userData?.username}`" target="_blank">
@@ -39,20 +39,18 @@ const { data: userData } = await useFetch<User>('/api/github-user')
       </p>
       <div class="flex flex-col justify-between sm:flex-row">
         <div class="flex flex-1 gap-8">
-          <NuxtLink to="/blog" class="flex items-center gap-2">
+          <NuxtLink to="/blog" class="flex items-center gap-1 badge-lg-zinc dark:badge-lg-zinc">
             Blog
-            <Icon name="i-hugeicons:square-arrow-right-01" />
+            <Icon name="i-hugeicons:arrow-right-02" />
           </NuxtLink>
-          <NuxtLink to="/photos" class="flex items-center gap-2">
+          <NuxtLink to="/photos" class="flex items-center gap-1 badge-lg-zinc dark:badge-lg-zinc">
             Photos
-            <Icon name="i-hugeicons:square-arrow-right-01" />
+            <Icon name="i-hugeicons:arrow-right-02" />
           </NuxtLink>
         </div>
-        <!-- <NuxtLink to="/photos" class="flex items-center gap-2 font-mono">
-          crawfordteshane@gmailcom
-          <Icon name="i-hugeicons:copy-01" aria-label="Copy Email Address" />
-        </NuxtLink> -->
       </div>
+      <AppPageSeparator text="My core skillset" />
+      <AppSkills />
     </div>
   </div>
 </template>
