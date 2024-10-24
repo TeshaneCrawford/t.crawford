@@ -8,10 +8,10 @@ defineProps<{
 </script>
 
 <template>
-  <div v-if="data.length">
-    <h4>
+  <div v-if="data.length"   lg:px-0 md:px-8  >
+    <h3 class="mb text-xl">
       {{ label }}
-    </h4>
+    </h3>
     <div grid="~ cols-1 md:cols-2 gap-4">
       <GitHubGithubRepo v-for="repo in data" :key="repo.id" :repo="repo" />
     </div>

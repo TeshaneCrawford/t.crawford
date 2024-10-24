@@ -19,15 +19,35 @@ useHead({
         },
     ],
 })
+
+definePageMeta({
+  title: 'Projects',
+  alias: ['/projects'],
+});
+
+useSeoMetaConfig({
+  description: 'Check out my latest software projects and contributions'
+});
+
+defineOgImageComponent('PageOg', {
+  link: '/projects',
+});
 </script>
 
 <template>
-  <!-- <NuxtLayout name="default"> -->
   <div>
-    <PageHeader title="Projects" description="List of projects that I am proud of." />
-    <GitHubRepoPanel v-for="(repos, key) in repoGroup" :key="key.toString()" :label="key.toString()" :data="repos" />
+    <AppHeading
+    title="Portfolio of my Projects"
+    description="Check out my latest software projects and contributions. Here are some of the projects I've worked on."
+  >
+    <GitHubRepoPanel
+      v-for="(repos, key) in repoGroup"
+      :key="key"
+      :label="key"
+      :data="repos"
+    />
+  </AppHeading>
     <br>
     <BackButton />
   </div>
-  <!-- </NuxtLayout> -->
 </template>
