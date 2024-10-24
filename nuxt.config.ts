@@ -23,7 +23,8 @@ export default defineNuxtConfig({
     'nuxt-time',
     'nuxt-og-image',
     'nuxt-carousel',
-    '@vueuse/motion/nuxt'
+    '@vueuse/motion/nuxt',
+    '@nuxthq/studio'
   ],
   css: [
     '@/assets/css/main.css',

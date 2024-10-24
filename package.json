@@ -27,6 +27,7 @@
     "@nuxt/eslint": "^0.6.0",
     "@nuxt/fonts": "^0.10.2",
     "@nuxt/icon": "^1.5.6",
+    "@nuxthq/studio": "^2.1.1",
     "@nuxtjs/color-mode": "^3.5.2",
     "@unocss/eslint-config": "^0.63.6",
     "@unocss/nuxt": "^0.63.6",
