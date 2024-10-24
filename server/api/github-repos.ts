@@ -1,12 +1,20 @@
-import type { Repo } from '~~/types/project'
+import type { Repository, RepoGroup } from '~~/types/github'
+import { fetchUserRepos } from '../utils/github'
 
-export default defineEventHandler(async() => {
-  const data = await $fetch<Repo[]>('https://api.github.com/users/TeshaneCrawford/repos?per_page=100&type=owner&sort=updated')
+function filterRepos(repos: Repository[], keyword: string): Repository[] {
+  return repos.filter(repo =>
+    repo.name.toLowerCase().includes(keyword.toLowerCase()) ||
+    repo.description?.toLowerCase().includes(keyword.toLowerCase())
+  );
+}
 
-  const publicRepos = data.filter(repo => !repo.private && !repo.archived)
+export default defineCachedEventHandler(async (_event) => {
+  const repos = await fetchUserRepos()
+
+  const publicRepos = repos.filter(repo => !repo.private && !repo.archived)
   const publicAndNotForkRepos = publicRepos.filter(repo => !repo.fork)
 
-  const repoGroups: Record<string, Repo[]> = {
+  const repoGroups: RepoGroup = {
     'Angular': filterRepos(publicAndNotForkRepos, 'angular'),
     'Vue Ecosystem': filterRepos(publicAndNotForkRepos, 'vue'),
     'React': filterRepos(publicAndNotForkRepos, 'react'),
@@ -23,9 +31,14 @@ export default defineEventHandler(async() => {
     'All': publicAndNotForkRepos,
   }
 
-  return repoGroups
+  return {
+    allRepos: repos,
+    groupedRepos: repoGroups
+  }
+}, {
+  group: 'api',
+  name: 'github-repos',
+  getKey: () => 'github-user-repos',
+  swr: true,
+  maxAge: 60 * 5, // 5 minutes
 })
-
-function filterRepos(repos: Repo[], key: string) {
-  return repos.filter(repo => repo.topics && repo.topics.includes(key))
-}

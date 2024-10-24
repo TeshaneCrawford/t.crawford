@@ -1,9 +1,5 @@
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { ParsedContent } from '@nuxt/content'
 import type { Endpoints } from '@octokit/types';
-
-export interface JsonParsedContent<T> extends ParsedContent {
-  body: T
-}
 export interface Project {
     name: string
     description: string

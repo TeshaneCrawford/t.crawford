@@ -15,49 +15,49 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "release": "release-it"
+    "release": "release-it",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@giscus/vue": "^3.0.0",
-    "@iconify-json/line-md": "^1.1.37",
-    "@iconify/json": "^2.2.197",
-    "@nuxt/content": "npm:@nuxt/content-edge@latest",
-    "@nuxt/devtools": "^1.3.9",
-    "@nuxt/eslint-config": "^0.2.0",
-    "@nuxtjs/color-mode": "^3.3.3",
-    "@unocss/eslint-config": "^0.59.0-beta.1",
-    "@unocss/nuxt": "^0.59.0-beta.1",
-    "@zhead/schema-vue": "^0.9.9",
-    "@zhead/vue": "^0.9.9",
-    "cheerio": "^1.0.0-rc.12",
-    "eslint": "^8.56.0",
+    "@iconify-json/catppuccin": "^1.2.4",
+    "@iconify-json/hugeicons": "^1.2.1",
+    "@nuxt/content": "^2.13.4",
+    "@nuxt/devtools": "^1.6.0",
+    "@nuxt/eslint": "^0.6.0",
+    "@nuxt/fonts": "^0.10.0",
+    "@nuxt/icon": "^1.5.6",
+    "@nuxtjs/color-mode": "^3.5.1",
+    "@unocss/eslint-config": "^0.63.4",
+    "@unocss/nuxt": "^0.63.4",
+    "cloudinary": "^2.5.1",
     "feed": "^4.2.2",
-    "nuxt": "^3.12.4",
-    "nuxt-icon": "^0.6.10",
-    "nuxt-schema-org": "^3.3.6",
-    "nuxt-zero-js": "^0.1.3",
-    "parse5": "^7.1.2",
-    "release-it": "^17.1.1",
-    "unocss-preset-useful": "^0.4.1",
-    "unplugin-icons": "^0.18.5",
-    "unplugin-vue-components": "^0.26.0",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "nuxt": "^3.13.2",
+    "nuxt-carousel": "^1.0.6",
+    "nuxt-og-image": "^3.0.6",
+    "nuxt-time": "^1.0.2",
+    "release-it": "^17.10.0",
+    "sass": "^1.80.3",
+    "typescript": "5.5.4",
+    "unocss": "^0.63.4",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5",
+    "vue-tsc": "^2.1.6"
   },
   "dependencies": {
-    "@nuxt/image": "^1.5.0",
-    "@vueuse/components": "^10.9.0",
-    "@vueuse/core": "^10.9.0",
-    "@vueuse/nuxt": "^10.9.0",
-    "nuxt-og-image": "^3.0.0-rc.50",
-    "octokit": "^3.2.0",
-    "sitemap": "^7.1.1",
-    "ufo": "^1.5.3"
+    "@nuxt/image": "^1.8.1",
+    "@vueuse/components": "^11.1.0",
+    "@vueuse/core": "^11.1.0",
+    "@vueuse/motion": "^2.2.6",
+    "@vueuse/nuxt": "^11.1.0",
+    "octokit": "^4.0.2",
+    "ufo": "^1.5.4"
   },
   "release-it": {
     "github": {
       "release": true
     }
   },
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
 }
