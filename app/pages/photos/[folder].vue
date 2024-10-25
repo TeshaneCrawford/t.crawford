@@ -5,9 +5,9 @@ const folderName = route.params.folder as string
 
 definePageMeta({
   layout: 'photos',
-  validate: async (route) => {
-    return !!route.params.folder
-  }
+  // validate: async (route) => {
+  //   return !!route.params.folder
+  // }
 })
 
 useSeoMetaConfig({

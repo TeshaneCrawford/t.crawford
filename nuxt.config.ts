@@ -85,26 +85,28 @@ export default defineNuxtConfig({
         'Cache-Control': 'public, max-age=3600, s-maxage=3600'
       }
     },
-    '/photos': {
-      isr: true,
-      cache: {
-        maxAge: 60 * 60 * 24,
-        staleMaxAge: 60 * 60,
-        swr: true
-      },
-      headers: {
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400',
-        'Accept-CH': 'DPR, Viewport-Width, Width',
-        'Permissions-Policy': 'ch-dpr=(self), ch-viewport-width=(self), ch-width=(self)'
-      }
-    },
-    '/photos/*': {
-      isr: true,
-      cache: {
-        maxAge: 60 * 60 * 24 * 7,
-        swr: true
-      }
-    },
+    // '/photos': {
+    //   prerender: true,
+    //   isr: true,
+    //   cache: {
+    //     maxAge: 60 * 60 * 24,
+    //     staleMaxAge: 60 * 60,
+    //     swr: true
+    //   },
+    //   headers: {
+    //     'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+    //     'Accept-CH': 'DPR, Viewport-Width, Width',
+    //     'Permissions-Policy': 'ch-dpr=(self), ch-viewport-width=(self), ch-width=(self)'
+    //   }
+    // },
+    // '/photos/*': {
+    //   prerender: true,
+    //   isr: true,
+    //   cache: {
+    //     maxAge: 60 * 60 * 24 * 7,
+    //     swr: true
+    //   }
+    // },
     '/uses': {
       prerender: true,
       static: true
