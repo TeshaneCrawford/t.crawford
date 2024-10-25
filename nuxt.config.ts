@@ -122,7 +122,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/rss.xml'],
+      routes: ['/', '/rss.xml'],
+      failOnError: false,
     },
   },
 
@@ -130,10 +131,10 @@ export default defineNuxtConfig({
     cloudName: process.env.CLOUDINARY_CLOUD_NAME,
     cloudSecret: process.env.NUXT_CLOUD_SECRET_KEY,
     cloudKey: process.env.NUXT_CLOUD_API_KEY,
-    // NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY,
+
     private: {
-      // NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY
     },
+    
     public: {
       siteUrl: process.env.NUXT_SITE_URL || 'https://teshanecrawford.com',
       NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY || ''

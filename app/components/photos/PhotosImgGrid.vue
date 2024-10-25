@@ -4,21 +4,11 @@ import { useRoute } from '#imports'
 const route = useRoute()
 const folderName = route.params.folder as string
 
-definePageMeta({
-  layout: 'photos'
-})
-
-useSeoMeta({
-  title: computed(() => `Photos from ${folderName}`),
-  description: computed(() => `Browse through photos from the ${folderName} collection.`)
-})
-
-const { images, imagesGrid, fetchImages } = useCloudinaryImages(route.params.folder as string)
+const { images, imagesGrid, loading, error, fetchImages } = useCloudinaryImages(folderName)
 const showCarousel = computed(() => route.query.image !== undefined)
 
-onMounted(() => {
-  fetchImages()
-})
+// Use server-side data fetching
+await fetchImages()
 </script>
 
 <template>
@@ -32,39 +22,50 @@ onMounted(() => {
       <span>Back to folders</span>
     </NuxtLink>
 
-    <Carousel v-if="showCarousel" :images="images" />
-    <ul id="carouselTargetList" class="masonry-grid">
-      <li
-        v-for="(img, i) in imagesGrid"
-        :key="i"
-        class="masonry-item"
-        v-motion
-        :initial="{
-          opacity: 0,
-          y: '5%'
-        }"
-        :enter="{
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: 0.1,
-            duration: 0.75,
-            ease: [0.36, 0.07, 0.25, 1]
-          }
-        }"
-      >
-        <div class="masonry-item__wrapper">
-          <NuxtLink
-            :to="`/photos/${route.params.folder}?image=${i}`"
-            :data-carousel-index="i"
-            class="masonry-item__link"
-            :aria-label="`Open image ${img.alt || i}`"
-          >
-            <Photo v-bind="img" />
-          </NuxtLink>
-        </div>
-      </li>
-    </ul>
+    <!-- Add loading and error states -->
+    <div v-if="loading" class="loading">
+      Loading images...
+    </div>
+
+    <div v-else-if="error" class="error">
+      {{ error }}
+    </div>
+
+    <template v-else>
+      <Carousel v-if="showCarousel" :images="images" />
+      <ul v-else id="carouselTargetList" class="masonry-grid">
+        <li
+          v-for="(img, i) in imagesGrid"
+          :key="i"
+          class="masonry-item"
+          v-motion
+          :initial="{
+            opacity: 0,
+            y: '5%'
+          }"
+          :enter="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 0.1,
+              duration: 0.75,
+              ease: [0.36, 0.07, 0.25, 1]
+            }
+          }"
+        >
+          <div class="masonry-item__wrapper">
+            <NuxtLink
+              :to="`/photos/${route.params.folder}?image=${i}`"
+              :data-carousel-index="i"
+              class="masonry-item__link"
+              :aria-label="`Open image ${img.alt || i}`"
+            >
+              <Photo v-bind="img" />
+            </NuxtLink>
+          </div>
+        </li>
+      </ul>
+    </template>
   </div>
 </template>
 

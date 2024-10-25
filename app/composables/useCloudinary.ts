@@ -28,9 +28,30 @@ export const useCloudinaryImages = (folder?: string) => {
   const error = ref<string | null>(null)
 
   const fetchImages = async () => {
+    if (!folder) {
+      error.value = 'No folder specified'
+      loading.value = false
+      return
+    }
+
     try {
-      const response = await fetch(`/api/images/${folder}`)
-      const cloudinaryImages: CloudinaryImage[] = await response.json()
+      const response = await useFetch(`/api/images/${folder}`, {
+        // Add proper error handling
+        onResponseError: (error) => {
+          console.error('Failed to fetch images:', error)
+          throw new Error('Failed to fetch images')
+        }
+      })
+
+      if (response.error.value) {
+        throw new Error(response.error.value.message)
+      }
+
+      const cloudinaryImages = response.data.value as CloudinaryImage[]
+
+      if (!cloudinaryImages || !Array.isArray(cloudinaryImages)) {
+        throw new Error('Invalid response format')
+      }
 
       images.value = cloudinaryImages.map((img) => ({
         src: img.secure_url,
@@ -42,7 +63,7 @@ export const useCloudinaryImages = (folder?: string) => {
         format: 'webp' as const,
       }))
     } catch (e) {
-      error.value = 'Failed to fetch images'
+      error.value = e instanceof Error ? e.message : 'Failed to fetch images'
     } finally {
       loading.value = false
     }

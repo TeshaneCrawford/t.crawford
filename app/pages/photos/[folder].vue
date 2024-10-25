@@ -5,14 +5,14 @@ const folderName = route.params.folder as string
 
 definePageMeta({
   layout: 'photos',
-  // validate: async (route) => {
-  //   return !!route.params.folder
-  // }
+  validate: async (route) => {
+    return !!route.params.folder
+  }
 })
 
-useSeoMetaConfig({
-  title: `Photos from ${folderName}`,
-  description: `Browse through photos from the ${folderName} collection.`,
+useSeoMeta({
+  title: computed(() => `Photos from ${folderName}`),
+  description: computed(() => `Browse through photos from the ${folderName} collection.`)
 })
 
 // Watch for query changes to handle modal state
@@ -22,11 +22,10 @@ watch(
     console.log('Image query changed:', newValue)
   }
 )
-
 </script>
 
 <template>
-  <div md:px-8 xl:px-0 >
+  <div class="md:px-8 xl:px-0">
     <PhotosImgGrid :folder="$route.params.folder as string" />
   </div>
 </template>
