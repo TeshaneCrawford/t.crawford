@@ -26,7 +26,7 @@ onMounted(() => {
   <div class="flex-grow max-w-4xl!">
     <AppHeading
       title="My scribbles and drafts"
-      description="Check out my latest software projects and contributions. Here are some of the projects I've worked on."
+      description="Check out my latest posts"
     >
     <main
       class="text-lg"
