@@ -49,8 +49,9 @@ public record Point(int X, int Y);
 
 ### Comparing Structs and Records
 
-| Feature      | Struct             | Record         |
+|              |                    |                |
 | ------------ | ------------------ | -------------- |
+| Feature      | Struct             | Record         |
 | Type         | Value Type         | Reference Type |
 | Inheritance  | No                 | Yes            |
 | Null Values  | No                 | Yes            |
