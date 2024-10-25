@@ -13,7 +13,7 @@ export const useSeoMetaConfig = (config?: {
   const defaultConfig = {
     siteName: 'Teshane Crawford',
     description: 'Teshane Crawford\'s personal website',
-    image: '/default-og-image.jpg',
+    image: '',
     url: runtimeConfig.public.siteUrl || 'https://teshanecrawford.com'
   };
 
