@@ -168,8 +168,9 @@ export default defineNuxtConfig({
   ogImage: {
     zeroRuntime: true,
     fonts: [
-      'DM+Sans:400',
-      'DM+Sans:600',
+      'DM Sans:400',
+      'DM Sans:600',
+      'DM Mono:400',
     ],
   },
 
