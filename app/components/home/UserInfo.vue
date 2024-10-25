@@ -29,7 +29,7 @@ const { data: userData } = await useFetch<User>('/api/github-user')
       </div>
       <p flex gap-2 op50>
         <a :href="`https://github.com/${userData?.username}`" target="_blank">
-          <span font-mono>@{{ userData?.username }}</span>'s recent releases commits on GitHub
+          <span font-mono>@{{ userData?.username }}</span>'s recent commits on GitHub
         </a>
       </p>
     </div>

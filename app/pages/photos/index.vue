@@ -9,6 +9,10 @@ useSeoMetaConfig({
   description: 'Displaying some of my best photos taken.',
 });
 
+defineOgImageComponent('PageOg', {
+  link: '/photos',
+});
+
 interface CloudinaryFolder {
   name: string
   path: string

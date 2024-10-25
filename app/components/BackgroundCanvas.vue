@@ -11,7 +11,7 @@ const { random } = Math
 const size = reactive(useWindowSize())
 
 const start = ref<Fn>(() => {})
-const MIN_BRANCH = 30 
+const MIN_BRANCH = 30
 const len = ref(15)
 const stopped = ref(false)
 
@@ -19,7 +19,7 @@ function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi?:
   const ctx = canvas.getContext('2d')!
 
   const dpr = window.devicePixelRatio || 1
-  // @ts-expect-error vendor
+  // @ts-expect-error vendor - explain
   const bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1
 
   const dpi = _dpi || dpr / bsr

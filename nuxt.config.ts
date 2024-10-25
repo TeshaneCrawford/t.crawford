@@ -85,26 +85,28 @@ export default defineNuxtConfig({
         'Cache-Control': 'public, max-age=3600, s-maxage=3600'
       }
     },
-    '/photos': {
-      isr: true,
-      cache: {
-        maxAge: 60 * 60 * 24,
-        staleMaxAge: 60 * 60,
-        swr: true
-      },
-      headers: {
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400',
-        'Accept-CH': 'DPR, Viewport-Width, Width',
-        'Permissions-Policy': 'ch-dpr=(self), ch-viewport-width=(self), ch-width=(self)'
-      }
-    },
-    '/photos/*': {
-      isr: true,
-      cache: {
-        maxAge: 60 * 60 * 24 * 7,
-        swr: true
-      }
-    },
+    // '/photos': {
+    //   prerender: true,
+    //   isr: true,
+    //   cache: {
+    //     maxAge: 60 * 60 * 24,
+    //     staleMaxAge: 60 * 60,
+    //     swr: true
+    //   },
+    //   headers: {
+    //     'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+    //     'Accept-CH': 'DPR, Viewport-Width, Width',
+    //     'Permissions-Policy': 'ch-dpr=(self), ch-viewport-width=(self), ch-width=(self)'
+    //   }
+    // },
+    // '/photos/*': {
+    //   prerender: true,
+    //   isr: true,
+    //   cache: {
+    //     maxAge: 60 * 60 * 24 * 7,
+    //     swr: true
+    //   }
+    // },
     '/uses': {
       prerender: true,
       static: true
@@ -121,6 +123,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/', '/rss.xml'],
+      failOnError: false,
     },
   },
 
@@ -128,10 +131,10 @@ export default defineNuxtConfig({
     cloudName: process.env.CLOUDINARY_CLOUD_NAME,
     cloudSecret: process.env.NUXT_CLOUD_SECRET_KEY,
     cloudKey: process.env.NUXT_CLOUD_API_KEY,
-    // NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY,
+
     private: {
-      // NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY
     },
+    
     public: {
       siteUrl: process.env.NUXT_SITE_URL || 'https://teshanecrawford.com',
       NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY || ''
@@ -150,6 +153,10 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      ],
       htmlAttrs: { lang: 'en' },
       title: 'Teshane Crawford',
     },
@@ -164,8 +171,9 @@ export default defineNuxtConfig({
   ogImage: {
     zeroRuntime: true,
     fonts: [
-      'DM+Sans:400',
-      'DM+Sans:600',
+      'DM Sans:400',
+      'DM Sans:600',
+      'DM Mono:400',
     ],
   },
 

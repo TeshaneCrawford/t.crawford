@@ -6,4 +6,4 @@ I'm always open to new opportunities and connections. Reach out anytime to discu
 
 - **Address:** Portland, Port Antonio, JA
 - **Phone:** (876) 397-6315
-- **Email:** crawfordteshane.com
+- **Email:** <crawfordteshane@gmail.com>
