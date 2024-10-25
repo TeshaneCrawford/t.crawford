@@ -48,6 +48,8 @@ The core issue was the `await` keyword before `useFetch`. As Daniel Roe himself 
 
 > "Unless you're statically generating your Nuxt site, then I would suggest not awaiting it - and instead handle displaying the loading state. I'd always prefer quicker feedback to the user, even if it means more work to handle the loading state."
 
+[![Screenshot of the comment made by daniel roe](/dr.png)](https://x.com/danielcroe/status/1845207214061125863)_Screenshot of Daniel's comment_
+
 This makes perfect sense when you think about it. Why block the entire navigation just to wait for data that we could be loading asynchronously?
 
 ## The Solution
