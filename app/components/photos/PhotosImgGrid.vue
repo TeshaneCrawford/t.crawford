@@ -60,7 +60,21 @@ await fetchImages()
               class="masonry-item__link"
               :aria-label="`Open image ${img.alt || i}`"
             >
-              <Photo v-bind="img" />
+            <NuxtImg
+            v-bind="img"
+            provider="cloudinary"
+            :src="img.src"
+            :alt="img.alt"
+            :width="img.width"
+            :height="img.height"
+            :loading="i < 6 ? 'eager' : 'lazy'"
+            format="webp"
+            quality="auto"
+            fit="cover"
+            class="h-full w-full object-cover transition-opacity duration-300"
+            placeholder
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
             </NuxtLink>
           </div>
         </li>

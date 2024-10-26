@@ -40,14 +40,21 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
         class="folder-item"
       >
         <div class="folder-preview">
-          <img
+          <NuxtImg
             v-if="folder.thumbnail"
             provider="cloudinary"
             :src="folder.thumbnail.secure_url"
             :alt="folder.name"
             :width="folder.thumbnail.width"
             :height="folder.thumbnail.height"
-          >
+            loading="lazy"
+            format="webp"
+            quality="auto"
+            fit="cover"
+            class="h-full w-full object-cover transition-opacity duration-300"
+            placeholder
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          />
           <div v-else class="folder-placeholder">
             No preview
           </div>

@@ -43,12 +43,24 @@ export default defineEventHandler(async (event) => {
           }>
         }
 
-      return {
-        ...folder,
-        thumbnail: images.resources[0],
-      }
-    }),
-  )
+        const thumbnail = images.resources[0]
+        return {
+          ...folder,
+          thumbnail: thumbnail ? {
+            ...thumbnail,
+            secure_url: cloudinary.v2.url(thumbnail.public_id, {
+              transformation: [
+                { quality: 'auto' },
+                { fetch_format: 'auto' },
+                { dpr: 'auto' },
+                { width: 'auto' },
+                { crop: 'scale' }
+              ]
+            })
+          } : undefined
+        }
+      }),
+    )
 
   return foldersWithThumbnails
 })
