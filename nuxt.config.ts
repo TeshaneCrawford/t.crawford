@@ -114,15 +114,21 @@ export default defineNuxtConfig({
   },
 
   image: {
+    provider: 'cloudinary',
     cloudinary: {
       baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`,
     },
+    domains: [
+      'avatars.githubusercontent.com',
+      'raw.githubusercontent.com',
+      'res.cloudinary.com',
+    ]
   },
 
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/rss.xml'],
+      routes: ['/', '/rss.xml', '/projects'],
       failOnError: false,
     },
   },
@@ -134,7 +140,7 @@ export default defineNuxtConfig({
 
     private: {
     },
-    
+
     public: {
       siteUrl: process.env.NUXT_SITE_URL || 'https://teshanecrawford.com',
       NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY || ''
