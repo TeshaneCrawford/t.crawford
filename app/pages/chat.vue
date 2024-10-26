@@ -14,10 +14,10 @@ defineOgImageComponent('PageOg', {
 </script>
 
 <template>
-  <div class="prose max-w-4xl! lg:px-0 md:px-8">
+  <div class="max-w-4xl! lg:px-0 md:px-8">
     <p class="mb-8 leading-12" >
         <StaticMarkdownRender path="/chat" />
-      </p>
+    </p>
   </div>
 </template>
 
