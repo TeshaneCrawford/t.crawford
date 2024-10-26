@@ -2,15 +2,52 @@
 import type { User } from '~~/types/github'
 const { data: userData } = await useFetch<User>('/api/github-user')
 // const { data: AppConfig } = await useFetch('/api/siteConfig')
+const handleImageError = (e: Event) => {
+  const target = e.target as HTMLImageElement
+  target.src = '/path-to-fallback-avatar.png' // Add your fallback image path
+}
+
+interface NavLink {
+  text: string
+  path: string
+  ariaLabel: string
+}
+
+const links: NavLink[] = [
+  {
+    text: 'Blog',
+    path: '/blog',
+    ariaLabel: 'Visit our blog section'
+  },
+  {
+    text: 'Photos',
+    path: '/photos',
+    ariaLabel: 'Browse our photo gallery'
+  }
+]
 </script>
 
 <template>
   <div lg:px-0 md:px-8>
     <div class="flex justify-between">
       <div class="flex flex-row items-center pb-12 space-x-3">
-        <a :href="`https://github.com/${userData?.username}`" target="_blank">
-          <img :src="userData?.avatar" :alt="userData?.name" mr1 h-18 w-18 rounded-full shadow>
-        </a>
+        <a
+    :href="`https://github.com/${userData?.username}`"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-block transition-transform hover:scale-102 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600"
+    :aria-label="`Visit ${userData?.name}'s GitHub profile (opens in new tab)`"
+  >
+    <img
+      :src="userData?.avatar"
+      :alt="`${userData?.name}'s profile picture`"
+      :title="`${userData?.name}'s GitHub avatar`"
+      class="h-18 w-18 rounded-full shadow ring-1 ring-zinc-200 dark:ring-zinc-700"
+      loading="lazy"
+      decoding="async"
+      @error="handleImageError"
+    >
+  </a>
         <div v-if="userData?.name" class="flex flex-col">
           <span class="font-semibold font-mono">@{{ userData?.username }}</span>
           <span class="op50">{{ userData?.bio }}</span>
@@ -38,21 +75,32 @@ const { data: userData } = await useFetch<User>('/api/github-user')
         <StaticMarkdownRender path="/home" />
       </p>
       <div class="flex flex-col justify-between sm:flex-row">
-        <div class="flex flex-1 gap-8">
-          <NuxtLink to="/blog" class="flex items-center gap-1 badge-lg-zinc dark:badge-lg-zinc">
-            Blog
-            <Icon name="i-hugeicons:arrow-right-02" />
-          </NuxtLink>
-          <NuxtLink to="/photos" class="flex items-center gap-1 badge-lg-zinc dark:badge-lg-zinc">
-            Photos
-            <Icon name="i-hugeicons:arrow-right-02" />
-          </NuxtLink>
-        </div>
-      </div>
+    <div class="flex flex-1 gap-8">
+      <NuxtLink
+        v-for="link in links"
+        :key="link.path"
+        :to="link.path"
+        :aria-label="link.ariaLabel"
+        class="group flex items-center gap-1 underline underline-offset-4 transition-all duration-300 hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600"
+        rel="nofollow"
+      >
+        {{ link.text }}
+        <Icon
+          name="i-hugeicons:arrow-up-right-01"
+          class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          aria-hidden="true"
+        />
+      </NuxtLink>
+    </div>
+  </div>
       <AppPageSeparator text="My core skillset" />
       <AppSkills />
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.hover-link:hover .i-hugeicons\:arrow-up-right-01 {
+  transform: translate(0.125rem, -0.125rem);
+}
+</style>

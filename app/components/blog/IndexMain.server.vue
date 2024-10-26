@@ -76,6 +76,7 @@ const getViewTransitionName = computed(() => (slug: string) => `article-${slug}`
                     :alt="`Profile picture of ${entry.authors[0].name}`"
                     class="h-6 w-6 rounded-full"
                     loading="lazy"
+                    decoding="async"
                   >
                   <span>{{ entry.authors?.[0]?.name || 'Anonymous' }}</span>
                 </div>
