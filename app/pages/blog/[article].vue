@@ -78,8 +78,9 @@ const transformToBlogPost = async (
 
 // navigation
 // Queries for navigation
-const { data: navigation } = await useAsyncData(`${path.value}-navigation`, async () => {
-  if (import.meta.server || import.meta.dev) {
+const { data: navigation } = await useAsyncData(`${path.value}-navigation`,
+async () => {
+  if ((import.meta.server || import.meta.dev) as true) {
     const [prevContent, nextContent] = await Promise.all([
       queryContent('blog')
         .where({ _path: { $ne: path.value } })
@@ -170,6 +171,16 @@ useSeoMetaConfig({
         </template>
 
         <StaticMarkdownRender :path="path" />
+        <div
+        class="animate-fade-in-up opacity-0"
+        style="animation-delay: 0.3s; animation-fill-mode: forwards;"
+      >
+        <BlogNavigation
+          v-if="navigation"
+          :prev="navigation.prev"
+          :next="navigation.next"
+        />
+      </div>
       </Prose>
       <div
         class="animate-fade-in-up opacity-0"
