@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { BlogPost } from '~~/types/content'
 import type { ParsedContent } from '@nuxt/content'
-// viewtransition
+
 const viewTransitionName = computed(() => `article-${slug}`)
 
 const route = useRoute('blog-article')
@@ -15,8 +15,7 @@ const path = computed(() =>
 const { data: page } = await useAsyncData(
   path.value,
   () =>
-    ((import.meta.server || import.meta.dev) as true)
-    && queryContent(path.value)
+    queryContent(path.value)
       .only(['title', 'date', 'tags', 'body', 'authors', 'description', 'content'])
       .findOne(),
 )
@@ -36,8 +35,7 @@ const formatter = new Intl.DateTimeFormat('en-GB', {
   year: 'numeric',
 })
 
-
-// Hhandle undefined input
+// Handle undefined input
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getContentFromBody = (body: any): string => {
   if (!body?.children) return ''
@@ -80,39 +78,33 @@ const transformToBlogPost = async (
 // Queries for navigation
 const { data: navigation } = await useAsyncData(`${path.value}-navigation`,
 async () => {
-  if ((import.meta.server || import.meta.dev) as true) {
-    const [prevContent, nextContent] = await Promise.all([
-      queryContent('blog')
-        .where({ _path: { $ne: path.value } })
-        .only(['_path', 'title', 'date', 'description', 'tags', 'content'])
-        .sort({ date: -1 })
-        .findOne(),
-      queryContent('blog')
-        .where({ _path: { $ne: path.value } })
-        .only(['_path', 'title', 'date', 'description', 'tags', 'content'])
-        .sort({ date: 1 })
-        .findOne(),
-    ])
-    const [prev, next] = await Promise.all([
-      transformToBlogPost(prevContent),
-      transformToBlogPost(nextContent)
-    ])
-    if (prev) {
-      const prevContent = await queryContent(prev._path).only(['body']).findOne()
-      prev.readingTime = calculateReadingTime(getContentFromBody(prevContent.body))
-    }
-    if (next) {
-      const nextContent = await queryContent(next._path).only(['body']).findOne()
-      next.readingTime = calculateReadingTime(getContentFromBody(nextContent.body))
-    }
-    return {
-      prev,
-      next,
-    }
+  const [prevContent, nextContent] = await Promise.all([
+    queryContent('blog')
+      .where({ _path: { $ne: path.value } })
+      .only(['_path', 'title', 'date', 'description', 'tags', 'content'])
+      .sort({ date: -1 })
+      .findOne(),
+    queryContent('blog')
+      .where({ _path: { $ne: path.value } })
+      .only(['_path', 'title', 'date', 'description', 'tags', 'content'])
+      .sort({ date: 1 })
+      .findOne(),
+  ])
+  const [prev, next] = await Promise.all([
+    transformToBlogPost(prevContent),
+    transformToBlogPost(nextContent)
+  ])
+  if (prev) {
+    const prevContent = await queryContent(prev._path).only(['body']).findOne()
+    prev.readingTime = calculateReadingTime(getContentFromBody(prevContent.body))
+  }
+  if (next) {
+    const nextContent = await queryContent(next._path).only(['body']).findOne()
+    next.readingTime = calculateReadingTime(getContentFromBody(nextContent.body))
   }
   return {
-    prev: null,
-    next: null
+    prev,
+    next,
   }
 })
 
@@ -126,10 +118,6 @@ if (import.meta.server) {
   useRoute().meta.description = page.value.description
 }
 
-// definePageMeta({
-//   title: () => page.value?.title || 'Article'
-// })
-
 definePageMeta({
   layout: 'blog'
 })
@@ -140,7 +128,7 @@ useSeoMetaConfig({
 </script>
 
 <template>
-  <main   md:px-8 xl:px-0 >
+  <main md:px-8 xl:px-0>
     <div
       class="mb-8 animate-fade-in-down opacity-0"
       style="animation-delay: 0.2s; animation-fill-mode: forwards;"
@@ -171,16 +159,6 @@ useSeoMetaConfig({
         </template>
 
         <StaticMarkdownRender :path="path" />
-        <div
-        class="animate-fade-in-up opacity-0"
-        style="animation-delay: 0.3s; animation-fill-mode: forwards;"
-      >
-        <BlogNavigation
-          v-if="navigation"
-          :prev="navigation.prev"
-          :next="navigation.next"
-        />
-      </div>
       </Prose>
       <div
         class="animate-fade-in-up opacity-0"
