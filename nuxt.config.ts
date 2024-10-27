@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   },
 
   hub: {
-    // NuxtHub options
+    cache: true,
   },
 
   vite: {
