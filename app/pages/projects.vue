@@ -3,7 +3,7 @@ import { useTitle } from '@vueuse/core'
 import type { Repo } from '~~/types/project';
 
 
-const { data: repoGroups } = useFetch<Record<string, Repo[]>>('/api/repos')
+const { data: repoGroups } = useFetch<Record<string, Repo[]>>('/api/github-repos')
 
 
 useTitle('Projects')

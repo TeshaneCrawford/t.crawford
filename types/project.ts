@@ -1,5 +1,6 @@
 import type { ParsedContent } from '@nuxt/content'
-import type { Endpoints } from '@octokit/types';
+import type { Endpoints } from '@octokit/types'
+
 export interface Project {
     name: string
     description: string
@@ -14,5 +15,43 @@ export interface ProjectList extends ParsedContent {
     projects: Project[]
 }
 
-export type Repo = Endpoints['GET /user/repos']['response']['data'][number]
+export type OctokitRepo = Endpoints['GET /users/{username}/repos']['response']['data'][number]
+
+export interface Repo {
+    id: number
+    node_id: string
+    name: string
+    full_name: string
+    private: boolean
+    owner: {
+        login: string
+        id: number
+        node_id: string
+        avatar_url: string
+        url: string
+        html_url: string
+        type: string
+        site_admin: boolean
+    }
+    html_url: string
+    description: string | null
+    fork: boolean
+    url: string
+    archived: boolean
+    disabled: boolean
+    topics: string[]
+    license?: {
+        key?: string
+        name?: string
+        url?: string | null
+        spdx_id?: string | null
+        node_id?: string
+    } | null
+    homepage: string | null | undefined;
+    stargazers_count: number | undefined;
+    is_template?: boolean | undefined;
+    language: string | null | undefined;
+    forks_count: number | undefined;
+}
+
 export type User = Endpoints['GET /user']['response']['data']

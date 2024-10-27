@@ -1,20 +1,16 @@
-import type { Repository, RepoGroup } from '~~/types/github'
+import type { Repo } from '~~/types/project'
 import { fetchUserRepos } from '../utils/github'
 
-function filterRepos(repos: Repository[], keyword: string): Repository[] {
-  return repos.filter(repo =>
-    repo.name.toLowerCase().includes(keyword.toLowerCase()) ||
-    repo.description?.toLowerCase().includes(keyword.toLowerCase())
-  );
-}
+export default defineCachedEventHandler(async () => {
+  // Use the cached function to fetch repos
+  const data = await fetchUserRepos()
 
-export default defineCachedEventHandler(async (_event) => {
-  const repos = await fetchUserRepos()
+  const repos = data as unknown as Repo[]
 
   const publicRepos = repos.filter(repo => !repo.private && !repo.archived)
   const publicAndNotForkRepos = publicRepos.filter(repo => !repo.fork)
 
-  const repoGroups: RepoGroup = {
+  const repoGroups: Record<string, Repo[]> = {
     'Angular': filterRepos(publicAndNotForkRepos, 'angular'),
     'Vue Ecosystem': filterRepos(publicAndNotForkRepos, 'vue'),
     'React': filterRepos(publicAndNotForkRepos, 'react'),
@@ -31,14 +27,15 @@ export default defineCachedEventHandler(async (_event) => {
     'All': publicAndNotForkRepos,
   }
 
-  return {
-    allRepos: repos,
-    groupedRepos: repoGroups
-  }
+  return repoGroups
 }, {
-  group: 'api',
-  name: 'github-repos',
-  getKey: () => 'github-user-repos',
+  group: 'github',
+  name: 'repos-grouped',
+  getKey: () => 'github-repos-grouped',
   swr: true,
-  maxAge: 60 * 5, // 5 minutes
+  maxAge: 60 * 5 // 5 minutes
 })
+
+function filterRepos(repos: Repo[], key: string) {
+  return repos.filter(repo => repo.topics && repo.topics.includes(key))
+}

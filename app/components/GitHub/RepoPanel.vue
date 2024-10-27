@@ -1,5 +1,5 @@
 <script lang='ts' setup>
-import type { Repo } from '~~/types/project'
+import type { Repo } from '~~/types/project';
 
 defineProps<{
     data: Repo[]
