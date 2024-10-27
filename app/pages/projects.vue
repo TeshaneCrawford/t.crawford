@@ -1,7 +1,10 @@
 <script lang='ts' setup>
 import { useTitle } from '@vueuse/core'
+import type { Repo } from '~~/types/project';
 
-const { data: repoGroup } = useFetch('/api/repos')
+
+const { data: repoGroups } = useFetch<Record<string, Repo[]>>('/api/repos')
+
 
 useTitle('Projects')
 useHead({
@@ -40,12 +43,12 @@ defineOgImageComponent('PageOg', {
     title="Portfolio of my Projects"
     description="Check out my latest software projects and contributions. Here are some of the projects I've worked on."
   >
-    <GitHubRepoPanel
-      v-for="(repos, key) in repoGroup"
-      :key="key"
-      :label="key"
-      :data="repos"
-    />
+  <GitHubRepoPanel
+        v-for="(repos, label) in repoGroups"
+        :key="label"
+        :label="label"
+        :data="repos"
+      />
   </AppHeading>
     <br>
     <BackButton />
