@@ -60,8 +60,10 @@ const calculateReadingTime = (content: string) => {
   return `${minutes} min read`;
 }
 
+type BlogPostContent = Pick<ParsedContent, '_path' | 'title' | 'date' | 'tags' | 'description'>
+
 const transformToBlogPost = async (
-  content: Pick<ParsedContent, '_path' | 'title' | 'date' | 'tags' | 'description'> | null
+  content: BlogPostContent | null | undefined
 ): Promise<BlogPost | null> => {
   if (!content || !content._path) return null
 
@@ -74,39 +76,63 @@ const transformToBlogPost = async (
   }
 }
 
-// navigation
-// Queries for navigation
-const { data: navigation } = await useAsyncData(`${path.value}-navigation`,
-async () => {
-  const [prevContent, nextContent] = await Promise.all([
-    queryContent('blog')
-      .where({ _path: { $ne: path.value } })
-      .only(['_path', 'title', 'date', 'description', 'tags', 'content'])
-      .sort({ date: -1 })
-      .findOne(),
-    queryContent('blog')
-      .where({ _path: { $ne: path.value } })
-      .only(['_path', 'title', 'date', 'description', 'tags', 'content'])
-      .sort({ date: 1 })
-      .findOne(),
-  ])
-  const [prev, next] = await Promise.all([
-    transformToBlogPost(prevContent),
-    transformToBlogPost(nextContent)
-  ])
-  if (prev) {
-    const prevContent = await queryContent(prev._path).only(['body']).findOne()
-    prev.readingTime = calculateReadingTime(getContentFromBody(prevContent.body))
+const { data: navigation } = await useAsyncData(
+  `${path.value}-navigation`,
+  async () => {
+    try {
+      const allPosts = await queryContent('blog')
+        .only(['_path', 'title', 'date', 'description', 'tags'])
+        .sort({ date: -1 })
+        .find()
+
+      const currentIndex = allPosts.findIndex(post => post._path === path.value)
+      if (currentIndex === -1) return { prev: null, next: null }
+
+      const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] as BlogPostContent : null
+      const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] as BlogPostContent : null
+
+      const [prev, next] = await Promise.all([
+        transformToBlogPost(prevPost),
+        transformToBlogPost(nextPost)
+      ])
+
+      if (prev) {
+        try {
+          const prevContent = await queryContent(prev._path).only(['body']).findOne()
+          prev.readingTime = calculateReadingTime(getContentFromBody(prevContent?.body))
+        } catch (error) {
+          console.error(`Error calculating reading time for prev post: ${error}`)
+          prev.readingTime = '? min read'
+        }
+      }
+
+      if (next) {
+        try {
+          const nextContent = await queryContent(next._path).only(['body']).findOne()
+          next.readingTime = calculateReadingTime(getContentFromBody(nextContent?.body))
+        } catch (error) {
+          console.error(`Error calculating reading time for next post: ${error}`)
+          next.readingTime = '? min read'
+        }
+      }
+
+      return {
+        prev,
+        next,
+      }
+    } catch (error) {
+      console.error('Error fetching navigation:', error)
+      return {
+        prev: null,
+        next: null
+      }
+    }
+  },
+  {
+    server: true,
+    immediate: true
   }
-  if (next) {
-    const nextContent = await queryContent(next._path).only(['body']).findOne()
-    next.readingTime = calculateReadingTime(getContentFromBody(nextContent.body))
-  }
-  return {
-    prev,
-    next,
-  }
-})
+)
 
 defineOgImageComponent('DefaultOg', {
   date: formatter.format(new Date(page.value.date)),
@@ -161,14 +187,14 @@ useSeoMetaConfig({
         <StaticMarkdownRender :path="path" />
       </Prose>
       <div
-        class="animate-fade-in-up opacity-0"
+        class="animate-fade-in-up opacity-900"
         style="animation-delay: 0.3s; animation-fill-mode: forwards;"
       >
-        <BlogNavigation
-          v-if="navigation"
-          :prev="navigation.prev"
-          :next="navigation.next"
-        />
+      <BlogNavigation
+  v-if="navigation"
+  :prev="navigation.prev"
+  :next="navigation.next"
+/>
       </div>
     </section>
   </main>
