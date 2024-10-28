@@ -123,7 +123,12 @@ for (let i = 0; i < message.length; i++) {
 
 Each solution has its trade-offs:
 
-:alert[- \`downlevelIteration\`: Increases bundle size but maintains exact iteration semantics - Updated target: Best performance but requires modern browser support - \`importHelpers\`: Good balance of bundle size and compatibility - Alternative approaches: May have slightly different semantics but work everywhere]{type="info"}
+::alert{type="info"}
+- `downlevelIteration`: Increases bundle size but maintains exact iteration semantics 
+- Updated target: Best performance but requires modern browser support 
+- `importHelpers`: Good balance of bundle size and compatibility 
+- Alternative approaches: May have slightly different semantics but work everywhere
+::
 
 ## Conclusion
 
