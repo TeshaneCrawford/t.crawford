@@ -1,6 +1,6 @@
 ---
 title: Records and Structs in C#
-description: Understand the difference between records and structs in C# and when to use each.
+description: A comprehensive guide to understanding the differences between records and structs in C# and when to use each effectively.
 authors:
   - name: Teshane Crawford
     picture: https://github.com/TeshaneCrawford.png
@@ -8,59 +8,169 @@ authors:
 tags:
   - C#
   - dotnet
+  - programming
+  - data-structures
 date: 2023-08-15T00:00:00.000Z
 content: null
 ---
 
-## Understanding the Difference Between Records and Structs in C\#
+## Understanding Records and Structs in C#: A Comprehensive Guide
 
-In C#, both `records` and `structs` are used to create user-defined types that can contain multiple members. However, they have some key differences that make them suitable for different scenarios. Let's delve into these differences.
+In modern C# development, choosing the right data structure is crucial for writing efficient and maintainable code. Two important options are `records` and `structs`, each with distinct characteristics and use cases. This guide will help you understand when to use each one.
 
 ## What is a Struct?
 
-A `struct`, or structure, is a value type in C#. It is used to encapsulate small groups of related variables. Here is an example of a struct:
+A `struct` (structure) is a value type in C# that encapsulates related data and behaviors. Structs are particularly useful for small, lightweight objects where performance is critical.
 
-```csharp [program.cs]
+Here's a basic example of a struct:
+
+```csharp
 public struct Point
+{
+    public int X { get; set; }
+    public int Y { get; set; }
+
+    public Point(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+
+    public double DistanceFromOrigin() =>
+        Math.Sqrt(X * X + Y * Y);
+}
+```
+
+### Key Features of Structs
+
+1. **Value Semantics**
+   - Structs are copied when assigned to a new variable
+   - Each instance maintains its own copy of the data
+   - Passed by value to methods (unless using `ref` or `out`)
+
+2. **Performance Benefits**
+   - Allocated on the stack (for local variables)
+   - No garbage collection overhead
+   - Efficient for small data structures
+
+3. **Limitations**
+   - Cannot inherit from other structs or classes
+   - Cannot be null (unless declared as nullable)
+   - Should remain small and lightweight
+   - All fields must be initialized
+
+## What is a Record?
+
+Introduced in C# 9.0, records are reference types designed for immutable data modeling. They provide built-in functionality for value-based equality and data manipulation.
+
+Here's a simple record declaration:
+
+```csharp
+// Immutable record with positional parameters
+public record Point(int X, int Y)
+{
+    public double DistanceFromOrigin =>
+        Math.Sqrt(X * X + Y * Y);
+}
+
+// Mutable record (C# 10.0+)
+public record class MutablePoint
 {
     public int X { get; set; }
     public int Y { get; set; }
 }
 ```
 
-### Key Features of Structs
-
-- **Value Type**: Structs are value types. When a struct is assigned to a new variable, a copy of the value is made.
-- **No Inheritance**: Structs cannot inherit from other structs or classes, and they cannot be the base of a class.
-- **No Null Values**: A struct cannot be null unless it's a nullable type.
-
-## What is a Record?
-
-Records were introduced in C# 9.0 as a way to create immutable reference types. Here is an example of a record:
-
-```csharp [program.cs]
-public record Point(int X, int Y);
-```
-
 ### Key Features of Records
 
-- **Reference Type**: Records are reference types. When a record is assigned to a new variable, both variables point to the same object.
-- **Immutability**: Records are immutable by default. This means once a record object is created, it cannot be changed.
-- **Value Equality**: Records use value equality. Two record objects are equal if their types are identical and all property values are equal.
+1. **Built-in Functionality**
+   - Value-based equality comparisons
+   - Immutability by default
+   - Built-in `ToString()` implementation
+   - Copy constructors with `with` expressions
 
-### Comparing Structs and Records
+2. **Inheritance Support**
+   - Can inherit from other records
+   - Support for virtual members
+   - Interface implementation
 
-|              |                    |                |
-| ------------ | ------------------ | -------------- |
-| Feature      | Struct             | Record         |
-| Type         | Value Type         | Reference Type |
-| Inheritance  | No                 | Yes            |
-| Null Values  | No                 | Yes            |
-| Immutability | No                 | Yes            |
-| Equality     | Reference Equality | Value Equality |
+3. **Pattern Matching**
+   - First-class support for deconstruction
+   - Enhanced pattern matching capabilities
 
-### Conclusion
+## Comparing Structs and Records
 
-While both `structs` and `records` have their uses, they serve different purposes in C#. `Structs` are best for small, simple objects where performance is a concern, while `records` are ideal for larger, more complex objects where immutability and value semantics are more important.
+| Feature           | Struct                    | Record                    |
+|------------------|---------------------------|---------------------------|
+| Type Category    | Value Type                | Reference Type           |
+| Memory Location  | Stack (usually)           | Heap                     |
+| Mutability       | Mutable by default        | Immutable by default     |
+| Inheritance      | No inheritance            | Supports inheritance     |
+| Null Assignment  | No (unless nullable)      | Yes                      |
+| Equality         | Member-wise comparison    | Value-based equality     |
+| Performance      | Better for small types    | Better for larger types  |
+| Use Case         | Small, simple data        | Complex domain models    |
 
-Remember, choosing between a `struct` and a `record` depends on what you need for your specific use case. Happy coding!
+## When to Use Each
+
+### Choose a Struct When
+
+- Working with small, simple data structures
+- Performance is critical
+- The data structure is less than 16 bytes
+- Value semantics are desired
+- The type will be used in arrays
+
+```csharp
+
+public struct Coordinate
+{
+    public double Latitude { get; init; }
+    public double Longitude { get; init; }
+}
+```
+
+### Choose a Record When
+
+- Modeling immutable data
+- Working with domain models
+- Need value-based equality
+- Want built-in formatting and deconstruction
+- Inheritance is required
+
+```csharp
+
+public record Person(
+    string FirstName,
+    string LastName,
+    DateOnly DateOfBirth)
+{
+    public int Age =>
+        DateOnly.FromDateTime(DateTime.Now).Year - DateOfBirth.Year;
+}
+```
+
+## Best Practices
+
+1. **Struct Best Practices**
+   - Keep them small and focused
+   - Consider making them readonly
+   - Implement `IEquatable<T>` for better performance
+   - Avoid reference type fields
+
+2. **Record Best Practices**
+   - Use init-only properties for immutability
+   - Leverage with-expressions for modifications
+   - Consider using records for DTOs
+   - Use positional syntax for simple cases
+
+## Conclusion
+
+Both `structs` and `records` serve important purposes in C# development:
+
+- Use `structs` when you need lightweight, value-type semantics and performance is crucial
+- Use `records` when you want immutable objects with value-based equality and rich built-in functionality
+
+The choice between them should be based on your specific requirements around immutability, equality comparison, and performance needs. Remember that premature optimization is the root of all evil - choose the type that makes your code most maintainable and clear first, then optimize if needed.
+
+Happy coding! 🚀
