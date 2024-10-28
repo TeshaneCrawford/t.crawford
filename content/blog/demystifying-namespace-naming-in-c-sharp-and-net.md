@@ -31,7 +31,7 @@ Namespaces are more than just containers for your code - they're the GPS coordin
 
 Microsoft's Framework Design Guidelines provide this template for namespace naming:
 
-```csharp
+```csharp [file.cs]
 <Company>.(<Product>|<Technology>)[.<Feature>][.<Subnamespace>]
 ```
 
@@ -80,7 +80,7 @@ Contoso.Ecommerce.PaymentProcessing.StripeImplementation  // Too verbose
 
 ### ✅ DO: Use PascalCase
 
-```csharp
+```csharp [GoodFile.cs]
 namespace Contoso.IdentityServer.Authentication
 {
     // Good: Clear hierarchy, PascalCase
@@ -106,7 +106,7 @@ namespace MyCompany.WebService
 
 ### ❌ DON'T: Use Generic Names
 
-```csharp
+```csharp [BadFile.cs]
 // Bad - Too generic
 namespace MyCompany.Utilities
 {
@@ -122,7 +122,7 @@ namespace MyCompany.Logging.Formatters
 
 ### ❌ DON'T: Match Namespace and Type Names
 
-```csharp
+```csharp [BadFile.cs]
 // Bad - Namespace and class name conflict
 namespace MyCompany.Logger
 {
