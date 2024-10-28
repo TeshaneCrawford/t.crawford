@@ -58,8 +58,13 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
           <div v-else class="folder-placeholder">
             No preview
           </div>
+          <div class="folder-overlay">
+            <div class="folder-content">
+              <i class="i-hugeicons:album-01 mr-2"/>
+              <span class="folder-title">{{ folder.name }}</span>
+            </div>
+          </div>
         </div>
-        <h3 class="folder-name op-60">{{ folder.name }}</h3>
       </NuxtLink>
     </div>
   </div>
@@ -76,23 +81,30 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
 .folder-item {
   text-decoration: none;
   color: inherit;
-
-  &:hover {
-    .folder-preview {
-      transform: translateY(-2%);
-    }
-  }
+  position: relative;
 }
 
 .folder-preview {
   aspect-ratio: 1;
-  transition: 0.25s cubic-bezier(0.36, 0.07, 0.25, 1);
-  transition-property: transform, box-shadow;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .folder-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    img {
+      transform: scale(1.05);
+    }
+  }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
   }
 }
 
@@ -105,9 +117,47 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
   background: #f5f5f5;
 }
 
-.folder-name {
-  margin: var(--space-s) 0;
-  text-align: center;
+.folder-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  opacity: 0.9;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.folder-content {
+  display: flex;
+  align-items: center;
+  color: white;
+
+  i {
+    font-size: 1.2rem;
+  }
+}
+
+.folder-title {
   font-size: 1.1rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+
+  .folder-item:hover & {
+    &::after {
+      width: 100%;
+    }
+  }
 }
 </style>
