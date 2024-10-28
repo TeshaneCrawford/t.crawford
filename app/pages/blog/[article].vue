@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { BlogPost } from '~~/types/content'
 import type { ParsedContent } from '@nuxt/content'
-
+// viewtransition
 const viewTransitionName = computed(() => `article-${slug}`)
 
 const route = useRoute('blog-article')
@@ -15,7 +15,8 @@ const path = computed(() =>
 const { data: page } = await useAsyncData(
   path.value,
   () =>
-    queryContent(path.value)
+    ((import.meta.server || import.meta.dev) as true)
+    && queryContent(path.value)
       .only(['title', 'date', 'tags', 'body', 'authors', 'description', 'content'])
       .findOne(),
 )
@@ -35,11 +36,11 @@ const formatter = new Intl.DateTimeFormat('en-GB', {
   year: 'numeric',
 })
 
-// Handle undefined input
+
+// Hhandle undefined input
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getContentFromBody = (body: any): string => {
   if (!body?.children) return ''
-
   return body.children
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .map((node: any) => {
@@ -54,19 +55,19 @@ const getContentFromBody = (body: any): string => {
 const content = computed(() => getContentFromBody(page.value?.body));
 
 const calculateReadingTime = (content: string) => {
+  if (!content) return '1 min read'
   const wordsPerMinute = 200;
   const words = content.trim().split(/\s+/).length;
   const minutes = Math.ceil(words / wordsPerMinute);
   return `${minutes} min read`;
 }
 
-type BlogPostContent = Pick<ParsedContent, '_path' | 'title' | 'date' | 'tags' | 'description'>
+type BlogPostContent = Pick<ParsedContent, '_path' | 'title' | 'date' | 'tags' | 'description' | 'content'>
 
 const transformToBlogPost = async (
   content: BlogPostContent | null | undefined
 ): Promise<BlogPost | null> => {
   if (!content || !content._path) return null
-
   return {
     _path: content._path,
     title: content.title || '',
@@ -81,15 +82,19 @@ const { data: navigation } = await useAsyncData(
   async () => {
     try {
       const allPosts = await queryContent('blog')
-        .only(['_path', 'title', 'date', 'description', 'tags'])
+        .only(['_path', 'title', 'date', 'description', 'tags', 'content'])
         .sort({ date: -1 })
         .find()
 
       const currentIndex = allPosts.findIndex(post => post._path === path.value)
       if (currentIndex === -1) return { prev: null, next: null }
 
-      const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] as BlogPostContent : null
-      const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] as BlogPostContent : null
+      // Circular navigation
+      const nextIndex = currentIndex > 0 ? currentIndex - 1 : allPosts.length - 1
+      const prevIndex = currentIndex < allPosts.length - 1 ? currentIndex + 1 : 0
+
+      const nextPost = allPosts[nextIndex] as BlogPostContent
+      const prevPost = allPosts[prevIndex] as BlogPostContent
 
       const [prev, next] = await Promise.all([
         transformToBlogPost(prevPost),
@@ -98,21 +103,29 @@ const { data: navigation } = await useAsyncData(
 
       if (prev) {
         try {
-          const prevContent = await queryContent(prev._path).only(['body']).findOne()
-          prev.readingTime = calculateReadingTime(getContentFromBody(prevContent?.body))
+          const prevContent = await queryContent(prev._path)
+            .only(['body'])
+            .findOne()
+
+          const contentText = getContentFromBody(prevContent?.body)
+          prev.readingTime = calculateReadingTime(contentText)
         } catch (error) {
           console.error(`Error calculating reading time for prev post: ${error}`)
-          prev.readingTime = '? min read'
+          prev.readingTime = '1 min read'
         }
       }
 
       if (next) {
         try {
-          const nextContent = await queryContent(next._path).only(['body']).findOne()
-          next.readingTime = calculateReadingTime(getContentFromBody(nextContent?.body))
+          const nextContent = await queryContent(next._path)
+            .only(['body'])
+            .findOne()
+
+          const contentText = getContentFromBody(nextContent?.body)
+          next.readingTime = calculateReadingTime(contentText)
         } catch (error) {
           console.error(`Error calculating reading time for next post: ${error}`)
-          next.readingTime = '? min read'
+          next.readingTime = '1 min read'
         }
       }
 
@@ -144,6 +157,10 @@ if (import.meta.server) {
   useRoute().meta.description = page.value.description
 }
 
+// definePageMeta({
+//   title: () => page.value?.title || 'Article'
+// })
+
 definePageMeta({
   layout: 'blog'
 })
@@ -154,7 +171,7 @@ useSeoMetaConfig({
 </script>
 
 <template>
-  <main md:px-8 xl:px-0>
+  <main   md:px-8 xl:px-0 >
     <div
       class="mb-8 animate-fade-in-down opacity-0"
       style="animation-delay: 0.2s; animation-fill-mode: forwards;"
@@ -187,14 +204,14 @@ useSeoMetaConfig({
         <StaticMarkdownRender :path="path" />
       </Prose>
       <div
-        class="animate-fade-in-up opacity-900"
+        class="animate-fade-in-up opacity-0"
         style="animation-delay: 0.3s; animation-fill-mode: forwards;"
       >
-      <BlogNavigation
-  v-if="navigation"
-  :prev="navigation.prev"
-  :next="navigation.next"
-/>
+        <BlogNavigation
+          v-if="navigation"
+          :prev="navigation.prev"
+          :next="navigation.next"
+        />
       </div>
     </section>
   </main>
