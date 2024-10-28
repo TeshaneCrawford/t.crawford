@@ -99,8 +99,9 @@ export default defineNuxtConfig({
 ### Image Format Selection
 
 ::detail{title="Click to see format selection logic"}
+First, create a utility function to handle format selection:
 
-```ts [utils/image.ts]
+```ts [utils/imageFormatSelector.ts]
 const formats = {
   jpeg: 'image/jpeg',
   webp: 'image/webp',
@@ -114,6 +115,53 @@ const selectFormat = (formats: string[]) => {
     window.navigator.userAgent.includes(format)
   ) || 'jpeg';
 };
+```
+
+Then create a reusable component that uses this utility:
+
+```vue [components/OptimizedImage.vue]
+<script setup lang="ts">
+import { selectFormat } from '~/utils/imageFormatSelector'
+
+const selectedFormat = ref(selectFormat(['webp', 'jpeg']))
+
+// Props for component customization
+interface Props {
+  src: string
+  alt: string
+  width?: number
+  height?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  width: undefined,
+  height: undefined
+})
+</script>
+
+<template>
+  <NuxtImg
+    :src="src"
+    :alt="alt"
+    :format="selectedFormat"
+    :width="width"
+    :height="height"
+    loading="lazy"
+  />
+</template>
+```
+
+Usage in your pages or components:
+
+```vue [pages/index.vue]
+<template>
+  <OptimizedImage
+    src="/images/hero.jpg"
+    alt="Hero Image"
+    :width="800"
+    :height="400"
+  />
+</template>
 ```
 
 ::
@@ -206,6 +254,6 @@ Image optimization in Nuxt 3 is a powerful way to improve your application's per
 
 ### Resources 📚
 
-- [Nuxt Image Documentation](https://image.nuxtjs.org/)
+- [Nuxt Image Documentation](https://image.nuxt.com/)
 - [Web.dev Image Optimization](https://web.dev/fast/#optimize-your-images)
 - [Core Web Vitals](https://web.dev/vitals/)
