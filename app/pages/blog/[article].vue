@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { BlogPost } from '~~/types/content'
 import type { ParsedContent } from '@nuxt/content'
+
 // viewtransition
 const viewTransitionName = computed(() => `article-${slug}`)
 
@@ -37,52 +38,54 @@ const formatter = new Intl.DateTimeFormat('en-GB', {
 })
 
 
-// Hhandle undefined input
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const content = computed(() => getContentFromBody(page.value?.body));
+
+// Helper function to extract text content from body
 const getContentFromBody = (body: any): string => {
   if (!body?.children) return ''
   return body.children
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .map((node: any) => {
       if (node.type === 'text') return node.value || ''
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (node.children) return node.children.map((child: any) => child.value || '').join(' ')
       return ''
     })
     .join(' ')
 }
 
-const content = computed(() => getContentFromBody(page.value?.body));
-
-const calculateReadingTime = (content: string) => {
-  if (!content) return '1 min read'
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / wordsPerMinute);
-  return `${minutes} min read`;
+// Calculate reading time from content
+const calculateReadingTime = (content: string): string => {
+  const wordsPerMinute = 200
+  const wordCount = content.trim().split(/\s+/).length
+  const minutes = Math.max(1, Math.ceil(wordCount / wordsPerMinute))
+  return `${minutes} min read`
 }
 
-type BlogPostContent = Pick<ParsedContent, '_path' | 'title' | 'date' | 'tags' | 'description' | 'content'>
+type BlogPostContent = Pick<ParsedContent, '_path' | 'title' | 'date' | 'tags' | 'description' | 'content' | 'body'>
 
-const transformToBlogPost = async (
-  content: BlogPostContent | null | undefined
-): Promise<BlogPost | null> => {
+const transformToBlogPost = (content: BlogPostContent | null): BlogPost | null => {
   if (!content || !content._path) return null
+
+  // Calculating reading time directly from the content body
+  const contentText = getContentFromBody(content.body)
+  const readingTime = calculateReadingTime(contentText)
+
   return {
     _path: content._path,
     title: content.title || '',
     description: content.description,
     date: content.date,
     tags: content.tags,
+    readingTime,
   }
 }
 
+// Navigation fetching
 const { data: navigation } = await useAsyncData(
   `${path.value}-navigation`,
   async () => {
     try {
       const allPosts = await queryContent('blog')
-        .only(['_path', 'title', 'date', 'description', 'tags', 'content'])
+        .only(['_path', 'title', 'date', 'description', 'tags', 'body'])
         .sort({ date: -1 })
         .find()
 
@@ -96,54 +99,21 @@ const { data: navigation } = await useAsyncData(
       const nextPost = allPosts[nextIndex] as BlogPostContent
       const prevPost = allPosts[prevIndex] as BlogPostContent
 
-      const [prev, next] = await Promise.all([
-        transformToBlogPost(prevPost),
-        transformToBlogPost(nextPost)
-      ])
-
-      if (prev) {
-        try {
-          const prevContent = await queryContent(prev._path)
-            .only(['body'])
-            .findOne()
-
-          const contentText = getContentFromBody(prevContent?.body)
-          prev.readingTime = calculateReadingTime(contentText)
-        } catch (error) {
-          console.error(`Error calculating reading time for prev post: ${error}`)
-          prev.readingTime = '1 min read'
-        }
-      }
-
-      if (next) {
-        try {
-          const nextContent = await queryContent(next._path)
-            .only(['body'])
-            .findOne()
-
-          const contentText = getContentFromBody(nextContent?.body)
-          next.readingTime = calculateReadingTime(contentText)
-        } catch (error) {
-          console.error(`Error calculating reading time for next post: ${error}`)
-          next.readingTime = '1 min read'
-        }
-      }
-
       return {
-        prev,
-        next,
+        prev: transformToBlogPost(prevPost),
+        next: transformToBlogPost(nextPost),
       }
     } catch (error) {
       console.error('Error fetching navigation:', error)
       return {
         prev: null,
-        next: null
+        next: null,
       }
     }
   },
   {
     server: true,
-    immediate: true
+    immediate: true,
   }
 )
 
