@@ -6,4 +6,4 @@ Beyond coding, my passion for traveling and exploring new cultures brings fresh 
 
 Whether it's solving complex problems or creating intuitive user interfaces, I always strive to deliver high-quality, impactful solutions. This balance of skills and passions enables me to make a significant contribution to the teams and projects I'm part of.
 
-Send me an email @[crawfordteshane@gmail.com](mailto:crawfordteshane@gmail.com)
+Send me an email @<crawfordteshane@gmail.com>
