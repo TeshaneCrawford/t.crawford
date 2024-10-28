@@ -24,7 +24,7 @@ A `struct` (structure) is a value type in C# that encapsulates related data and 
 
 Here's a basic example of a struct:
 
-```csharp
+```csharp [program.cs]
 public struct Point
 {
     public int X { get; set; }
@@ -43,21 +43,16 @@ public struct Point
 
 ### Key Features of Structs
 
-1. **Value Semantics**
-   - Structs are copied when assigned to a new variable
-   - Each instance maintains its own copy of the data
-   - Passed by value to methods (unless using `ref` or `out`)
-
-2. **Performance Benefits**
-   - Allocated on the stack (for local variables)
-   - No garbage collection overhead
-   - Efficient for small data structures
-
-3. **Limitations**
-   - Cannot inherit from other structs or classes
-   - Cannot be null (unless declared as nullable)
-   - Should remain small and lightweight
-   - All fields must be initialized
+1. **Value Semantics*** Structs are copied when assigned to a new variable
+   * Each instance maintains its own copy of the data
+   * Passed by value to methods (unless using `ref` or `out`)
+2. **Performance Benefits*** Allocated on the stack (for local variables)
+   * No garbage collection overhead
+   * Efficient for small data structures
+3. **Limitations*** Cannot inherit from other structs or classes
+   * Cannot be null (unless declared as nullable)
+   * Should remain small and lightweight
+   * All fields must be initialized
 
 ## What is a Record?
 
@@ -65,7 +60,7 @@ Introduced in C# 9.0, records are reference types designed for immutable data mo
 
 Here's a simple record declaration:
 
-```csharp
+```csharp [program.cs]
 // Immutable record with positional parameters
 public record Point(int X, int Y)
 {
@@ -83,33 +78,28 @@ public record class MutablePoint
 
 ### Key Features of Records
 
-1. **Built-in Functionality**
-   - Value-based equality comparisons
-   - Immutability by default
-   - Built-in `ToString()` implementation
-   - Copy constructors with `with` expressions
-
-2. **Inheritance Support**
-   - Can inherit from other records
-   - Support for virtual members
-   - Interface implementation
-
-3. **Pattern Matching**
-   - First-class support for deconstruction
-   - Enhanced pattern matching capabilities
+1. **Built-in Functionality*** Value-based equality comparisons
+   * Immutability by default
+   * Built-in `ToString()` implementation
+   * Copy constructors with `with` expressions
+2. **Inheritance Support*** Can inherit from other records
+   * Support for virtual members
+   * Interface implementation
+3. **Pattern Matching*** First-class support for deconstruction
+   * Enhanced pattern matching capabilities
 
 ## Comparing Structs and Records
 
-| Feature           | Struct                    | Record                    |
-|------------------|---------------------------|---------------------------|
-| Type Category    | Value Type                | Reference Type           |
-| Memory Location  | Stack (usually)           | Heap                     |
-| Mutability       | Mutable by default        | Immutable by default     |
-| Inheritance      | No inheritance            | Supports inheritance     |
-| Null Assignment  | No (unless nullable)      | Yes                      |
-| Equality         | Member-wise comparison    | Value-based equality     |
-| Performance      | Better for small types    | Better for larger types  |
-| Use Case         | Small, simple data        | Complex domain models    |
+| Feature         | Struct                 | Record                  |
+| --------------- | ---------------------- | ----------------------- |
+| Type Category   | Value Type             | Reference Type          |
+| Memory Location | Stack (usually)        | Heap                    |
+| Mutability      | Mutable by default     | Immutable by default    |
+| Inheritance     | No inheritance         | Supports inheritance    |
+| Null Assignment | No (unless nullable)   | Yes                     |
+| Equality        | Member-wise comparison | Value-based equality    |
+| Performance     | Better for small types | Better for larger types |
+| Use Case        | Small, simple data     | Complex domain models   |
 
 ## When to Use Each
 
@@ -121,8 +111,7 @@ public record class MutablePoint
 - Value semantics are desired
 - The type will be used in arrays
 
-```csharp
-
+```csharp [program.cs]
 public struct Coordinate
 {
     public double Latitude { get; init; }
@@ -138,8 +127,7 @@ public struct Coordinate
 - Want built-in formatting and deconstruction
 - Inheritance is required
 
-```csharp
-
+```csharp [program.cs]
 public record Person(
     string FirstName,
     string LastName,
@@ -152,17 +140,14 @@ public record Person(
 
 ## Best Practices
 
-1. **Struct Best Practices**
-   - Keep them small and focused
-   - Consider making them readonly
-   - Implement `IEquatable<T>` for better performance
-   - Avoid reference type fields
-
-2. **Record Best Practices**
-   - Use init-only properties for immutability
-   - Leverage with-expressions for modifications
-   - Consider using records for DTOs
-   - Use positional syntax for simple cases
+1. **Struct Best Practices*** Keep them small and focused
+   * Consider making them readonly
+   * Implement `IEquatable<T>` for better performance
+   * Avoid reference type fields
+2. **Record Best Practices*** Use init-only properties for immutability
+   * Leverage with-expressions for modifications
+   * Consider using records for DTOs
+   * Use positional syntax for simple cases
 
 ## Conclusion
 
