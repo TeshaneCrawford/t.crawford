@@ -30,7 +30,7 @@ This error typically occurs when you're trying to iterate over a string using a 
 
 The error occurs because string iteration wasn't fully supported in JavaScript versions prior to ES2015 (ES6). When TypeScript compiles to an older version of JavaScript, it needs special handling for iteration operations. Here's an example that triggers the error:
 
-```typescript
+```ts [file.ts]
 const message = "Hello";
 for (const char of message) {  // Error occurs here
     console.log(char);
@@ -53,7 +53,7 @@ tsc --downlevelIteration your-file.ts
 }
 ```
 
->**Note:** This solution might increase your bundle size slightly as it adds additional helper code.
+**Note:** This solution might increase your bundle size slightly as it adds additional helper code.
 
 ## Solution 2: Update TypeScript Target
 
@@ -73,7 +73,7 @@ This solution is ideal if you're not supporting older browsers that don't suppor
 
 For better code optimization, you can use the `importHelpers` option along with the `tslib` package:
 
-```bash
+```bash [terminal]
 npm install tslib --save
 ```
 
@@ -94,7 +94,7 @@ If you can't modify your TypeScript configuration, here are some workarounds:
 
 ### Using Array.from()
 
-```typescript
+```ts [file.ts]
 const message = "Hello";
 const chars = Array.from(message);
 for (const char of chars) {
@@ -104,7 +104,7 @@ for (const char of chars) {
 
 ### Using spread operator
 
-```typescript
+```ts [file.ts]
 const message = "Hello";
 const chars = [...message];
 chars.forEach(char => console.log(char));
@@ -112,7 +112,7 @@ chars.forEach(char => console.log(char));
 
 ### Using traditional for loop
 
-```typescript
+```ts [file.ts]
 const message = "Hello";
 for (let i = 0; i < message.length; i++) {
     console.log(message[i]);
@@ -123,13 +123,12 @@ for (let i = 0; i < message.length; i++) {
 
 Each solution has its trade-offs:
 
-::alert{type="warning"}
+:alert[- \`downlevelIteration\`: Increases bundle size but maintains exact iteration semantics - Updated target: Best performance but requires modern browser support - \`importHelpers\`: Good balance of bundle size and compatibility - Alternative approaches: May have slightly different semantics but work everywhere]{type="info"}
 
 - `downlevelIteration`: Increases bundle size but maintains exact iteration semantics
 - Updated target: Best performance but requires modern browser support
 - `importHelpers`: Good balance of bundle size and compatibility
 - Alternative approaches: May have slightly different semantics but work everywhere
-::
 
 ## Conclusion
 
