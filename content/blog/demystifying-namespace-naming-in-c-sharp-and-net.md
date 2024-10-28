@@ -7,11 +7,10 @@ authors:
     twitter: _d_shybrid
 tags:
   - C#
-  - .NET
+  - dotnet
   - Clean Code
   - Best Practices
-  - Software Architecture
-date: 2023-08-25T00:00:00.000Z
+date: '2023-08-25T00:00:00.000Z'
 content: null
 ---
 
@@ -235,4 +234,5 @@ Good namespace naming is an art that balances clarity, organization, and future-
 Happy coding! 🚀
 
 ---
-*Note: This article contains portions adapted from "Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition" by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008, by Addison-Wesley Professional.*
+
+_Note: This article contains portions adapted from "Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition" by Krzysztof Cwalina and Brad Abrams, published Oct 22, 2008, by Addison-Wesley Professional._
