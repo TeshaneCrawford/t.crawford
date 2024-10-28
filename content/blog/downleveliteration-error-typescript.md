@@ -125,11 +125,6 @@ Each solution has its trade-offs:
 
 :alert[- \`downlevelIteration\`: Increases bundle size but maintains exact iteration semantics - Updated target: Best performance but requires modern browser support - \`importHelpers\`: Good balance of bundle size and compatibility - Alternative approaches: May have slightly different semantics but work everywhere]{type="info"}
 
-- `downlevelIteration`: Increases bundle size but maintains exact iteration semantics
-- Updated target: Best performance but requires modern browser support
-- `importHelpers`: Good balance of bundle size and compatibility
-- Alternative approaches: May have slightly different semantics but work everywhere
-
 ## Conclusion
 
 The DownlevelIteration error in TypeScript is easily resolved once you understand its cause. Choose the solution that best fits your project's requirements:
