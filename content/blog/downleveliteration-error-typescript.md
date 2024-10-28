@@ -121,10 +121,9 @@ for (let i = 0; i < message.length; i++) {
 
 ## Performance Considerations
 
-Each solution has its trade-offs:
-
 ::alert{type="info"}
-💡
+💡Each solution has its trade-offs:
+
 - `downlevelIteration`: Increases bundle size but maintains exact iteration semantics
 - Updated target: Best performance but requires modern browser support
 - `importHelpers`: Good balance of bundle size and compatibility
