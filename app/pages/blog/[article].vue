@@ -41,11 +41,14 @@ const formatter = new Intl.DateTimeFormat('en-GB', {
 const content = computed(() => getContentFromBody(page.value?.body));
 
 // Helper function to extract text content from body
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getContentFromBody = (body: any): string => {
   if (!body?.children) return ''
   return body.children
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .map((node: any) => {
       if (node.type === 'text') return node.value || ''
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (node.children) return node.children.map((child: any) => child.value || '').join(' ')
       return ''
     })

@@ -35,7 +35,7 @@ const links: NavLink[] = [
     :href="`https://github.com/${userData?.username}`"
     target="_blank"
     rel="noopener noreferrer"
-    class="inline-block transition-transform hover:scale-102 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600"
+    class="inline-block transition-transform hover:scale-102 sm:pl-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600"
     :aria-label="`Visit ${userData?.name}'s GitHub profile (opens in new tab)`"
   >
     <img

@@ -4,7 +4,7 @@ useSeoMetaConfig({
 })
 
 definePageMeta({
-  alias: ['/blog', '/post', '/blogs'],
+  alias: ['/blog', '/article', '/blogs'],
   title: 'Blog'
 });
 

@@ -122,7 +122,16 @@ export default defineNuxtConfig({
       'avatars.githubusercontent.com',
       'raw.githubusercontent.com',
       'res.cloudinary.com',
-    ]
+    ],
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'jpg',
+          width: 72,
+          height: 72
+        }
+      }
+    }
   },
 
   nitro: {
