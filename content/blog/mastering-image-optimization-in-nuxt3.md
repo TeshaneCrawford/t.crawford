@@ -8,7 +8,6 @@ authors:
 tags:
   - Nuxt
   - Vue
-  - Performance
   - Image Optimization
 date: '2024-10-28T00:00:00.000Z'
 content: null
@@ -91,7 +90,7 @@ export default defineNuxtConfig({
 ```
 
 ::alert{type="warning"}
->⚠️Always specify image dimensions to prevent layout shifts!
+> ⚠️Always specify image dimensions to prevent layout shifts!
 ::
 
 ## Advanced Techniques 🎯
@@ -163,7 +162,6 @@ Usage in your pages or components:
   />
 </template>
 ```
-
 ::
 
 ### Custom Image Provider
@@ -193,12 +191,12 @@ export default defineNuxtConfig({
 
 ## Best Practices 📝
 
-| Practice | Description | Impact |
-|----------|-------------|---------|
-| Use WebP | Modern format with better compression | 25-35% smaller files |
-| Lazy Loading | Load images only when needed | Faster initial page load |
-| Responsive Images | Different sizes for different screens | Optimal delivery |
-| Width/Height | Always specify dimensions | Prevents CLS |
+| Practice          | Description                           | Impact                   |
+| ----------------- | ------------------------------------- | ------------------------ |
+| Use WebP          | Modern format with better compression | 25-35% smaller files     |
+| Lazy Loading      | Load images only when needed          | Faster initial page load |
+| Responsive Images | Different sizes for different screens | Optimal delivery         |
+| Width/Height      | Always specify dimensions             | Prevents CLS             |
 
 ### ✅ Do's
 
@@ -234,14 +232,10 @@ graph LR
 
 ## Debugging Tools 🔧
 
-1. Chrome DevTools
-   - Network tab
-   - Performance tab
-   - Lighthouse
-
-2. Nuxt Image Inspector
-
-   ```bash [.env]
+1. Chrome DevTools* Network tab
+   * Performance tab
+   * Lighthouse
+2. Nuxt Image Inspector```bash \[.env]
    # Enable in development
    NUXT_IMAGE_PROVIDER_ENABLE_INSPECTOR=true
    ```
