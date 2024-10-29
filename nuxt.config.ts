@@ -198,7 +198,7 @@ export default defineNuxtConfig({
         default: 'vitesse-light',
         dark: 'vitesse-dark',
       },
-      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'cs'],
+      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'mermaid', 'yaml', 'bash', 'cs'],
     },
   },
 
