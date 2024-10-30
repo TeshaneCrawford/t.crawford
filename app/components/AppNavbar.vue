@@ -31,21 +31,21 @@ const { y: scroll } = useWindowScroll()
       <div class="right" print:op0>
         <NuxtLink to="/projects" title="Projects">
           <span class="lt-md:hidden">Projects</span>
-          <Icon name="i-hugeicons:dashboard-circle-edit" md:hidden />
+          <Icon name="i-hugeicons-dashboard-circle-edit" md:hidden />
         </NuxtLink>
         <NuxtLink to="/blog" title="Blog">
           <span class="lt-md:hidden">Blog</span>
-          <Icon name="i-hugeicons:quill-write-02" class="md:hidden" />
+          <Icon name="i-hugeicons-quill-write-02" class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/photos" title="Photos">
           <span class="lt-md:hidden">Photos</span>
-          <Icon  name="i-hugeicons:camera-01" class="md:hidden" />
+          <Icon  name="i-hugeicons-camera-01" class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/uses" class="lt-md:hidden" title="Uses">
           Uses
         </NuxtLink>
         <NuxtLink to="/chat" title="Let's Chat">
-          <Icon name="i-hugeicons:conversation" style="" />
+          <Icon name="i-hugeicons-conversation" style="" />
         </NuxtLink>
         <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="lt-md:hidden">
           <Icon name="i-hugeicons:new-twitter" style="" />

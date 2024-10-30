@@ -3,7 +3,7 @@
 <template>
   <div class="">
     <NuxtLink target="_blank" to="https://twitter.com/TeshanCrawford" title="Twitter" class="group">
-      <Icon name="i-hugeicons:new-twitter" hover-text-neutral-600 alt="Twitter logo" />
+      <Icon name="i-hugeicons-new-twitter" hover-text-neutral-600 alt="Twitter logo" />
     </NuxtLink>
     <NuxtLink target="_blank" to="https://github.com/TeshanCrawford" title="GitHub" class="group">
       <Icon name="i-hugeicons-github" hover-text-neutral-600 alt="GitHub logo" />
@@ -18,7 +18,7 @@
       <Icon name="i-hugeicons-instagram" hover-text-neutral-600 alt="Instagram logo" />
     </NuxtLink>
     <NuxtLink target="_blank" to="https://www.threads.net/@teshanecrawford" title="Threads" class="group">
-      <Icon name="i-hugeicons:threads-ellipse" hover-text-neutral-600 alt="Threads logo" />
+      <Icon name="i-hugeicons-threads-ellipse" hover-text-neutral-600 alt="Threads logo" />
     </NuxtLink>
   </div>
 </template>
