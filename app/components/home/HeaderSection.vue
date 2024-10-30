@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
-import { useGeolocation, useNow } from '@vueuse/core'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { useNow } from '@vueuse/core'
 
 interface WeatherResponse {
   main: {
@@ -21,12 +21,16 @@ interface WeatherResponse {
   cod: number;
 }
 
-const { coords, isSupported } = useGeolocation()
+// Coordinates
+const FIXED_LATITUDE = 40.7128
+const FIXED_LONGITUDE = -74.0060
+
 const now = useNow({ interval: 60000 })
 const temperature = ref<number | null>(null)
 const error = ref<string | null>(null)
 const loading = ref(true)
 const config = useRuntimeConfig()
+let refreshInterval: NodeJS.Timeout | null = null
 
 const formattedTime = computed(() => {
   return now.value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
@@ -39,17 +43,6 @@ const fetchTemperature = async (): Promise<void> => {
     return
   }
 
-  if (!isSupported.value) {
-    error.value = "Geolocation is not supported by your browser"
-    loading.value = false
-    return
-  }
-
-  if (!coords.value?.latitude || !coords.value?.longitude) {
-    error.value = "Waiting for geolocation data..."
-    return
-  }
-
   loading.value = true
   error.value = null
 
@@ -58,8 +51,8 @@ const fetchTemperature = async (): Promise<void> => {
       'https://api.openweathermap.org/data/2.5/weather',
       {
         params: {
-          lat: coords.value.latitude,
-          lon: coords.value.longitude,
+          lat: FIXED_LATITUDE,
+          lon: FIXED_LONGITUDE,
           units: 'metric',
           appid: config.public.NUXT_WEATHER_API_KEY
         }
@@ -73,44 +66,50 @@ const fetchTemperature = async (): Promise<void> => {
     }
   } catch (e) {
     console.error('Error fetching temperature:', e)
-    error.value = "Failed to fetch temperature. Please check your API key and try again."
+    error.value = "Failed to fetch temperature. Will try again."
     temperature.value = null
   } finally {
     loading.value = false
   }
 }
 
-watch(
-  () => coords.value,
-  fetchTemperature,
-  { immediate: true }
-)
+// Setup interval and initial fetch on client-side only
+onMounted(() => {
+  fetchTemperature()
+  // Refresh every 5 minutes
+  refreshInterval = setInterval(fetchTemperature, 300000)
+})
+
+// Clean up interval when component is destroyed
+onBeforeUnmount(() => {
+  if (refreshInterval) {
+    clearInterval(refreshInterval)
+    refreshInterval = null
+  }
+})
 </script>
 
 <template>
   <div
-   mx-auto mb-4 max-w-3xl flex items-center justify-between px-4 op-50 lg:px-0 md:px-8 sm:px-0
+    mx-auto mb-4 max-w-3xl flex items-center justify-between px-4 op-50 lg:px-0 md:px-8 sm:px-0
   >
     <span
-       inline-flex items-center badge-lg-zinc dark:badge-lg-zinc fw-semibold font-dank important-rounded-none
+      inline-flex items-center badge-lg-zinc dark:badge-lg-zinc fw-semibold font-dank important-rounded-none
     >
       {{ formattedTime }}
     </span>
-
     <span
       v-if="loading"
-       inline-flex items-center badge-lg-zinc dark:badge-lg-zinc font-dank italic important-rounded-none
+      inline-flex items-center badge-lg-zinc dark:badge-lg-zinc font-dank italic important-rounded-none
     >
       Loading temperature...
     </span>
-
     <span
       v-else-if="error"
       inline-flex items-center badge-lg-zinc dark:badge-lg-zinc text-red-500 font-dank important-rounded-none
     >
       {{ error }}
     </span>
-
     <span
       v-else-if="temperature !== null"
       inline-flex items-center badge-lg-zinc dark:badge-lg-zinc fw-semibold font-dank important-rounded-none
