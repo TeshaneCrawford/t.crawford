@@ -25,7 +25,7 @@ defineProps<{
       <!-- Header with repo name and status -->
       <div flex="~ gap-2" items-center justify-between>
         <h5 m0 flex="~ gap-2" items-center text-sm>
-          <Icon name="hugeicons-repository"   h-5 w-5  />
+          <Icon name="i-hugeicons-repository"   h-5 w-5  />
           <span class="font-medium">{{ repo.name }}</span>
         </h5>
         <span
@@ -74,7 +74,7 @@ defineProps<{
             :href="`https://github.com/${repo.full_name}/stargazers`"
           >
             <span flex items-center gap-1>
-              <Icon name="hugeicons-star" h-4 w-4 />
+              <Icon name="i-hugeicons-star" h-4 w-4 />
               {{ repo.stargazers_count }}
             </span>
           </a>
@@ -87,7 +87,7 @@ defineProps<{
             gap-1
             decoration-none
           >
-            <Icon name="hugeicons-git-fork" h-4 w-4 />
+            <Icon name="i-hugeicons-git-fork" h-4 w-4 />
             {{ repo.forks_count }}
           </a>
         </div>
