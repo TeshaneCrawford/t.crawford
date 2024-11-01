@@ -37,14 +37,16 @@ definePageMeta({
   title: 'Error'
 });
 
+defineOgImageComponent('PageOg', {
+  link: '/error',
+});
+
 useSeoMeta({
   ogTitle: 'Error',
   ogDescription: 'An error occurred while rendering the page.',
   twitterTitle: 'Error',
   twitterDescription: 'An error occurred while rendering the page.',
   twitterCard: 'summary_large_image',
-  ogImage: '/logo/TV.png',
-  twitterImage: '/logo/TV.png',
 })
 
 useHead({

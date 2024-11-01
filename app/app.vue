@@ -27,7 +27,7 @@ useSeoMeta({
   ogSiteName: 'Teshane Crawford',
   ogType: 'website',
   twitterCard: 'summary_large_image',
-  twitterSite: '_D_Shybrid'
+  twitterSite: 'TeshaneCrawford'
 })
 </script>
 
