@@ -232,10 +232,13 @@ graph LR
 
 ## Debugging Tools 🔧
 
-1. Chrome DevTools* Network tab
-   * Performance tab
-   * Lighthouse
-2. Nuxt Image Inspector```bash \[.env]
+1. Chrome DevTools
+   - Network tab
+   - Performance tab
+   - Lighthouse
+2. Nuxt Image Inspector
+
+  ```bash \[.env]
    # Enable in development
    NUXT_IMAGE_PROVIDER_ENABLE_INSPECTOR=true
    ```
