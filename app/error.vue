@@ -56,24 +56,6 @@ useHead({
 
 <template>
   <NuxtLayout name="error">
-    <!-- <main class="relative z-20 mx-auto mt-16 max-w-4xl w-full px-7 font-dank lg:mt-8 md:mt-24 xl:px-0">
-      <h1 class="mb-24 text-8xl font-bold">
-        Oh No!
-      </h1>
-      <h2 class="mb-2 text-5xl text-red-6 font-bold">
-        Error {{ error?.statusCode }}
-      </h2>
-      <p class="mb font-sans">
-        An error occurred while rendering the page.
-      </p>
-      <pre mb-4>{{ error?.message }}</pre>
-      <NuxtLink
-        to="/"
-        class="uppercase hover:underline hover:underline-neutral hover:underline-offset-4"
-      >
-        Go back home
-      </NuxtLink>
-    </main> -->
     <main class="flex flex-col items-center justify-center p-4">
     <!-- Animated 404 -->
     <div
