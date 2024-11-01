@@ -36,6 +36,9 @@ importers:
       '@iconify-json/hugeicons':
         specifier: ^1.2.1
         version: 1.2.1
+      '@iconify-json/tabler':
+        specifier: ^1.2.7
+        version: 1.2.7
       '@nuxt/content':
         specifier: ^2.13.4
         version: 2.13.4(ioredis@5.4.1)(magicast@0.3.5)(nuxt@3.13.2(@parcel/watcher@2.4.1)(@types/node@22.7.5)(eslint@9.12.0(jiti@2.3.3))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.24.0)(sass@1.80.4)(terser@5.34.1)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5)(sass@1.80.4)(terser@5.34.1))(vue-tsc@2.1.6(typescript@5.6.3))(webpack-sources@3.2.3))(rollup@4.24.0)(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)
@@ -1119,6 +1122,9 @@ packages:
 
   '@iconify-json/hugeicons@1.2.1':
     resolution: {integrity: sha512-IedWO3xgMuRdRaolyl8kLOMA01xQ2QhldCKWrqtIxEpalndU7hoh1dUR00ackhWLFDwpKdGQGzuF5/Szaw40CQ==}
+
+  '@iconify-json/tabler@1.2.7':
+    resolution: {integrity: sha512-q6FbDeC5caOC7i7/dcJOv7PdovHWItd84hCvsnlD/mzsrl5Nhol6eSQOMRv1bIpyxykGEiSDbOsVK5f23j/aFg==}
 
   '@iconify/collections@1.0.471':
     resolution: {integrity: sha512-R1rjlg4ym/9vvJ9Fg9iNfdDpb9BRkMy8950MV/D9SssbOKFR+JW1fcm7h4D6RtipWbHAJRkuJOww2pWfN85cCA==}
@@ -7134,6 +7140,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/hugeicons@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/tabler@1.2.7':
     dependencies:
       '@iconify/types': 2.0.0
 

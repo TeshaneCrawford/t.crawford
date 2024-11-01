@@ -28,6 +28,11 @@ const contactData: ContactPageData = {
       icon: "i-hugeicons:github-01"
     },
     {
+      name: "Bluesky",
+      url: "https://bsky.app/profile/teshanecrawford.com",
+      icon: "i-tabler-brand-bluesky"
+    },
+    {
       name: "Twitter",
       url: "https://twitter.com/TeshanCrawford",
       icon: "i-hugeicons:new-twitter"
@@ -146,4 +151,5 @@ useHead({
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
