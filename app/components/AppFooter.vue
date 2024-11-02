@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const currentYear = new Date().getFullYear()
 const startYear = 2021
-const yearDisplay = startYear === currentYear ? currentYear : `${startYear}-${currentYear}`
+const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${currentYear}`
 </script>
 
 <template>
