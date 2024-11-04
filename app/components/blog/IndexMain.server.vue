@@ -58,7 +58,8 @@ const allTags = computed(() => {
   return [...new Set(tags)]
 })
 
-const getViewTransitionName = computed(() => (slug: string) => `article-${slug}`)
+// const getViewTransitionName = computed(() => (slug: string) => `article-${slug}`)
+// :style="{ viewTransitionName: getViewTransitionName(entry.slug) }"
 </script>
 
 <template>
@@ -92,7 +93,6 @@ const getViewTransitionName = computed(() => (slug: string) => `article-${slug}`
           :key="entry._path"
           :to="entry.path"
           class="group"
-          :style="{ viewTransitionName: getViewTransitionName(entry.slug) }"
           :aria-label="`Read ${entry.title || 'Untitled post'}`"
         >
           <article
