@@ -66,7 +66,7 @@ defineProps<{
                 <li
                   v-for="(category, index) in categories"
                   :key="category"
-                  inline-block fw-normal important-rounded-full
+                  inline-block fw-normal important-rounded-sm
                   :class="'dark-badge-xs-zinc badge-xs-zinc'"
                 >
                   <NuxtLink>
