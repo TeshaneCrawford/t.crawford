@@ -10,7 +10,7 @@ defineProps<{
   <article
     b="~ black op-10"
     dark-b="white op-10"
-    trans rounded-lg p-4 text-xs shadow-sm
+    trans rounded-md p-4 text-xs shadow-sm
     hover="bg-neutral bg-op-3"
     dark-hover="bg-white bg-op-3"
     class="bg-black/2 dark:bg-white/2"
@@ -32,7 +32,7 @@ defineProps<{
           inline-flex
           items-center
           fw-normal
-          important-rounded-full
+          important-rounded-sm
           :class="repo.is_template ? 'dark-badge-xs-yellow badge-xs-blue' : 'dark-badge-xs-teal badge-xs-red'"
         >
           {{ repo.private ? 'Private' : 'Public' }}
