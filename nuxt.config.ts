@@ -123,7 +123,6 @@ export default defineNuxtConfig({
       baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`,
       modifiers: {
         q: 50,
-        auto: "format",
         fit: "cover",
         fm: "webp",
       },
