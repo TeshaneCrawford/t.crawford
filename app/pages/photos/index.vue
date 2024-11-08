@@ -49,7 +49,7 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
             :height="folder.thumbnail.height"
             loading="lazy"
             format="webp"
-            quality="auto"
+            quality="80"
             fit="cover"
             class="h-full w-full object-cover transition-opacity duration-300"
             placeholder

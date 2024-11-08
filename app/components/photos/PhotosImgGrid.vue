@@ -37,8 +37,8 @@ await fetchImages()
         <li
           v-for="(img, i) in imagesGrid"
           :key="i"
-          class="masonry-item"
           v-motion
+          class="masonry-item"
           :initial="{
             opacity: 0,
             y: '5%'
@@ -69,7 +69,7 @@ await fetchImages()
             :height="img.height"
             :loading="i < 6 ? 'eager' : 'lazy'"
             format="webp"
-            quality="auto"
+            quality="50"
             fit="cover"
             class="h-full w-full object-cover transition-opacity duration-300"
             placeholder
