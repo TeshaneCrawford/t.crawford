@@ -69,7 +69,7 @@ await fetchImages()
             :height="img.height"
             :loading="i < 6 ? 'eager' : 'lazy'"
             format="webp"
-            quality="50"
+            quality="80"
             fit="cover"
             class="h-full w-full object-cover transition-opacity duration-300"
             placeholder
