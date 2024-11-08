@@ -114,13 +114,18 @@ export default defineNuxtConfig({
   },
 
   image: {
-    q: 80,
+    q: 50,
     alias: {
       cloudinary: 'https://res.cloudinary.com',
     },
     provider: 'cloudinary',
     cloudinary: {
       baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`,
+      // modifiers: {
+      //   q: 50,
+      //   fit: "cover",
+      //   fm: "webp",
+      // },
     },
     domains: [
       'avatars.githubusercontent.com',
