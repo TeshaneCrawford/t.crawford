@@ -50,7 +50,7 @@ export default defineEventHandler(async (event) => {
             ...thumbnail,
             secure_url: cloudinary.v2.url(thumbnail.public_id, {
               transformation: [
-                { quality: '50' },
+                { quality: 'auto' },
                 { fetch_format: 'auto' },
                 { dpr: 'auto' },
                 { width: 'auto' },
