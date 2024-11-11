@@ -30,7 +30,7 @@ const skills = [
   },
   {
     title: 'Azure',
-    icon: 'i-catppuccin-azure-pipelines',
+    icon: 'i-catppuccin:azure-pipelines',
   },
   {
     title: 'SQL',
