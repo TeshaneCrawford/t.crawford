@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
   const foldersWithThumbnails = await Promise.all(
     folderData.folders.map(async (folder) => {
       const images = await cloudinary.v2.search
-        .expression(`folder:${folder.path}`)
+        .expression(`folder:"${folder.path}"`)  // Add quotes around folder path
         .sort_by('created_at', 'desc')
         .with_field('context')
         .max_results(1)
