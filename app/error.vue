@@ -2,11 +2,16 @@
 import type { NuxtError } from '#app'
 
 defineProps({
-  error: Object as () => NuxtError,
+  error: {
+    type: Object as () => NuxtError,
+    default: () => ({
+      statusCode: 500,
+      message: 'An error occurred'
+    })
+  }
 })
 
-// eslint-disable-next-line vue/no-dupe-keys
-const error = useError()
+const errorState = useError()
 const position = ref({ x: 50, y: 50 })
 const isHovering = ref(false)
 
@@ -71,16 +76,16 @@ useHead({
       }"
       @mouseenter="handleHover"
     >
-      {{ error?.statusCode }}
+      {{ errorState?.statusCode }}
     </div>
 
     <!-- Error text -->
     <div class="mt-8 text-center">
       <h1 class="mb-8 animate-pulse text-5xl text-neutral-6 font-bold font-serif dark:text-neutral-3">
-        {{ error?.statusCode === 404 ? 'Oops! This page is playing hide and seek' : 'Uh oh! Something went wrong' }}
+        {{ errorState?.statusCode === 404 ? 'Oops! This page is playing hide and seek' : 'Uh oh! Something went wrong' }}
       </h1>
       <p class="mb-12 text-neutral-6 dark:text-neutral-3">
-        {{ error?.message || (error?.statusCode === 404 ? 'Try to catch the 404 above! (Spoiler: It\'s quite shy)' : 'Our team is on it!') }}
+        {{ errorState?.message || (errorState?.statusCode === 404 ? 'Try to catch the 404 above! (Spoiler: It\'s quite shy)' : 'Our team is on it!') }}
       </p>
 
       <div class="flex items-center justify-center gap-4">

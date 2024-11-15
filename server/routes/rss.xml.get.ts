@@ -88,6 +88,7 @@ export default defineEventHandler(async (event) => {
 
     return feed.rss2()
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error generating RSS feed:', error)
     throw createError({
       statusCode: 500,

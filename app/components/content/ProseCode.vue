@@ -44,6 +44,7 @@ async function copy() {
     await copyToClipboard(props.code)
     state.value = 'copied'
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.warn('Couldn\'t copy to clipboard!', err)
   }
 }

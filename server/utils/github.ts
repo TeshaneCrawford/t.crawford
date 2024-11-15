@@ -12,6 +12,7 @@ export function useOctokit() {
 }
 
 export const fetchUserData = defineCachedFunction(async () => {
+  // eslint-disable-next-line no-console
   console.log('Fetching user data')
   const { data: userData } = await useOctokit().request('GET /user')
   return userData
@@ -24,6 +25,7 @@ export const fetchUserData = defineCachedFunction(async () => {
 })
 
 export const fetchUserRepos = defineCachedFunction(async () => {
+  // eslint-disable-next-line no-console
   console.log('Fetching personal repositories only')
   // First get the authenticated user's username
   const userData = await fetchUserData()

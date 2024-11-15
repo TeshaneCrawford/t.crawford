@@ -86,6 +86,7 @@ onMounted(async () => {
   let lastTime = performance.now()
   const interval = 1000 / 40 // 50fps
 
+  // eslint-disable-next-line prefer-const
   let controls: ReturnType<typeof useRafFn>
 
   const frame = () => {

@@ -65,6 +65,7 @@ const fetchTemperature = async (): Promise<void> => {
       throw new Error('Temperature data not found in API response')
     }
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching temperature:', e)
     error.value = "Failed to fetch temperature. Will try again."
     temperature.value = null
