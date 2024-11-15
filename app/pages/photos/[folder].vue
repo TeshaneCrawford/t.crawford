@@ -19,6 +19,7 @@ useSeoMeta({
 watch(
   () => route.query.image,
   (newValue) => {
+    // eslint-disable-next-line no-console
     console.log('Image query changed:', newValue)
   }
 )

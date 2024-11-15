@@ -107,6 +107,7 @@ const { data: navigation } = await useAsyncData(
         next: transformToBlogPost(nextPost),
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Error fetching navigation:', error)
       return {
         prev: null,
