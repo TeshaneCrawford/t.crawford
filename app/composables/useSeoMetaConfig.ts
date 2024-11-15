@@ -1,9 +1,12 @@
-export const useSeoMetaConfig = (config?: {
+interface SeoConfig {
   title?: string;
   description?: string;
   image?: string;
   url?: string;
-}) => {
+  canonical?: string;
+}
+
+export const useSeoMetaConfig = (config?: SeoConfig) => {
   const route = useRoute();
   const runtimeConfig = useRuntimeConfig();
 
@@ -25,6 +28,13 @@ export const useSeoMetaConfig = (config?: {
     url: config?.url || `${defaultConfig.url}${route.path}`
   };
 
+  // Ensure image URL is absolute
+  const fullImageUrl = seoConfig.image.startsWith('http')
+    ? seoConfig.image
+    : new URL(seoConfig.image, defaultConfig.url).toString();
+
+  const canonical = config?.canonical || seoConfig.url;
+
   // Don't append site name since it's handled by useHead in app.vue
   useSeoMeta({
     title: seoConfig.title, // Just use the page title
@@ -33,12 +43,18 @@ export const useSeoMetaConfig = (config?: {
     // Open Graph
     ogTitle: seoConfig.title,
     ogDescription: seoConfig.description,
-    ogImage: seoConfig.image,
+    ogImage: fullImageUrl,
     ogUrl: seoConfig.url,
+    ogSiteName: canonical,
+    robots: 'index, follow',
+    author: defaultConfig.siteName,
+    publisher: defaultConfig.siteName,
 
     // Twitter
+    twitterCard: 'summary_large_image',
     twitterTitle: seoConfig.title,
     twitterDescription: seoConfig.description,
-    twitterImage: seoConfig.image,
+    twitterImage: fullImageUrl,
+    twitterSite: '@TeshaneCrawford',
   });
 };
