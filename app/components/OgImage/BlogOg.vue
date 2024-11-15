@@ -4,6 +4,7 @@ withDefaults(defineProps<{
   subtitle?: string;
 }>(), {
   title: 'Blog',
+  subtitle: '',
 });
 </script>
 
