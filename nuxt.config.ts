@@ -165,13 +165,26 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#000000', media: '(prefers-color-scheme: dark)' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }
       ],
-      htmlAttrs: { lang: 'en' },
+      htmlAttrs: {
+        lang: 'en',
+        class: 'antialiased'
+      },
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'manifest', href: '/site.webmanifest' }
+      ],
       title: 'Teshane Crawford',
     },
     pageTransition: false,
     layoutTransition: false,
+    keepalive: true
   },
 
   site: {
