@@ -8,6 +8,6 @@ export default withNuxt([
       'no-unused-vars': 'warn',
       'no-console': 'warn',
     },
-    ignorePatterns: ['node_modules', '.nuxt', 'dist'],
+    ignores: ['node_modules', '.nuxt', 'dist', '**/.*'],
   }
 ])
