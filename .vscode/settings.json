@@ -1,4 +1,12 @@
 {
     "editor.wordWrap": "off",
-    "editor.defaultFormatter": null
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always",
+    },
+    "editor.formatOnSave": true,
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "vue"
+    ]
 }
