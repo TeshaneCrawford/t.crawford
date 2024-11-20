@@ -38,8 +38,8 @@ function toggleDark(event: MouseEvent) {
           duration: 400,
           easing: 'ease-out',
           pseudoElement: colorMode.preference === 'dark'
-            ? '::view-transition-old(root)'
-            : '::view-transition-new(root)',
+            ? '::view-transition-old(theme-root)'
+            : '::view-transition-new(theme-root)',
         },
       )
     })

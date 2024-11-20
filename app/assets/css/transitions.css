@@ -1,0 +1,73 @@
+/* View Transitions API */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
+/* Theme transition specific */
+::view-transition-old(theme-root),
+::view-transition-new(theme-root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.5s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+/* Article transitions */
+::view-transition-old(article-*),
+::view-transition-new(article-*) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Header transitions */
+::view-transition-old(heading),
+::view-transition-new(heading) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Published date transitions */
+::view-transition-old(published-dt),
+::view-transition-new(published-dt),
+::view-transition-old(published-dd),
+::view-transition-new(published-dd) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Vue transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

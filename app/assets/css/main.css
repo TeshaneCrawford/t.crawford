@@ -227,29 +227,6 @@ html:not(.dark) [img-dark] {
   .slide-enter-content > *:nth-child(20) { --enter-stage: 20 !important; }
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.5s;
-}
-
-::view-transition-old(root) {
-  animation: fade-out 0.5s ease-in-out;
-}
-
-::view-transition-new(root) {
-  animation: fade-in 0.5s ease-in-out;
-}
-
-@keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 /* Overrides Floating Vue */
 .v-popper--theme-dropdown .v-popper__inner,
 .v-popper--theme-tooltip .v-popper__inner {
