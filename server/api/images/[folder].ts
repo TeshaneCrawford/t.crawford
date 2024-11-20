@@ -48,12 +48,14 @@ export default defineEventHandler(async (event) => {
       ...resource,
       secure_url: cloudinary.v2.url(resource.public_id, {
         transformation: [
-          { quality: 'auto' },
+          { quality: 'auto:best' },
           { fetch_format: 'auto' },
           { dpr: 'auto' },
           { responsive: true },
-          { width: 'auto' },
-          { crop: 'scale' }
+          { width: 'auto', breakpoints: [320, 640, 768, 1024, 1280, 1536] },
+          { crop: 'scale' },
+          { effect: 'sharpen:100' },
+          { format: 'webp' }
         ]
       })
     }))

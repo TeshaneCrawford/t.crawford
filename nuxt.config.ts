@@ -30,7 +30,8 @@ export default defineNuxtConfig({
   css: [
     '@/assets/css/main.css',
     '@unocss/reset/tailwind.css',
-    '@/assets/css/font.css'
+    '@/assets/css/font.css',
+    '@/assets/css/transitions.css'
   ],
   colorMode: {
     preference: 'system',
@@ -112,6 +113,20 @@ export default defineNuxtConfig({
     provider: 'cloudinary',
     cloudinary: {
       baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`,
+      modifiers: {
+        effect: 'sharpen:100',
+        quality: 'auto:best',
+        format: 'webp',
+        dpr: 'auto'
+      }
+    },
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
     },
     domains: [
       'avatars.githubusercontent.com',
@@ -121,9 +136,10 @@ export default defineNuxtConfig({
     presets: {
       avatar: {
         modifiers: {
-          format: 'jpg',
+          format: 'webp',
           width: 72,
-          height: 72
+          height: 72,
+          quality: 'auto:best'
         }
       }
     }

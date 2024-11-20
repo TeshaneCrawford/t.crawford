@@ -20,6 +20,13 @@ export interface PhotoProps {
   loading?: 'eager' | 'lazy'
   'data-carousel-index'?: number
   classWrapper?: string
+  sizes?: string
+  modifiers?: {
+    effect?: string
+    dpr?: string
+    quality?: string
+    format?: string
+  }
 }
 
 export const useCloudinaryImages = (folder?: string) => {
@@ -73,9 +80,16 @@ export const useCloudinaryImages = (folder?: string) => {
   const imagesGrid = computed(() =>
     images.value.map((img, i) => ({
       ...img,
-      loading: i < 3 ? 'eager' as const : 'lazy' as const,
+      loading: i < 4 ? 'eager' as const : 'lazy' as const,
       'data-carousel-index': i,
       isCarousel: false,
+      sizes: '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+      modifiers: {
+        effect: 'sharpen',
+        dpr: 'auto',
+        quality: 'auto:best',
+        format: 'webp'
+      }
     }))
   )
 

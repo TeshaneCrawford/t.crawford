@@ -9,6 +9,22 @@ const showCarousel = computed(() => route.query.image !== undefined)
 
 // Use server-side data fetching
 await fetchImages()
+
+const motionPreset = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  visibleOnce: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 50,
+      damping: 15
+    }
+  }
+}
 </script>
 
 <template>
@@ -39,18 +55,10 @@ await fetchImages()
           :key="i"
           v-motion
           class="masonry-item"
-          :initial="{
-            opacity: 0,
-            y: '5%'
-          }"
-          :enter="{
-            opacity: 1,
-            y: 0,
-            transition: {
-              delay: 0.1,
-              duration: 0.75,
-              ease: [0.36, 0.07, 0.25, 1]
-            }
+          :initial="motionPreset.initial"
+          :visible-once="{
+            ...motionPreset.visibleOnce,
+            delay: i * 75
           }"
         >
           <div class="masonry-item__wrapper">
@@ -61,20 +69,24 @@ await fetchImages()
               :aria-label="`Open image ${img.alt || i}`"
             >
             <NuxtImg
-            v-bind="img"
-            provider="cloudinary"
-            :src="img.src"
-            :alt="img.alt"
-            :width="img.width"
-            :height="img.height"
-            :loading="i < 6 ? 'eager' : 'lazy'"
-            format="webp"
-            quality="auto"
-            fit="cover"
-            class="h-full w-full object-cover transition-opacity duration-300"
-            placeholder
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+              v-bind="img"
+              provider="cloudinary"
+              :src="img.src"
+              :alt="img.alt"
+              :width="img.width"
+              :height="img.height"
+              :loading="i < 4 ? 'eager' : 'lazy'"
+              format="webp"
+              quality="80"
+              fit="cover"
+              class="h-full w-full object-cover transition-opacity duration-300"
+              placeholder
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              :modifiers="{
+                effect: 'sharpen',
+                dpr: 'auto'
+              }"
+            />
             </NuxtLink>
           </div>
         </li>
@@ -116,27 +128,32 @@ await fetchImages()
 
 .masonry-grid {
   columns: 2 320px;
-  column-gap: 2px;
-  margin: 2px 0 0 0;
+  column-gap: 0.5rem;
+  margin: 0.25rem 0;
   padding: 0;
   list-style: none;
 }
 
 .masonry-item {
   break-inside: avoid;
-  margin-bottom: 2px;
+  margin-bottom: 0.5rem;
+  transform-origin: center;
+  will-change: transform, opacity;
   opacity: 1;
   transition: opacity 0.3s ease;
 
   &__wrapper {
     height: 100%;
-    transition: 0.25s cubic-bezier(0.36, 0.07, 0.25, 1);
+    overflow: hidden;
+    border-radius: 4px;
+    transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     transition-property: transform, box-shadow;
+    background-color: var(--color-background-soft, #f8f8f8);
 
     &:hover {
       cursor: pointer;
-      // box-shadow: 0 0 1px 1px rgba(202, 202, 202, 0.5);
-      // transform: translate3d(0, -2%, 0);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
   }
 
@@ -149,6 +166,7 @@ await fetchImages()
       width: 100%;
       height: auto;
       object-fit: cover;
+      border-radius: 8px;
     }
   }
 }

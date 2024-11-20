@@ -50,11 +50,15 @@ export default defineEventHandler(async (event) => {
             ...thumbnail,
             secure_url: cloudinary.v2.url(thumbnail.public_id, {
               transformation: [
-                { quality: 'auto' },
+                { quality: 'auto:best' },
                 { fetch_format: 'auto' },
                 { dpr: 'auto' },
-                { width: 'auto' },
-                { crop: 'scale' }
+                { width: 600 },
+                { height: 600 },
+                { crop: 'scale' },
+                { gravity: 'auto' },
+                // { effect: 'sharpen:100' },
+                { format: 'webp' }
               ]
             })
           } : undefined

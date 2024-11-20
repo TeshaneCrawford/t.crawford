@@ -26,6 +26,21 @@ interface CloudinaryFolder {
 }
 
 const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/api/cloudinary')
+
+const baseMotion = {
+  initial: {
+    opacity: 0,
+    y: 30
+  },
+  enter: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 800,
+      delay: i * 50
+    }
+  })
+}
 </script>
 
 <template>
@@ -34,10 +49,13 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
     <div v-else-if="error">Error loading folders</div>
     <div v-else class="folder-grid">
       <NuxtLink
-        v-for="folder in folders"
+        v-for="(folder, index) in folders"
         :key="folder.path"
+        v-motion
         :to="`/photos/${folder.path}`"
         class="folder-item"
+        :initial="baseMotion.initial"
+        :enter="baseMotion.enter(index)"
       >
         <div class="folder-preview">
           <NuxtImg
@@ -45,11 +63,11 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
             provider="cloudinary"
             :src="folder.thumbnail.secure_url"
             :alt="folder.name"
-            :width="folder.thumbnail.width"
-            :height="folder.thumbnail.height"
+            :width="800"
+            :height="800"
             loading="lazy"
             format="webp"
-            quality="auto"
+            quality="100"
             fit="cover"
             class="h-full w-full object-cover transition-opacity duration-300"
             placeholder
@@ -88,15 +106,31 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
   aspect-ratio: 1;
   position: relative;
   overflow: hidden;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 0 solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: border-width 0.3s ease;
+  }
 
   &:hover {
     .folder-overlay {
       opacity: 1;
       transform: translateY(0);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+    }
+
+    &::after {
+      border-width: 4px;
     }
 
     img {
-      transform: scale(1.05);
+      filter: brightness(1.1) contrast(1.1);
     }
   }
 
@@ -104,7 +138,7 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: filter 0.4s ease;
   }
 }
 
@@ -125,8 +159,8 @@ const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/a
   padding: 1.5rem;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
   opacity: 0.9;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
+  transform: translateY(5px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .folder-content {
