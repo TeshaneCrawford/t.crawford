@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+const route = useRoute()
+
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -12,7 +14,8 @@ const { y: scroll } = useWindowScroll()
 <template>
   <header class="header z-40">
     <NuxtLink
-      class="absolute m-5 h-12 w-12 select-none pt-4 fw-bold font-serif outline-none xl:fixed"
+      class="absolute m-5 h-12 w-12 select-none pt-4 fw-bold font-serif outline-none xl:fixed relative"
+      :class="route.path === '/' ? 'op100! after:w-full' : 'after:w-0'"
       to="/"
       focusable="false"
     >
@@ -29,22 +32,47 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <NuxtLink to="/projects" title="Projects">
+        <NuxtLink 
+          to="/projects" 
+          title="Projects"
+          class="relative"
+          :class="route.path === '/projects' ? 'op100! after:w-full' : 'after:w-0'"
+        >
           <span class="lt-md:hidden">Projects</span>
           <Icon name="i-hugeicons-dashboard-circle-edit" md:hidden />
         </NuxtLink>
-        <NuxtLink to="/blog" title="Blog">
+        <NuxtLink 
+          to="/blog" 
+          title="Blog"
+          class="relative"
+          :class="route.path === '/blog' ? 'op100! after:w-full' : 'after:w-0'"
+        >
           <span class="lt-md:hidden">Blog</span>
           <Icon name="i-hugeicons-quill-write-02" class="md:hidden" />
         </NuxtLink>
-        <NuxtLink to="/photos" title="Photos">
+        <NuxtLink 
+          to="/photos" 
+          title="Photos"
+          class="relative"
+          :class="route.path === '/photos' ? 'op100! after:w-full' : 'after:w-0'"
+        >
           <span class="lt-md:hidden">Photos</span>
           <Icon  name="i-hugeicons-camera-01" class="md:hidden" />
         </NuxtLink>
-        <NuxtLink to="/uses" class="lt-md:hidden" title="Uses">
+        <NuxtLink 
+          to="/uses" 
+          class="lt-md:hidden relative" 
+          title="Uses"
+          :class="route.path === '/uses' ? 'op100! after:w-full' : 'after:w-0'"
+        >
           Uses
         </NuxtLink>
-        <NuxtLink to="/chat" title="Let's Chat">
+        <NuxtLink 
+          to="/chat" 
+          title="Let's Chat"
+          class="relative"
+          :class="route.path === '/chat' ? 'op100! after:w-full' : 'after:w-0'"
+        >
           <Icon name="i-hugeicons-conversation" style="" />
         </NuxtLink>
         <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="lt-md:hidden">
@@ -94,10 +122,24 @@ const { y: scroll } = useWindowScroll()
 .nav a {
   cursor: pointer;
   text-decoration: none;
-  color: inherit;
   transition: opacity 0.2s ease;
   opacity: 0.6;
   outline: none;
+  color: inherit;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.2s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
 }
 
 .nav a:hover {
