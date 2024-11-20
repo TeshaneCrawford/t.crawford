@@ -14,7 +14,7 @@ const { y: scroll } = useWindowScroll()
 <template>
   <header class="header z-40">
     <NuxtLink
-      class="absolute m-5 h-12 w-12 select-none pt-4 fw-bold font-serif outline-none xl:fixed relative"
+      class="absolute m-5 h-12 w-12 select-none pt-4 fw-bold font-serif outline-none xl:fixed"
       :class="route.path === '/' ? 'op100! after:w-full' : 'after:w-0'"
       to="/"
       focusable="false"
@@ -32,8 +32,8 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <NuxtLink 
-          to="/projects" 
+        <NuxtLink
+          to="/projects"
           title="Projects"
           class="relative"
           :class="route.path === '/projects' ? 'op100! after:w-full' : 'after:w-0'"
@@ -41,8 +41,8 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Projects</span>
           <Icon name="i-hugeicons-dashboard-circle-edit" md:hidden />
         </NuxtLink>
-        <NuxtLink 
-          to="/blog" 
+        <NuxtLink
+          to="/blog"
           title="Blog"
           class="relative"
           :class="route.path === '/blog' ? 'op100! after:w-full' : 'after:w-0'"
@@ -50,8 +50,8 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Blog</span>
           <Icon name="i-hugeicons-quill-write-02" class="md:hidden" />
         </NuxtLink>
-        <NuxtLink 
-          to="/photos" 
+        <NuxtLink
+          to="/photos"
           title="Photos"
           class="relative"
           :class="route.path === '/photos' ? 'op100! after:w-full' : 'after:w-0'"
@@ -59,16 +59,16 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Photos</span>
           <Icon  name="i-hugeicons-camera-01" class="md:hidden" />
         </NuxtLink>
-        <NuxtLink 
-          to="/uses" 
-          class="lt-md:hidden relative" 
+        <NuxtLink
+          to="/uses"
+          class="lt-md:hidden relative"
           title="Uses"
           :class="route.path === '/uses' ? 'op100! after:w-full' : 'after:w-0'"
         >
           Uses
         </NuxtLink>
-        <NuxtLink 
-          to="/chat" 
+        <NuxtLink
+          to="/chat"
           title="Let's Chat"
           class="relative"
           :class="route.path === '/chat' ? 'op100! after:w-full' : 'after:w-0'"
