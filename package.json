@@ -40,6 +40,7 @@
     "nuxt-og-image": "^3.0.8",
     "nuxt-time": "^1.0.2",
     "release-it": "^17.10.0",
+    "release-it-pnpm": "^4.6.3",
     "sass": "^1.80.6",
     "typescript": "5.6.3",
     "unocss": "^0.63.6",
@@ -56,11 +57,6 @@
     "@vueuse/nuxt": "^11.2.0",
     "octokit": "^4.0.2",
     "ufo": "^1.5.4"
-  },
-  "release-it": {
-    "github": {
-      "release": true
-    }
   },
   "renovate": {
     "labels": [
