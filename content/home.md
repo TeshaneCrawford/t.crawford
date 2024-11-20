@@ -1,7 +1,17 @@
-As a software engineer, my passion lies in building user-centric solutions. I specialize in C#, TypeScript alongside JavaScript, and modern frameworks like ASP.NET Core, Vue.js and React. I'm also currently learning and experimenting with Rust to broaden my skills.
+---
+title: Teshane Crawford | Full-Stack Software Engineer
+description: Innovative software engineer crafting robust digital solutions. Specialized in C#, TypeScript, and modern web development with a passion for continuous learning.
+---
 
-Beyond coding, my passion for traveling and exploring new cultures brings fresh perspectives to my projects. This unique blend of technical skills and diverse experiences allows me to deliver innovative and impactful solutions.
+Hi, I'm Teshane Crawford, a Full-Stack Software Engineer driven by the endless possibilities of technology. With a strong foundation in C#, TypeScript, and Azure cloud solutions, I thrive on building scalable applications that solve real-world challenges. My approach combines technical excellence with a growth mindset, always eager to explore emerging technologies and push the boundaries of what's possible.
 
-Whether it's solving complex problems or creating intuitive user interfaces, I always strive to deliver high-quality, impactful solutions. This balance of skills and passions enables me to make a significant contribution to the teams and projects I'm part of.
+## What Drives Me
 
-Send me an email @<crawfordteshane@gmail.com>
+- 🚀 Architecting elegant, performant solutions
+- 💡 Innovating through continuous learning and experimentation
+- 🤝 Building inclusive, accessible applications
+- 📚 Contributing to developer communities and open source
+
+I'm passionate about tackling complex technical challenges and exploring new technologies like Rust, always committed to growing as an engineer.
+
+<!-- Send me an email @<crawfordteshane@gmail.com> -->

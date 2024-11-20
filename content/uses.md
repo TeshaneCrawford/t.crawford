@@ -28,8 +28,10 @@ Here's a list of the tools, software, and hardware I use on a daily basis for my
 
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)/[TypeScript](https://www.typescriptlang.org/)
 - [Vue.js](https://vuejs.org/) & [Nuxt.js](https://nuxt.com/)
+- [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/) & [Nitro](https://nitro.unjs.io/)
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) & [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet)
+- [Azure](https://azure.microsoft.com/)
 - SQL & [PostgreSQL](https://www.postgresql.org/)
 
 ### Design Tools
@@ -45,6 +47,6 @@ Here's a list of the tools, software, and hardware I use on a daily basis for my
 
 - [Microsoft Edge](https://www.microsoft.com/en-us/edge/welcome) with extensions:
   - [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [1Password](https://chrome.google.com/webstore/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa)
+  - [Griffel CSS DevTools](https://chrome.google.com/webstore/detail/griffel-devtools/bejhagjehnpgagkaaeehdpdadbmbipig)
 
 This list is constantly evolving as I discover new tools and optimize my workflow.

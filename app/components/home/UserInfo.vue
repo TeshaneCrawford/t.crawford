@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { User } from '~~/types/github'
 const { data: userData } = await useFetch<User>('/api/github-user')
-// const { data: AppConfig } = await useFetch('/api/siteConfig')
+
 const handleImageError = (e: Event) => {
   const target = e.target as HTMLImageElement
-  target.src = '/path-to-fallback-avatar.png' // Add your fallback image path
+  target.src = '/tc.jpeg'
 }
 
 interface NavLink {
@@ -14,6 +14,21 @@ interface NavLink {
 }
 
 const links: NavLink[] = [
+  {
+    text: 'Learn more about me',
+    path: '/about',
+    ariaLabel: 'Learn more about Teshane Crawford'
+  },
+  {
+    text: 'View my projects',
+    path: '/projects',
+    ariaLabel: 'View my project portfolio'
+  },
+  {
+    text: 'Get in touch',
+    path: '/chat',
+    ariaLabel: 'Contact Teshane Crawford'
+  },
   {
     text: 'Blog',
     path: '/blog',
@@ -74,10 +89,34 @@ const links: NavLink[] = [
       <p class="mb-8 leading-12">
         <StaticMarkdownRender path="/home" />
       </p>
-      <div class="flex flex-col justify-between sm:flex-row">
-    <div class="flex flex-1 gap-8">
+      <div class="mb-8 flex flex-col gap-4">
+        <div class="flex flex-wrap gap-4">
+          <NuxtLink
+            v-for="link in links.slice(0, 3)"
+            :key="link.path"
+            :to="link.path"
+            :aria-label="link.ariaLabel"
+            class="group flex items-center gap-1 underline underline-offset-4 transition-all duration-300 hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600"
+          >
+            {{ link.text }}
+            <Icon
+              name="i-hugeicons:arrow-up-right-01"
+              class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
+          </NuxtLink>
+        </div>
+      </div>
+      <p>
+        Send me an email at <a
+        href="mailto:crawfordteshane@gmail.com"
+        class="underline underline-offset-4 hover:text-neutral-600 dark:hover:text-neutral-400"
+        >crawfordteshane@gmail.com</a>
+      </p>
+    <div class="flex flex-col justify-between sm:flex-row">
+    <div class="mt-4 flex flex-1 gap-8">
       <NuxtLink
-        v-for="link in links"
+        v-for="link in links.slice(3)"
         :key="link.path"
         :to="link.path"
         :aria-label="link.ariaLabel"
