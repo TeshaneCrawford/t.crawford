@@ -5,14 +5,52 @@ defineProps<{
     data: Repo[]
     label: string
 }>()
+
+const containerMotion = {
+  initial: { opacity: 0, y: 20 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 400 }
+  }
+}
+
+const itemMotion = {
+  initial: { opacity: 0, y: 20 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 300,
+      delay: 100
+    }
+  }
+}
 </script>
 
 <template>
-  <div v-if="data.length"   lg:px-0 md:px-8  >
-    <h3 class="mb text-xl">
+  <div
+    v-if="data.length"
+    v-motion="containerMotion" lg:px-0
+    md:px-8
+  >
+    <h3 v-motion="itemMotion" class="mb text-xl">
       {{ label }}
     </h3>
-    <div grid="~ cols-1 md:cols-2 gap-4">
+    <div
+      v-motion
+      grid="~ cols-1 md:cols-2 gap-4"
+      :initial="{ opacity: 0, y: 20 }"
+      :enter="{
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 150,
+          duration: 300,
+          stagger: 100
+        }
+      }"
+    >
       <GitHubGithubRepo v-for="repo in data" :key="repo.id" :repo="repo" />
     </div>
   </div>
