@@ -4,6 +4,7 @@ import type { Repo } from '~~/types/project';
 defineProps<{
     data: Repo[]
     label: string
+    loading?: boolean
 }>()
 
 const containerMotion = {
@@ -30,7 +31,7 @@ const itemMotion = {
 
 <template>
   <div
-    v-if="data.length"
+    v-if="data.length || loading"
     v-motion="containerMotion" lg:px-0
     md:px-8
   >
@@ -51,7 +52,12 @@ const itemMotion = {
         }
       }"
     >
-      <GitHubGithubRepo v-for="repo in data" :key="repo.id" :repo="repo" />
+      <template v-if="loading">
+        <GitHubSkeletonRepo v-for="n in 4" :key="n" />
+      </template>
+      <template v-else>
+        <GitHubGithubRepo v-for="repo in data" :key="repo.id" :repo="repo" />
+      </template>
     </div>
   </div>
 </template>

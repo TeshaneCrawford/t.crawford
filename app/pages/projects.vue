@@ -8,7 +8,8 @@ const tabs = [
   { label: 'Showcase Projects', id: 'showcase' },
 ]
 
-const { data: repoGroups } = useFetch<Record<string, Repo[]>>('/api/github-repos')
+const { data: repoGroups, status } = useFetch<Record<string, Repo[]>>('/api/github-repos')
+const isLoading = computed(() => status.value === 'pending')
 
 useTitle('Projects')
 useHead({
@@ -47,21 +48,22 @@ defineOgImageComponent('PageOg', {
       title="Portfolio of my Projects"
       description="Check out my latest software projects and contributions. Here are some of the projects I've worked on."
     />
-    
+
     <AppTabs
       v-model="activeTab"
       :tabs="tabs"
     >
-      <template #default="{ activeTab }">
-        <div v-if="activeTab === 'github'">
+      <template #default="{ activeTab: currentTab }">
+        <div v-if="currentTab === 'github'">
           <GitHubRepoPanel
-            v-for="(repos, label) in repoGroups"
+            v-for="(repos, label) in (repoGroups || {})"
             :key="label"
             :label="label"
             :data="repos"
+            :loading="isLoading"
           />
         </div>
-        <div v-else-if="activeTab === 'showcase'" class="space-y-4">
+        <div v-else-if="currentTab === 'showcase'" class="space-y-4">
           <!-- Add your showcase projects content here -->
           <p>showcase projects coming soon...</p>
         </div>
