@@ -26,16 +26,18 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
         <SocialIcons />
       </div>
     </div>
-    <div class="text-center op50">
-      <span class="op75">Site made with </span>
-      <a
-        href="https://nuxt.com"
-        rel="noopener noreferrer"
-        target="_blank"
-        class="transition-opacity hover:opacity-75"
+    <div class="text-center op70">
+      <mark class="badge-lg-green dark:badge-lg-green fw-medium important-rounded-none">
+        <span class="">Site made with </span>
+        <a
+          href="https://nuxt.com"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="transition-opacity hover:opacity-75"
         >
-        Nuxt
-      </a>
+          Nuxt
+        </a>
+      </mark>
     </div>
   </footer>
 </template>
