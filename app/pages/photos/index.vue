@@ -25,7 +25,9 @@ interface CloudinaryFolder {
   }
 }
 
-const { data: folders, pending, error } = await useFetch<CloudinaryFolder[]>('/api/cloudinary')
+const { data: folders, status, error } = await useFetch<CloudinaryFolder[]>('/api/cloudinary')
+
+const isLoading = computed(() => status.value === 'pending')
 
 const baseMotion = {
   initial: {
@@ -45,7 +47,7 @@ const baseMotion = {
 
 <template>
   <div>
-    <div v-if="pending">Loading folders...</div>
+    <div v-if="isLoading">Loading folders...</div>
     <div v-else-if="error">Error loading folders</div>
     <div v-else class="folder-grid">
       <NuxtLink
@@ -73,8 +75,8 @@ const baseMotion = {
             placeholder
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
-          <div v-else class="folder-placeholder">
-            No preview
+          <div v-else class="folder-placeholder shimmer">
+            <i class="i-hugeicons:image-02 text-3xl opacity-20" />
           </div>
           <div class="folder-overlay">
             <div class="folder-content">
@@ -148,7 +150,34 @@ const baseMotion = {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f5f5;
+  background: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer {
+  &::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    width: 50%;
+    height: 100%;
+    animation: shimmer 1s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
 }
 
 .folder-overlay {
