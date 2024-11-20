@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+// import { computed } from 'vue'
 
 interface BlogEntry {
   title?: string
@@ -58,8 +58,18 @@ const allTags = computed(() => {
   return [...new Set(tags)]
 })
 
-// const getViewTransitionName = computed(() => (slug: string) => `article-${slug}`)
-// :style="{ viewTransitionName: getViewTransitionName(entry.slug) }"
+const tagTransition = {
+  initial: { opacity: 0, x: -20 },
+  enter: { opacity: 1, x: 0 },
+  transition: { duration: 300 }
+}
+
+const cardTransition = {
+  initial: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0 },
+  transition: { duration: 400, delay: 200 }
+}
+
 </script>
 
 <template>
@@ -70,10 +80,13 @@ const allTags = computed(() => {
     </h3>
     <div class="flex flex-wrap gap-2">
       <button
-        v-for="tag in allTags"
+        v-for="(tag, index) in allTags"
         :key="tag"
+        v-motion
+        :initial="tagTransition.initial"
+        :enter="{ ...tagTransition.enter, transition: { ...tagTransition.transition, delay: 100 * index }}"
         :class="[
-          'badge-xs-zinc dark:badge-xs-zinc important-rounded-sm important-px-3 important-py-1 transition-colors',
+          'badge-xs-zinc dark:badge-xs-zinc important-rounded-sm important-px-3 important-py-1 transition-all duration-300',
           selectedTags.includes(tag)
             ? 'bg-neutral-2 dark:bg-neutral-7 text-neutral-700 dark:text-neutral-300'
             : 'bg-neutral-1 dark:bg-neutral-8 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-2 dark:hover:bg-neutral-7'
@@ -89,15 +102,19 @@ const allTags = computed(() => {
     aria-label="Blog post list"
   >
     <NuxtLink
-          v-for="entry in filteredEntries"
+          v-for="(entry, index) in filteredEntries"
           :key="entry._path"
+          v-motion
+          :initial="cardTransition.initial"
+          :enter="{ ...cardTransition.enter, transition: { ...cardTransition.transition, delay: 150 * index }}"
           :to="entry.path"
           class="group"
           :aria-label="`Read ${entry.title || 'Untitled post'}`"
         >
           <article
-            class="h-full overflow-hidden border border-neutral-2 rounded-md bg-black/2 transition-shadow duration-300 dark:border-neutral-8 hover:border-dashed dark:bg-white/3"
+            class="h-full overflow-hidden border border-neutral-2 rounded-md bg-black/2 transition-all duration-300 dark:border-neutral-8 hover:border-dashed dark:bg-white/3 hover:shadow-lg hover:-translate-y-1"
             role="article"
+            :style="{ viewTransitionName: `article-${entry.slug}` }"
           >
             <div class="p-6">
               <div
@@ -154,36 +171,3 @@ const allTags = computed(() => {
   </section>
   </div>
 </template>
-
-<style>
-/* Ensures animations respect user preferences */
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none !important;
-  }
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.5s;
-}
-
-::view-transition-old(root) {
-  animation: fade-out 0.5s ease-in-out;
-}
-
-::view-transition-new(root) {
-  animation: fade-in 0.5s ease-in-out;
-}
-
-@keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-</style>

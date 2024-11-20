@@ -20,10 +20,22 @@ onMounted(() => {
     }),
   )
 })
+
+const pageTransition = {
+  initial: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0 },
+  transition: { duration: 500 }
+}
 </script>
 
 <template>
-  <div class="flex-grow max-w-4xl!">
+  <div 
+    v-motion
+    :initial="pageTransition.initial"
+    :enter="pageTransition.enter"
+    :transition="pageTransition.transition"
+    class="flex-grow max-w-4xl!"
+  >
     <AppHeading
       title="< dev notes />"
       description="Technical writings on software development, architecture, and best practices"

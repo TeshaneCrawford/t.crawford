@@ -2,7 +2,8 @@
 import type { BlogPost } from '~~/types/content'
 import type { ParsedContent } from '@nuxt/content'
 
-// viewtransition
+// View transition config
+const TRANSITION_DURATION = '0.5s'
 const viewTransitionName = computed(() => `article-${slug}`)
 
 const route = useRoute('blog-article')
@@ -146,9 +147,10 @@ useSeoMetaConfig({
 
 <template>
   <main   md:px-8 xl:px-0 >
+    <!-- Add fade transition to back button -->
     <div
-      class="mb-8 animate-fade-in-down opacity-0"
-      style="animation-delay: 0.2s; animation-fill-mode: forwards;"
+      class="mb-8 animate-fade-in-up opacity-0"
+      style="animation-delay: 0.1s; animation-fill-mode: forwards;"
     >
       <NuxtLink
         to="/blog"
@@ -175,7 +177,10 @@ useSeoMetaConfig({
           </ProseHeaderArticle>
         </template>
 
-        <StaticMarkdownRender :path="path" />
+        <!-- Add transition to content -->
+        <div :style="{ viewTransitionName: `content-${slug}` }">
+          <StaticMarkdownRender :path="path" />
+        </div>
       </Prose>
       <div
         class="animate-fade-in-up opacity-0"
@@ -192,6 +197,7 @@ useSeoMetaConfig({
 </template>
 
 <style scoped>
+/* Enhance header transitions */
 header>h1:first-child {
   view-transition-name: heading;
 }
@@ -204,56 +210,37 @@ header dl dd:first-of-type {
   view-transition-name: published-dd;
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.5s;
+/* Add smooth transitions for all elements */
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: v-bind(TRANSITION_DURATION);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-::view-transition-old(root) {
-  animation: fade-out 0.5s ease-in-out;
+/* Specific transitions for article content */
+::view-transition-old(content-*),
+::view-transition-new(content-*) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
 }
 
-::view-transition-new(root) {
-  animation: fade-in 0.5s ease-in-out;
+::view-transition-old(content-*) {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-@keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+::view-transition-new(content-*) {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+    transition: none !important;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in-down {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out;
-}
-
-.animate-fade-in-down {
-  animation: fade-in-down 0.6s ease-out;
 }
 </style>
