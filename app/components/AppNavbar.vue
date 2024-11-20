@@ -61,7 +61,7 @@ const { y: scroll } = useWindowScroll()
         </NuxtLink>
         <NuxtLink
           to="/uses"
-          class="lt-md:hidden relative"
+          class="relative lt-md:hidden"
           title="Uses"
           :class="route.path === '/uses' ? 'op100! after:w-full' : 'after:w-0'"
         >
