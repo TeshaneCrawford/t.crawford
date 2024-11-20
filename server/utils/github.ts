@@ -30,7 +30,7 @@ export const fetchUserRepos = defineCachedFunction(async () => {
   // First get the authenticated user's username
   const userData = await fetchUserData()
 
-  // Then use that username to fetch only personal repositories
+  // Then fetch only personal repositories
   const { data } = await useOctokit().request('GET /users/{username}/repos', {
     username: userData.login,
     sort: 'updated',

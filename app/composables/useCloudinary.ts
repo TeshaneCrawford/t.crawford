@@ -43,7 +43,7 @@ export const useCloudinaryImages = (folder?: string) => {
 
     try {
       const response = await useFetch(`/api/images/${folder}`, {
-        // Add proper error handling
+        // error handling
         onResponseError: (error) => {
           // eslint-disable-next-line no-console
           console.error('Failed to fetch images:', error)

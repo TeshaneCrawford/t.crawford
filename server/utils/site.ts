@@ -11,12 +11,8 @@ export const AppConfig: SiteConfig = {
   },
   name: 'Teshane Crawford',
   headshot: 'https://github.com/TeshaneCrawford.png',
-  title: 'Software Developer',
-  description: `I'm Teshane Crawford, a software developer with over a 3 years of experience in crafting beautiful, user-friendly applications.
-  I specialize in C#, CSS, JavaScript, and modern frameworks like ASP.NET Core, React and Vue.js.
-  Beyond coding, I have a passion for traveling and discovering new cultures, which often inspires my work.
-  I also love to cook and experiment with new dishes from around the world.
-  This blend of technical skills and diverse experiences allows me to bring a unique and creative perspective to every project I undertake.`,
+  title: 'Software Engineer',
+  description: `I'm Teshane Crawford, a software engineer`,
   socials: [
     {
       platform: 'GitHub',

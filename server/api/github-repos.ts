@@ -2,7 +2,6 @@ import type { Repo } from '~~/types/project'
 import { fetchUserRepos } from '../utils/github'
 
 export default defineCachedEventHandler(async () => {
-  // Use the cached function to fetch repos
   const data = await fetchUserRepos()
 
   const repos = data as unknown as Repo[]
