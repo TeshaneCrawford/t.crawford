@@ -66,12 +66,3 @@ useServerHead({
     </NuxtLayout>
   </body>
 </template>
-<!--
-<body class="font-sans antialiased">
-  <DynamicBackground>
-  <NuxtLayout>
-    <div>Current time: {{ formattedTime }}</div>
-    <NuxtPage />
-  </NuxtLayout>
-</DynamicBackground>
-</body> -->
