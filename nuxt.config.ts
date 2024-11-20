@@ -151,6 +151,9 @@ export default defineNuxtConfig({
       routes: ['/', '/rss.xml', '/projects'],
       failOnError: false,
     },
+    experimental: {
+      openAPI: true
+    }
   },
 
   runtimeConfig: {
