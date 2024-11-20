@@ -27,7 +27,7 @@ Image optimization is crucial for modern web applications. Poor image optimizati
 - Poor user experience
 
 ::alert{type="info"}
-> 💡 **Did you know?** Images typically account for 50% of a webpage's total weight.
+**Did you know?** Images typically account for 50% of a webpage's total weight.
 ::
 
 ## Setting Up Nuxt Image 🛠️
@@ -90,7 +90,7 @@ export default defineNuxtConfig({
 ```
 
 ::alert{type="warning"}
-> ⚠️Always specify image dimensions to prevent layout shifts!
+**Important:** Always specify image dimensions to prevent layout shifts!
 ::
 
 ## Advanced Techniques 🎯
@@ -162,6 +162,7 @@ Usage in your pages or components:
   />
 </template>
 ```
+
 ::
 
 ### Custom Image Provider
