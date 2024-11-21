@@ -84,7 +84,7 @@ const { y: scroll } = useWindowScroll()
         <a href="/rss.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <Icon name="i-hugeicons-rss" style="font-size:1.25rem; margin: -0.5;" />
         </a>
-        <a class="text-manatee-500">
+        <a class="">
           <SwitchThemeMode />
         </a>
       </div>
