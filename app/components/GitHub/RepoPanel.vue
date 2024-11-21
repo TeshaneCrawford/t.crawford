@@ -35,7 +35,7 @@ const itemMotion = {
     v-motion="containerMotion" lg:px-0
     md:px-8
   >
-    <h3 v-motion="itemMotion" class="mb-4 text-xl">
+    <h3 v-motion="itemMotion" class="my-4 text-xl">
       {{ label }}
     </h3>
     <div
