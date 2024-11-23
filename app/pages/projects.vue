@@ -64,7 +64,7 @@ defineOgImageComponent('PageOg', {
           />
         </div>
         <div v-else-if="currentTab === 'showcase'" class="space-y-4">
-          <!-- Add your showcase projects content here -->
+          <!-- Add showcase projects content here -->
           <p>showcase projects coming soon...</p>
         </div>
       </template>
