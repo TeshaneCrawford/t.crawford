@@ -13,7 +13,7 @@ defineProps<{
     trans rounded-md p-4 text-xs shadow-sm
     hover="bg-neutral bg-op-3"
     dark-hover="bg-white bg-op-3"
-    class="bg-black/2 dark:bg-white/2"
+    class="matrix-pattern bg-black/2 dark:bg-white/2"
   >
     <a
       :href="repo.homepage || repo.html_url"
@@ -99,5 +99,29 @@ defineProps<{
 <style scoped>
 .important-rounded-full {
   border-radius: 9999px !important;
+}
+
+.matrix-pattern {
+  position: relative;
+  overflow: hidden;
+  --dot-color: rgba(0, 0, 0, 0.1);
+}
+
+:root.dark .matrix-pattern {
+  --dot-color: rgba(255, 255, 255, 0.1);
+}
+
+.matrix-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image:
+    radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  opacity: 0.5;
 }
 </style>
