@@ -1,33 +1,37 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+const socials: SocialLink[] = [
+  { name: 'GitHub', url: 'https://github.com/TeshanCrawford', icon: 'i-hugeicons-github' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/teshanecrawford/', icon: 'i-hugeicons-linkedin-01' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/teshanecrawford.com', icon: 'i-tabler-brand-bluesky' },
+  { name: 'Twitter', url: 'https://twitter.com/TeshanCrawford', icon: 'i-hugeicons-new-twitter' },
+  { name: 'Discord', url: 'https://discord.gg/4Q3avDs', icon: 'i-hugeicons-discord' },
+  { name: 'Instagram', url: 'https://www.instagram.com/crawfordteshane/', icon: 'i-hugeicons-instagram' },
+  { name: 'Threads', url: 'https://www.threads.net/@teshanecrawford', icon: 'i-hugeicons-threads-ellipse' },
+]
+</script>
 
 <template>
-  <div class="">
-    <NuxtLink target="_blank" to="https://github.com/TeshanCrawford" title="GitHub" class="group">
-      <Icon name="i-hugeicons-github" hover-text-neutral-600 alt="GitHub logo" />
+  <nav aria-label="Social media links" class="flex">
+    <NuxtLink
+      v-for="(social, index) in socials"
+      :key="index"
+      :to="social.url"
+      :title="social.name"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="rounded-md px-2 text-neutral-400 transition-colors duration-200 dark:text-neutral-500 hover:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:hover:text-neutral-300"
+      :aria-label="`Visit ${social.name} profile`"
+    >
+      <Icon :name="social.icon" class="text-xl" :alt="`${social.name} logo`" />
     </NuxtLink>
-    <NuxtLink target="_blank" to="https://www.linkedin.com/in/teshanecrawford/" title="Linkedin" class="group">
-      <Icon name="i-hugeicons-linkedin-01" hover-text-neutral-600 alt="Linkedin logo" />
-    </NuxtLink>
-    <NuxtLink target="_blank" to="https://bsky.app/profile/teshanecrawford.com" title="Bluesky" class="group">
-      <Icon name="i-tabler-brand-bluesky" hover-text-neutral-600 alt="Bluesky logo" />
-    </NuxtLink>
-    <NuxtLink target="_blank" to="https://twitter.com/TeshanCrawford" title="Twitter" class="group">
-      <Icon name="i-hugeicons-new-twitter" hover-text-neutral-600 alt="Twitter logo" />
-    </NuxtLink>
-    <NuxtLink target="_blank" to="https://discord.gg/4Q3avDs" title="Discord" class="group">
-      <Icon name="i-hugeicons-discord" hover-text-neutral-600 alt="Discord logo" />
-    </NuxtLink>
-    <NuxtLink target="_blank" to="https://www.instagram.com/crawfordteshane/" title="Instagram" class="group">
-      <Icon name="i-hugeicons-instagram" hover-text-neutral-600 alt="Instagram logo" />
-    </NuxtLink>
-    <NuxtLink target="_blank" to="https://www.threads.net/@teshanecrawford" title="Threads" class="group">
-      <Icon name="i-hugeicons-threads-ellipse" hover-text-neutral-600 alt="Threads logo" />
-    </NuxtLink>
-  </div>
+  </nav>
 </template>
 
 <style scoped>
-a {
-  @apply hover: text-neutral-400 dark:hover:text-neutral-300 p-2;
-}
 </style>
