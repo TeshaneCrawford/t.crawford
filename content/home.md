@@ -7,11 +7,9 @@ Hi, I'm Teshane Crawford, a Full-Stack Software Engineer driven by the endless p
 
 ## What Drives Me
 
-- 🚀 Architecting elegant, performant solutions
-- 💡 Innovating through continuous learning and experimentation
-- 🤝 Building inclusive, accessible applications
-- 📚 Contributing to developer communities and open source
+- Architecting elegant, performant solutions
+- Innovating through continuous learning and experimentation
+- Building inclusive, accessible applications
+- Contributing to developer communities and open source
 
 I'm passionate about tackling complex technical challenges and exploring new technologies like Rust, always committed to growing as an engineer.
-
-<!-- Send me an email @<crawfordteshane@gmail.com> -->

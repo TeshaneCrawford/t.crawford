@@ -40,6 +40,17 @@ const links: NavLink[] = [
     ariaLabel: 'Browse our photo gallery'
   }
 ]
+
+const email = 'crawfordteshane@gmail.com'
+const copied = ref(false)
+
+const copyEmail = async () => {
+  await navigator.clipboard.writeText(email)
+  copied.value = true
+  setTimeout(() => {
+    copied.value = false
+  }, 2000)
+}
 </script>
 
 <template>
@@ -86,7 +97,7 @@ const links: NavLink[] = [
       </p>
     </div>
     <div class="prose max-w-4xl!">
-      <p class="mb-8 leading-12">
+      <p class="mb-8 leading-12" :class="$style.home">
         <StaticMarkdownRender path="/home" />
       </p>
       <div class="mb-8 flex flex-col gap-4">
@@ -107,13 +118,24 @@ const links: NavLink[] = [
           </NuxtLink>
         </div>
       </div>
-      <p>
-        Send me an email at <a
-        href="mailto:crawfordteshane@gmail.com"
+      <p class="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span>Send me an email at</span>
+        <a
+        :href="`mailto:${email}`"
         class="underline underline-offset-4 hover:text-neutral-600 dark:hover:text-neutral-400"
-        >crawfordteshane@gmail.com</a>
+        >{{ email }}</a>
+        <button
+          class="h-6 w-6 inline-flex items-center justify-center p-1 hover:text-neutral-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-zinc-400 dark:hover:text-neutral-400 dark:focus-visible:ring-zinc-600"
+          :aria-label="copied ? 'Email copied!' : 'Copy email address'"
+          @click="copyEmail"
+        >
+          <Icon
+            :name="copied ? 'i-hugeicons-tick-01' : 'i-hugeicons-clipboard'"
+            class="h-4 w-4"
+          />
+        </button>
       </p>
-    <div class="flex flex-col justify-between sm:flex-row">
+      <div class="flex flex-col justify-between sm:flex-row">
     <div class="mt-4 flex flex-1 gap-8">
       <NuxtLink
         v-for="link in links.slice(3)"
@@ -141,5 +163,13 @@ const links: NavLink[] = [
 <style scoped>
 .hover-link:hover .i-hugeicons\:arrow-up-right-01 {
   transform: translate(0.125rem, -0.125rem);
+}
+</style>
+
+<style module>
+.home {
+  ul {
+    list-style-type: '▹ ';
+  }
 }
 </style>
