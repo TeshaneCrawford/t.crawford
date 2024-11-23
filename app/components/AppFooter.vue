@@ -27,7 +27,7 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
       </div>
     </div>
     <div class="text-center op70">
-      <mark class="badge-lg-green dark:badge-lg-green fw-medium important-rounded-none">
+      <mark class="glow-effect badge-lg-green dark:badge-lg-green fw-medium important-rounded-none">
         <span class="">Site made with </span>
         <a
           href="https://nuxt.com"
@@ -42,4 +42,37 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+.glow-effect {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+}
+
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+</style>
