@@ -103,53 +103,42 @@ useHead({
 </script>
 
 <template>
-  <div class="">
-    <AppHeading
-    :title="contactData.title"
-    :description="contactData.description"
-  >
+  <main class="mx-auto max-w-4xl p-4">
+    <AppHeading :title="contactData.title" :description="contactData.description">
+      <div role="navigation" aria-label="Social media links">
+        <AppPageSeparator :text="contactData.heading" />
+      </div>
 
-    <div class="">
-      <AppPageSeparator :text="contactData.heading" />
-    </div>
+      <nav aria-label="Social platforms" class="mt-8">
+        <ul class="list-none p-0 space-y-5">
+          <li v-for="link in contactData.links" :key="link.name">
+            <NuxtLink
+              :to="link.url" :aria-label="`Visit ${link.name} profile (opens in new tab)`" target="_blank"
+              rel="noopener noreferrer" external
+              class="group flex items-end gap-4 rounded p-2 outline-none ring-offset-2 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-neutral-500">
+              <span
+                class="text-base text-neutral-900 font-medium transition-colors duration-200 dark:text-neutral-100 group-hover:text-neutral-800 dark:group-hover:text-neutral-200">
+                {{ link.name }}
+              </span>
 
-    <div
-      aria-labelledby="social-platforms"
-      class="space-y-5"
-    >
-      <NuxtLink
-        v-for="link in contactData.links"
-        :key="link.name"
-        :to="link.url"
-        :aria-label="`Visit ${link.name} profile`"
-        target="_blank"
-        rel="noopener noreferrer"
-        external
-        class="group flex items-end gap-4 rounded transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500"
-      >
-        <span class="text-neutral-900 font-500 dark:text-neutral-100">
-          {{ link.name }}
-        </span>
+              <div
+                class="flex-1 border-b border-neutral-200 border-dashed transition-colors duration-200 dark:border-neutral-700 group-hover:border-neutral-400 dark:group-hover:border-neutral-500"
+                aria-hidden="true" />
 
-        <div
-          class="flex-1 border-b border-neutral-200 border-dashed transition-colors duration-200 dark:border-neutral-700 group-hover:border-neutral-400 dark:group-hover:border-neutral-500"
-          aria-hidden="true"
-        />
-
-        <div
-          class="border border-neutral-200 rounded bg-white/60 p-2 transition-colors duration-200 dark:border-neutral-700 dark:bg-white/10 group-hover:bg-neutral-50 dark:group-hover:bg-white/5"
-          aria-hidden="true"
-        >
-          <Icon
-            :name="link.icon"
-            class="h-6 w-6 flex text-neutral-700 transition-colors duration-200 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-neutral-100"
-          />
-        </div>
-      </NuxtLink>
-    </div>
-  </AppHeading>
-  </div>
+              <div
+                class="border border-neutral-200 rounded bg-transparent p-2 transition-colors duration-200 dark:border-neutral-700 group-hover:border-neutral-400 group-hover:bg-neutral-100/50 dark:group-hover:border-neutral-500 dark:group-hover:bg-neutral-800/50"
+                aria-hidden="true">
+                <Icon
+                  :name="link.icon"
+                  class="h-6 w-6 flex text-neutral-600 transition-colors duration-200 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200"
+                  role="icon" :aria-label="`${link.name} icon`" />
+              </div>
+            </NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </AppHeading>
+  </main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
