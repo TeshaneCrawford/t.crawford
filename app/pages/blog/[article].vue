@@ -146,8 +146,7 @@ useSeoMetaConfig({
 </script>
 
 <template>
-  <main   md:px-8 xl:px-0 >
-    <!-- Add fade transition to back button -->
+  <main md:px-8 xl:px-0 >
     <div
       class="mb-8 animate-fade-in-up opacity-0"
       style="animation-delay: 0.1s; animation-fill-mode: forwards;"
