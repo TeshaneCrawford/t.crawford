@@ -14,12 +14,12 @@ const { y: scroll } = useWindowScroll()
 <template>
   <header class="header z-40">
     <NuxtLink
-      class="absolute m-5 h-12 w-12 select-none pt-4 fw-bold font-serif outline-none xl:fixed"
+      class="absolute m-5 h-10 w-16 select-none outline-none transition-transform duration-300 xl:fixed"
       :class="route.path === '/' ? 'op100! after:w-full' : 'after:w-0'"
       to="/"
       focusable="false"
     >
-      T.Crawford
+      <AnimatedLogo />
     </NuxtLink>
     <button
       title="Scroll to top"
@@ -29,7 +29,7 @@ const { y: scroll } = useWindowScroll()
     >
       <Icon name="i-hugeicons-arrow-up-01" />
     </button>
-    <nav class="nav">
+    <nav class="nav pr-4!">
       <div class="spacer" />
       <div class="right" print:op0>
         <NuxtLink
@@ -155,5 +155,12 @@ const { y: scroll } = useWindowScroll()
 
 .nav .right>* {
   margin: auto;
+}
+
+/* Add these new styles */
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 </style>
