@@ -5,7 +5,7 @@ const baseUrl = runtimeConfig.public.siteUrl || 'https://teshanecrawford.com'
 
 useHead({
   title: () => (route.meta.title as string) || '',
-  titleTemplate: title => title ? `${title} - Teshane Crawford` : 'Teshane Crawford: Software Engineer',
+  titleTemplate: title => title ? `${title} - Teshane Crawford` : 'Teshane Crawford - Software Engineer',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'white' },
@@ -50,7 +50,6 @@ useServerHead({
         url: baseUrl,
         sameAs: [
           'https://twitter.com/TeshaneCrawford',
-          // Add other social profile URLs
         ]
       })
     }
