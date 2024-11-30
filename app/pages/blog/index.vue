@@ -29,7 +29,7 @@ const pageTransition = {
 </script>
 
 <template>
-  <div 
+  <div
     v-motion
     :initial="pageTransition.initial"
     :enter="pageTransition.enter"
@@ -49,6 +49,8 @@ const pageTransition = {
       <BlogIndexMain />
     </main>
     </AppHeading>
+    <br>
+    <BackButton />
   </div>
 </template>
 
