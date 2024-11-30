@@ -12,4 +12,4 @@ Hi, I'm Teshane Crawford, a Full-Stack Software Engineer driven by the endless p
 - Building inclusive, accessible applications
 - Contributing to developer communities and open source
 
-I'm passionate about tackling complex technical challenges and exploring new technologies like ML/AI and Rust, always committed to growing as an engineer.
+I'm passionate about tackling complex technical challenges and exploring new technologies in machine learning and artificial intelligence, always committed to growing as an engineer.
