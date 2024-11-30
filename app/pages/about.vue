@@ -18,6 +18,8 @@ defineOgImageComponent('PageOg', {
     <p class="mb-8 leading-12" :class="$style.about">
       <StaticMarkdownRender path="/about" />
     </p>
+    <br>
+    <BackButton />
   </div>
 </template>
 

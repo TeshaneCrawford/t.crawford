@@ -87,6 +87,8 @@ const baseMotion = {
         </div>
       </NuxtLink>
     </div>
+    <br>
+    <BackButton />
   </div>
 </template>
 
