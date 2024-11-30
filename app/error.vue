@@ -15,13 +15,13 @@ const errorState = useError()
 const position = ref({ x: 50, y: 50 })
 const isHovering = ref(false)
 
-// Move the error text randomly when user hovers
+// Move the error text randomly when user hovers, but keep it within bounds
 const handleHover = () => {
   if (!isHovering.value) {
     isHovering.value = true
     position.value = {
-      x: Math.random() * 80,
-      y: Math.random() * 80,
+      x: 20 + Math.random() * 60,
+      y: 20 + Math.random() * 60,
     }
     setTimeout(() => isHovering.value = false, 1)
   }
