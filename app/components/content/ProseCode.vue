@@ -62,9 +62,7 @@ onClickOutside(copyButtonRef, () => {
   >
     <div
       v-if="!inGroup && filename"
-      class="group relative overflow-hidden font-mono"
-      @mouseenter="hovered = true"
-      @mouseleave="hovered = false"
+      class="group relative font-mono"
     >
       <div class="flex items-center border-b border-neutral-300/40 px-4 py-3 text-sm dark:border-neutral-300/10">
         <Icon
@@ -98,10 +96,12 @@ onClickOutside(copyButtonRef, () => {
         </button>
       </div>
 
-      <slot />
+      <div class="max-h-[400px] overflow-y-auto">
+        <slot />
+      </div>
     </div>
 
-    <div v-else>
+    <div v-else class="max-h-[400px] overflow-y-auto">
       <slot />
     </div>
   </div>
@@ -132,8 +132,8 @@ onClickOutside(copyButtonRef, () => {
   @apply font-mono text-sm;
   padding: 0;
   background: none;
-  /* overflow-x: auto; */
-  /* @apply flex flex-col overflow-auto */
+  display: inline-block;
+  min-width: 100%;
 }
 
 :deep(pre code .line) {
