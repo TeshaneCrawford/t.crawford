@@ -17,6 +17,10 @@ content: null
 
 As developers, we're constantly seeking ways to improve our applications' user experience while maintaining clean, maintainable code. In this article, I'll share an elegant solution I developed to integrate Radix UI's exceptional color system with UnoCSS, complete with seamless dark mode support.
 
+::alert{type="info"}
+This tutorial assumes you have a basic understanding of UnoCSS and TypeScript. If you're new to either, consider familiarizing yourself with their basics first.
+::
+
 ## Why Radix UI Colors?
 
 Radix UI's color system stands out for several compelling reasons:
@@ -26,6 +30,10 @@ Radix UI's color system stands out for several compelling reasons:
 3. Comprehensive palette with subtle gradations perfect for modern UI design
 
 ## The Challenge
+
+::alert{type="warning"}
+Before implementing this solution, ensure you have both `@radix-ui/colors` and `unocss` installed in your project. This integration requires specific versions of these packages to work correctly.
+::
 
 While UnoCSS offers incredible utility-first CSS capabilities, integrating Radix UI's color system isn't straightforward out of the box. The main challenges include:
 
@@ -63,6 +71,10 @@ const toKebabCase = (str: string) =>
 
 ### 3. Theme Variable Generation
 
+::alert{type="info"}
+The following implementation automatically handles both light and dark modes, eliminating the need for manual theme switching logic in your components.
+::
+
 The core of our solution lies in generating CSS variables for both light and dark modes:
 
 ```typescript [uno.config.ts]
@@ -99,6 +111,10 @@ const generateThemeVariables = () => {
 ```
 
 ### 4. UnoCSS Configuration
+
+::alert{type="danger"}
+Make sure to place this configuration in your project root, typically as `uno.config.ts`. Placing it elsewhere may cause build tools to miss the configuration.
+::
 
 Here's how we tie it all together in our UnoCSS configuration:
 
@@ -175,6 +191,10 @@ body {
 
 ## Usage Examples
 
+::alert{type="info"}
+These examples demonstrate basic usage patterns. Remember that Radix color scales are designed to be semantic - use colors based on their intended purpose rather than just their visual appearance.
+::
+
 Now you can use Radix colors seamlessly with UnoCSS utilities:
 
 ```html [index.vue]
@@ -204,6 +224,10 @@ This integration provides several advantages:
 5. **Performant**: CSS variables provide efficient theme switching
 
 ## Conclusion
+
+::alert{type="warning"}
+While this solution works well for most cases, very large applications might need to consider code-splitting the color configurations to optimize initial bundle size.
+::
 
 By combining Radix UI's thoughtful color system with UnoCSS's utility-first approach, we've created a powerful and flexible solution for managing colors in modern web applications. This setup provides an excellent foundation for building accessible, themeable interfaces with minimal overhead.
 
