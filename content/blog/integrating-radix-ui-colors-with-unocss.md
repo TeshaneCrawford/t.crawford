@@ -18,7 +18,7 @@ content: null
 As developers, we're constantly seeking ways to improve our applications' user experience while maintaining clean, maintainable code. In this article, I'll share an elegant solution I developed to integrate Radix UI's exceptional color system with UnoCSS, complete with seamless dark mode support.
 
 ::alert{type="info"}
-This tutorial assumes you have a basic understanding of UnoCSS and TypeScript. If you're new to either, consider familiarizing yourself with their basics first.
+This guide assumes you have a basic understanding of UnoCSS and TypeScript. If you're new to either, consider familiarizing yourself with their basics first.
 ::
 
 ## Why Radix UI Colors?
