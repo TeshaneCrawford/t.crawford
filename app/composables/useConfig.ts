@@ -1,94 +1,183 @@
+// @unocss-include
+
 import { defu } from 'defu'
 
 interface DefaultConfig {
   iprose: {
     breadCrumb: boolean
-    codeIcon: {
-      [key: string]: string
-    }
     padded: boolean
   }
 }
+
+const langIcons = {
+  // package managers
+  pnpm: 'catppuccin:pnpm',
+  npm: 'catppuccin:npm',
+  yarn: 'catppuccin:yarn',
+  bun: 'catppuccin:bun',
+  deno: 'catppuccin:deno',
+  // frameworks
+  vue: 'catppuccin:vue',
+  svelte: 'catppuccin:svelte',
+  angular: 'catppuccin:angular',
+  react: 'catppuccin:react',
+  next: 'catppuccin:next',
+  nuxt: 'catppuccin:nuxt',
+  solid: 'catppuccin:solid',
+  astro: 'catppuccin:astro',
+  // bundlers
+  rollup: 'catppuccin:rollup',
+  webpack: 'catppuccin:webpack',
+  vite: 'catppuccin:vite',
+  esbuild: 'catppuccin:esbuild',
+  bash: 'catppuccin:bash',
+  // languages
+  csharp: 'catppuccin:csharp',
+  cs: 'catppuccin:csharp',
+  powershell: 'catppuccin:powershell',
+  ps1: 'catppuccin:powershell',
+  pwsh: 'catppuccin:powershell',
+  shell: 'catppuccin:shell',
+  sh: 'catppuccin:shell',
+  terminal: 'catppuccin:terminal',
+  cmd: 'catppuccin:terminal',
+  batch: 'catppuccin:terminal',
+  python: 'catppuccin:python',
+  py: 'catppuccin:python',
+  ruby: 'catppuccin:ruby',
+  rb: 'catppuccin:ruby',
+  java: 'catppuccin:java',
+  php: 'catppuccin:php',
+  go: 'catppuccin:go',
+  rust: 'catppuccin:rust',
+  rs: 'catppuccin:rust',
+  docker: 'catppuccin:docker',
+  dockerfile: 'catppuccin:docker',
+}
+
+const fileIcons = {
+  'package.json': 'catppuccin:package-json',
+  'tsconfig.json': 'catppuccin:typescript-config',
+  '.npmrc': 'catppuccin:npm',
+  '.editorconfig': 'catppuccin:editorconfig',
+  '.eslintrc': 'catppuccin:eslint',
+  '.eslintignore': 'catppuccin:eslint',
+  'eslint.config': 'catppuccin:eslint',
+  '.gitignore': 'catppuccin:git',
+  '.gitattributes': 'catppuccin:git',
+  '.env': 'catppuccin:env',
+  '.env.example': 'catppuccin:env',
+  '.vscode': 'catppuccin:vscode',
+  'tailwind.config': 'catppuccin-tailwind',
+  'uno.config': 'catppuccin-unocss',
+  'vite.config': 'catppuccin:vite',
+  'webpack.config': 'catppuccin:webpack',
+  'esbuild.config': 'catppuccin:esbuild',
+  'rollup.config': 'catppuccin:rollup',
+  'jest.config': 'catppuccin:jest',
+  'babel.config': 'catppuccin:babel',
+  'Dockerfile': 'catppuccin:docker',
+  'docker-compose.yml': 'catppuccin:docker',
+  'docker-compose.yaml': 'catppuccin:docker',
+  'requirements.txt': 'catppuccin:python',
+  'Gemfile': 'catppuccin:ruby',
+  'Cargo.toml': 'catppuccin:rust',
+  'go.mod': 'catppuccin:go',
+  'composer.json': 'catppuccin:php',
+}
+
+const extIcons = {
+  '.ts': 'catppuccin-typescript',
+  '.tsx': 'catppuccin-typescript',
+  '.mjs': 'catppuccin:javascript',
+  '.cjs': 'catppuccin:javascript',
+  '.json': 'catppuccin:json',
+  '.js': 'catppuccin:javascript',
+  '.jsx': 'catppuccin:javascript',
+  '.md': 'catppuccin:markdown',
+  '.py': 'catppuccin:python',
+  '.ico': 'catppuccin:favicon',
+  '.html': 'catppuccin-html',
+  '.css': 'catppuccin-css',
+  '.yml': 'catppuccin:yaml',
+  '.yaml': 'catppuccin:yaml',
+  '.ps1': 'catppuccin:powershell',
+  '.psm1': 'catppuccin:powershell',
+  '.psd1': 'catppuccin:powershell',
+  '.cs': 'catppuccin:csharp',
+  '.csx': 'catppuccin:csharp',
+  '.sh': 'catppuccin:shell',
+  '.bash': 'catppuccin:shell',
+  '.zsh': 'catppuccin:shell',
+  '.fish': 'catppuccin:shell',
+  '.bat': 'catppuccin:terminal',
+  '.cmd': 'catppuccin:terminal',
+  '.rb': 'catppuccin:ruby',
+  '.java': 'catppuccin:java',
+  '.php': 'catppuccin:php',
+  '.go': 'catppuccin:go',
+  '.rs': 'catppuccin:rust',
+}
+
+const iconMap = new Map<string, string>()
 
 const defaultConfig: DefaultConfig = {
   iprose: {
     breadCrumb: true,
     padded: true,
-    codeIcon: {
-      'package.json': 'catppuccin:package-json',
-      'tsconfig.json': 'catppuccin:typescript-config',
-      '.npmrc': 'catppuccin:npm',
-      '.editorconfig': 'catppuccin:editorconfig',
-      '.eslintrc': 'catppuccin:eslint',
-      '.eslintrc.cjs': 'catppuccin:eslint',
-      '.eslintignore': 'catppuccin:eslint',
-      'eslint.config.js': 'catppuccin:eslint',
-      'eslint.config.mjs': 'catppuccin:eslint',
-      'eslint.config.cjs': 'catppuccin:eslint',
-      '.gitignore': 'catppuccin:git',
-      'yarn.lock': 'catppuccin:yarn',
-      '.env': 'catppuccin:env',
-      '.env.example': 'catppuccin:env',
-      '.vscode/settings.json': 'catppuccin:vscode',
-      'nuxt': 'catppuccin:nuxt',
-      '.nuxtrc': 'catppuccin:nuxt',
-      '.nuxtignore': 'catppuccin:nuxt',
-      'nuxt.config.js': 'catppuccin:nuxt',
-      'nuxt.config.ts': 'catppuccin:nuxt',
-      'nuxt.schema.ts': 'catppuccin:nuxt',
-      'tailwind.config.js': 'catppuccin-tailwind',
-      'tailwind.config.ts': 'catppuccin-tailwind',
-      'uno.config.ts': 'catppuccin-unocss',
-      'vue': 'catppuccin:vue',
-      'ts': 'catppuccin-typescript',
-      'tsx': 'catppuccin-typescript',
-      'mjs': 'catppuccin:javascript',
-      'cjs': 'catppuccin:javascript',
-      'js': 'catppuccin:javascript',
-      'jsx': 'catppuccin:javascript',
-      'md': 'catppuccin:markdown',
-      'mdc': 'catppuccin:markdown',
-      'npm': 'catppuccin:npm',
-      'pnpm': 'catppuccin:pnpm',
-      'npx': 'catppuccin:npm',
-      'yarn': 'catppuccin:yarn',
-      'yml': 'catppuccin:yaml',
-      'xml': 'catppuccin:xml',
-      'vite': 'catppuccin:vite',
-      'json': 'catppuccin:json',
-      'terminal': 'catppuccin:exe',
-      'powershell': 'catppuccin:powershell',
-      'bash': 'catppuccin:bash',
-      'csharp': 'catppuccin:csharp',
-      'cs': 'catppuccin:csharp',
-      'nuget': 'catppuccin:nuget',
-      'css': 'catppuccin-css',
-      'html': 'catppuccin-html',
-      'unocss': 'catppuccin-unocss',
-      'scss': 'catppuccin:sass',
-      'pandacss': 'catppuccin:panda-css',
-      'sql': 'catppuccin:database',
-      'azure': 'catppuccin:azure-pipelines',
-      'docker': 'catppuccin:docker'
-    },
   },
+}
+
+export function getLangIcon(lang?: string, filename?: string) {
+  let icon
+  if (filename) {
+    const parts = filename.split('.')
+    const ext = parts.pop()
+
+    if (iconMap.has(filename) || iconMap.has(`.${ext}`)) {
+      return iconMap.get(filename) ?? iconMap.get(`.${ext}`)
+    }
+
+    for (const key in fileIcons) {
+      for (let i = 0; i < parts.length; i++) {
+        const name = parts.slice(i).join('.')
+        if (name.includes(key)) {
+          icon = fileIcons[key as keyof typeof fileIcons]
+          iconMap.set(filename, icon)
+          return icon
+        }
+      }
+    }
+
+    if (!icon) {
+      icon = extIcons[`.${ext}` as keyof typeof extIcons] ?? icon
+      if (icon) {
+        iconMap.set(`.${ext}`, icon)
+        return icon
+      }
+    }
+  }
+
+  if (lang) {
+    icon = langIcons[lang as keyof typeof langIcons] ?? icon
+  }
+
+  return icon ?? 'i-vscode-icons:default-file'
 }
 
 export function useConfig() {
   const appConfig = computed(() => useAppConfig()?.teshanePortfolios || {})
 
-  return computed(
-    () => {
-      const processedConfig = defu(appConfig.value, defaultConfig)
-      const iprose = processedConfig.iprose
+  return computed(() => {
+    const processedConfig = defu(appConfig.value, defaultConfig)
+    const iprose = processedConfig.iprose
 
-      return {
-        ...appConfig.value,
-        ...processedConfig,
-        iprose: {
-          ...iprose,
-        } as typeof iprose,
-      }
-    },
-  )
+    return {
+      ...appConfig.value,
+      ...processedConfig,
+      iprose: {
+        ...iprose,
+      } as typeof iprose,
+    }
+  })
 }

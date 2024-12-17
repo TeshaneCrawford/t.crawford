@@ -17,7 +17,8 @@
     "postinstall": "nuxt prepare",
     "release": "release-it",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "typecheck": "nuxt typecheck"
   },
   "devDependencies": {
     "@iconify-json/catppuccin": "^1.2.8",

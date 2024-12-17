@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
-import type { BuiltinLanguage } from 'shiki'
+import { getLangIcon } from '~/composables/useConfig';
 
- defineProps({
+const props = defineProps({
   code: {
     type: String,
     default: '',
   },
   language: {
-    type: String as PropType<BuiltinLanguage>,
+    type: String,
     default: null,
   },
   filename: {
@@ -16,7 +15,7 @@ import type { BuiltinLanguage } from 'shiki'
     default: null,
   },
   highlights: {
-    type: Array as PropType<number[]>,
+    type: Array as () => number[],
     default: () => [],
   },
   meta: {
@@ -27,36 +26,147 @@ import type { BuiltinLanguage } from 'shiki'
     type: String,
     default: null,
   },
-  style: {
-    type: [String, Object] as PropType<string | Record<string, string>>,
-    default: null,
-  },
-  inGroup: {
-    type: Boolean,
-    default: false,
-  },
 })
+
+const { copy, copied } = useClipboard()
+const icon = computed(() => getLangIcon(props.language, props.filename))
 </script>
 
 <template>
-  <ProseCode
-    :code="code"
-    :language="language"
-    :filename="filename"
-    :highlights="highlights"
-    :meta="meta"
-    :in-group="inGroup"
-  >
-  <pre
-      :class="$props.class"
-      :style="style"
-    ><slot /></pre>
-  </ProseCode>
+  <div class="code-block group">
+    <div v-if="icon" class="code-header">
+      <div class="filename-section">
+        <Icon :name="icon" class="icon" />
+        <span class="filename">{{ filename }}</span>
+      </div>
+      <div class="copy-container">
+        <button
+          class="copy-button"
+          :title="copied ? 'Copied!' : 'Copy code'"
+          @click="copy(code)"
+        >
+          <Icon
+            :name="copied ? 'i-hugeicons-tick-01' : 'i-hugeicons-copy-01'"
+            class="copy-icon"
+          />
+        </button>
+      </div>
+    </div>
+    <pre :class="$props.class"><slot /></pre>
+  </div>
 </template>
 
-<style scoped>
+<style>
+.code-block {
+  border: 1px solid #3333;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  margin: 1em 0;
+  background: #eeed;
+  max-height: 80vh; /* Add max height */
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #3333;
+  background: #fff1;
+  position: sticky; /* Make header stick when scrolling */
+  top: 0;
+  z-index: 1;
+}
+
+.filename-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.filename {
+  font-size: 0.875rem;
+  color: inherit;
+}
+
+.copy-container {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.copy-button {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+  opacity: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.group:hover .copy-button {
+  opacity: 1;
+}
+
+.copy-button:hover {
+  background: #0001;
+}
+
+.copy-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+:is([prose=""], .prose) pre {
+  margin: 0;
+  border-radius: 0;
+  padding: 1rem;
+  overflow-x: auto; /* Horizontal scroll */
+  max-width: 100%;
+  white-space: pre;
+}
+
+pre {
+  overflow-y: auto; /* Vertical scroll */
+  max-height: inherit; /* Inherit max-height from parent */
+}
+
+pre code {
+  display: inline-block;
+  min-width: 100%;
+  font-family: monospace;
+}
+
 pre code .line {
   display: block;
-  min-height: 1rem;
+}
+
+pre code .highlight {
+  background: #0001 !important;
+}
+
+.dark {
+  .code-block {
+    background: #222;
+  }
+
+  .code-header {
+    background: #222;
+  }
+
+  .copy-button:hover {
+    background: #fff1;
+  }
+
+  pre code .highlight {
+    background: #fff2 !important;
+  }
 }
 </style>
