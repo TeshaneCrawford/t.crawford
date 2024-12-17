@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { BlogPost } from '~~/types/content'
-import type { ParsedContent } from '@nuxt/content'
+import type { Collections } from '@nuxt/content'
 
 // View transition config
 const TRANSITION_DURATION = '0.5s'
@@ -18,9 +17,9 @@ const { data: page } = await useAsyncData(
   path.value,
   () =>
     ((import.meta.server || import.meta.dev) as true)
-    && queryContent(path.value)
-      .only(['title', 'date', 'tags', 'body', 'authors', 'description', 'content'])
-      .findOne(),
+    && queryCollection('blog').path(path.value)
+      .select('title', 'date', 'tags', 'body', 'authors', 'description', 'content')
+      .first(),
 )
 
 if (!page.value) {
@@ -56,72 +55,6 @@ const getContentFromBody = (body: any): string => {
     .join(' ')
 }
 
-// Calculate reading time from content
-const calculateReadingTime = (content: string): string => {
-  const wordsPerMinute = 200
-  const wordCount = content.trim().split(/\s+/).length
-  const minutes = Math.max(1, Math.ceil(wordCount / wordsPerMinute))
-  return `${minutes} min read`
-}
-
-type BlogPostContent = Pick<ParsedContent, '_path' | 'title' | 'date' | 'tags' | 'description' | 'content' | 'body'>
-
-const transformToBlogPost = (content: BlogPostContent | null): BlogPost | null => {
-  if (!content || !content._path) return null
-
-  // Calculating reading time directly from the content body
-  const contentText = getContentFromBody(content.body)
-  const readingTime = calculateReadingTime(contentText)
-
-  return {
-    _path: content._path,
-    title: content.title || '',
-    description: content.description,
-    date: content.date,
-    tags: content.tags,
-    readingTime,
-  }
-}
-
-// Navigation fetching
-const { data: navigation } = await useAsyncData(
-  `${path.value}-navigation`,
-  async () => {
-    try {
-      const allPosts = await queryContent('blog')
-        .only(['_path', 'title', 'date', 'description', 'tags', 'body'])
-        .sort({ date: -1 })
-        .find()
-
-      const currentIndex = allPosts.findIndex(post => post._path === path.value)
-      if (currentIndex === -1) return { prev: null, next: null }
-
-      // Circular navigation
-      const nextIndex = currentIndex > 0 ? currentIndex - 1 : allPosts.length - 1
-      const prevIndex = currentIndex < allPosts.length - 1 ? currentIndex + 1 : 0
-
-      const nextPost = allPosts[nextIndex] as BlogPostContent
-      const prevPost = allPosts[prevIndex] as BlogPostContent
-
-      return {
-        prev: transformToBlogPost(prevPost),
-        next: transformToBlogPost(nextPost),
-      }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error fetching navigation:', error)
-      return {
-        prev: null,
-        next: null,
-      }
-    }
-  },
-  {
-    server: true,
-    immediate: true,
-  }
-)
-
 defineOgImageComponent('DefaultOg', {
   date: formatter.format(new Date(page.value.date)),
   title: page.value.title,
@@ -143,6 +76,25 @@ definePageMeta({
 useSeoMetaConfig({
   description: page.value?.description
 });
+
+// Add navigation queries
+const { data: prevPost } = await useAsyncData(
+  `${path.value}-prev`,
+  () =>
+    queryCollection('blog')
+      .where('date', '<', page.value?.date)
+      .order('date', 'DESC')
+      .first()
+)
+
+const { data: nextPost } = await useAsyncData(
+  `${path.value}-next`,
+  () =>
+    queryCollection('blog')
+      .where('date', '>', page.value?.date)
+      .order('date', 'ASC')
+      .first()
+)
 </script>
 
 <template>
@@ -178,20 +130,31 @@ useSeoMetaConfig({
 
         <!-- Add transition to content -->
         <div :style="{ viewTransitionName: `content-${slug}` }">
-          <StaticMarkdownRender :path="path" />
+          <StaticMarkdownRender :path="path as keyof Collections" />
         </div>
       </Prose>
-      <div
-        class="animate-fade-in-up opacity-0"
-        style="animation-delay: 0.3s; animation-fill-mode: forwards;"
-      >
-        <BlogNavigation
-          v-if="navigation"
-          :prev="navigation.prev"
-          :next="navigation.next"
-        />
-      </div>
     </section>
+    <!-- Blog Navigation -->
+        <nav class="mt-16 flex justify-between pt-8">
+          <div v-if="prevPost" class="group max-w-[45%] flex flex-col">
+            <span class="text-sm text-neutral-500 dark:text-neutral-400">Previous Article</span>
+            <NuxtLink
+              :to="`/blog/${prevPost.path?.split('/').pop()}`"
+              class="nav-link group-hover:text-primary-600 dark:group-hover:text-primary-400 mt-2 text-neutral-900 transition-colors dark:text-neutral-100"
+            >
+              {{ prevPost.title }}
+            </NuxtLink>
+          </div>
+          <div v-if="nextPost" class="group max-w-[45%] flex flex-col items-end text-right">
+            <span class="text-sm text-neutral-500 dark:text-neutral-400">Next Article</span>
+            <NuxtLink
+              :to="`/blog/${nextPost.path?.split('/').pop()}`"
+              class="nav-link group-hover:text-primary-600 dark:group-hover:text-primary-400 mt-2 text-neutral-900 transition-colors dark:text-neutral-100"
+            >
+              {{ nextPost.title }}
+            </NuxtLink>
+          </div>
+        </nav>
   </main>
 </template>
 
@@ -241,5 +204,30 @@ header dl dd:first-of-type {
     animation: none !important;
     transition: none !important;
   }
+}
+
+/* Navigation link hover effect */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-image: linear-gradient(to right, currentColor 50%, transparent 50%);
+  background-repeat: repeat-x;
+  background-size: 6px 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
 </style>
