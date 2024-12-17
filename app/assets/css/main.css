@@ -88,20 +88,6 @@ html.dark {
   color: white;
 }
 
-/* html.dark {
-  --background-primary: var(--manatee-950, #313235);
-  --background-secondary: var(--manatee-900, #54565b);
-  --text-primary: var(--manatee-100, #ecedec);
-  --text-secondary: var(--manatee-300, #c6c7c5);
-  --accent: var(--manatee-400, #b7bbc2);
-  --scrollbar: var(--manatee-800, #65686e);
-  --scrollbar-hover: var(--manatee-700, #7b7d87);
-
-
-    --link-color: var(--manatee-300, #cdd0d4);
-    --link-hover-color: var(--manatee-100, #eef0f1);
-} */
-
 /* Anchor tag styles */
 a {
   color: var(--link-color);

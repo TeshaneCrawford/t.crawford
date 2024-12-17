@@ -1,0 +1,34 @@
+/* @unocss-ignore */
+:root {
+  --c-text: 60, 60, 67;
+}
+
+.dark {
+  --c-text: 220, 220, 220;
+}
+
+:is([prose=""], .prose) {
+  a {
+    text-decoration: none !important;
+  }
+
+  :not(h1, h2, h3, h4, h5)>a {
+    display: inline-block;
+    line-height: 1.5;
+    border-bottom: 1px dashed rgba(var(--c-text), 0.5);
+    text-decoration: none !important;
+    transition: border-bottom 0.3s ease-in-out;
+  }
+
+  :not(h1, h2, h3, h4, h5)>a:hover {
+    border-bottom: 1px solid rgba(var(--c-text), 0.72);
+  }
+
+  strong {
+    color: rgba(var(--c-text), 0.8);
+  }
+
+  blockquote {
+    border-left: 0.1em solid rgba(var(--c-text), 0.5);
+  }
+}

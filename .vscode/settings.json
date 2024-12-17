@@ -8,5 +8,6 @@
         "javascript",
         "typescript",
         "vue"
-    ]
+    ],
+    "vue.server.hybridMode": true
 }
