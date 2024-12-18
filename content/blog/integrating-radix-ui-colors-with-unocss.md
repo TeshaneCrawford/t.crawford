@@ -50,7 +50,7 @@ Let's break down the implementation into manageable pieces.
 
 First, we define our TypeScript types to ensure type safety when working with Radix colors:
 
-```typescript [uno.config.ts]
+```ts [uno.config.ts]
 type RadixColorScale = {
   [key: string]: string
 }
@@ -64,7 +64,7 @@ type RadixColors = {
 
 We need a utility function to convert Radix's camelCase naming to kebab-case for CSS variables:
 
-```typescript [uno.config.ts]
+```ts [uno.config.ts]
 const toKebabCase = (str: string) => 
   str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
 ```
@@ -77,7 +77,7 @@ The following implementation automatically handles both light and dark modes, el
 
 The core of our solution lies in generating CSS variables for both light and dark modes:
 
-```typescript [uno.config.ts]
+```ts [uno.config.ts]
 const generateThemeVariables = () => {
   const lightTheme: Record<string, string> = {}
   const darkTheme: Record<string, string> = {}
@@ -118,7 +118,7 @@ Make sure to place this configuration in your project root, typically as `uno.co
 
 Here's how we tie it all together in our UnoCSS configuration:
 
-```typescript [uno.config.ts]
+```ts [uno.config.ts]
 const { lightTheme, darkTheme } = generateThemeVariables()
 
 export default defineConfig({
@@ -197,7 +197,7 @@ These examples demonstrate basic usage patterns. Remember that Radix color scale
 
 Now you can use Radix colors seamlessly with UnoCSS utilities:
 
-```html [index.vue]
+```vue [index.vue]
 <div class="bg-blue-3 text-blue-11 p-4">
   <h1 class="text-blue-12">This uses Radix UI colors</h1>
   <p class="text-blue-11">With automatic dark mode support!</p>
@@ -206,7 +206,7 @@ Now you can use Radix colors seamlessly with UnoCSS utilities:
 
 You can also create shortcuts for commonly used combinations:
 
-```typescript [uno.config.ts]
+```ts [uno.config.ts]
 shortcuts: [
   ['primary-button', 'bg-blue-4 hover:bg-blue-5 text-blue-11 rounded px-4 py-2'],
   ['danger-alert', 'bg-red-3 text-red-11 border-2 border-red-6 rounded p-2'],
