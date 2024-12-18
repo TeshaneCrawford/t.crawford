@@ -34,7 +34,7 @@ Before we dive deep into the differences, let's understand what these types repr
 
 Let's look at different ways to use `ActionResult`:
 
-```csharp [ActionResultExample.cs]
+```cs [ActionResultExample.cs]
 // Basic ActionResult example
 public ActionResult GetUser(int id)
 {
@@ -90,7 +90,7 @@ public ActionResult<UserDto> CreateUser(CreateUserRequest request)
 
 Here's how we can use `IEnumerable`:
 
-```csharp [IEnumerableExample.cs]
+```cs [IEnumerableExample.cs]
 // Basic IEnumerable return
 public IEnumerable<User> GetAllUsers()
 {
@@ -137,7 +137,7 @@ public IEnumerable<LogEntry> GetFilteredLogs(string severity)
 3. **File Downloads**: When returning files or streams
 4. **Custom Response Headers**: When you need to set specific HTTP headers
 
-```csharp [ActionResultUseCases.cs]
+```cs [ActionResultUseCases.cs]
 public ActionResult DownloadReport()
 {
     var reportBytes = _reportService.GenerateReport();
@@ -156,7 +156,7 @@ public ActionResult DownloadReport()
 3. **Simple Data Returns**: When you just need to return a collection without HTTP complexity
 4. **LINQ Operations**: When you need to chain multiple LINQ operations
 
-```csharp [IEnumerableUseCases.cs]
+```cs [IEnumerableUseCases.cs]
 public IEnumerable<OrderSummary> GetOrdersByDate(DateTime date)
 {
     return _orderService.GetAll()
@@ -174,7 +174,7 @@ public IEnumerable<OrderSummary> GetOrdersByDate(DateTime date)
 
 1. **Use ActionResult<T> for API Controllers**
 
-```csharp [BestPracticeExample.cs]
+```cs [BestPracticeExample.cs]
 public ActionResult<IEnumerable<Product>> GetProducts()
 {
     try
@@ -192,7 +192,7 @@ public ActionResult<IEnumerable<Product>> GetProducts()
 
 2. **Use IEnumerable for Service Layer**
 
-```csharp [BestPracticeExample.cs]
+```cs [BestPracticeExample.cs]
 public interface IProductService
 {
     IEnumerable<Product> GetAll();
@@ -202,7 +202,7 @@ public interface IProductService
 
 3. **Combine Both When Needed**
 
-```csharp [BestPracticeExample.cs]
+```cs [BestPracticeExample.cs]
 public ActionResult<IEnumerable<Product>> GetProductsByCategory(string category)
 {
     if (string.IsNullOrEmpty(category))
@@ -231,7 +231,7 @@ public ActionResult<IEnumerable<Product>> GetProductsByCategory(string category)
 - Ideal for large datasets
 - Can be combined with streaming responses
 
-```csharp [PerformanceExample.cs]
+```cs [PerformanceExample.cs]
 // Streaming large datasets with ActionResult
 public async Task<ActionResult> StreamLargeData()
 {
@@ -252,7 +252,7 @@ public IEnumerable<DataPoint> GetMillionsOfPoints()
 
 1. **Combining with Async/Await**
 
-```csharp [AsyncActionResult.cs]
+```cs [AsyncActionResult.cs]
 public async Task<ActionResult<IEnumerable<User>>> GetUsersAsync()
 {
     try
@@ -269,7 +269,7 @@ public async Task<ActionResult<IEnumerable<User>>> GetUsersAsync()
 
 2. **Custom ActionResult Implementation**
 
-```csharp [CustomActionResult.cs]
+```cs [CustomActionResult.cs]
 public class CsvResult : ActionResult
 {
     private readonly IEnumerable<object> _data;
@@ -293,7 +293,7 @@ public class CsvResult : ActionResult
 
 3. **Extension Methods**
 
-```csharp [ActionResultExtensions.cs]
+```cs [ActionResultExtensions.cs]
 public static class ActionResultExtensions
 {
     public static ActionResult<T> ToActionResult<T>(
@@ -323,7 +323,7 @@ When working with `ActionResult` and `IEnumerable` in ASP.NET, developers often 
 
 **Problem:**
 
-```csharp [MultipleEnumeration.cs]
+```cs [MultipleEnumeration.cs]
 public ActionResult<IEnumerable<Product>> GetProducts()
 {
     var products = _productService.GetAll(); // IEnumerable<Product>
@@ -343,7 +343,7 @@ public ActionResult<IEnumerable<Product>> GetProducts()
 
 **Solution:**
 
-```csharp [MultipleEnumerationSolution.cs]
+```cs [MultipleEnumerationSolution.cs]
 public ActionResult<IEnumerable<Product>> GetProducts()
 {
     var products = _productService.GetAll().ToList(); // Enumerate once
@@ -365,7 +365,7 @@ public ActionResult<IEnumerable<Product>> GetProducts()
 
 **Problem:**
 
-```csharp [IncorrectExceptionHandling.cs]
+```cs [IncorrectExceptionHandling.cs]
 // Don't do this
 public IEnumerable<Order> GetOrders()
 {
@@ -383,7 +383,7 @@ public IEnumerable<Order> GetOrders()
 
 **Solution:**
 
-```csharp [CorrectExceptionHandling.cs]
+```cs [CorrectExceptionHandling.cs]
 public ActionResult<IEnumerable<Order>> GetOrders()
 {
     try
@@ -403,7 +403,7 @@ public ActionResult<IEnumerable<Order>> GetOrders()
 
 **Problem:**
 
-```csharp [MemoryLeak.cs]
+```cs [MemoryLeak.cs]
 // Potential memory leak
 public IEnumerable<LogEntry> GetLogs()
 {
@@ -424,7 +424,7 @@ public IEnumerable<LogEntry> GetLogs()
 
 **Solution:**
 
-```csharp [MemoryLeakSolution.cs]
+```cs [MemoryLeakSolution.cs]
 public async IAsyncEnumerable<LogEntry> GetLogs()
 {
     await using var connection = new SqlConnection(_connectionString);
@@ -447,7 +447,7 @@ public async IAsyncEnumerable<LogEntry> GetLogs()
 
 **Problem:**
 
-```csharp [ActionResultTypeParameters.cs]
+```cs [ActionResultTypeParameters.cs]
 // Inconsistent return types
 public ActionResult<User> GetUser(int id)
 {
@@ -460,7 +460,7 @@ public ActionResult<User> GetUser(int id)
 
 **Solution:**
 
-```csharp [ActionResultTypeParametersSolution.cs]
+```cs [ActionResultTypeParametersSolution.cs]
 public ActionResult<User> GetUser(int id)
 {
     var user = _userService.GetById(id);
@@ -474,7 +474,7 @@ public ActionResult<User> GetUser(int id)
 
 **Problem:**
 
-```csharp [InefficientFiltering.cs]
+```cs [InefficientFiltering.cs]
 // Performs filtering in memory
 public IEnumerable<Product> GetExpensiveProducts(decimal threshold)
 {
@@ -486,7 +486,7 @@ public IEnumerable<Product> GetExpensiveProducts(decimal threshold)
 
 **Solution:**
 
-```csharp [InefficientFilteringSolution.cs]
+```cs [InefficientFilteringSolution.cs]
 // Performs filtering at database level
 public IEnumerable<Product> GetExpensiveProducts(decimal threshold)
 {
@@ -500,7 +500,7 @@ public IEnumerable<Product> GetExpensiveProducts(decimal threshold)
 
 **Problem:**
 
-```csharp [CircularReferences.cs]
+```cs [CircularReferences.cs]
 public class Order
 {
     public int Id { get; set; }
@@ -522,7 +522,7 @@ public ActionResult<IEnumerable<Order>> GetOrders()
 
 **Solution:**
 
-```csharp [CircularReferencesSolution.cs]
+```cs [CircularReferencesSolution.cs]
 public class OrderDto
 {
     public int Id { get; set; }
@@ -555,7 +555,7 @@ public ActionResult<IEnumerable<OrderDto>> GetOrders()
 
 **Problem:**
 
-```csharp [CancellationProblem.cs]
+```cs [CancellationProblem.cs]
 // Doesn't respect cancellation
 public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
 {
@@ -566,7 +566,7 @@ public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
 
 **Solution:**
 
-```csharp [CancellationSolution.cs]
+```cs [CancellationSolution.cs]
 public async Task<ActionResult<IEnumerable<Product>>> GetProducts(CancellationToken cancellationToken)
 {
     await Task.Delay(5000, cancellationToken); // Will throw if cancelled

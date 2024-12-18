@@ -197,7 +197,7 @@ These examples demonstrate basic usage patterns. Remember that Radix color scale
 
 Now you can use Radix colors seamlessly with UnoCSS utilities:
 
-```vue [index.vue]
+```html [index.html]
 <div class="bg-blue-3 text-blue-11 p-4">
   <h1 class="text-blue-12">This uses Radix UI colors</h1>
   <p class="text-blue-11">With automatic dark mode support!</p>

@@ -23,7 +23,7 @@ A `struct` (structure) is a value type in C# that encapsulates related data and 
 
 Here's a basic example of a struct:
 
-```csharp [program.cs]
+```cs [program.cs]
 public struct Point
 {
     public int X { get; set; }
@@ -59,7 +59,7 @@ Introduced in C# 9.0, records are reference types designed for immutable data mo
 
 Here's a simple record declaration:
 
-```csharp [program.cs]
+```cs [program.cs]
 // Immutable record with positional parameters
 public record Point(int X, int Y)
 {
@@ -110,7 +110,7 @@ public record class MutablePoint
 - Value semantics are desired
 - The type will be used in arrays
 
-```csharp [program.cs]
+```cs [program.cs]
 public struct Coordinate
 {
     public double Latitude { get; init; }
@@ -126,7 +126,7 @@ public struct Coordinate
 - Want built-in formatting and deconstruction
 - Inheritance is required
 
-```csharp [program.cs]
+```cs [program.cs]
 public record Person(
     string FirstName,
     string LastName,

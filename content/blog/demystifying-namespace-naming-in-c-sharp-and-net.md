@@ -31,7 +31,7 @@ Namespaces are more than just containers for your code - they're the GPS coordin
 
 Microsoft's Framework Design Guidelines provide this template for namespace naming:
 
-```csharp [file.cs]
+```cs [file.cs]
 <Company>.(<Product>|<Technology>)[.<Feature>][.<Subnamespace>]
 ```
 
@@ -39,7 +39,7 @@ Let's break this down with real-world examples:
 
 ### 1. Company Name (`<Company>`)
 
-```csharp
+```cs
 // Good examples
 Microsoft.AspNetCore
 Amazon.AWS
@@ -52,7 +52,7 @@ MS.Web   // Using abbreviations
 
 ### 2. Product or Technology Name
 
-```csharp
+```cs
 // Good examples
 Contoso.Security
 Fabrikam.Logging
@@ -65,7 +65,7 @@ Fabrikam.MyNewLogger  // Unstable/temporary names
 
 ### 3. Feature and Subnamespace
 
-```csharp
+```cs
 // Good examples
 Microsoft.AspNetCore.Authentication.OAuth
 Contoso.Ecommerce.Payments.Stripe
@@ -80,7 +80,7 @@ Contoso.Ecommerce.PaymentProcessing.StripeImplementation  // Too verbose
 
 ### ✅ DO: Use PascalCase
 
-```csharp [GoodFile.cs]
+```cs [GoodFile.cs]
 namespace Contoso.IdentityServer.Authentication
 {
     // Good: Clear hierarchy, PascalCase
@@ -94,7 +94,7 @@ namespace contoso.identityserver.authentication
 
 ### ✅ DO: Use Plural Forms for Collections
 
-```csharp
+```cs
 // Good
 namespace MyCompany.Collections
 namespace MyCompany.WebServices
@@ -106,7 +106,7 @@ namespace MyCompany.WebService
 
 ### ❌ DON'T: Use Generic Names
 
-```csharp [BadFile.cs]
+```cs [BadFile.cs]
 // Bad - Too generic
 namespace MyCompany.Utilities
 {
@@ -122,7 +122,7 @@ namespace MyCompany.Logging.Formatters
 
 ### ❌ DON'T: Match Namespace and Type Names
 
-```csharp [BadFile.cs]
+```cs [BadFile.cs]
 // Bad - Namespace and class name conflict
 namespace MyCompany.Logger
 {
@@ -140,7 +140,7 @@ namespace MyCompany.Logging
 
 Let's look at how some popular .NET projects structure their namespaces:
 
-```csharp
+```cs
 // ASP.NET Core
 Microsoft.AspNetCore.Mvc
 Microsoft.AspNetCore.Authentication.JwtBearer
@@ -158,7 +158,7 @@ Serilog.Extensions.Logging
 
 1. **Organizational Structure Dependency**
 
-```csharp
+```cs
 // Bad - Based on org structure
 Contoso.TeamA.ProjectX.Feature
 Contoso.TeamB.ProjectY.Feature
@@ -170,7 +170,7 @@ Contoso.Ecommerce.Shipping
 
 2. **Version Numbers in Namespaces**
 
-```csharp
+```cs
 // Bad - Including version
 Contoso.SecurityV2.Encryption
 
@@ -180,7 +180,7 @@ Contoso.Security.Encryption
 
 3. **Abbreviations**
 
-```csharp
+```cs
 // Bad - Unclear abbreviations
 MyCompany.Auth.OAuth.MS
 
@@ -192,7 +192,7 @@ MyCompany.Authentication.OAuth.Microsoft
 
 ### Feature-Based Organization
 
-```csharp
+```cs
 MyCompany.ProductName.Features.UserManagement
 MyCompany.ProductName.Features.Billing
 MyCompany.ProductName.Features.Reporting
@@ -200,7 +200,7 @@ MyCompany.ProductName.Features.Reporting
 
 ### Layer-Based Organization
 
-```csharp
+```cs
 MyCompany.ProductName.Core
 MyCompany.ProductName.Infrastructure
 MyCompany.ProductName.Presentation
@@ -208,7 +208,7 @@ MyCompany.ProductName.Presentation
 
 ### Domain-Driven Design (DDD) Style
 
-```csharp
+```cs
 MyCompany.ProductName.Domain
 MyCompany.ProductName.Application
 MyCompany.ProductName.Infrastructure
