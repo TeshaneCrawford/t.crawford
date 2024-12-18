@@ -27,7 +27,7 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
       </div>
     </div>
     <div class="text-center op70">
-      <mark class="glow-effect badge-sm-green dark:badge-sm-green fw-medium important-rounded-none">
+      <mark class="glow-effect badge-sm-green fw-medium important-rounded-none">
         <span class="">Site made with </span>
         <a
           href="https://nuxt.com"
