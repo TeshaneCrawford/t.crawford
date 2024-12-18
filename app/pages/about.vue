@@ -11,12 +11,14 @@ useSeoMetaConfig({
 defineOgImageComponent('PageOg', {
   link: '/about',
 });
+
+const { data: about } = await useAsyncData(() => queryCollection('content').path('/about').first())
 </script>
 
 <template>
   <div class="prose max-w-4xl! lg:px-0 md:px-8">
     <p class="mb-8 leading-12" :class="$style.about">
-      <StaticMarkdownRender path="/about" />
+      <ContentRenderer v-if="about" :value="about" />
     </p>
     <br>
     <BackButton />

@@ -11,12 +11,14 @@ definePageMeta({
 defineOgImageComponent('PageOg', {
   link: '/chat',
 });
+
+const { data: chat } = await useAsyncData(() => queryCollection('content').path('/chat').first())
 </script>
 
 <template>
   <div class="max-w-4xl! lg:px-0 md:px-8">
     <p class="mb-8 leading-12">
-      <StaticMarkdownRender path="/chat" />
+      <ContentRenderer v-if="chat" :value="chat" />
     </p>
     <br>
     <BackButton />
