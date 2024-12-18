@@ -44,7 +44,7 @@ const cardTransition = {
               <span
                 v-for="tag in blogs.tags"
                 :key="tag"
-                class="text-gray-11 badge-xs-zinc important-rounded-sm"
+                class="text-gray-11 badge-xs-gray important-rounded-sm"
                 role="tag"
               >
                 {{ tag }}
