@@ -59,7 +59,7 @@ export default defineConfig({
   shortcuts: [
     ['prose-container', 'prose max-w-4xl!'],
 
-    [/^badge-(.*)$/, ([, c]) => `bg-${c}4:10 text-${c}5 rounded`],
+    [/^badge-(.*)$/, ([, c]) => `bg-${c}-4:10 text-${c}-11 rounded`],
     [/^badge-xs-(.*)$/, ([, c]) => `badge-${c} text-xs px2 py0.5`],
     [/^badge-sm-(.*)$/, ([, c]) => `badge-${c} text-sm px3 py0.6`],
     [/^badge-lg-(.*)$/, ([, c]) => `badge-${c} px3 py0.8`],
