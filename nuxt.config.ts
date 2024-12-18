@@ -253,7 +253,8 @@ export default defineNuxtConfig({
             'typescript',
             'vue',
             'xml',
-            'yaml'
+            'yaml',
+            'cs'
           ],
         },
       },
