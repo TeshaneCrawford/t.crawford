@@ -50,7 +50,7 @@ function toggleDark(event: MouseEvent) {
   <button
     aria-label="Color Mode"
     :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`"
-    class="group link hover:text-manatee-700 dark:hover:text-manatee-300 inline-block pr-2"
+    class="group link hover:text-gray-11 inline-block pr-2"
     @click.prevent="toggleDark"
   >
     <div class="icon">
