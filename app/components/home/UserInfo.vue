@@ -51,6 +51,8 @@ const copyEmail = async () => {
     copied.value = false
   }, 2000)
 }
+
+const { data: home } = await useAsyncData(() => queryCollection('content').path('/home').first())
 </script>
 
 <template>
@@ -58,28 +60,28 @@ const copyEmail = async () => {
     <div class="flex justify-between">
       <div class="flex flex-row items-center pb-12 space-x-3">
         <a
-    :href="`https://github.com/${userData?.username}`"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block transition-transform hover:scale-102 sm:pl-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600"
-    :aria-label="`Visit ${userData?.name}'s GitHub profile (opens in new tab)`"
-  >
-    <img
-      :src="userData?.avatar"
-      :alt="`${userData?.name}'s profile picture`"
-      :title="`${userData?.name}'s GitHub avatar`"
-      class="h-18 w-18 rounded-full shadow ring-1 ring-zinc-200 dark:ring-zinc-700"
-      loading="lazy"
-      decoding="async"
-      @error="handleImageError"
-    >
-  </a>
+          :href="`https://github.com/${userData?.username}`"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block transition-transform hover:scale-102 sm:pl-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-8"
+          :aria-label="`Visit ${userData?.name}'s GitHub profile (opens in new tab)`"
+        >
+          <img
+            :src="userData?.avatar"
+            :alt="`${userData?.name}'s profile picture`"
+            :title="`${userData?.name}'s GitHub avatar`"
+            class="h-18 w-18 rounded-full shadow ring-1 ring-gray-6"
+            loading="lazy"
+            decoding="async"
+            @error="handleImageError"
+          >
+        </a>
         <div v-if="userData?.name" class="flex flex-col">
           <span class="font-semibold font-mono">@{{ userData?.username }}</span>
-          <span class="op50">{{ userData?.bio }}</span>
+          <span class="text-gray-11">{{ userData?.bio }}</span>
         </div>
       </div>
-      <span class="flex items-center gap-1 op50 lt-md:hidden">
+      <span class="text-gray-11 flex items-center gap-1 lt-md:hidden">
         <Icon name="i-hugeicons-location-01" /> {{  userData?.location }}
       </span>
     </div>
@@ -98,7 +100,7 @@ const copyEmail = async () => {
     </div>
     <div class="prose max-w-4xl!">
       <p class="mb-8 leading-12" :class="$style.home">
-        <StaticMarkdownRender path="/home" />
+        <ContentRenderer v-if="home" :value="home" />
       </p>
       <div class="mb-8 flex flex-col gap-4">
         <div class="flex flex-wrap gap-4">
@@ -107,7 +109,7 @@ const copyEmail = async () => {
             :key="link.path"
             :to="link.path"
             :aria-label="link.ariaLabel"
-            class="group flex items-center gap-1 underline underline-offset-4 transition-all duration-300 hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600"
+            class="group flex items-center gap-1 underline underline-offset-4 transition-all duration-300 hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-gray-8"
           >
             {{ link.text }}
             <Icon
@@ -122,10 +124,10 @@ const copyEmail = async () => {
         <span>Send me an email at</span>
         <a
         :href="`mailto:${email}`"
-        class="underline underline-offset-4 hover:text-neutral-600 dark:hover:text-neutral-400"
+        class="hover:text-gray-11 underline underline-offset-4"
         >{{ email }}</a>
         <button
-          class="h-6 w-6 inline-flex items-center justify-center p-1 hover:text-neutral-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-zinc-400 dark:hover:text-neutral-400 dark:focus-visible:ring-zinc-600"
+          class="hover:text-gray-11 h-6 w-6 inline-flex items-center justify-center p-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-gray-8"
           :aria-label="copied ? 'Email copied!' : 'Copy email address'"
           @click="copyEmail"
         >
@@ -142,7 +144,7 @@ const copyEmail = async () => {
         :key="link.path"
         :to="link.path"
         :aria-label="link.ariaLabel"
-        class="group flex items-center gap-1 underline underline-offset-4 transition-all duration-300 hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600"
+        class="group flex items-center gap-1 underline underline-offset-4 transition-all duration-300 hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-gray-8"
         rel="nofollow"
       >
         {{ link.text }}
