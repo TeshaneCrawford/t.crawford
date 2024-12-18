@@ -4,7 +4,25 @@ export default defineContentConfig({
   collections: {
     content: defineCollection({
       type: 'page',
-      source: '**/*.md'
+      source: '**/*.md',
+      schema: z.object({
+        // layout: z.enum(['default', 'blog']).default('default'),
+        title: z.string(),
+        description: z.string(),
+        // head: z.object({
+        //   meta: z.array(z.object({
+        //     name: z.string(),
+        //     content: z.string(),
+        //   })).optional(),
+        //   htmlAttrs: z.object({
+        //     lang: z.string(),
+        //   }).optional(),
+        //   title: z.string(),
+        //   bodyAttrs: z.object({
+        //     class: z.string(),
+        //   }).optional(),
+        // }),
+      }),
     }),
     blog: defineCollection({
       type: 'page',
