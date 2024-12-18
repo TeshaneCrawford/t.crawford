@@ -221,13 +221,58 @@ export default defineNuxtConfig({
   },
 
   content: {
-    highlight: {
-      theme: {
-        default: 'vitesse-light',
-        dark: 'vitesse-dark',
+    build: {
+      pathMeta: {
+        forceLeadingSlash: true
       },
-      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'mermaid', 'yaml', 'bash', 'cs'],
+      markdown: {
+        toc: {
+          depth: 3,
+          searchDepth: 3,
+        },
+        highlight: {
+          theme: {
+            default: 'vitesse-light',
+            dark: 'vitesse-dark',
+          },
+          langs: [
+            'bash',
+            'shell',
+            'powershell',
+            'css',
+            'diff',
+            'html',
+            'json',
+            'markdown',
+            'md',
+            'mdc',
+            'scss',
+            'typescript',
+            'yaml',
+            'javascript',
+            'js',
+            'jsx',
+            'tsx',
+            'ts',
+            'vue',
+            'xml',
+            'mermaid',
+            'csharp',
+            'c#',
+            'cs',
+            'csv',
+            'angular-ts',
+            'angular-html',
+            'dotenv',
+            'docker',
+            'dockerfile',
+            'vue-html',
+            'toml',
+          ],
+        },
+      },
     },
+
   },
 
   // build: {
