@@ -81,7 +81,7 @@ const { data: home } = await useAsyncData(() => queryCollection('content').path(
           <span class="text-gray-11">{{ userData?.bio }}</span>
         </div>
       </div>
-      <span class="text-gray-11 flex items-center gap-1 lt-md:hidden">
+      <span class="text-gray-11 flex items-center gap-1 op-80 lt-md:hidden">
         <Icon name="i-hugeicons-location-01" /> {{  userData?.location }}
       </span>
     </div>
