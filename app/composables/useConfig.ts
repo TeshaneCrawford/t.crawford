@@ -84,6 +84,7 @@ const fileIcons = {
   'Cargo.toml': 'catppuccin:rust',
   'go.mod': 'catppuccin:go',
   'composer.json': 'catppuccin:php',
+  'nuxt.config': 'catppuccin:nuxt',
 }
 
 const extIcons = {
