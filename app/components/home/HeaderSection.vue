@@ -92,28 +92,28 @@ onBeforeUnmount(() => {
 
 <template>
   <div
-    mx-auto mb-4 max-w-3xl flex items-center justify-between px-4 op-50 lg:px-0 md:px-8 sm:px-0
+    mx-auto mb-4 max-w-3xl flex items-center justify-between px-4 op-70 lg:px-0 md:px-8 sm:px-0
   >
     <span
-      inline-flex items-center badge-lg-gray dark:badge-lg-gray fw-semibold font-dank important-rounded-none
+      inline-flex items-center badge-lg-gray font-dank important-rounded-none
     >
       {{ formattedTime }}
     </span>
     <span
       v-if="loading"
-      inline-flex items-center badge-lg-gray dark:badge-lg-gray font-dank italic important-rounded-none
+      inline-flex items-center badge-lg-gray font-dank italic important-rounded-none
     >
       Loading temperature...
     </span>
     <span
       v-else-if="error"
-      inline-flex items-center badge-lg-gray dark:badge-lg-gray text-red-9 font-dank important-rounded-none
+      inline-flex items-center badge-lg-gray text-red-9 font-dank important-rounded-none
     >
       {{ error }}
     </span>
     <span
       v-else-if="temperature !== null"
-      inline-flex items-center badge-lg-gray dark:badge-lg-gray fw-semibold font-dank important-rounded-none
+      inline-flex items-center badge-lg-gray font-dank important-rounded-none
     >
       {{ temperature }}°C
     </span>
