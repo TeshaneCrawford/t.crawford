@@ -115,22 +115,22 @@ useHead({
             <NuxtLink
               :to="link.url" :aria-label="`Visit ${link.name} profile (opens in new tab)`" target="_blank"
               rel="noopener noreferrer" external
-              class="group flex items-end gap-4 rounded p-2 outline-none ring-offset-2 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-neutral-500">
+              class="group flex items-end gap-4 rounded p-2 outline-none ring-offset-2 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-gray-5">
               <span
-                class="text-base text-neutral-900 font-medium transition-colors duration-200 dark:text-neutral-100 group-hover:text-neutral-800 dark:group-hover:text-neutral-200">
+                class="text-gray-11 group-hover:text-gray-12 text-base font-medium transition-colors duration-200">
                 {{ link.name }}
               </span>
 
               <div
-                class="flex-1 border-b border-neutral-200 border-dashed transition-colors duration-200 dark:border-neutral-700 group-hover:border-neutral-400 dark:group-hover:border-neutral-500"
+                class="flex-1 border-b border-gray-6 border-dashed transition-colors duration-200 group-hover:border-gray-8"
                 aria-hidden="true" />
 
               <div
-                class="border border-neutral-200 rounded bg-transparent p-2 transition-colors duration-200 dark:border-neutral-700 group-hover:border-neutral-400 group-hover:bg-neutral-100/50 dark:group-hover:border-neutral-500 dark:group-hover:bg-neutral-800/50"
+                class="border border-gray-6 rounded bg-transparent p-2 transition-colors duration-200 group-hover:border-gray-8 group-hover:bg-gray-2"
                 aria-hidden="true">
                 <Icon
                   :name="link.icon"
-                  class="h-6 w-6 flex text-neutral-600 transition-colors duration-200 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200"
+                  class="text-gray-11 group-hover:text-gray-12 h-6 w-6 flex transition-colors duration-200"
                   role="icon" :aria-label="`${link.name} icon`" />
               </div>
             </NuxtLink>
