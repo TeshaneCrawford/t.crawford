@@ -40,25 +40,13 @@
   --step-4: clamp(1.3rem, calc(0.85rem + 2.23vw), 2.44rem);
   --step-5: clamp(1.38rem, calc(0.73rem + 3.26vw), 3.05rem);
 
-  --background-primary: #ffffff;
-  --background-secondary: #ecedec;
-  --text-primary: #54565b;
-  --text-secondary: #7b7d87;
-  --accent: #a4a7b0;
-  --scrollbar: #e0e2e5;
-  --scrollbar-hover: #cdd0d4;
-
-    /* Link colors */
-    --link-color: #9497a1;
-    --link-hover-color: #65686e;
-
-    /* Responsive font sizes */
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.75rem;
-    --font-size-4xl: 2rem;
+  /* Responsive font sizes */
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.75rem;
+  --font-size-4xl: 2rem;
 }
 
 /* Responsive font */
@@ -73,24 +61,23 @@
   }
 }
 
-html {
-  background-color: var(--background-primary);
-  color: var(--text-primary);
+:root {
+  color-scheme: light;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-tap-highlight-color: transparent;
   font-size: var(--font-size-base);
+  background-color: var(--gray-1);
+  color: var(--gray-11);
 }
 
 html.dark {
   color-scheme: dark;
-  background: #121212;
-  color: white;
 }
 
 /* Anchor tag styles */
 a {
-  color: var(--link-color);
+  color: var(--gray-11);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -112,7 +99,7 @@ picture {
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--gray-4);
   opacity: 0.5;
 }
 
@@ -121,7 +108,7 @@ picture {
 }
 
 #nprogress .bar {
-  background: var(--accent);
+  background: var(--gray-8);
   opacity: 0.75;
   position: fixed;
   z-index: 1031;
@@ -132,7 +119,7 @@ picture {
 }
 
 * {
-  scrollbar-color: var(--scrollbar) var(--background-primary);
+  scrollbar-color: var(--gray-6) var(--gray-1);
 }
 
 ::-webkit-scrollbar {
@@ -142,15 +129,15 @@ picture {
   height: 6px;
 }
 ::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
-  background: var(--background-primary);
+  background: var(--gray-1);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar);
+  background: var(--gray-6);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-hover);
+  background: var(--gray-7);
 }
 
 h2 + p > em:first-child {
@@ -170,12 +157,12 @@ html:not(.dark) [img-dark] {
 
 @keyframes slide-enter {
   0% {
-    transform: translateY(10px);
+    transform: trangrayY(10px);
     opacity: 0
   }
 
   to {
-    transform: translateY(0);
+    transform: trangrayY(0);
     opacity: 100
   }
 }
