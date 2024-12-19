@@ -33,7 +33,7 @@ const cardTransition = {
         :aria-label="`Read ${blogs.title || 'Untitled post'}`"
       >
         <article
-          class="h-full overflow-hidden border border-gray-7 rounded-md bg-gray-2 transition-all duration-300 hover:border-dashed hover:shadow-lg hover:-translate-y-1"
+          class="h-full overflow-hidden border border-gray-7 rounded-md bg-gray-2 transition-all duration-300 hover:border-dashed hover:shadow-sm hover:-translate-y-1"
           role="article"
         >
           <div class="p-6">
@@ -44,19 +44,19 @@ const cardTransition = {
               <span
                 v-for="tag in blogs.tags"
                 :key="tag"
-                class="text-gray-11 badge-xs-gray important-rounded-sm"
+                class="badge-xs-gray text-gray-11 important-rounded-sm"
                 role="tag"
               >
                 {{ tag }}
               </span>
             </div>
-            <h2 class="text-gray-11 group-hover:text-gray-12 mb-2 text-lg transition-colors">
+            <h2 class="mb-2 text-lg text-gray-11 transition-colors group-hover:text-gray-12">
               {{ blogs.title || 'Untitled post' }}
             </h2>
-            <p class="text-gray-11 line-clamp-2 mb-4 text-sm">
+            <p class="line-clamp-2 mb-4 text-sm text-gray-11">
               {{ blogs.description }}
             </p>
-            <div class="text-gray-11 flex items-center justify-between text-sm">
+            <div class="flex items-center justify-between text-sm text-gray-11">
               <div class="flex items-center gap-2">
                 <img
                   v-if="blogs.authors?.[0]?.picture"
@@ -70,7 +70,7 @@ const cardTransition = {
               </div>
               <dl
                 v-if="blogs.date"
-                class="text-gray-11 text-sm leading-normal"
+                class="text-sm text-gray-11 leading-normal"
               >
                 <dt class="sr-only">Published</dt>
                 <dd>

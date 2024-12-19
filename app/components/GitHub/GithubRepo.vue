@@ -11,7 +11,7 @@ defineProps<{
     b="~ black op-10"
     dark-b="white op-10"
     trans rounded-md p-4 text-xs shadow-sm
-    hover="bg-neutral bg-op-3"
+    hover="bg-gray bg-op-3"
     dark-hover="bg-white bg-op-3"
     class="matrix-pattern bg-black/2 dark:bg-white/2"
   >
