@@ -13,7 +13,7 @@ defineProps<{
     trans rounded-md p-4 text-xs shadow-sm
     hover="bg-gray bg-op-3"
     dark-hover="bg-white bg-op-3"
-    class="matrix-pattern bg-black/2 dark:bg-white/2"
+    class="matrix-pattern bg-black/1 dark:bg-white/2"
   >
     <a
       :href="repo.homepage || repo.html_url"
@@ -33,7 +33,7 @@ defineProps<{
           items-center
           fw-normal
           important-rounded-sm
-          :class="repo.is_template ? 'dark-badge-xs-yellow badge-xs-blue' : 'dark-badge-xs-teal badge-xs-red'"
+          :class="repo.is_template ? 'dark-badge-xs-yellow badge-xs-blue' : 'dark-badge-xs-teal badge-xs-crimson'"
         >
           {{ repo.private ? 'Private' : 'Public' }}
           {{ repo.is_template ? 'Template' : '' }}
