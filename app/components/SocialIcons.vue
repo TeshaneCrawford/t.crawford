@@ -25,7 +25,7 @@ const socials: SocialLink[] = [
       :title="social.name"
       target="_blank"
       rel="noopener noreferrer"
-      class="hover:text-gray-11 rounded-md px-2 text-gray-9 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-7"
+      class="rounded-md px-2 text-gray-9 transition-colors duration-200 hover:text-gray-11 focus:outline-none focus:ring-2 focus:ring-gray-7"
       :aria-label="`Visit ${social.name} profile`"
     >
       <Icon :name="social.icon" class="text-xl" :alt="`${social.name} logo`" />
