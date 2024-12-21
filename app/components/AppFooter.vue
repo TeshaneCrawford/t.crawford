@@ -33,9 +33,10 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
           href="https://nuxt.com"
           rel="noopener noreferrer"
           target="_blank"
-          class="transition-opacity hover:opacity-75"
+          class="inline-flex items-center transition-opacity hover:opacity-75"
         >
           Nuxt
+          <Icon name="i-catppuccin-nuxt" class="ml-1" />
         </a>
       </mark>
     </div>
