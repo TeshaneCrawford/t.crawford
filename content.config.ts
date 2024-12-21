@@ -37,7 +37,7 @@ export default defineContentConfig({
         })),
         tags: z.array(z.string()),
         date: z.string(),
-        content: z.any().nullable()
+        rawbody: z.string(),
       })
     }),
   }
