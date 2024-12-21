@@ -10,8 +10,7 @@ tags:
   - dotnet
   - Clean Code
   - Best Practices
-date: '2023-08-25T00:00:00.000Z'
-content: null
+date: 2023-08-25T00:00:00.000Z
 ---
 
 ## The Ultimate Guide to Namespace Naming in C# and .NET

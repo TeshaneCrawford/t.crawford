@@ -9,8 +9,7 @@ tags:
   - C#
   - dotnet
   - data-structures
-date: '2023-08-15T00:00:00.000Z'
-content: null
+date: 2023-08-15T00:00:00.000Z
 ---
 
 ## Understanding Records and Structs in C#: A Comprehensive Guide
