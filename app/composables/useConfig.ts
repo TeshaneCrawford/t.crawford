@@ -20,7 +20,7 @@ const langIcons = {
   vue: 'catppuccin:vue',
   svelte: 'catppuccin:svelte',
   angular: 'catppuccin:angular',
-  react: 'catppuccin:react',
+  react: 'catppuccin:typescript-react',
   next: 'catppuccin:next',
   nuxt: 'catppuccin:nuxt',
   solid: 'catppuccin:solid',
@@ -53,6 +53,7 @@ const langIcons = {
   rs: 'catppuccin:rust',
   docker: 'catppuccin:docker',
   dockerfile: 'catppuccin:docker',
+  mermaid: 'catppuccin:mermaid',
 }
 
 const fileIcons = {
@@ -108,7 +109,7 @@ const extIcons = {
   '.cs': 'catppuccin:csharp',
   '.csx': 'catppuccin:csharp',
   '.sh': 'catppuccin:shell',
-  '.bash': 'catppuccin:shell',
+  '.bash': 'catppuccin:bash',
   '.zsh': 'catppuccin:shell',
   '.fish': 'catppuccin:shell',
   '.bat': 'catppuccin:terminal',
