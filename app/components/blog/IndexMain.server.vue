@@ -6,17 +6,18 @@ const { data: blog } = await useAsyncData(() => {
     .all()
 })
 
-
-const cardTransition = {
-  initial: { opacity: 0, y: 20 },
-  enter: { opacity: 1, y: 0 },
-  transition: { duration: 400, delay: 200 }
-}
-
+// Validate date to prevent rendering invalid timestamps
 const isValidDate = (date: string | undefined) => {
   if (!date) return false
   const parsedDate = new Date(date)
   return !isNaN(parsedDate.getTime())
+}
+
+// Progressive animation configuration for card entrance
+const cardTransition = {
+  initial: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0 },
+  transition: { duration: 400, delay: 200 }
 }
 
 </script>
