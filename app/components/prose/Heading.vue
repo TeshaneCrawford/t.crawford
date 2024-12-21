@@ -20,7 +20,7 @@ const generate = computed(() => props.id && (
 </script>
 
 <template>
-  <component :is="props.tag" :id="props.id" class="group text pr text-op-90">
+  <component :is="props.tag" :id="props.id" class="group pr text-sm text-op-90">
     <a
       v-if="props.id && generate"
       :href="`#${props.id}`"
@@ -32,7 +32,7 @@ const generate = computed(() => props.id && (
     <slot v-else />
     <span
       v-if="props.id && generate"
-      pa fcc size-5.5 bg-primary:10 rd pyc left--7
+      pa fcc size-5 bg-primary:10 rd pyc left--7
       group-hover:op-100 trans op-0 cursor-pointer
       @click="proseHeadingClick($event, props.id)"
     >

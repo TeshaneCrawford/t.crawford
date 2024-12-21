@@ -7,7 +7,7 @@ const router = useRouter()
   <slot>
     <button
       type="button"
-      class="text-gray-11 flex items-center gap-1 border-b border-gray-8 bg-transparent font-mono opacity-70 transition-colors hover:border-opacity-100 hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-8"
+      class="flex items-center gap-1 border-b border-gray-8 bg-transparent text-gray-11 font-mono opacity-70 transition-colors hover:border-opacity-100 hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-8"
       role="navigation"
       aria-label="Navigate to previous page"
       @click="router.back()"

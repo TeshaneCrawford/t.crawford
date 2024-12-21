@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { data: blog } = await useAsyncData(() => {
   return queryCollection('blog')
-    .select('title', 'description', 'authors', 'path', 'date', 'tags')
+    .select('title', 'description', 'authors', 'path', 'date', 'tags', 'rawbody')
     .order('date', 'DESC')
     .all()
 })
@@ -11,6 +11,12 @@ const cardTransition = {
   initial: { opacity: 0, y: 20 },
   enter: { opacity: 1, y: 0 },
   transition: { duration: 400, delay: 200 }
+}
+
+const isValidDate = (date: string | undefined) => {
+  if (!date) return false
+  const parsedDate = new Date(date)
+  return !isNaN(parsedDate.getTime())
 }
 
 </script>
@@ -69,7 +75,7 @@ const cardTransition = {
                 <span>{{ blogs.authors?.[0]?.name || 'Anonymous' }}</span>
               </div>
               <dl
-                v-if="blogs.date"
+                v-if="blogs.date && isValidDate(blogs.date)"
                 class="text-sm text-gray-11 leading-normal"
               >
                 <dt class="sr-only">Published</dt>

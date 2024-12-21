@@ -103,7 +103,7 @@ useHead({
 </script>
 
 <template>
-  <main class="mx-auto max-w-4xl p-4">
+  <main class="mx-auto max-w-4xl">
     <AppHeading :title="contactData.title" :description="contactData.description">
       <div role="navigation" aria-label="Social media links">
         <AppPageSeparator :text="contactData.heading" />
@@ -117,7 +117,7 @@ useHead({
               rel="noopener noreferrer" external
               class="group flex items-end gap-4 rounded p-2 outline-none ring-offset-2 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-gray-5">
               <span
-                class="text-gray-11 group-hover:text-gray-12 text-base font-medium transition-colors duration-200">
+                class="text-base text-gray-11 font-medium transition-colors duration-200 group-hover:text-gray-12">
                 {{ link.name }}
               </span>
 
@@ -130,7 +130,7 @@ useHead({
                 aria-hidden="true">
                 <Icon
                   :name="link.icon"
-                  class="text-gray-11 group-hover:text-gray-12 h-6 w-6 flex transition-colors duration-200"
+                  class="h-6 w-6 flex text-gray-11 transition-colors duration-200 group-hover:text-gray-12"
                   role="icon" :aria-label="`${link.name} icon`" />
               </div>
             </NuxtLink>

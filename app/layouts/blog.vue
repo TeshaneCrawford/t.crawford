@@ -1,12 +1,15 @@
-<script lang="ts" setup></script>
+<script setup lang="ts">
+</script>
 
 <template>
-  <div>
+  <div class="min-h-screen">
     <AppNavbar />
     <HomeHeaderSection />
-    <main class="ma max-w-5xl of-x-hidden px-7 py-10 min-h-dvh md:px-0">
-      <slot />
-    </main>
+    <div class="max-w-8xl px-4">
+      <div class="mx-auto max-w-[90rem]">
+        <slot />
+      </div>
+    </div>
     <AppFooter />
   </div>
 </template>

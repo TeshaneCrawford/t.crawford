@@ -38,6 +38,13 @@ export default defineContentConfig({
         tags: z.array(z.string()),
         date: z.string(),
         rawbody: z.string(),
+        toc: z.object({
+          items: z.array(z.object({
+            id: z.string(),
+            text: z.string(),
+            depth: z.number(),
+          })).optional(),
+        }).optional(),
       })
     }),
   }
