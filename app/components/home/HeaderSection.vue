@@ -25,7 +25,7 @@ interface WeatherResponse {
 const FIXED_LATITUDE = 40.7128
 const FIXED_LONGITUDE = -74.0060
 
-const now = useNow({ interval: 60000 })
+const now = useNow({ interval: 1000 })
 const temperature = ref<number | null>(null)
 const error = ref<string | null>(null)
 const loading = ref(true)
@@ -33,7 +33,7 @@ const config = useRuntimeConfig()
 let refreshInterval: NodeJS.Timeout | null = null
 
 const formattedTime = computed(() => {
-  return now.value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  return now.value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
 })
 
 const fetchTemperature = async (): Promise<void> => {
