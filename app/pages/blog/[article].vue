@@ -9,6 +9,14 @@ const { data: article } = await useAsyncData(() => {
 
 const { activeHeading } = useScrollSpy()
 
+useSeoMeta(article.value?.seo ?? {})
+
+defineOgImageComponent('DefaultOg', {
+  title: article.value?.title,
+  date: article.value?.date,
+  tags: article.value?.tags,
+})
+
 definePageMeta({
   layout: 'blog'
 })
