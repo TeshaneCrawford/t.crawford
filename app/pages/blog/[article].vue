@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+// Fetch article data based on the current route path
 const route = useRoute()
 const { data: article } = await useAsyncData(() => {
   return queryCollection('blog')
@@ -7,10 +7,13 @@ const { data: article } = await useAsyncData(() => {
     .first()
 })
 
+// Setup scroll spy for table of contents
 const { activeHeading } = useScrollSpy()
 
+// Apply SEO metadata from article
 useSeoMeta(article.value?.seo ?? {})
 
+// Configure OpenGraph image with article metadata
 defineOgImageComponent('DefaultOg', {
   title: article.value?.title,
   date: article.value?.date,
@@ -25,7 +28,7 @@ definePageMeta({
 <template>
   <main class="py-10">
     <div class="mx-auto max-w-[90rem] flex gap-x-8 px-4 lg:px-8 sm:px-6">
-      <!-- TOC Sidebar -->
+      <!-- Table of Contents - Only visible on large screens -->
       <aside class="hidden lg:block lg:w-64 lg:flex-none">
         <ProseToc
           v-if="article?.body?.toc?.links"
@@ -34,7 +37,7 @@ definePageMeta({
         />
       </aside>
 
-      <!-- Main Content -->
+      <!-- Article Content Section -->
       <article class="mx-auto max-w-none min-w-0 w-full">
         <template v-if="article">
           <header class="mb-8">
@@ -45,6 +48,7 @@ definePageMeta({
           </div>
         </template>
 
+        <!-- Article Navigation (Previous/Next) -->
         <ProseNav />
       </article>
     </div>
