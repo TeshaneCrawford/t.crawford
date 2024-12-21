@@ -62,7 +62,7 @@ const icon = computed(() => getLangIcon(props.language, props.filename))
   border-radius: 0.375rem;
   overflow: hidden;
   margin: 1em 0;
-  background: #eeed;
+  background: rgba(255, 255, 255, 0.5);
   max-height: 80vh; /* Add max height */
 }
 
@@ -72,7 +72,7 @@ const icon = computed(() => getLangIcon(props.language, props.filename))
   align-items: center;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #3333;
-  background: #fff1;
+  background: rgba(184, 183, 183, 0.067);
   position: sticky; /* Make header stick when scrolling */
   top: 0;
   z-index: 1;
@@ -115,10 +115,6 @@ const icon = computed(() => getLangIcon(props.language, props.filename))
   opacity: 1;
 }
 
-.copy-button:hover {
-  background: #0001;
-}
-
 .copy-icon {
   width: 1rem;
   height: 1rem;
@@ -154,15 +150,12 @@ pre code .highlight {
 
 .dark {
   .code-block {
-    background: #222;
+    background: rgb(46, 45, 45, 0.5);
   }
 
   .code-header {
-    background: #222;
-  }
-
-  .copy-button:hover {
-    background: #fff1;
+    background: #1b1b1b;
+    border-bottom: 1px solid rgba(105, 105, 105, 0.2);
   }
 
   pre code .highlight {
