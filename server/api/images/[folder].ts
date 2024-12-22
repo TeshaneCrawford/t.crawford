@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
     if (!folder) {
       throw createError({
         statusCode: 400,
-        message: 'Folder parameter is required'
+        message: 'Folder parameter is required',
       })
     }
 
@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
     if (!images || !images.resources) {
       throw createError({
         statusCode: 404,
-        message: 'No images found'
+        message: 'No images found',
       })
     }
 
@@ -55,18 +55,18 @@ export default defineEventHandler(async (event) => {
           { width: 'auto', breakpoints: [320, 640, 768, 1024, 1280, 1536] },
           { crop: 'scale' },
           { effect: 'sharpen:100' },
-          { format: 'webp' }
-        ]
-      })
+          { format: 'webp' },
+        ],
+      }),
     }))
 
     return optimizedResources
-  } catch (error) {
-    // eslint-disable-next-line no-console
+  }
+  catch (error) {
     console.error('Cloudinary API error:', error)
     throw createError({
       statusCode: 500,
-      message: 'Failed to fetch images from Cloudinary'
+      message: 'Failed to fetch images from Cloudinary',
     })
   }
 })

@@ -12,7 +12,6 @@ export function useOctokit() {
 }
 
 export const fetchUserData = defineCachedFunction(async () => {
-  // eslint-disable-next-line no-console
   console.log('Fetching user data')
   const { data: userData } = await useOctokit().request('GET /user')
   return userData
@@ -25,7 +24,6 @@ export const fetchUserData = defineCachedFunction(async () => {
 })
 
 export const fetchUserRepos = defineCachedFunction(async () => {
-  // eslint-disable-next-line no-console
   console.log('Fetching personal repositories only')
   // First get the authenticated user's username
   const userData = await fetchUserData()
@@ -35,7 +33,7 @@ export const fetchUserRepos = defineCachedFunction(async () => {
     username: userData.login,
     sort: 'updated',
     per_page: 100,
-    type: 'owner'  // This ensures only repositories owned by the user are returned
+    type: 'owner', // This ensures only repositories owned by the user are returned
   })
   return data
 }, {
@@ -43,5 +41,5 @@ export const fetchUserRepos = defineCachedFunction(async () => {
   swr: true,
   group: 'functions',
   name: 'getUserRepos',
-  getKey: () => 'github-user-repos'
+  getKey: () => 'github-user-repos',
 })

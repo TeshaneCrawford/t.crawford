@@ -34,37 +34,38 @@ export default defineEventHandler(async (event) => {
         .with_field('context')
         .max_results(1)
         .execute() as {
-          resources: Array<{
-            public_id: string
-            width: number
-            height: number
-            format: string
-            secure_url: string
-          }>
-        }
+        resources: Array<{
+          public_id: string
+          width: number
+          height: number
+          format: string
+          secure_url: string
+        }>
+      }
 
-        const thumbnail = images.resources[0]
-        return {
-          ...folder,
-          thumbnail: thumbnail ? {
-            ...thumbnail,
-            secure_url: cloudinary.v2.url(thumbnail.public_id, {
-              transformation: [
-                { quality: 'auto:best' },
-                { fetch_format: 'auto' },
-                { dpr: 'auto' },
-                { width: 600 },
-                { height: 600 },
-                { crop: 'scale' },
-                { gravity: 'auto' },
-                // { effect: 'sharpen:100' },
-                { format: 'webp' }
-              ]
-            })
-          } : undefined
-        }
-      }),
-    )
+      const thumbnail = images.resources[0]
+      return {
+        ...folder,
+        // eslint-disable-next-line @stylistic/multiline-ternary
+        thumbnail: thumbnail ? {
+          ...thumbnail,
+          secure_url: cloudinary.v2.url(thumbnail.public_id, {
+            transformation: [
+              { quality: 'auto:best' },
+              { fetch_format: 'auto' },
+              { dpr: 'auto' },
+              { width: 600 },
+              { height: 600 },
+              { crop: 'scale' },
+              { gravity: 'auto' },
+              // { effect: 'sharpen:100' },
+              { format: 'webp' },
+            ],
+          }),
+        } : undefined,
+      }
+    }),
+  )
 
   return foldersWithThumbnails
 })

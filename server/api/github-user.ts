@@ -1,5 +1,5 @@
-import type { User } from '~~/types/github'
 import { fetchUserData } from '../utils/github'
+import type { User } from '~~/types/github'
 
 export default defineCachedEventHandler(async () => {
   const userData = await fetchUserData()

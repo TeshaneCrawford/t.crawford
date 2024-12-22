@@ -1,5 +1,5 @@
-import type { Repo } from '~~/types/project'
 import { fetchUserRepos } from '../utils/github'
+import type { Repo } from '~~/types/project'
 
 export default defineCachedEventHandler(async () => {
   const data = await fetchUserRepos()
@@ -32,7 +32,7 @@ export default defineCachedEventHandler(async () => {
   name: 'repos-grouped',
   getKey: () => 'github-repos-grouped',
   swr: true,
-  maxAge: 60 * 5 // 5 minutes
+  maxAge: 60 * 5, // 5 minutes
 })
 
 function filterRepos(repos: Repo[], key: string) {
