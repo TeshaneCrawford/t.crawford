@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getLangIcon } from '~/composables/useConfig';
+import { getLangIcon } from '~/composables/useConfig'
 
 const props = defineProps({
   code: {

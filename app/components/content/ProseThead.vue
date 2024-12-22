@@ -1,6 +1,5 @@
-
 <template>
-  <thead class="bg-neutral-100 dark:bg-neutral-800">
+  <thead class="bg-gray-2">
     <slot />
   </thead>
 </template>

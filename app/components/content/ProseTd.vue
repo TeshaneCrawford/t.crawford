@@ -1,6 +1,5 @@
-
 <template>
-  <td class="border border-neutral-200 p-2 dark:border-neutral-700">
+  <td class="border border-gray-7 p-2">
     <slot />
   </td>
 </template>

@@ -26,18 +26,21 @@ const { data: blog, pending, error } = await useAsyncData<BlogPost[]>('blog', ()
 const cardTransition = {
   initial: { opacity: 0, y: 20 },
   enter: { opacity: 1, y: 0 },
-  transition: { duration: 400, delay: 200 }
+  transition: { duration: 400, delay: 200 },
 }
-
 </script>
 
 <template>
   <div>
-    <h1 class="sr-only">List of blog posts</h1>
-    
+    <h1 class="sr-only">
+      List of blog posts
+    </h1>
+
     <!-- Loading, error, and empty states handling -->
     <div v-if="pending" class="flex items-center justify-center py-12">
-      <div class="loading-spinner">Loading...</div>
+      <div class="loading-spinner">
+        Loading...
+      </div>
     </div>
 
     <div v-else-if="error" class="py-12 text-center text-red-11">
@@ -55,7 +58,7 @@ const cardTransition = {
         :key="blogs.path"
         v-motion
         :initial="cardTransition.initial"
-        :enter="{ ...cardTransition.enter, transition: { ...cardTransition.transition, delay: 150 * index }}"
+        :enter="{ ...cardTransition.enter, transition: { ...cardTransition.transition, delay: 150 * index } }"
         :to="blogs.path"
         class="group"
         :aria-label="`Read ${blogs.title || 'Untitled post'}`"

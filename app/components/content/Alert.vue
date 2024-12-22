@@ -11,7 +11,7 @@ type AlertType = 'info' | 'warning' | 'danger'
 const props = withDefaults(defineProps<{
   type: AlertType
 }>(), {
-  type: 'info'
+  type: 'info',
 })
 
 const typeClasses: Record<AlertType, string> = {

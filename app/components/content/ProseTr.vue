@@ -1,6 +1,5 @@
-
 <template>
-  <tr class="border-b border-neutral-200 dark:border-neutral-700">
+  <tr class="border-b border-gray-7">
     <slot />
   </tr>
 </template>

@@ -33,7 +33,7 @@ export default defineContentConfig({
         authors: z.array(z.object({
           name: z.string(),
           picture: z.string(),
-          twitter: z.string()
+          twitter: z.string(),
         })),
         tags: z.array(z.string()),
         date: z.string(),
@@ -45,7 +45,7 @@ export default defineContentConfig({
             depth: z.number(),
           })).optional(),
         }).optional(),
-      })
+      }),
     }),
-  }
+  },
 })

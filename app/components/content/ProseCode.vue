@@ -1,5 +1,5 @@
 <template>
-  <code 
+  <code
     role="text"
     class="mx-1px rounded-md bg-sky-50 px-[0.375rem] py-[0.2rem] text-sky-500 font-400 font-mono transition-colors duration-200 dark:bg-sky-950 dark:text-sky-400 after:content-[''] before:content-['']"
   >

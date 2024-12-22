@@ -1,6 +1,5 @@
-
 <template>
-  <th class="border border-neutral-200 p-2 text-left font-semibold dark:border-neutral-700">
+  <th class="border border-gray-7 p-2 text-left font-semibold">
     <slot />
   </th>
 </template>
