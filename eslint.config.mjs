@@ -1,13 +1,9 @@
 import unocss from '@unocss/eslint-config/flat'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default withNuxt([
+export default withNuxt(
   unocss,
-  {
-    rules: {
-      'no-unused-vars': 'warn',
-      'no-console': 'warn',
-    },
-    ignores: ['node_modules', '.nuxt', 'dist', '**/.*'],
-  }
-])
+  // Your custom configs here
+).overrideRules({
+  'vue/max-attributes-per-line': ['warn', { singleline: 3 }],
+})
