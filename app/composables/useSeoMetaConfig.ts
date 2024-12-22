@@ -1,39 +1,39 @@
 interface SeoConfig {
-  title?: string;
-  description?: string;
-  image?: string;
-  url?: string;
-  canonical?: string;
+  title?: string
+  description?: string
+  image?: string
+  url?: string
+  canonical?: string
 }
 
 export const useSeoMetaConfig = (config?: SeoConfig) => {
-  const route = useRoute();
-  const runtimeConfig = useRuntimeConfig();
+  const route = useRoute()
+  const runtimeConfig = useRuntimeConfig()
 
   // Get title from route.meta or config
-  const pageTitle = config?.title || (route.meta.title as string) || '';
+  const pageTitle = config?.title || (route.meta.title as string) || ''
 
   const defaultConfig = {
     siteName: 'Teshane Crawford',
     description: 'Teshane Crawford\'s personal website',
     image: '/images/og/ogImage.jpeg',
-    url: runtimeConfig.public.siteUrl || 'https://teshanecrawford.com'
-  };
+    url: runtimeConfig.public.siteUrl || 'https://teshanecrawford.com',
+  }
 
   // Merge provided config with defaults
   const seoConfig = {
     ...defaultConfig,
     ...config,
     title: pageTitle, // Use the title from meta or config
-    url: config?.url || `${defaultConfig.url}${route.path}`
-  };
+    url: config?.url || `${defaultConfig.url}${route.path}`,
+  }
 
   // Ensure image URL is absolute
   const fullImageUrl = seoConfig.image.startsWith('http')
     ? seoConfig.image
-    : new URL(seoConfig.image, defaultConfig.url).toString();
+    : new URL(seoConfig.image, defaultConfig.url).toString()
 
-  const canonical = config?.canonical || seoConfig.url;
+  const canonical = config?.canonical || seoConfig.url
 
   // Don't append site name since it's handled by useHead in app.vue
   useSeoMeta({
@@ -56,5 +56,5 @@ export const useSeoMetaConfig = (config?: SeoConfig) => {
     twitterDescription: seoConfig.description,
     twitterImage: fullImageUrl,
     twitterSite: '@TeshaneCrawford',
-  });
-};
+  })
+}

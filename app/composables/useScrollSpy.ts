@@ -3,7 +3,7 @@ export function useScrollSpy(options = {
   root: null,
   threshold: [0, 1],
   // Adjust intersection margins to trigger slightly before/after actual intersection
-  rootMargin: '-20% 0px -80% 0px'
+  rootMargin: '-20% 0px -80% 0px',
 }) {
   const activeHeading = ref<string>('')
 
@@ -13,7 +13,7 @@ export function useScrollSpy(options = {
 
     // Update active heading when intersection changes
     const callback: IntersectionObserverCallback = (entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           activeHeading.value = entry.target.id
         }
@@ -30,6 +30,6 @@ export function useScrollSpy(options = {
   })
 
   return {
-    activeHeading
+    activeHeading,
   }
 }
