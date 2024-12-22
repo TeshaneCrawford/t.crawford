@@ -15,7 +15,7 @@ defineProps<{
     :aria-label="isNested ? undefined : 'Table of contents'"
     class="opacity-40 transition-opacity duration-200 hover:opacity-100"
     :class="[
-      isNested ? 'ml-4 mt-2.5' : 'sticky top-24'
+      isNested ? 'ml-4 mt-2.5' : 'sticky top-24',
     ]"
   >
     <!-- Only show heading for root TOC -->
@@ -38,8 +38,8 @@ defineProps<{
               'text-gray-12 font-medium transform translate-x-1': activeId === link.id,
               'pl-4': link.depth === 3,
               'pl-6': link.depth === 4,
-              'font-medium': link.depth === 2
-            }
+              'font-medium': link.depth === 2,
+            },
           ]"
           @click="proseHeadingClick($event, link.id)"
         >

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 withDefaults(defineProps<{
-  title: string;
-  subtitle?: string;
+  title: string
+  subtitle?: string
 }>(), {
   title: 'Blog',
   subtitle: '',
-});
+})
 </script>
 
 <template>

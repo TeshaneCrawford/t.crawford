@@ -21,9 +21,9 @@ const motionPreset = {
     transition: {
       type: 'spring',
       stiffness: 50,
-      damping: 15
-    }
-  }
+      damping: 15,
+    },
+  },
 }
 </script>
 
@@ -58,7 +58,7 @@ const motionPreset = {
           :initial="motionPreset.initial"
           :visible-once="{
             ...motionPreset.visibleOnce,
-            delay: i * 75
+            delay: i * 75,
           }"
         >
           <div class="masonry-item__wrapper">
@@ -68,25 +68,25 @@ const motionPreset = {
               class="masonry-item__link"
               :aria-label="`Open image ${img.alt || i}`"
             >
-            <NuxtImg
-              v-bind="img"
-              provider="cloudinary"
-              :src="img.src"
-              :alt="img.alt"
-              :width="img.width"
-              :height="img.height"
-              :loading="i < 4 ? 'eager' : 'lazy'"
-              format="webp"
-              quality="80"
-              fit="cover"
-              class="h-full w-full object-cover transition-opacity duration-300"
-              placeholder
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              :modifiers="{
-                effect: 'sharpen',
-                dpr: 'auto'
-              }"
-            />
+              <NuxtImg
+                v-bind="img"
+                provider="cloudinary"
+                :src="img.src"
+                :alt="img.alt"
+                :width="img.width"
+                :height="img.height"
+                :loading="i < 4 ? 'eager' : 'lazy'"
+                format="webp"
+                quality="80"
+                fit="cover"
+                class="h-full w-full object-cover transition-opacity duration-300"
+                placeholder
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                :modifiers="{
+                  effect: 'sharpen',
+                  dpr: 'auto',
+                }"
+              />
             </NuxtLink>
           </div>
         </li>

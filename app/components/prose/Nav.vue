@@ -43,13 +43,13 @@ const [{ data: prevPost }, { data: nextPost }] = await Promise.all([
     queryCollection('blog')
       .where('date', '<', page.value?.date)
       .order('date', 'DESC')
-      .first()
+      .first(),
   ),
   useAsyncData<BlogPost | null>(`${path.value}-next`, () =>
     queryCollection('blog')
       .where('date', '>', page.value?.date)
       .order('date', 'ASC')
-      .first()
+      .first(),
   ),
 ])
 

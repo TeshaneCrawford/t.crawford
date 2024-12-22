@@ -1,15 +1,15 @@
 <script setup lang="ts">
 interface Props {
-  rawbody: string;
+  rawbody: string
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 
 const readingTime = computed(() => {
-  const wordsPerMinute = 200;
-  const words = props.rawbody.trim().split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
-});
+  const wordsPerMinute = 200
+  const words = props.rawbody.trim().split(/\s+/).length
+  return Math.ceil(words / wordsPerMinute)
+})
 </script>
 
 <template>
