@@ -15,7 +15,7 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
             href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
             rel="noopener noreferrer"
             style="color:inherit"
-            >
+          >
             CC BY-NC-SA 4.0
           </a>
           {{ yearDisplay }} © Teshane Crawford

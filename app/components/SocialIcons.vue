@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 interface SocialLink {
-  name: string;
-  url: string;
-  icon: string;
+  name: string
+  url: string
+  icon: string
 }
 
 const socials: SocialLink[] = [
