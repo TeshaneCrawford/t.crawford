@@ -10,7 +10,7 @@ tags:
   - ASP.NET
   - Web API
   - Best Practices
-date: 2024-11-20T00:00:00.000Z
+date: 2024-11-20
 ---
 
 ## ActionResult vs IEnumerable in ASP.NET: Making the Right Choice

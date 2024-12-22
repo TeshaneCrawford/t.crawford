@@ -10,7 +10,7 @@ tags:
   - dotnet
   - Clean Code
   - Best Practices
-date: 2023-08-25T00:00:00.000Z
+date: 2023-08-25
 ---
 
 ## The Ultimate Guide to Namespace Naming in C# and .NET

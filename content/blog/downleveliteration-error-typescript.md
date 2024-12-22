@@ -9,7 +9,7 @@ tags:
   - TypeScript
   - JavaScript
   - Debugging
-date: 2023-08-15T00:00:00.000Z
+date: 2023-08-15
 ---
 
 > This article was inspired by a real-world error I encountered while working on a TypeScript project. The solutions presented here are battle-tested and should help you resolve similar issues in your projects.
