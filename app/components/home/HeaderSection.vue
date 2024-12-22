@@ -4,21 +4,21 @@ import { useNow } from '@vueuse/core'
 
 interface WeatherResponse {
   main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  };
+    temp: number
+    feels_like: number
+    temp_min: number
+    temp_max: number
+    pressure: number
+    humidity: number
+  }
   weather: Array<{
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-  }>;
-  name: string;
-  cod: number;
+    id: number
+    main: string
+    description: string
+    icon: string
+  }>
+  name: string
+  cod: number
 }
 
 // Coordinates
@@ -38,7 +38,7 @@ const formattedTime = computed(() => {
 
 const fetchTemperature = async (): Promise<void> => {
   if (!config.public.NUXT_WEATHER_API_KEY) {
-    error.value = "Missing OpenWeatherMap API key"
+    error.value = 'Missing OpenWeatherMap API key'
     loading.value = false
     return
   }
@@ -54,22 +54,24 @@ const fetchTemperature = async (): Promise<void> => {
           lat: FIXED_LATITUDE,
           lon: FIXED_LONGITUDE,
           units: 'metric',
-          appid: config.public.NUXT_WEATHER_API_KEY
-        }
-      }
+          appid: config.public.NUXT_WEATHER_API_KEY,
+        },
+      },
     )
 
     if (response.main && typeof response.main.temp === 'number') {
       temperature.value = Math.round(response.main.temp)
-    } else {
+    }
+    else {
       throw new Error('Temperature data not found in API response')
     }
-  } catch (e) {
-    // eslint-disable-next-line no-console
+  }
+  catch (e) {
     console.error('Error fetching temperature:', e)
-    error.value = "Failed to fetch temperature. Will try again."
+    error.value = 'Failed to fetch temperature. Will try again.'
     temperature.value = null
-  } finally {
+  }
+  finally {
     loading.value = false
   }
 }
@@ -92,28 +94,56 @@ onBeforeUnmount(() => {
 
 <template>
   <div
-    mx-auto mb-4 max-w-3xl flex items-center justify-between px-4 op-70 lg:px-0 md:px-8 sm:px-0
+    mx-auto
+    mb-4
+    max-w-3xl
+    flex
+    items-center
+    justify-between
+    px-4
+    op-70
+    lg:px-0
+    md:px-8
+    sm:px-0
   >
     <span
-      inline-flex items-center badge-lg-gray font-dank important-rounded-none
+      inline-flex
+      items-center
+      badge-lg-gray
+      font-dank
+      important-rounded-none
     >
       {{ formattedTime }}
     </span>
     <span
       v-if="loading"
-      inline-flex items-center badge-lg-gray font-dank italic important-rounded-none
+      inline-flex
+      items-center
+      badge-lg-gray
+      font-dank
+      italic
+      important-rounded-none
     >
       Loading temperature...
     </span>
     <span
       v-else-if="error"
-      inline-flex items-center badge-lg-gray text-red-9 font-dank important-rounded-none
+      inline-flex
+      items-center
+      badge-lg-gray
+      text-red-9
+      font-dank
+      important-rounded-none
     >
       {{ error }}
     </span>
     <span
       v-else-if="temperature !== null"
-      inline-flex items-center badge-lg-gray font-dank important-rounded-none
+      inline-flex
+      items-center
+      badge-lg-gray
+      font-dank
+      important-rounded-none
     >
       {{ temperature }}°C
     </span>
