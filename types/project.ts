@@ -1,4 +1,4 @@
-import type { ParsedContent } from '@nuxt/content'
+import type { ParsedContentv2 } from '@nuxt/content'
 import type { Endpoints } from '@octokit/types'
 
 export interface Project {
@@ -10,7 +10,7 @@ export interface Project {
     tags: { name: string, icon: string }[]
 }
 
-export interface ProjectList extends ParsedContent {
+export interface ProjectList extends ParsedContentv2 {
     name: string
     projects: Project[]
 }
