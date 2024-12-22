@@ -6,9 +6,9 @@ defineProps({
     type: Object as () => NuxtError,
     default: () => ({
       statusCode: 500,
-      message: 'An error occurred'
-    })
-  }
+      message: 'An error occurred',
+    }),
+  },
 })
 
 const errorState = useError()
@@ -36,15 +36,15 @@ const handleError = () => {
 useSeoMetaConfig({
   title: 'Error',
   description: 'An error occurred while rendering the page.',
-});
+})
 
 definePageMeta({
-  title: 'Error'
-});
+  title: 'Error',
+})
 
 defineOgImageComponent('PageOg', {
   link: '/error',
-});
+})
 
 useSeoMeta({
   ogTitle: 'Error',
@@ -64,47 +64,47 @@ useHead({
 <template>
   <NuxtLayout name="error">
     <main class="flex flex-col items-center justify-center p-4">
-    <!-- Animated 404 -->
-    <div
-      ref="errorText"
-      class="cursor-pointer select-none text-8xl text-neutral-6 font-bold transition-all duration-2 dark:text-neutral-2"
-      :style="{
-        position: 'relative',
-        left: `${position.x}%`,
-        top: `${position.y}%`,
-        transform: 'translate(-50%, -50%)'
-      }"
-      @mouseenter="handleHover"
-    >
-      {{ errorState?.statusCode }}
-    </div>
-
-    <!-- Error text -->
-    <div class="mt-8 text-center">
-      <h1 class="mb-8 animate-pulse text-5xl text-neutral-6 font-bold font-serif dark:text-neutral-3">
-        {{ errorState?.statusCode === 404 ? 'Oops! This page is playing hide and seek' : 'Uh oh! Something went wrong' }}
-      </h1>
-      <p class="mb-12 text-neutral-6 dark:text-neutral-3">
-        {{ errorState?.message || (errorState?.statusCode === 404 ? 'Try to catch the 404 above! (Spoiler: It\'s quite shy)' : 'Our team is on it!') }}
-      </p>
-
-      <div class="flex items-center justify-center gap-4">
-        <Icon name="i-hugeicons:search-02" class="animate-bounce text-neutral-5" />
-        <p class="text-neutral-5 font-serif italic">
-          Still searching for that page...
-        </p>
+      <!-- Animated 404 -->
+      <div
+        ref="errorText"
+        class="cursor-pointer select-none text-8xl text-neutral-6 font-bold transition-all duration-2 dark:text-neutral-2"
+        :style="{
+          position: 'relative',
+          left: `${position.x}%`,
+          top: `${position.y}%`,
+          transform: 'translate(-50%, -50%)',
+        }"
+        @mouseenter="handleHover"
+      >
+        {{ errorState?.statusCode }}
       </div>
-    </div>
 
-    <button
-      class="mt-12 flex items-center gap-2 text-neutral-5 underline-offset-6 transition-colors dark:text-neutral-4 hover:underline dark:hover:text-neutral-3"
-      as="link"
-      @click="handleError"
-    >
-      <Icon name="i-hugeicons:arrow-left-04" />
-      Take Me Home
-    </button>
-  </main>
+      <!-- Error text -->
+      <div class="mt-8 text-center">
+        <h1 class="mb-8 animate-pulse text-5xl text-neutral-6 font-bold font-serif dark:text-neutral-3">
+          {{ errorState?.statusCode === 404 ? 'Oops! This page is playing hide and seek' : 'Uh oh! Something went wrong' }}
+        </h1>
+        <p class="mb-12 text-neutral-6 dark:text-neutral-3">
+          {{ errorState?.message || (errorState?.statusCode === 404 ? 'Try to catch the 404 above! (Spoiler: It\'s quite shy)' : 'Our team is on it!') }}
+        </p>
+
+        <div class="flex items-center justify-center gap-4">
+          <Icon name="i-hugeicons:search-02" class="animate-bounce text-neutral-5" />
+          <p class="text-neutral-5 font-serif italic">
+            Still searching for that page...
+          </p>
+        </div>
+      </div>
+
+      <button
+        class="mt-12 flex items-center gap-2 text-neutral-5 underline-offset-6 transition-colors dark:text-neutral-4 hover:underline dark:hover:text-neutral-3"
+        as="link"
+        @click="handleError"
+      >
+        <Icon name="i-hugeicons:arrow-left-04" />
+        Take Me Home
+      </button>
+    </main>
   </NuxtLayout>
 </template>
 

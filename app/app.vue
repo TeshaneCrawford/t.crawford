@@ -15,15 +15,15 @@ useHead({
   ],
   link: [
     { rel: 'icon', href: '/favicon.ico' },
-    { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
-    { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
-    { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
-    { rel: "manifest", href: "/site.webmanifest" },
-    { rel: 'canonical', href: `${baseUrl}${route.path}` }
+    { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'canonical', href: `${baseUrl}${route.path}` },
   ],
   htmlAttrs: {
-    lang: 'en'
-  }
+    lang: 'en',
+  },
 })
 
 // Enhanced SEO meta tags
@@ -34,7 +34,7 @@ useSeoMeta({
   twitterSite: '@TeshaneCrawford',
   twitterCreator: '@TeshaneCrawford',
   author: 'Teshane Crawford',
-  publisher: 'Teshane Crawford'
+  publisher: 'Teshane Crawford',
 })
 
 // Add JSON-LD structured data
@@ -45,15 +45,15 @@ useServerHead({
       children: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Person',
-        name: 'Teshane Crawford',
-        jobTitle: 'Software Engineer',
-        url: baseUrl,
-        sameAs: [
+        'name': 'Teshane Crawford',
+        'jobTitle': 'Software Engineer',
+        'url': baseUrl,
+        'sameAs': [
           'https://twitter.com/TeshaneCrawford',
-        ]
-      })
-    }
-  ]
+        ],
+      }),
+    },
+  ],
 })
 </script>
 

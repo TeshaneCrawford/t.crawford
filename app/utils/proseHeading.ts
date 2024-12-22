@@ -15,6 +15,6 @@ export async function proseHeadingClick(event: MouseEvent, id: string) {
 
   window.scrollTo({
     top: offsetPosition,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
