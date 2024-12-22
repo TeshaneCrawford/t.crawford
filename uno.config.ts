@@ -6,7 +6,7 @@ import {
   presetUno,
   presetWebFonts,
   transformerDirectives,
-  transformerVariantGroup
+  transformerVariantGroup,
 } from 'unocss'
 
 // Radix UI Colors Integration Setup
@@ -61,7 +61,7 @@ export default defineConfig({
     // Update nav-specific shortcuts with correct Radix colors
     ['nav-link', 'text-gray-11 hover:text-gray-12 transition-colors duration-200'],
     ['nav-label', 'text-sm text-gray-11'],
-    ['nav-container', 'flex flex-col'],  // removed max-w-45% from here
+    ['nav-container', 'flex flex-col'], // removed max-w-45% from here
     // ...existing shortcuts...
     [/^badge-(.*)$/, ([, c]) => `bg-${c}-3:10 text-${c}-11 rounded`],
     [/^badge-xs-(.*)$/, ([, c]) => `badge-${c} text-xs px2 py0.5`],
@@ -78,7 +78,7 @@ export default defineConfig({
       mono: 'DM Mono',
       serif: 'Playwrite GB S',
       cursive: 'Satisfy',
-      dank: 'dank'
+      dank: 'dank',
     },
     colors: Object.fromEntries(
       Object.entries(colors as RadixColors)
@@ -88,15 +88,15 @@ export default defineConfig({
           Object.fromEntries(
             Array.from({ length: 12 }, (_, i) => [
               i + 1,
-              `var(--${toKebabCase(name)}-${i + 1})`
-            ])
-          )
-        ])
+              `var(--${toKebabCase(name)}-${i + 1})`,
+            ]),
+          ),
+        ]),
     ),
     fontSize: {
-      base: 'var(--font-size-base)',
-      lg: 'var(--font-size-lg)',
-      xl: 'var(--font-size-xl)',
+      'base': 'var(--font-size-base)',
+      'lg': 'var(--font-size-lg)',
+      'xl': 'var(--font-size-xl)',
       '2xl': 'var(--font-size-2xl)',
       '3xl': 'var(--font-size-3xl)',
       '4xl': 'var(--font-size-4xl)',
@@ -135,8 +135,8 @@ export default defineConfig({
             .map(([key, value]) => `${key}: ${value};`)
             .join('\n          ')}
         }
-      `
-    }
+      `,
+    },
   ],
   transformers: [
     transformerDirectives(),

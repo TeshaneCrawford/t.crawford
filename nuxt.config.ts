@@ -1,16 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4,
-  },
-  compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
 
-  typescript: {
-    typeCheck: true,
-    strict: true,
-    shim: true,
-  },
   modules: [
     '@nuxt/content',
     '@vueuse/nuxt',
@@ -25,161 +15,19 @@ export default defineNuxtConfig({
     'nuxt-carousel',
     '@vueuse/motion/nuxt',
     '@nuxthq/studio',
-    '@nuxthub/core'
+    '@nuxthub/core',
   ],
-  css: [
-    '@/assets/css/main.css',
-    '@/assets/css/prose.css',
-    '@unocss/reset/tailwind.css',
-    '@/assets/css/font.css',
-    '@/assets/css/transitions.css'
-  ],
-  colorMode: {
-    preference: 'system',
-    fallback: 'light',
-    classSuffix: '',
-  },
-
-  hub: {
-    cache: true,
-  },
-
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler', // or "modern", "legacy"
-          // additionalData: '@use "@/assets/styles/global.scss" as *;',
-        },
-      },
-    },
-    plugins: [
-      // svgLoader({
-      //   defaultImport: 'url',
-      // }),
-    ],
-  },
-
-  routeRules: {
-    '/blog': {
-      isr: true,
-      prerender: true,
-      cache: {
-        maxAge: 60 * 60 * 24,
-        swr: true
-      }
-    },
-    '/blog/**': {
-      isr: 60 * 60 * 24,
-      prerender: true,
-      headers: {
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400'
-      }
-    },
-    '/projects': {
-      isr: true,
-      prerender: true,
-      cache: {
-        maxAge: 60 * 60,
-        swr: true
-      },
-      headers: {
-        'Cache-Control': 'public, max-age=3600, s-maxage=3600'
-      }
-    },
-    // '/photos': {
-    //   prerender: true,
-    //   isr: true,
-    //   cache: {
-    //     maxAge: 60 * 60 * 24,
-    //     staleMaxAge: 60 * 60,
-    //     swr: true
-    //   },
-    // },
-    // '/photos/*': {
-    //   prerender: true,
-    //   isr: true,
-    //   cache: {
-    //     maxAge: 60 * 60 * 24 * 7,
-    //     swr: true
-    //   }
-    // },
-    '/uses': {
-      prerender: true,
-      static: true
-    },
-  },
-
-  image: {
-    provider: 'cloudinary',
-    cloudinary: {
-      baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`,
-      modifiers: {
-        effect: 'sharpen:100',
-        quality: 'auto:best',
-        format: 'webp',
-        dpr: 'auto'
-      }
-    },
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-    },
-    domains: [
-      'avatars.githubusercontent.com',
-      'raw.githubusercontent.com',
-      'res.cloudinary.com',
-    ],
-    presets: {
-      avatar: {
-        modifiers: {
-          format: 'webp',
-          width: 72,
-          height: 72,
-          quality: 'auto:best'
-        }
-      }
-    }
-  },
-
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ['/', '/rss.xml', '/projects'],
-      failOnError: false,
-    },
-    // experimental: {
-    //   openAPI: true
-    // }
-  },
-
-  runtimeConfig: {
-    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-    cloudSecret: process.env.NUXT_CLOUD_SECRET_KEY,
-    cloudKey: process.env.NUXT_CLOUD_API_KEY,
-
-    private: {
-    },
-
-    public: {
-      siteUrl: process.env.NUXT_SITE_URL || 'https://teshanecrawford.com',
-      NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY || ''
-    }
-  },
 
   $development: {
     runtimeConfig: {
       public: {
         website: {
-          url: 'http://localhost:3000'
-        }
-      }
-    }
+          url: 'http://localhost:3000',
+        },
+      },
+    },
   },
+  devtools: { enabled: true },
 
   app: {
     head: {
@@ -190,40 +38,43 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
         { name: 'theme-color', content: '#000000', media: '(prefers-color-scheme: dark)' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
-        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
       ],
       htmlAttrs: {
         lang: 'en',
-        class: 'antialiased'
+        class: 'antialiased',
       },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'manifest', href: '/site.webmanifest' }
+        { rel: 'manifest', href: '/site.webmanifest' },
       ],
       title: 'Teshane Crawford',
     },
     pageTransition: false,
     layoutTransition: false,
-    keepalive: true
+    keepalive: true,
   },
+  css: [
+    '@/assets/css/main.css',
+    '@/assets/css/prose.css',
+    '@unocss/reset/tailwind.css',
+    '@/assets/css/font.css',
+    '@/assets/css/transitions.css',
+  ],
 
   site: {
     url: 'https://teshanecrawford.com',
   },
-
-  ogImage: {
-    zeroRuntime: true,
-    fonts: [
-      'DM Sans:400',
-      'DM Sans:600',
-      'DM Mono:400',
-    ],
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classSuffix: '',
   },
 
   content: {
     build: {
       pathMeta: {
-        forceLeadingSlash: true
+        forceLeadingSlash: true,
       },
       markdown: {
         toc: {
@@ -261,6 +112,116 @@ export default defineNuxtConfig({
     },
   },
 
+  runtimeConfig: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    cloudSecret: process.env.NUXT_CLOUD_SECRET_KEY,
+    cloudKey: process.env.NUXT_CLOUD_API_KEY,
+
+    private: {
+    },
+
+    public: {
+      siteUrl: process.env.NUXT_SITE_URL || 'https://teshanecrawford.com',
+      NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY || '',
+    },
+  },
+
+  routeRules: {
+    '/blog': {
+      isr: true,
+      prerender: true,
+      cache: {
+        maxAge: 60 * 60 * 24,
+        swr: true,
+      },
+    },
+    '/blog/**': {
+      isr: 60 * 60 * 24,
+      prerender: true,
+      headers: {
+        'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      },
+    },
+    '/projects': {
+      isr: true,
+      prerender: true,
+      cache: {
+        maxAge: 60 * 60,
+        swr: true,
+      },
+      headers: {
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      },
+    },
+    // '/photos': {
+    //   prerender: true,
+    //   isr: true,
+    //   cache: {
+    //     maxAge: 60 * 60 * 24,
+    //     staleMaxAge: 60 * 60,
+    //     swr: true
+    //   },
+    // },
+    // '/photos/*': {
+    //   prerender: true,
+    //   isr: true,
+    //   cache: {
+    //     maxAge: 60 * 60 * 24 * 7,
+    //     swr: true
+    //   }
+    // },
+    '/uses': {
+      prerender: true,
+      static: true,
+    },
+  }, future: {
+    compatibilityVersion: 4,
+  },
+
+  experimental: {
+    viewTransition: true,
+    componentIslands: true,
+    payloadExtraction: true,
+  },
+  compatibilityDate: '2024-04-03',
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/rss.xml', '/projects'],
+      failOnError: false,
+    },
+    // experimental: {
+    //   openAPI: true
+    // }
+  },
+
+  hub: {
+    cache: true,
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler', // or "modern", "legacy"
+          // additionalData: '@use "@/assets/styles/global.scss" as *;',
+        },
+      },
+    },
+    plugins: [
+      // svgLoader({
+      //   defaultImport: 'url',
+      // }),
+    ],
+  },
+
+  typescript: {
+    typeCheck: true,
+    strict: true,
+    shim: true,
+  },
+
   // https://eslint.nuxt.com
   eslint: {
     config: {
@@ -270,9 +231,48 @@ export default defineNuxtConfig({
     },
   },
 
-  experimental: {
-    viewTransition: true,
-    componentIslands: true,
-    payloadExtraction: true,
-  }
+  image: {
+    provider: 'cloudinary',
+    cloudinary: {
+      baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`,
+      modifiers: {
+        effect: 'sharpen:100',
+        quality: 'auto:best',
+        format: 'webp',
+        dpr: 'auto',
+      },
+    },
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+    domains: [
+      'avatars.githubusercontent.com',
+      'raw.githubusercontent.com',
+      'res.cloudinary.com',
+    ],
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 72,
+          height: 72,
+          quality: 'auto:best',
+        },
+      },
+    },
+  },
+
+  ogImage: {
+    zeroRuntime: true,
+    fonts: [
+      'DM Sans:400',
+      'DM Sans:600',
+      'DM Mono:400',
+    ],
+  },
 })
