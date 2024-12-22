@@ -254,16 +254,21 @@ export default defineNuxtConfig({
             'vue',
             'xml',
             'yaml',
-            'cs'
+            'cs',
           ],
         },
       },
     },
   },
 
-  // build: {
-  //   transpile: ['shiki'],
-  // },
+  // https://eslint.nuxt.com
+  eslint: {
+    config: {
+      stylistic: {
+        quotes: 'single',
+      },
+    },
+  },
 
   experimental: {
     viewTransition: true,
