@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Repo } from '~~/types/project';
+import type { Repo } from '~~/types/project'
 
 defineProps<{
   repo: Repo
@@ -25,7 +25,7 @@ defineProps<{
       <!-- Header with repo name and status -->
       <div flex="~ gap-2" items-center justify-between>
         <h5 m0 flex="~ gap-2" items-center text-sm>
-          <Icon name="i-hugeicons-repository"   h-5 w-5  />
+          <Icon name="i-hugeicons-repository" h-5 w-5 />
           <span class="font-medium">{{ repo.name }}</span>
         </h5>
         <span

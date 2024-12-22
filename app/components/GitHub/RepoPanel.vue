@@ -1,10 +1,10 @@
 <script lang='ts' setup>
-import type { Repo } from '~~/types/project';
+import type { Repo } from '~~/types/project'
 
 defineProps<{
-    data: Repo[]
-    label: string
-    loading?: boolean
+  data: Repo[]
+  label: string
+  loading?: boolean
 }>()
 
 const containerMotion = {
@@ -12,8 +12,8 @@ const containerMotion = {
   enter: {
     opacity: 1,
     y: 0,
-    transition: { duration: 400 }
-  }
+    transition: { duration: 400 },
+  },
 }
 
 const itemMotion = {
@@ -23,16 +23,17 @@ const itemMotion = {
     y: 0,
     transition: {
       duration: 300,
-      delay: 100
-    }
-  }
+      delay: 100,
+    },
+  },
 }
 </script>
 
 <template>
   <div
     v-if="data.length || loading"
-    v-motion="containerMotion" lg:px-0
+    v-motion="containerMotion"
+    lg:px-0
     md:px-8
   >
     <h3 v-motion="itemMotion" class="my-4 text-xl">
@@ -48,8 +49,8 @@ const itemMotion = {
         transition: {
           delay: 150,
           duration: 300,
-          stagger: 100
-        }
+          stagger: 100,
+        },
       }"
     >
       <template v-if="loading">

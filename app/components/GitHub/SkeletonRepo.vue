@@ -1,4 +1,3 @@
-
 <template>
   <article
     b="~ black op-10"
