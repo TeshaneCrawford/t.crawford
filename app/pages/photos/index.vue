@@ -2,16 +2,16 @@
 definePageMeta({
   alias: ['/photos'],
   title: 'Photos',
-  layout: 'photos'
-});
+  layout: 'photos',
+})
 
 useSeoMetaConfig({
   description: 'Displaying some of my best photos taken.',
-});
+})
 
 defineOgImageComponent('PageOg', {
   link: '/photos',
-});
+})
 
 interface CloudinaryFolder {
   name: string
@@ -32,23 +32,27 @@ const isLoading = computed(() => status.value === 'pending')
 const baseMotion = {
   initial: {
     opacity: 0,
-    y: 30
+    y: 30,
   },
   enter: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
       duration: 800,
-      delay: i * 50
-    }
-  })
+      delay: i * 50,
+    },
+  }),
 }
 </script>
 
 <template>
   <div>
-    <div v-if="isLoading">Loading folders...</div>
-    <div v-else-if="error">Error loading folders</div>
+    <div v-if="isLoading">
+      Loading folders...
+    </div>
+    <div v-else-if="error">
+      Error loading folders
+    </div>
     <div v-else class="folder-grid">
       <NuxtLink
         v-for="(folder, index) in folders"
@@ -80,7 +84,7 @@ const baseMotion = {
           </div>
           <div class="folder-overlay">
             <div class="folder-content">
-              <i class="i-hugeicons:album-01 mr-2"/>
+              <i class="i-hugeicons:album-01 mr-2" />
               <span class="folder-title">{{ folder.name }}</span>
             </div>
           </div>

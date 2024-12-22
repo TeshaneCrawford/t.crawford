@@ -21,7 +21,7 @@ defineOgImageComponent('DefaultOg', {
 })
 
 definePageMeta({
-  layout: 'blog'
+  layout: 'blog',
 })
 </script>
 
@@ -41,7 +41,9 @@ definePageMeta({
       <article class="mx-auto max-w-none min-w-0 w-full">
         <template v-if="article">
           <header class="mb-8">
-            <h1 class="text-4xl font-bold">{{ article.title }}</h1>
+            <h1 class="text-4xl font-bold">
+              {{ article.title }}
+            </h1>
           </header>
           <div class="prose-lg max-w-3xl prose">
             <ContentRenderer :value="article" />

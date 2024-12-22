@@ -1,16 +1,16 @@
 <script setup lang="ts">
 useSeoMetaConfig({
   description: 'Reach out to me via one of the medium listed below.',
-});
+})
 
 definePageMeta({
   alias: ['/chat'],
-  title: 'Chat'
-});
+  title: 'Chat',
+})
 
 defineOgImageComponent('PageOg', {
   link: '/chat',
-});
+})
 
 const { data: chat } = await useAsyncData(() => queryCollection('content').path('/chat').first())
 </script>

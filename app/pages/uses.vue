@@ -1,16 +1,16 @@
 <script setup lang="ts">
 definePageMeta({
   alias: ['/uses'],
-  title: 'Uses'
-});
+  title: 'Uses',
+})
 
 useSeoMetaConfig({
-  description: 'Tools and softwares I use on a daily basis.'
-});
+  description: 'Tools and softwares I use on a daily basis.',
+})
 
 defineOgImageComponent('PageOg', {
   link: '/uses',
-});
+})
 
 const { data: uses } = await useAsyncData(() => queryCollection('content').path('/uses').first())
 </script>

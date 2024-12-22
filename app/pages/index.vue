@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 useSeoMetaConfig({
-  description: 'Teshane Crawford\'s personal website, where you can learn more about him, his work experience and projects.'
+  description: 'Teshane Crawford\'s personal website, where you can learn more about him, his work experience and projects.',
 })
 
-defineOgImageComponent('PageOg');
+defineOgImageComponent('PageOg')
 </script>
 
 <template>

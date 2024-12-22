@@ -1,6 +1,6 @@
 <script lang='ts' setup>
 import { useTitle } from '@vueuse/core'
-import type { Repo } from '~~/types/project';
+import type { Repo } from '~~/types/project'
 
 const activeTab = ref('github')
 const tabs = [
@@ -13,33 +13,33 @@ const isLoading = computed(() => status.value === 'pending')
 
 useTitle('Projects')
 useHead({
-    title: 'Projects',
-    meta: [
-        {
-            hid: 'description',
-            name: 'description',
-            content: 'List of projects that I am proud of.',
-        },
-        {
-            hid: 'keywords',
-            name: 'keywords',
-            content: 'projects, github, open source, vue, nuxt, angular, react, nest, node, javascript, typescript, c#, csharp, dotnet, .net, asp.net, asp.net core, kotlin, android',
-        },
-    ],
+  title: 'Projects',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'List of projects that I am proud of.',
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content: 'projects, github, open source, vue, nuxt, angular, react, nest, node, javascript, typescript, c#, csharp, dotnet, .net, asp.net, asp.net core, kotlin, android',
+    },
+  ],
 })
 
 definePageMeta({
   title: 'Projects',
   alias: ['/projects'],
-});
+})
 
 useSeoMetaConfig({
-  description: 'Check out my latest software projects and contributions'
-});
+  description: 'Check out my latest software projects and contributions',
+})
 
 defineOgImageComponent('PageOg', {
   link: '/projects',
-});
+})
 </script>
 
 <template>
