@@ -12,20 +12,35 @@ defineOgImageComponent('PageOg', {
   link: '/blog',
 })
 
-const nuxtApp = useNuxtApp()
-onMounted(() => {
-  nextTick(() =>
-    document.querySelectorAll('main a').forEach((a) => {
-      nuxtApp.hooks.callHook('link:prefetch', a.getAttribute('href')!)
-    }),
-  )
-})
-
 const pageTransition = {
   initial: { opacity: 0, y: 20 },
   enter: { opacity: 1, y: 0 },
   transition: { duration: 500 },
 }
+
+interface BlogPost {
+  title: string
+  description: string
+  authors: Array<{
+    name: string
+    picture: string
+    twitter: string
+  }>
+  path: string
+  date: string
+  tags: string[]
+  rawbody: string
+}
+
+// Fetch and sort blog posts in descending order by date
+const { data: blog } = await useAsyncData<BlogPost[]>('blog', () => {
+  return queryCollection('blog')
+    .select('title', 'description', 'authors', 'path', 'date', 'tags', 'rawbody')
+    .order('date', 'DESC')
+    .all()
+})
+
+prerenderRoutes(blog.value?.map((post: BlogPost) => post.path) ?? [])
 </script>
 
 <template>
