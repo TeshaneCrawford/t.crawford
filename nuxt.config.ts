@@ -14,7 +14,6 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     'nuxt-carousel',
     '@vueuse/motion/nuxt',
-    '@nuxthq/studio',
     '@nuxthub/core',
   ],
 
@@ -72,6 +71,13 @@ export default defineNuxtConfig({
   },
 
   content: {
+    database: {
+      type: 'd1',
+      binding: 'DB',
+    },
+    studio: {
+      enabled: true,
+    },
     build: {
       pathMeta: {
         forceLeadingSlash: true,
@@ -153,24 +159,28 @@ export default defineNuxtConfig({
         'Cache-Control': 'public, max-age=3600, s-maxage=3600',
       },
     },
-    // '/photos': {
-    //   prerender: true,
-    //   isr: true,
-    //   cache: {
-    //     maxAge: 60 * 60 * 24,
-    //     staleMaxAge: 60 * 60,
-    //     swr: true
-    //   },
-    // },
-    // '/photos/*': {
-    //   prerender: true,
-    //   isr: true,
-    //   cache: {
-    //     maxAge: 60 * 60 * 24 * 7,
-    //     swr: true
-    //   }
-    // },
+    '/photos': {
+      prerender: true,
+      isr: true,
+      cache: {
+        maxAge: 60 * 60 * 24,
+        staleMaxAge: 60 * 60,
+        swr: true,
+      },
+    },
+    '/photos/*': {
+      prerender: true,
+      isr: true,
+      cache: {
+        maxAge: 60 * 60 * 24 * 7,
+        swr: true,
+      },
+    },
     '/uses': {
+      prerender: true,
+      static: true,
+    },
+    '/about': {
       prerender: true,
       static: true,
     },
@@ -198,6 +208,7 @@ export default defineNuxtConfig({
 
   hub: {
     cache: true,
+    database: true,
   },
 
   vite: {
