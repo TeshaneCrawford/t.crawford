@@ -50,7 +50,7 @@ const cardTransition = {
 
     <!-- Blog post grid with staggered animation on card entrance -->
     <section
-      v-else-if="blog && blog.length"
+      v-else-if="blog"
       class="grid grid-cols-1 gap-6 md:grid-cols-2"
       aria-label="Blog post list"
     >
