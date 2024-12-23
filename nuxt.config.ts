@@ -136,17 +136,10 @@ export default defineNuxtConfig({
     '/blog': {
       isr: true,
       prerender: true,
-      cache: {
-        maxAge: 60 * 60 * 24,
-        swr: true,
-      },
     },
     '/blog/**': {
-      isr: 60 * 60 * 24,
+      isr: true,
       prerender: true,
-      headers: {
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400',
-      },
     },
     '/projects': {
       isr: true,
@@ -198,7 +191,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/rss.xml', '/projects'],
+      routes: ['/', '/rss.xml', '/projects', '/blog/**'],
       failOnError: false,
     },
     // experimental: {
