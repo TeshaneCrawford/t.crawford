@@ -133,14 +133,14 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/blog': {
-      isr: true,
-      prerender: true,
-    },
-    '/blog/**': {
-      isr: true,
-      prerender: true,
-    },
+    // '/blog': {
+    //   isr: true,
+    //   prerender: true,
+    // },
+    // '/blog/**': {
+    //   isr: true,
+    //   prerender: true,
+    // },
     '/projects': {
       isr: true,
       prerender: true,
@@ -191,7 +191,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/rss.xml', '/projects', '/blog/**'],
+      routes: ['/', '/rss.xml', '/projects', '/photos', '/uses', '/about'],
       failOnError: false,
     },
     // experimental: {
