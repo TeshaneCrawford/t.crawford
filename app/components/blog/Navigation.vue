@@ -6,8 +6,7 @@ interface Props {
   next?: BlogPost | null
 }
 
-defineProps<Props>();
-
+defineProps<Props>()
 
 const formatter = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric',
@@ -31,8 +30,9 @@ const getPrimaryTag = (tags?: string[]) => {
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
       <!-- Previous Article -->
       <div
-v-if="prev"
-        class="group relative rounded-sm bg-black/2 p-6 transition-all duration-300 ease-in-out dark:bg-white/3 hover:bg-black/3 dark:hover:bg-white/4">
+        v-if="prev"
+        class="group relative rounded-sm bg-black/2 p-6 transition-all duration-300 ease-in-out dark:bg-white/3 hover:bg-black/3 dark:hover:bg-white/4"
+      >
         <div class="absolute inset-0 border border-neutral-2 rounded-sm transition-colors duration-300 dark:border-neutral-8 group-hover:border-neutral-2 hover:border-dashed dark:group-hover:border-neutral-8" />
         <div class="relative">
           <span class="mb-2 inline-flex items-center text-sm text-neutral-500 dark:text-neutral-4">
@@ -62,9 +62,10 @@ v-if="prev"
 
       <!-- Next Article -->
       <div
-v-if="next"
-class="group relative rounded-sm bg-black/2 p-6 transition-all duration-300 ease-in-out dark:bg-white/3 hover:bg-black/3 dark:hover:bg-white/4">
-<div class="absolute inset-0 border border-neutral-2 rounded-sm transition-colors duration-300 dark:border-neutral-8 group-hover:border-neutral-2 hover:border-dashed dark:group-hover:border-neutral-8" />
+        v-if="next"
+        class="group relative rounded-sm bg-black/2 p-6 transition-all duration-300 ease-in-out dark:bg-white/3 hover:bg-black/3 dark:hover:bg-white/4"
+      >
+        <div class="absolute inset-0 border border-neutral-2 rounded-sm transition-colors duration-300 dark:border-neutral-8 group-hover:border-neutral-2 hover:border-dashed dark:group-hover:border-neutral-8" />
         <div class="relative">
           <span class="mb-2 w-full inline-flex items-center justify-end text-sm text-neutral-500 dark:text-neutral-4">
             Next Article
