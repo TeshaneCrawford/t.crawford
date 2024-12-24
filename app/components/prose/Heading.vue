@@ -9,6 +9,7 @@ import { proseHeadingClick } from '~/utils/proseHeading'
 const props = defineProps<{
   id?: string
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  size?: 'sm' | 'base' | 'lg' | 'xl' | '2xl'
 }>()
 // @unocss-skip-end
 
@@ -20,7 +21,14 @@ const generate = computed(() => props.id && (
 </script>
 
 <template>
-  <component :is="props.tag" :id="props.id" class="group pr text-sm text-op-90">
+  <component
+    :is="props.tag"
+    :id="props.id"
+    :class="[
+      'group pr text-op-90',
+      props.size ? `text-${props.size}` : 'text-sm',
+    ]"
+  >
     <a
       v-if="props.id && generate"
       :href="`#${props.id}`"
