@@ -194,6 +194,16 @@ export default defineNuxtConfig({
       routes: ['/', '/rss.xml', '/projects', '/photos', '/uses', '/about', '/blog', '/blog/**'],
       failOnError: false,
     },
+    cloudflare: {
+      pages: {
+        routes: {
+          exclude: [
+            '/blog/**',
+            '/photos/**',
+          ],
+        },
+      },
+    },
     // experimental: {
     //   openAPI: true
     // }

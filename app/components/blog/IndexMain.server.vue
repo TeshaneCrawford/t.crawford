@@ -66,7 +66,7 @@ const cardTransition = {
       >
         <!-- Blog post card with hover effects and accessibility features -->
         <article
-          class="h-full overflow-hidden border border-gray-7 rounded-md bg-gray-2 transition-all duration-300 hover:border-dashed hover:shadow-sm hover:-translate-y-1"
+          class="h-full overflow-hidden border border-gray-7 rounded-md bg-gray-1 bg-transparent transition-all duration-300 hover:border-dashed hover:shadow-sm hover:-translate-y-1"
           role="article"
         >
           <div class="p-6">
