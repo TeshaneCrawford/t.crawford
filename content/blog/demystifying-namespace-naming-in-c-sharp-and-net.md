@@ -38,7 +38,7 @@ Let's break this down with real-world examples:
 
 ### 1. Company Name (`<Company>`)
 
-```cs
+```cs [example.cs]
 // Good examples
 Microsoft.AspNetCore
 Amazon.AWS
@@ -51,7 +51,7 @@ MS.Web   // Using abbreviations
 
 ### 2. Product or Technology Name
 
-```cs
+```cs [example.cs]
 // Good examples
 Contoso.Security
 Fabrikam.Logging
@@ -64,7 +64,7 @@ Fabrikam.MyNewLogger  // Unstable/temporary names
 
 ### 3. Feature and Subnamespace
 
-```cs
+```cs [example.cs]
 // Good examples
 Microsoft.AspNetCore.Authentication.OAuth
 Contoso.Ecommerce.Payments.Stripe
@@ -93,7 +93,7 @@ namespace contoso.identityserver.authentication
 
 ### ✅ DO: Use Plural Forms for Collections
 
-```cs
+```cs [GoodFile.cs]
 // Good
 namespace MyCompany.Collections
 namespace MyCompany.WebServices
@@ -139,7 +139,7 @@ namespace MyCompany.Logging
 
 Let's look at how some popular .NET projects structure their namespaces:
 
-```cs
+```cs [example.cs]
 // ASP.NET Core
 Microsoft.AspNetCore.Mvc
 Microsoft.AspNetCore.Authentication.JwtBearer
@@ -157,7 +157,7 @@ Serilog.Extensions.Logging
 
 1. **Organizational Structure Dependency**
 
-```cs
+```cs [BadFile.cs]
 // Bad - Based on org structure
 Contoso.TeamA.ProjectX.Feature
 Contoso.TeamB.ProjectY.Feature
@@ -169,7 +169,7 @@ Contoso.Ecommerce.Shipping
 
 2. **Version Numbers in Namespaces**
 
-```cs
+```cs [BadFile.cs]
 // Bad - Including version
 Contoso.SecurityV2.Encryption
 
@@ -179,7 +179,7 @@ Contoso.Security.Encryption
 
 3. **Abbreviations**
 
-```cs
+```cs [BadFile.cs]
 // Bad - Unclear abbreviations
 MyCompany.Auth.OAuth.MS
 
@@ -191,7 +191,7 @@ MyCompany.Authentication.OAuth.Microsoft
 
 ### Feature-Based Organization
 
-```cs
+```cs [example.cs]
 MyCompany.ProductName.Features.UserManagement
 MyCompany.ProductName.Features.Billing
 MyCompany.ProductName.Features.Reporting
@@ -199,7 +199,7 @@ MyCompany.ProductName.Features.Reporting
 
 ### Layer-Based Organization
 
-```cs
+```cs [example.cs]
 MyCompany.ProductName.Core
 MyCompany.ProductName.Infrastructure
 MyCompany.ProductName.Presentation
@@ -207,7 +207,7 @@ MyCompany.ProductName.Presentation
 
 ### Domain-Driven Design (DDD) Style
 
-```cs
+```cs [example.cs]
 MyCompany.ProductName.Domain
 MyCompany.ProductName.Application
 MyCompany.ProductName.Infrastructure
