@@ -150,7 +150,7 @@ const { data: home } = await useAsyncData(() => queryCollection('content').path(
           >
             {{ link.text }}
             <Icon
-              name="i-hugeicons:arrow-up-right-01"
+              name="i-hugeicons-arrow-up-right-01"
               class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               aria-hidden="true"
             />
