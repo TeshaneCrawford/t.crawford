@@ -23,6 +23,7 @@
   "devDependencies": {
     "@iconify-json/catppuccin": "^1.2.8",
     "@iconify-json/hugeicons": "^1.2.3",
+    "@iconify-json/logos": "^1.2.4",
     "@iconify-json/tabler": "^1.2.13",
     "@iconify-json/vscode-icons": "^1.2.6",
     "@nuxt/devtools": "^1.6.4",
@@ -35,7 +36,7 @@
     "@unocss/nuxt": "^0.65.2",
     "cloudinary": "^2.5.1",
     "feed": "^4.2.2",
-    "nuxt": "^3.14.1592",
+    "nuxt": "^3.15.0",
     "nuxt-carousel": "^1.0.6",
     "nuxt-og-image": "^4.0.1",
     "nuxt-time": "^1.0.3",
