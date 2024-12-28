@@ -220,6 +220,17 @@ export default defineNuxtConfig({
         ttl: 60 * 60 * 24, // 24 hours
       },
     },
+    routeRules: {
+      '/blog/**': {
+        prerender: true,
+        isr: true,
+        cache: {
+          maxAge: 60 * 60 * 24 * 7, // 7 days
+          staleMaxAge: 60 * 60 * 24, // 24 hours
+          swr: true,
+        },
+      },
+    },
   },
 
   hub: {

@@ -1,16 +1,17 @@
 <script setup lang="ts">
-// Load the full article content and metadata for the current route
 const route = useRoute()
-const { data: article } = await useAsyncData(() => {
+// Immediate fetch with server-side rendering
+const { data: article } = await useAsyncData('article', () => {
   return queryCollection('blog')
     .path(route.path)
     .first()
+}, {
+  immediate: true,
+  server: true,
 })
 
-// Initialize scroll spy for auto-updating table of contents highlighting
 const { activeHeading } = useScrollSpy()
 
-// Format the publication date in a human-readable format (e.g., "January 1, 2024")
 const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -19,7 +20,6 @@ const formatDate = (date: string) => {
   })
 }
 
-// Configure SEO metadata and OpenGraph image for social sharing
 useSeoMeta(article.value?.seo ?? {})
 defineOgImageComponent('DefaultOg', {
   title: article.value?.title ?? '',
@@ -32,11 +32,6 @@ definePageMeta({
   keepalive: true,
   key: route => route.path,
 })
-
-const isLoading = ref(true)
-onMounted(() => {
-  isLoading.value = false
-})
 </script>
 
 <template>
@@ -44,17 +39,14 @@ onMounted(() => {
     <div class="mx-auto max-w-[90rem] flex gap-x-8 px-4 lg:px-8 sm:px-6">
       <!-- Desktop Table of Contents -->
       <aside
-        v-show="!isLoading"
         class="hidden lg:block lg:w-64 lg:flex-none"
         aria-label="Table of contents"
       >
-        <ClientOnly>
-          <ProseToc
-            v-if="article?.body?.toc?.links"
-            :links="article.body.toc.links"
-            :active-id="activeHeading"
-          />
-        </ClientOnly>
+        <ProseToc
+          v-if="article?.body?.toc?.links"
+          :links="article.body.toc.links"
+          :active-id="activeHeading"
+        />
       </aside>
 
       <!-- Main Article Content -->
@@ -62,118 +54,103 @@ onMounted(() => {
         class="mx-auto max-w-none min-w-0 w-full"
         :aria-labelledby="article?.title ? 'article-title' : undefined"
       >
-        <Suspense>
-          <template #default>
-            <template v-if="article">
-              <nav
-                class="mb-8 flex items-center text-sm"
-                aria-label="Breadcrumb"
-                role="navigation"
-              >
-                <ol class="flex items-center">
-                  <li>
-                    <NuxtLink
-                      to="/"
-                      class="inline-flex items-center nav-link"
-                      aria-label="Go to homepage"
-                    >
-                      <Icon name="hugeicons-home-01" class="mr-1" aria-hidden="true" />
-                      <span>Home</span>
-                    </NuxtLink>
-                  </li>
-                  <li aria-hidden="true">
-                    <Icon name="hugeicons-chevron-right" class="mx-2 text-gray-9" />
-                  </li>
-                  <li>
-                    <NuxtLink
-                      to="/blog"
-                      class="inline-flex items-center nav-link"
-                      aria-label="Go to blog"
-                    >
-                      <Icon name="hugeicons-file-01" class="mr-1" aria-hidden="true" />
-                      <span>Blog</span>
-                    </NuxtLink>
-                  </li>
-                  <li aria-hidden="true">
-                    <Icon name="hugeicons-arrow-right-01" class="mx-2 text-gray-9" />
-                  </li>
-                  <li>
-                    <span class="truncate text-gray-11" aria-current="page">
-                      {{ article.title }}
-                    </span>
-                  </li>
-                </ol>
-              </nav>
-
-              <!-- Article Header: Title, Author, and Metadata -->
-              <header class="mb-8 space-y-4">
-                <h1 id="article-title" class="text-4xl font-bold">
-                  {{ article.title }}
-                </h1>
-                <div
-                  class="flex flex-col flex-wrap gap-4 text-sm sm:flex-row sm:items-center sm:justify-between"
-                  role="contentinfo"
-                  aria-label="Article metadata"
+        <template v-if="article">
+          <nav
+            class="mb-8 flex items-center text-sm"
+            aria-label="Breadcrumb"
+            role="navigation"
+          >
+            <ol class="flex items-center">
+              <li>
+                <NuxtLink
+                  to="/"
+                  class="inline-flex items-center nav-link"
+                  aria-label="Go to homepage"
                 >
-                  <div
-                    v-for="author in article.authors"
-                    :key="author.name"
-                    class="flex items-center gap-2"
-                    role="presentation"
-                  >
-                    <img
-                      :src="author.picture"
-                      :alt="`${author.name}'s profile picture`"
-                      class="h-8 w-8 rounded-full"
-                      loading="lazy"
-                    >
-                    <div class="flex flex-col">
-                      <span class="text-gray-12 font-medium op-90">{{ author.name }}</span>
-                      <a
-                        :href="`https://twitter.com/${author.twitter}`"
-                        class="nav-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        :aria-label="`Follow ${author.name} on Twitter`"
-                      >
-                        @{{ author.twitter }}
-                      </a>
-                    </div>
-                  </div>
-                  <div
-                    class="flex items-center gap-4 text-gray-11 sm:ml-auto"
-                    role="complementary"
-                    aria-label="Article details"
-                  >
-                    <time :datetime="article.date" aria-label="Publication date">
-                      {{ formatDate(article.date) }}
-                    </time>
-                    <ProseReadingTime :rawbody="article.rawbody" />
-                  </div>
-                </div>
-              </header>
+                  <Icon name="hugeicons-home-01" class="mr-1" aria-hidden="true" />
+                  <span>Home</span>
+                </NuxtLink>
+              </li>
+              <li aria-hidden="true">
+                <Icon name="hugeicons-chevron-right" class="mx-2 text-gray-9" />
+              </li>
+              <li>
+                <NuxtLink
+                  to="/blog"
+                  class="inline-flex items-center nav-link"
+                  aria-label="Go to blog"
+                >
+                  <Icon name="hugeicons-file-01" class="mr-1" aria-hidden="true" />
+                  <span>Blog</span>
+                </NuxtLink>
+              </li>
+              <li aria-hidden="true">
+                <Icon name="hugeicons-arrow-right-01" class="mx-2 text-gray-9" />
+              </li>
+              <li>
+                <span class="truncate text-gray-11" aria-current="page">
+                  {{ article.title }}
+                </span>
+              </li>
+            </ol>
+          </nav>
 
-              <!-- Article Body -->
+          <!-- Article Header: Title, Author, and Metadata -->
+          <header class="mb-8 space-y-4">
+            <h1 id="article-title" class="text-4xl font-bold">
+              {{ article.title }}
+            </h1>
+            <div
+              class="flex flex-col flex-wrap gap-4 text-sm sm:flex-row sm:items-center sm:justify-between"
+              role="contentinfo"
+              aria-label="Article metadata"
+            >
               <div
-                class="max-w-3xl prose"
-                role="article"
+                v-for="author in article.authors"
+                :key="author.name"
+                class="flex items-center gap-2"
+                role="presentation"
               >
-                <ContentRenderer
-                  :key="route.path"
-                  :value="article"
-                  eager
-                />
+                <img
+                  :src="author.picture"
+                  :alt="`${author.name}'s profile picture`"
+                  class="h-8 w-8 rounded-full"
+                  loading="lazy"
+                >
+                <div class="flex flex-col">
+                  <span class="text-gray-12 font-medium op-90">{{ author.name }}</span>
+                  <a
+                    :href="`https://twitter.com/${author.twitter}`"
+                    class="nav-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    :aria-label="`Follow ${author.name} on Twitter`"
+                  >
+                    @{{ author.twitter }}
+                  </a>
+                </div>
               </div>
-            </template>
-          </template>
+              <div
+                class="flex items-center gap-4 text-gray-11 sm:ml-auto"
+                role="complementary"
+                aria-label="Article details"
+              >
+                <time :datetime="article.date" aria-label="Publication date">
+                  {{ formatDate(article.date) }}
+                </time>
+                <ProseReadingTime :rawbody="article.rawbody" />
+              </div>
+            </div>
+          </header>
 
-          <template #fallback>
-            <ProseBlogLoading />
-          </template>
-        </Suspense>
-
-        <template v-if="isLoading">
-          <BlogLoading />
+          <!-- Article Body -->
+          <div class="max-w-3xl prose" role="article">
+            <ContentRenderer
+              :key="route.path"
+              :value="article"
+              eager
+            />
+          </div>
         </template>
 
         <!-- Previous/Next Article Navigation -->
@@ -183,28 +160,12 @@ onMounted(() => {
   </main>
 </template>
 
-<style scoped></style>
-
 <style>
 .prose-lg {
   width: 100%;
 }
 
-/* Add transition for content loading */
 .prose {
-  transition: opacity 0.2s ease;
-}
-.prose:not(:has(*)) {
-  opacity: 0.5;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+  opacity: 1;
 }
 </style>
