@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// Fetch article data based on the current route path
+// Load the full article content and metadata for the current route
 const route = useRoute()
 const { data: article } = await useAsyncData(() => {
   return queryCollection('blog')
@@ -7,13 +7,11 @@ const { data: article } = await useAsyncData(() => {
     .first()
 })
 
-// Setup scroll spy for table of contents
+// Initialize scroll spy for auto-updating table of contents highlighting
 const { activeHeading } = useScrollSpy()
 
-// Apply SEO metadata from article
+// Configure SEO metadata and OpenGraph image for social sharing
 useSeoMeta(article.value?.seo ?? {})
-
-// Configure OpenGraph image with article metadata
 defineOgImageComponent('DefaultOg', {
   title: article.value?.title,
   date: article.value?.date,
@@ -24,6 +22,7 @@ definePageMeta({
   layout: 'blog',
 })
 
+// Format the publication date in a human-readable format (e.g., "January 1, 2024")
 const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -36,7 +35,7 @@ const formatDate = (date: string) => {
 <template>
   <main id="main-content" class="py-10">
     <div class="mx-auto max-w-[90rem] flex gap-x-8 px-4 lg:px-8 sm:px-6">
-      <!-- Table of Contents - Only visible on large screens -->
+      <!-- Desktop Table of Contents -->
       <aside
         class="hidden lg:block lg:w-64 lg:flex-none"
         aria-label="Table of contents"
@@ -48,7 +47,7 @@ const formatDate = (date: string) => {
         />
       </aside>
 
-      <!-- Article Content Section -->
+      <!-- Main Article Content -->
       <article
         class="mx-auto max-w-none min-w-0 w-full"
         :aria-labelledby="article?.title ? 'article-title' : undefined"
@@ -94,6 +93,7 @@ const formatDate = (date: string) => {
             </ol>
           </nav>
 
+          <!-- Article Header: Title, Author, and Metadata -->
           <header class="mb-8 space-y-4">
             <h1 id="article-title" class="text-4xl font-bold">
               {{ article.title }}
@@ -141,6 +141,7 @@ const formatDate = (date: string) => {
             </div>
           </header>
 
+          <!-- Article Body -->
           <div
             class="max-w-3xl prose"
             role="article"
@@ -149,7 +150,7 @@ const formatDate = (date: string) => {
           </div>
         </template>
 
-        <!-- Article Navigation (Previous/Next) -->
+        <!-- Previous/Next Article Navigation -->
         <ProseNav aria-label="Article navigation" />
       </article>
     </div>
