@@ -33,7 +33,7 @@ const config = useRuntimeConfig()
 let refreshInterval: NodeJS.Timeout | null = null
 
 const formattedTime = computed(() => {
-  return now.value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+  return now.value.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
 })
 
 const fetchTemperature = async (): Promise<void> => {
