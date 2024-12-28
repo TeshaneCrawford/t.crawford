@@ -56,7 +56,7 @@ useSeoMeta({
 
 useHead({
   bodyAttrs: {
-    class: 'font-sans antialiased text-neutral-6 dark:text-neutral-2',
+    class: 'font-sans antialiased text-gray-11',
   },
 })
 </script>
@@ -67,7 +67,7 @@ useHead({
       <!-- Animated 404 -->
       <div
         ref="errorText"
-        class="cursor-pointer select-none text-8xl text-neutral-6 font-bold transition-all duration-2 dark:text-neutral-2"
+        class="cursor-pointer select-none text-8xl text-gray-11 font-bold transition-all duration-2"
         :style="{
           position: 'relative',
           left: `${position.x}%`,
@@ -81,27 +81,27 @@ useHead({
 
       <!-- Error text -->
       <div class="mt-8 text-center">
-        <h1 class="mb-8 animate-pulse text-5xl text-neutral-6 font-bold font-serif dark:text-neutral-3">
+        <h1 class="mb-8 animate-pulse text-5xl text-gray-12 font-bold font-serif">
           {{ errorState?.statusCode === 404 ? 'Oops! This page is playing hide and seek' : 'Uh oh! Something went wrong' }}
         </h1>
-        <p class="mb-12 text-neutral-6 dark:text-neutral-3">
+        <p class="mb-12 text-gray-11">
           {{ errorState?.message || (errorState?.statusCode === 404 ? 'Try to catch the 404 above! (Spoiler: It\'s quite shy)' : 'Our team is on it!') }}
         </p>
 
         <div class="flex items-center justify-center gap-4">
-          <Icon name="i-hugeicons:search-02" class="animate-bounce text-neutral-5" />
-          <p class="text-neutral-5 font-serif italic">
+          <Icon name="i-hugeicons-search-02" class="animate-bounce text-gray-9" />
+          <p class="text-gray-9 font-serif italic">
             Still searching for that page...
           </p>
         </div>
       </div>
 
       <button
-        class="mt-12 flex items-center gap-2 text-neutral-5 underline-offset-6 transition-colors dark:text-neutral-4 hover:underline dark:hover:text-neutral-3"
+        class="mt-12 flex items-center gap-2 text-gray-10 underline-offset-6 transition-colors hover:text-gray-11 hover:underline"
         as="link"
         @click="handleError"
       >
-        <Icon name="i-hugeicons:arrow-left-04" />
+        <Icon name="i-hugeicons-arrow-left-04" />
         Take Me Home
       </button>
     </main>
