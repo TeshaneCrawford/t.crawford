@@ -10,18 +10,6 @@ const { data: article } = await useAsyncData(() => {
 // Initialize scroll spy for auto-updating table of contents highlighting
 const { activeHeading } = useScrollSpy()
 
-// Configure SEO metadata and OpenGraph image for social sharing
-useSeoMeta(article.value?.seo ?? {})
-defineOgImageComponent('DefaultOg', {
-  title: article.value?.title,
-  date: article.value?.date,
-  tags: article.value?.tags,
-})
-
-definePageMeta({
-  layout: 'blog',
-})
-
 // Format the publication date in a human-readable format (e.g., "January 1, 2024")
 const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-US', {
@@ -30,6 +18,18 @@ const formatDate = (date: string) => {
     day: 'numeric',
   })
 }
+
+// Configure SEO metadata and OpenGraph image for social sharing
+useSeoMeta(article.value?.seo ?? {})
+defineOgImageComponent('DefaultOg', {
+  title: article.value?.title ?? '',
+  date: article.value?.date ? formatDate(article.value.date) : null,
+  tags: article.value?.tags ?? [],
+})
+
+definePageMeta({
+  layout: 'blog',
+})
 </script>
 
 <template>
