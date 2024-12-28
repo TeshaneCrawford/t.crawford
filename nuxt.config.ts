@@ -136,10 +136,20 @@ export default defineNuxtConfig({
     '/blog': {
       isr: true,
       prerender: true,
+      cache: {
+        maxAge: 60 * 60 * 24, // 24 hours
+        staleMaxAge: 60 * 60, // 1 hour
+        swr: true,
+      },
     },
     '/blog/**': {
       isr: true,
       prerender: true,
+      cache: {
+        maxAge: 60 * 60 * 24 * 7, // 7 days
+        staleMaxAge: 60 * 60 * 24, // 24 hours
+        swr: true,
+      },
     },
     '/projects': {
       isr: true,
@@ -204,9 +214,12 @@ export default defineNuxtConfig({
         },
       },
     },
-    // experimental: {
-    //   openAPI: true
-    // }
+    storage: {
+      'content-cache': {
+        driver: 'memory',
+        ttl: 60 * 60 * 24, // 24 hours
+      },
+    },
   },
 
   hub: {
