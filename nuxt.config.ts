@@ -129,6 +129,7 @@ export default defineNuxtConfig({
     public: {
       siteUrl: process.env.NUXT_SITE_URL || 'https://teshanecrawford.com',
       NUXT_WEATHER_API_KEY: process.env.NUXT_WEATHER_API_KEY || '',
+      siteName: process.env.NUXT_SITE_NAME || 'Teshane Crawford',
     },
   },
 

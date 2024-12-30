@@ -52,6 +52,10 @@ export interface Repo {
   is_template?: boolean | undefined
   language: string | null | undefined
   forks_count: number | undefined
+  created_at: string
+  pushed_at: string
+  updated_at: string
+  open_graph_image_url?: string | null | undefined
 }
 
 export type User = Endpoints['GET /user']['response']['data']
