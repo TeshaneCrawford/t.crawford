@@ -114,39 +114,24 @@ const baseMotion = {
   aspect-ratio: 1;
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 0 solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    transition: border-width 0.3s ease;
-  }
-
-  &:hover {
-    .folder-overlay {
-      opacity: 1;
-      transform: translateY(0);
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
-    }
-
-    &::after {
-      border-width: 4px;
-    }
-
-    img {
-      filter: brightness(1.1) contrast(1.1);
-    }
-  }
+  border-radius: 8px;
+  transition: transform 0.4s ease;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: filter 0.4s ease;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+
+    .folder-overlay {
+      opacity: 1;
+    }
   }
 }
 
@@ -188,20 +173,25 @@ const baseMotion = {
 
 .folder-overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(0.5px);
+  display: flex;
+  align-items: flex-end;
   padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-  opacity: 0.9;
-  transform: translateY(5px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .folder-content {
   display: flex;
   align-items: center;
   color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  width: 100%;
 
   i {
     font-size: 1.2rem;
@@ -210,6 +200,8 @@ const baseMotion = {
 
 .folder-title {
   font-size: 1.1rem;
+  margin-left: 0.5rem;
+  font-weight: 500;
   position: relative;
 
   &::after {
