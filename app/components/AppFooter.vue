@@ -6,6 +6,18 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
 
 <template>
   <footer class="slide-enter ma p-7 animate-delay-1200!">
+    <nav class="site-links mb-6 lg:ml-32">
+      <ul class="flex flex-wrap justify-start gap-6 md:gap-8">
+        <li v-for="link in ['Home', 'Projects', 'Blog', 'Photos', 'About', 'Uses', 'Chat']" :key="link">
+          <NuxtLink
+            :to="link === 'Home' ? '/' : `/${link.toLowerCase()}`"
+            class="site-link relative text-gray-11 op90 transition-colors duration-200 hover:text-gray-12"
+          >
+            {{ link }}
+          </NuxtLink>
+        </li>
+      </ul>
+    </nav>
     <hr class="mx-32 border-[#ccc] border-dashed dark:border-[#c7c7c7]">
     <div class="mt-6 flex flex-col items-start justify-between pb-12 sm:flex-row sm:items-center">
       <div class="mb-4 sm:mb-0">
@@ -75,5 +87,25 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
   100% {
     left: 125%;
   }
+}
+
+.site-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.site-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.site-link:hover::after {
+  width: 100%;
 }
 </style>
