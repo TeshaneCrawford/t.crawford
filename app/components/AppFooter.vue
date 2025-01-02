@@ -11,7 +11,7 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
         <li v-for="link in ['Home', 'Projects', 'Blog', 'Photos', 'About', 'Uses', 'Chat']" :key="link">
           <NuxtLink
             :to="link === 'Home' ? '/' : `/${link.toLowerCase()}`"
-            class="site-link relative text-gray-11 op90 transition-colors duration-200 hover:text-gray-12"
+            class="site-link relative text-sm text-gray-11 op90 transition-colors duration-200 hover:text-gray-12"
           >
             {{ link }}
           </NuxtLink>
