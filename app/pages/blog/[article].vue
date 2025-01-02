@@ -56,39 +56,39 @@ definePageMeta({
       >
         <template v-if="article">
           <nav
-            class="mb-8 flex items-center text-sm"
+            class="mb-8 flex flex-wrap items-center text-sm"
             aria-label="Breadcrumb"
             role="navigation"
           >
-            <ol class="flex items-center">
-              <li>
+            <ol class="flex flex-wrap items-center">
+              <li class="min-w-[24px]">
                 <NuxtLink
                   to="/"
                   class="inline-flex items-center nav-link"
                   aria-label="Go to homepage"
                 >
                   <Icon name="hugeicons-home-01" class="mr-1" aria-hidden="true" />
-                  <span>Home</span>
+                  <span class="hidden sm:inline">Home</span>
                 </NuxtLink>
               </li>
               <li aria-hidden="true">
                 <Icon name="hugeicons-chevron-right" class="mx-2 text-gray-9" />
               </li>
-              <li>
+              <li class="min-w-[24px]">
                 <NuxtLink
                   to="/blog"
                   class="inline-flex items-center nav-link"
                   aria-label="Go to blog"
                 >
                   <Icon name="hugeicons-file-01" class="mr-1" aria-hidden="true" />
-                  <span>Blog</span>
+                  <span class="hidden sm:inline">Blog</span>
                 </NuxtLink>
               </li>
               <li aria-hidden="true">
                 <Icon name="hugeicons-arrow-right-01" class="mx-2 text-gray-9" />
               </li>
-              <li>
-                <span class="truncate text-gray-11" aria-current="page">
+              <li class="max-w-[200px] sm:max-w-none">
+                <span class="block truncate text-gray-11" aria-current="page">
                   {{ article.title }}
                 </span>
               </li>
