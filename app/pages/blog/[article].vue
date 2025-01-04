@@ -96,7 +96,7 @@ definePageMeta({
           </nav>
 
           <!-- Article Header: Title, Author, and Metadata -->
-          <header class="mb-8 space-y-4">
+          <header class="mb-8 max-w-3xl space-y-4">
             <h1 id="article-title" class="text-4xl font-bold">
               {{ article.title }}
             </h1>
