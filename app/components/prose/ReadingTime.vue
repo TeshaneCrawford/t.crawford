@@ -5,15 +5,16 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const wordCount = computed(() => props.rawbody.trim().split(/\s+/).length)
+
 const readingTime = computed(() => {
   const wordsPerMinute = 200
-  const words = props.rawbody.trim().split(/\s+/).length
-  return Math.ceil(words / wordsPerMinute)
+  return Math.ceil(wordCount.value / wordsPerMinute)
 })
 </script>
 
 <template>
   <span class="text-gray-11 font-light">
-    {{ readingTime }} min read
+    {{ wordCount }} words · {{ readingTime }} min read
   </span>
 </template>
