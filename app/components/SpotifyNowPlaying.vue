@@ -27,7 +27,7 @@ useIntervalFn(() => {
       class="h-16 w-16 rounded-md"
     >
     <div class="min-w-0 flex-1">
-      <p class="truncate text-sm font-medium text-gray-12">
+      <p class="truncate text-sm text-gray-12 font-medium">
         {{ nowPlaying.title }}
       </p>
       <p class="truncate text-xs text-gray-11">
@@ -36,7 +36,7 @@ useIntervalFn(() => {
       <div v-if="nowPlaying.progress && nowPlaying.duration" class="mt-2">
         <div class="h-1 rounded-full bg-gray-6">
           <div
-            class="h-full rounded-full bg-sage-9 transition-all duration-1000"
+            class="h-full rounded-full bg-green-9 transition-all duration-1000"
             :style="{ width: `${(nowPlaying.progress / nowPlaying.duration) * 100}%` }"
           />
         </div>
@@ -46,7 +46,7 @@ useIntervalFn(() => {
       :href="nowPlaying.spotifyUrl"
       target="_blank"
       rel="noopener noreferrer"
-      class="shrink-0 text-sage-11 hover:text-sage-12 transition-colors"
+      class="shrink-0 text-sage-11 transition-colors hover:text-sage-12"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

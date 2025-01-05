@@ -7,9 +7,12 @@ interface SpotifyImage {
 interface SpotifyArtist {
   id: string
   name: string
+  images: SpotifyImage[]
+  genres: string[]
   external_urls: {
     spotify: string
   }
+  popularity: number
 }
 
 interface SpotifyTrack {
@@ -34,4 +37,8 @@ export interface NowPlayingResponse {
 
 export interface TopTracksResponse {
   items: SpotifyTrack[]
+}
+
+export interface SpotifyTopArtistsResponse {
+  items: SpotifyArtist[]
 }
