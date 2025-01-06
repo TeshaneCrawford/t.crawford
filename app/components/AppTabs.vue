@@ -60,9 +60,9 @@ const handleKeyDown = (event: KeyboardEvent, currentIndex: number) => {
               :aria-controls="`panel-${tab.id}`"
               :tabindex="activeTab === tab.id ? 0 : -1"
               :class="[
-                'py-2 px-1 border-b-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-7 focus-visible:ring-offset-2',
+                'py-2 px-1 border-b-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-7 focus-visible:ring-offset-2',
                 activeTab === tab.id
-                  ? 'border-teal-7 text-teal-11'
+                  ? 'border-blue-7 text-blue-11'
                   : 'border-transparent text-gray-11 hover:border-gray-7 hover:text-gray-12',
               ]"
               @click="activeTab = tab.id"
