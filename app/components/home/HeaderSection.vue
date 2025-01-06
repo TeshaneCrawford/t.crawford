@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
       inline-flex
       items-center
       badge-lg-gray
-      font-dank
+      font-mono
       important-rounded-none
     >
       {{ formattedTime }}
@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
       inline-flex
       items-center
       badge-lg-gray
-      font-dank
+      font-mono
       italic
       important-rounded-none
     >
@@ -132,7 +132,7 @@ onBeforeUnmount(() => {
       items-center
       badge-lg-gray
       text-red-9
-      font-dank
+      font-mono
       important-rounded-none
     >
       {{ error }}
@@ -142,7 +142,7 @@ onBeforeUnmount(() => {
       inline-flex
       items-center
       badge-lg-gray
-      font-dank
+      font-mono
       important-rounded-none
     >
       {{ temperature }}°C
