@@ -3,7 +3,9 @@ title: Uses
 description: Tools and technologies I use on a daily basis
 ---
 
-## What I Use
+<h1 class="text-4xl text-gray-12 font-bold tracking-tight sm:text-[2.5rem]">
+What I use
+</h1>
 
 <p class="font-mono">
 Here's a list of the tools, software, and hardware I use on a daily basis for my work and personal projects.
