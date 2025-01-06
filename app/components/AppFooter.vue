@@ -92,17 +92,39 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
 .site-link {
   position: relative;
   text-decoration: none;
+  z-index: 1;
+}
+
+.site-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  right: -4px;
+  height: 6px;
+  background-color: var(--blue-9);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  z-index: -1;
+}
+
+.site-link:hover::before {
+  opacity: 0.15;
+  transform: scaleX(1);
 }
 
 .site-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -1px;
   left: 0;
   width: 0;
-  height: 2px;
-  background-color: currentColor;
+  height: 1px;
+  background-color: var(--blue-9);
   transition: width 0.3s ease;
+  opacity: 0.8;
 }
 
 .site-link:hover::after {

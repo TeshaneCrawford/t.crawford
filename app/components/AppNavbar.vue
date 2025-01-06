@@ -23,7 +23,18 @@ const { y: scroll } = useWindowScroll()
     </NuxtLink>
     <button
       title="Scroll to top"
-      fixed bottom-3 right-3 z-100 h-10 w-10 rounded-full transition duration-300 print:hidden hover-bg-hex-8883 hover:op100
+      fixed
+      bottom-3
+      right-3
+      z-100
+      h-10
+      w-10
+      rounded-full
+      transition
+      duration-300
+      print:hidden
+      hover-bg-hex-8883
+      hover:op100
       :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'"
       @click="toTop()"
     >
@@ -57,7 +68,7 @@ const { y: scroll } = useWindowScroll()
           :class="route.path === '/photos' ? 'op100! after:w-full' : 'after:w-0'"
         >
           <span class="lt-md:hidden">Photos</span>
-          <Icon  name="i-hugeicons-camera-01" class="md:hidden" />
+          <Icon name="i-hugeicons-camera-01" class="md:hidden" />
         </NuxtLink>
         <NuxtLink
           to="/uses"
@@ -75,13 +86,28 @@ const { y: scroll } = useWindowScroll()
         >
           <Icon name="i-hugeicons-conversation" style="" />
         </NuxtLink>
-        <a href="https://twitter.com/_d_shybrid" target="_blank" title="Twitter" class="lt-md:hidden">
+        <a
+          href="https://twitter.com/_d_shybrid"
+          target="_blank"
+          title="Twitter"
+          class="lt-md:hidden"
+        >
           <Icon name="i-hugeicons:new-twitter" style="" />
         </a>
-        <a href="https://github.com/TeshaneCrawford" target="_blank" title="GitHub" class="lt-md:hidden">
+        <a
+          href="https://github.com/TeshaneCrawford"
+          target="_blank"
+          title="GitHub"
+          class="lt-md:hidden"
+        >
           <Icon name="i-hugeicons-github" />
         </a>
-        <a href="/rss.xml" target="_blank" title="RSS" class="lt-md:hidden">
+        <a
+          href="/rss.xml"
+          target="_blank"
+          title="RSS"
+          class="lt-md:hidden"
+        >
           <Icon name="i-hugeicons-rss" style="font-size:1.25rem; margin: -0.5;" />
         </a>
         <a class="">
@@ -122,20 +148,44 @@ const { y: scroll } = useWindowScroll()
 .nav a {
   cursor: pointer;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
   opacity: 0.6;
   outline: none;
   color: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  right: -4px;
+  height: 6px;
+  background-color: var(--blue-9);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  z-index: -1;
+}
+
+.nav a:hover::before {
+  opacity: 0.15;
+  transform: scaleX(1);
 }
 
 .nav a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -1px;
   left: 0;
-  height: 2px;
-  background-color: currentColor;
-  transition: width 0.2s ease;
+  width: 0;
+  height: 1px;
+  background-color: var(--blue-9);
+  transition: width 0.3s ease;
+  opacity: 0.8;
 }
 
 .nav a:hover::after {
@@ -144,7 +194,6 @@ const { y: scroll } = useWindowScroll()
 
 .nav a:hover {
   opacity: 1;
-  text-decoration-color: inherit;
 }
 
 .nav .right {
@@ -157,7 +206,7 @@ const { y: scroll } = useWindowScroll()
   margin: auto;
 }
 
-/* Add these new styles */
+/* logo styles */
 .logo img {
   width: 100%;
   height: 100%;
