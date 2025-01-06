@@ -57,7 +57,6 @@ export default defineNuxtConfig({
     '@/assets/css/main.css',
     '@/assets/css/prose.css',
     '@unocss/reset/tailwind.css',
-    '@/assets/css/font.css',
     '@/assets/css/transitions.css',
   ],
 

@@ -76,9 +76,6 @@ export default defineConfig({
     fontFamily: {
       sans: 'DM Sans',
       mono: 'DM Mono',
-      serif: 'Playwrite GB S',
-      cursive: 'Satisfy',
-      dank: 'dank',
     },
     colors: Object.fromEntries(
       Object.entries(colors as RadixColors)
