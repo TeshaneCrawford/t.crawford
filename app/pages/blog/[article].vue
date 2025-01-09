@@ -1,13 +1,25 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: 'blog',
+  keepalive: true,
+  key: route => route.path,
+  prefetch: true,
+})
+
 const route = useRoute()
 // Immediate fetch with server-side rendering
-const { data: article } = await useAsyncData('article', () => {
+const { data: article, status } = await useAsyncData('article', () => {
   return queryCollection('blog')
     .path(route.path)
     .first()
 }, {
   immediate: true,
   server: true,
+  watch: [],
+  transform: (article) => {
+    // Pre-transform the content on the server
+    return article
+  },
 })
 
 const { activeHeading } = useScrollSpy()
@@ -26,17 +38,12 @@ defineOgImageComponent('DefaultOg', {
   date: article.value?.date ? formatDate(article.value.date) : null,
   tags: article.value?.tags ?? [],
 })
-
-definePageMeta({
-  layout: 'blog',
-  keepalive: true,
-  key: route => route.path,
-})
 </script>
 
 <template>
   <main id="main-content" class="py-10">
-    <div class="mx-auto max-w-[90rem] flex gap-x-8 px-4 lg:px-8 sm:px-6">
+    <BlogArticleSkeleton v-if="status === 'pending'" />
+    <div v-else class="mx-auto max-w-[90rem] flex gap-x-8 px-4 lg:px-8 sm:px-6">
       <!-- Desktop Table of Contents -->
       <aside
         class="hidden lg:block lg:w-64 lg:flex-none"
