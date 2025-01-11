@@ -280,46 +280,26 @@ export default defineNuxtConfig({
     provider: 'cloudinary',
     cloudinary: {
       baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`,
-      modifiers: {
-        effect: 'sharpen:100',
-        quality: 'auto:best',
-        format: 'webp',
-        dpr: 'auto',
-      },
     },
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-    },
-    domains: ['avatars.githubusercontent.com', 'raw.githubusercontent.com', 'res.cloudinary.com'],
+    domains: ['avatars.githubusercontent.com', 'github.com'],
     domainHandlers: {
       'avatars.githubusercontent.com': {
         modifiers: {
           format: 'webp',
-          quality: 'auto:best',
+          width: 72,
+          height: 72,
+          quality: 'auto',
         },
-        staticFilename: '[name]-[hash][ext]',
-        cacheMaxAge: 60 * 60 * 24 * 7, // 7 days
-      },
-      'raw.githubusercontent.com': {
-        cacheMaxAge: 60 * 60 * 24 * 7,
-      },
-      'res.cloudinary.com': {
-        cacheMaxAge: 60 * 60 * 24 * 7,
       },
     },
+    formats: ['webp', 'jpg', 'png'],
     presets: {
       avatar: {
         modifiers: {
           format: 'webp',
           width: 72,
           height: 72,
-          quality: 80,
-          loading: 'lazy',
+          quality: 'auto',
         },
       },
     },

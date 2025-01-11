@@ -3,10 +3,11 @@ import type { User } from '~~/types/github'
 
 const { data: userData } = await useFetch<User>('/api/github-user')
 
+const fallbackImage = ref(`https://github.com/${userData.value?.username}.png`)
+
 const handleImageError = (e: string | Event) => {
   if (e instanceof Event) {
-    const target = e.target as HTMLImageElement
-    target.src = '/tc.jpeg'
+    fallbackImage.value = '/tc.jpeg'
   }
 }
 
@@ -69,20 +70,17 @@ const { data: home } = await useAsyncData(() => queryCollection('content').path(
           class="inline-block transition-transform hover:scale-102 sm:pl-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-8"
           :aria-label="`Visit ${userData?.name}'s GitHub profile (opens in new tab)`"
         >
-          <NuxtImg
-            :src="userData?.avatar"
+          <img
+            :src="userData?.avatar || fallbackImage"
             :alt="`${userData?.name}'s profile picture`"
-            :title="`${userData?.name}'s GitHub avatar`"
             class="h-18 w-18 rounded-full shadow ring-1 ring-gray-6"
             loading="lazy"
             width="72"
             height="72"
-            placeholder
             format="webp"
             quality="80"
-            preset="avatar"
             @error="handleImageError"
-          />
+          >
         </a>
         <div v-if="userData?.name" class="flex flex-col">
           <span class="font-semibold font-mono">@{{ userData?.username }}</span>

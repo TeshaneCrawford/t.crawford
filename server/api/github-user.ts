@@ -13,7 +13,7 @@ export default defineCachedEventHandler(async (event) => {
   const user: User = {
     name: userData.name ?? userData.login,
     username: userData.login,
-    avatar: userData.avatar_url,
+    avatar: userData.avatar_url ?? `https://github.com/${userData.login}.png`,
     bio: userData.bio,
     followers: userData.followers,
     following: userData.following,
