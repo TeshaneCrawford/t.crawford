@@ -230,6 +230,13 @@ export default defineNuxtConfig({
           swr: true,
         },
       },
+      '/api/github-user': {
+        cache: {
+          maxAge: 60 * 60, // 1 hour
+          staleMaxAge: 60 * 60 * 24, // 24 hours
+          swr: true,
+        },
+      },
     },
   },
 
@@ -288,18 +295,31 @@ export default defineNuxtConfig({
       xl: 1280,
       xxl: 1536,
     },
-    domains: [
-      'avatars.githubusercontent.com',
-      'raw.githubusercontent.com',
-      'res.cloudinary.com',
-    ],
+    domains: ['avatars.githubusercontent.com', 'raw.githubusercontent.com', 'res.cloudinary.com'],
+    domainHandlers: {
+      'avatars.githubusercontent.com': {
+        modifiers: {
+          format: 'webp',
+          quality: 'auto:best',
+        },
+        staticFilename: '[name]-[hash][ext]',
+        cacheMaxAge: 60 * 60 * 24 * 7, // 7 days
+      },
+      'raw.githubusercontent.com': {
+        cacheMaxAge: 60 * 60 * 24 * 7,
+      },
+      'res.cloudinary.com': {
+        cacheMaxAge: 60 * 60 * 24 * 7,
+      },
+    },
     presets: {
       avatar: {
         modifiers: {
           format: 'webp',
           width: 72,
           height: 72,
-          quality: 'auto:best',
+          quality: 80,
+          loading: 'lazy',
         },
       },
     },
