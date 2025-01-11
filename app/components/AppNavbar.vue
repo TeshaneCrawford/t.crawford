@@ -46,8 +46,8 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink
           to="/projects"
           title="Projects"
-          class="relative"
-          :class="route.path === '/projects' ? 'op100! after:w-full' : 'after:w-0'"
+          class="nav-text relative"
+          :class="route.path.startsWith('/projects') ? 'nav-text-active' : ''"
         >
           <span class="lt-md:hidden">Projects</span>
           <Icon name="i-hugeicons-dashboard-circle-edit" md:hidden />
@@ -55,8 +55,8 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink
           to="/blog"
           title="Blog"
-          class="relative"
-          :class="route.path === '/blog' ? 'op100! after:w-full' : 'after:w-0'"
+          class="nav-text relative"
+          :class="route.path.startsWith('/blog') ? 'nav-text-active' : ''"
         >
           <span class="lt-md:hidden">Blog</span>
           <Icon name="i-hugeicons-quill-write-02" class="md:hidden" />
@@ -64,27 +64,27 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink
           to="/photos"
           title="Photos"
-          class="relative"
-          :class="route.path === '/photos' ? 'op100! after:w-full' : 'after:w-0'"
+          class="nav-text relative"
+          :class="route.path.startsWith('/photos') ? 'nav-text-active' : ''"
         >
           <span class="lt-md:hidden">Photos</span>
           <Icon name="i-hugeicons-camera-01" class="md:hidden" />
         </NuxtLink>
         <NuxtLink
           to="/uses"
-          class="relative lt-md:hidden"
+          class="nav-text relative lt-md:hidden"
           title="Uses"
-          :class="route.path === '/uses' ? 'op100! after:w-full' : 'after:w-0'"
+          :class="route.path.startsWith('/uses') ? 'nav-text-active' : ''"
         >
           Uses
         </NuxtLink>
         <NuxtLink
           to="/chat"
           title="Let's Chat"
-          class="relative"
-          :class="route.path === '/chat' ? 'op100! after:w-full' : 'after:w-0'"
+          class="nav-text relative"
+          :class="route.path.startsWith('/chat') ? 'nav-text-active' : ''"
         >
-          <Icon name="i-hugeicons-conversation" style="" />
+          <Icon name="i-hugeicons-conversation" />
         </NuxtLink>
         <a
           href="https://twitter.com/_d_shybrid"
@@ -149,11 +149,10 @@ const { y: scroll } = useWindowScroll()
   cursor: pointer;
   text-decoration: none;
   transition: all 0.2s ease;
-  opacity: 0.6;
-  outline: none;
   color: inherit;
   position: relative;
   z-index: 1;
+  padding-bottom: 2px; /* Add padding for the border */
 }
 
 .nav a::before {
@@ -192,6 +191,7 @@ const { y: scroll } = useWindowScroll()
   width: 100%;
 }
 
+/* Remove the opacity hover since we're using pseudo-elements */
 .nav a:hover {
   opacity: 1;
 }

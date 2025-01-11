@@ -101,26 +101,19 @@ onBeforeUnmount(() => {
     items-center
     justify-between
     px-4
-    op-70
     lg:px-0
     md:px-8
     sm:px-0
   >
     <span
-      inline-flex
-      items-center
-      badge-lg-gray
-      font-mono
+      header-badge
       important-rounded-none
     >
       {{ formattedTime }}
     </span>
     <span
       v-if="loading"
-      inline-flex
-      items-center
-      badge-lg-gray
-      font-mono
+      header-badge
       italic
       important-rounded-none
     >
@@ -128,21 +121,14 @@ onBeforeUnmount(() => {
     </span>
     <span
       v-else-if="error"
-      inline-flex
-      items-center
-      badge-lg-gray
-      text-red-9
-      font-mono
+      header-badge-error
       important-rounded-none
     >
       {{ error }}
     </span>
     <span
       v-else-if="temperature !== null"
-      inline-flex
-      items-center
-      badge-lg-gray
-      font-mono
+      header-badge
       important-rounded-none
     >
       {{ temperature }}°C

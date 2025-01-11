@@ -63,14 +63,19 @@ export default defineConfig({
     ['nav-label', 'text-sm text-gray-11'],
     ['nav-container', 'flex flex-col'], // removed max-w-45% from here
     // ...existing shortcuts...
-    [/^badge-(.*)$/, ([, c]) => `bg-${c}-3:10 text-${c}-11 rounded`],
+    [/^badge-(.*)$/, ([, c]) => `bg-${c}-3 text-${c}-12 rounded`],
     [/^badge-xs-(.*)$/, ([, c]) => `badge-${c} text-xs px2 py0.5`],
     [/^badge-sm-(.*)$/, ([, c]) => `badge-${c} text-sm px3 py0.6`],
-    [/^badge-lg-(.*)$/, ([, c]) => `badge-${c} px3 py0.8`],
+    [/^badge-lg-(.*)$/, ([, c]) => `badge-${c} px3 py1`],
     [/^badge-square-(.*)$/, ([, c]) => `badge-${c} w-7 h-7 text-lg font-200 flex flex-none items-center justify-center`],
     ['toc-link', 'text-gray-11 hover:text-gray-12 transition-colors duration-200'],
     ['prose-blog', 'prose prose-lg max-w-none'],
     ['toc-active', 'text-gray-12 font-medium'],
+    // Add a new header-specific badge
+    ['header-badge', 'inline-flex items-center bg-gray-3 text-gray-11 font-mono px-3 py-1'],
+    ['header-badge-error', 'inline-flex items-center bg-red-3 text-red-11 font-mono px-3 py-1'],
+    ['nav-text', 'text-gray-11 hover:text-gray-12 transition-colors duration-200'],
+    ['nav-text-active', 'text-gray-12 font-medium after:w-full! before:opacity-15!'],
   ],
   theme: {
     fontFamily: {
@@ -203,5 +208,11 @@ export default defineConfig({
     'text-left',
     'block',
     'mb-2',
+    'bg-gray-3',
+    'text-gray-12',
+    'bg-red-3',
+    'text-red-11',
+    'nav-text',
+    'nav-text-active',
   ],
 })
