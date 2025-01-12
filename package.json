@@ -58,6 +58,7 @@
     "@vueuse/core": "^12.4.0",
     "@vueuse/motion": "^2.2.6",
     "@vueuse/nuxt": "^12.4.0",
+    "minisearch": "^7.1.1",
     "octokit": "^4.1.0",
     "ufo": "^1.5.4"
   },
