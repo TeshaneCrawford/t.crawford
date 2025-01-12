@@ -187,6 +187,10 @@ export default defineNuxtConfig({
       prerender: true,
       static: true,
     },
+    '/stats': {
+      prerender: true,
+      static: true,
+    },
   }, future: {
     compatibilityVersion: 4,
   },
@@ -201,7 +205,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/rss.xml', '/projects', '/photos', '/uses', '/about', '/blog', '/blog/**'],
+      routes: ['/', '/rss.xml', '/projects', '/photos', '/uses', '/about', '/stats', '/blog', '/blog/**'],
       failOnError: false,
     },
     cloudflare: {
