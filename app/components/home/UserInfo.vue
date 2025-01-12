@@ -75,6 +75,7 @@ const { data: home } = await useAsyncData(() => queryCollection('content').path(
             :alt="`${userData?.name}'s profile picture`"
             class="h-18 w-18 rounded-full shadow ring-1 ring-gray-6"
             loading="lazy"
+            decoding="async"
             width="72"
             height="72"
             format="webp"
