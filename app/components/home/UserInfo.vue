@@ -43,6 +43,11 @@ const links: NavLink[] = [
     path: '/photos',
     ariaLabel: 'Browse our photo gallery',
   },
+  {
+    text: 'Stats',
+    path: '/stats',
+    ariaLabel: 'View personal statistics',
+  },
 ]
 
 const email = 'crawfordteshane@gmail.com'
@@ -56,7 +61,11 @@ const copyEmail = async () => {
   }, 2000)
 }
 
-const { data: home } = await useAsyncData(() => queryCollection('content').path('/home').first())
+const { data: home } = await useAsyncData('home', () => {
+  return queryCollection('content')
+    .path('/home')
+    .first()
+})
 </script>
 
 <template>
