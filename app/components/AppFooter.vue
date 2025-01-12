@@ -8,7 +8,7 @@ const yearDisplay = startYear === currentYear ? currentYear : `${startYear} - ${
   <footer class="slide-enter ma p-7 animate-delay-1200!">
     <nav class="site-links mb-6 lg:ml-32">
       <ul class="flex flex-wrap justify-start gap-6 md:gap-8">
-        <li v-for="link in ['Home', 'Projects', 'Blog', 'Photos', 'About', 'Uses', 'Chat']" :key="link">
+        <li v-for="link in ['Home', 'Projects', 'Blog', 'Photos', 'About', 'Stats', 'Uses', 'Chat']" :key="link">
           <NuxtLink
             :to="link === 'Home' ? '/' : `/${link.toLowerCase()}`"
             class="site-link relative text-sm text-gray-11 op90 transition-colors duration-200 hover:text-gray-12"
