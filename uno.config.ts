@@ -214,5 +214,11 @@ export default defineConfig({
     'text-red-11',
     'nav-text',
     'nav-text-active',
+
+    'transform',
+    'opacity-0',
+    'opacity-100',
+    'translate-y-0',
+    'translate-y-1',
   ],
 })
