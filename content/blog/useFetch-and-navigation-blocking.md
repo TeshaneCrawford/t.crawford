@@ -10,6 +10,8 @@ tags:
   - Vue
   - Typescript
 date: 2024-10-25
+updatedAt: 2024-10-25
+image:
 ---
 
 ## The Nuxt 3 useFetch Navigation Conundrum: A Deep Dive

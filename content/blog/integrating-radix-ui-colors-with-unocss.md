@@ -10,6 +10,8 @@ tags:
   - Radix UI
   - TypeScript
 date: 2024-12-12
+updatedAt: 2024-12-12
+image: 
 ---
 
 ## Integrating Radix UI Colors with UnoCSS: A Seamless Dark Mode Solution

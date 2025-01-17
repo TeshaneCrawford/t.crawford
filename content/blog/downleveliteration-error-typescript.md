@@ -10,6 +10,8 @@ tags:
   - JavaScript
   - Debugging
 date: 2023-08-15
+updatedAt: 2023-08-15
+image:
 ---
 
 > This article was inspired by a real-world error I encountered while working on a TypeScript project. The solutions presented here are battle-tested and should help you resolve similar issues in your projects.

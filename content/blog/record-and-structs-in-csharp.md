@@ -10,6 +10,8 @@ tags:
   - dotnet
   - data-structures
 date: 2023-08-15
+updatedAt: 2023-08-15
+image:
 ---
 
 ## Understanding Records and Structs in C#: A Comprehensive Guide

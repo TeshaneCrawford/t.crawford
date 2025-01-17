@@ -10,6 +10,8 @@ tags:
   - Vue
   - Image Optimization
 date: 2024-10-28
+updatedAt: 2024-10-28
+image: 
 ---
 
 ## 🖼️ Mastering Image Optimization in Nuxt 3: A Complete Guide
