@@ -74,8 +74,8 @@ export default defineNuxtConfig({
       type: 'd1',
       binding: 'DB',
     },
-    studio: {
-      enabled: true,
+    preview: {
+      api: 'https://api.nuxt.studio',
     },
     build: {
       pathMeta: {
