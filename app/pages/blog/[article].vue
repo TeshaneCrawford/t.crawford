@@ -32,11 +32,70 @@ const formatDate = (date: string) => {
   })
 }
 
-useSeoMeta(article.value?.seo ?? {})
+const defaultImage = '/images/og/ogImage.jpeg'
+const siteUrl = 'https://teshanecrawford.com'
+
+// Enhanced SEO configuration
+useSeoMeta({
+  title: computed(() => article.value?.title || ''),
+  description: computed(() => article.value?.description || ''),
+  ogTitle: computed(() => article.value?.title || ''),
+  ogDescription: computed(() => article.value?.description || ''),
+  ogType: 'article',
+  ogUrl: computed(() => `https://teshanecrawford.com${route.path}`),
+  ogImage: computed(() => article.value?.image || defaultImage),
+  twitterCard: 'summary_large_image',
+  twitterImage: computed(() => article.value?.image || defaultImage),
+  articlePublishedTime: computed(() => article.value?.date || ''),
+  articleModifiedTime: computed(() => article.value?.updatedAt || article.value?.date || ''),
+  articleAuthor: computed(() => article.value?.authors?.map(a => a.name) || []),
+  articleTag: computed(() => article.value?.tags || []),
+})
+
+// Add structured data for the article
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    children: computed(() => {
+      if (!article.value) return ''
+
+      return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': article.value.title,
+        'description': article.value.description,
+        'image': article.value.image || `${siteUrl}${defaultImage}`,
+        'datePublished': article.value.date,
+        'dateModified': article.value.updatedAt,
+        'author': article.value.authors?.map(author => ({
+          '@type': 'Person',
+          'name': author.name,
+          'url': `https://twitter.com/${author.twitter}`,
+        })),
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Your Site Name',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://teshanecrawford.com/logo.png',
+          },
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': `https://teshanecrawford.com${route.path}`,
+        },
+      })
+    }),
+  }],
+})
+
+// Update OG image with proper dimensions and content
 defineOgImageComponent('DefaultOg', {
   title: article.value?.title ?? '',
+  description: article.value?.description ?? '',
   date: article.value?.date ? formatDate(article.value.date) : null,
   tags: article.value?.tags ?? [],
+  image: article.value?.image ?? defaultImage,
 })
 </script>
 

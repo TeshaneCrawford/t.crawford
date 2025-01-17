@@ -5,6 +5,10 @@ defineProps({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    default: '',
+  },
   date: {
     type: String,
     default: null,
@@ -12,6 +16,10 @@ defineProps({
   tags: {
     type: Array as () => string[],
     default: () => [],
+  },
+  image: {
+    type: String,
+    default: '/images/og/ogImage.jpeg',
   },
 })
 </script>
@@ -67,9 +75,19 @@ defineProps({
         </filter>
       </defs>
     </svg>
-    <header class="text-5xl">
+
+    <div v-if="image" class="absolute right-12 top-12 h-48 w-48 overflow-hidden rounded-lg opacity-80">
+      <img :src="image" alt="" class="h-full w-full object-cover">
+    </div>
+
+    <header class="max-w-[80%] text-5xl">
       {{ title }}
     </header>
+
+    <p v-if="description" class="mt-6 max-w-[70%] text-2xl text-[#ADADAD]">
+      {{ description }}
+    </p>
+
     <div class="mt-10 flex flex-col text-[1.85rem] text-[#CFCFCF]">
       <div
         v-if="date"

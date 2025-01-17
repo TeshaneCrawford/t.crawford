@@ -37,6 +37,8 @@ export default defineContentConfig({
         })),
         tags: z.array(z.string()),
         date: z.string(),
+        updatedAt: z.string().optional(),
+        image: z.string().default('/images/og/ogImage.jpeg'),
         rawbody: z.string(),
         toc: z.object({
           items: z.array(z.object({
