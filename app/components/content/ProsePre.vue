@@ -33,7 +33,7 @@ const icon = computed(() => getLangIcon(props.language, props.filename))
 </script>
 
 <template>
-  <div class="code-block group">
+  <div class="group code-block">
     <div v-if="icon" class="code-header">
       <div class="filename-section">
         <Icon :name="icon" class="icon" />

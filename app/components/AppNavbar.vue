@@ -20,7 +20,7 @@ const { y: scroll } = useWindowScroll()
       focusable="false"
     >
       <AnimatedLogo />
-       <!-- T. Crawford -->
+      <!-- T. Crawford -->
     </NuxtLink>
     <button
       title="Scroll to top"
@@ -47,7 +47,7 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink
           to="/projects"
           title="Projects"
-          class="nav-text relative"
+          class="relative nav-text"
           :class="route.path.startsWith('/projects') ? 'nav-text-active' : ''"
         >
           <span class="lt-md:hidden">Projects</span>
@@ -56,7 +56,7 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink
           to="/blog"
           title="Blog"
-          class="nav-text relative"
+          class="relative nav-text"
           :class="route.path.startsWith('/blog') ? 'nav-text-active' : ''"
         >
           <span class="lt-md:hidden">Blog</span>
@@ -65,7 +65,7 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink
           to="/photos"
           title="Photos"
-          class="nav-text relative"
+          class="relative nav-text"
           :class="route.path.startsWith('/photos') ? 'nav-text-active' : ''"
         >
           <span class="lt-md:hidden">Photos</span>
@@ -73,7 +73,7 @@ const { y: scroll } = useWindowScroll()
         </NuxtLink>
         <NuxtLink
           to="/uses"
-          class="nav-text relative lt-md:hidden"
+          class="relative lt-md:hidden nav-text"
           title="Uses"
           :class="route.path.startsWith('/uses') ? 'nav-text-active' : ''"
         >
@@ -82,7 +82,7 @@ const { y: scroll } = useWindowScroll()
         <NuxtLink
           to="/chat"
           title="Let's Chat"
-          class="nav-text relative"
+          class="relative nav-text"
           :class="route.path.startsWith('/chat') ? 'nav-text-active' : ''"
         >
           <Icon name="i-hugeicons-conversation" />

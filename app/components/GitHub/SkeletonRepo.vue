@@ -2,7 +2,11 @@
   <article
     b="~ black op-10"
     dark-b="white op-10"
-    trans rounded-md p-4 text-xs shadow-sm
+    trans
+    rounded-md
+    p-4
+    text-xs
+    shadow-sm
     class="bg-black/2 dark:bg-white/2"
   >
     <div flex="~ col gap-3" h-full>
@@ -16,7 +20,12 @@
 
       <div class="skeleton h-12 w-full rounded" />
 
-      <div flex items-center justify-between gap-4>
+      <div
+        flex
+        items-center
+        justify-between
+        gap-4
+      >
         <div flex items-center gap-4>
           <div class="skeleton h-4 w-24 rounded" />
         </div>

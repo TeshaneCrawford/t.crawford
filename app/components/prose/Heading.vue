@@ -40,8 +40,18 @@ const generate = computed(() => props.id && (
     <slot v-else />
     <span
       v-if="props.id && generate"
-      pa fcc size-5 bg-primary:10 rd pyc left--7
-      group-hover:op-100 trans op-0 cursor-pointer
+
+      trans
+      fcc
+      bg-primary:10
+      pyc
+      left--7
+      size-5
+      cursor-pointer
+      rd
+      pa
+      op-0 
+      group-hover:op-100
       @click="proseHeadingClick($event, props.id)"
     >
       <Icon name="i-hugeicons-link-01" text-sm />

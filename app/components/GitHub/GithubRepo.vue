@@ -10,7 +10,11 @@ defineProps<{
   <article
     b="~ black op-10"
     dark-b="white op-10"
-    trans rounded-md p-4 text-xs shadow-sm
+    trans
+    rounded-md
+    p-4
+    text-xs
+    shadow-sm
     hover="bg-gray bg-op-3"
     dark-hover="bg-white bg-op-3"
     class="matrix-pattern bg-black/1 dark:bg-white/2"
@@ -24,7 +28,12 @@ defineProps<{
     >
       <!-- Header with repo name and status -->
       <div flex="~ gap-2" items-center justify-between>
-        <h5 m0 flex="~ gap-2" items-center text-sm>
+        <h5
+          m0
+          flex="~ gap-2"
+          items-center
+          text-sm
+        >
           <Icon name="i-hugeicons-repository" h-5 w-5 />
           <span class="font-medium">{{ repo.name }}</span>
         </h5>
@@ -46,7 +55,12 @@ defineProps<{
       </p>
 
       <!-- Footer with metadata -->
-      <div flex items-center justify-between gap-4 >
+      <div
+        flex
+        items-center
+        justify-between
+        gap-4
+      >
         <!-- Language -->
         <div flex items-center gap-4>
           <span
