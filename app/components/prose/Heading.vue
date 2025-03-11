@@ -50,7 +50,7 @@ const generate = computed(() => props.id && (
       cursor-pointer
       rd
       pa
-      op-0 
+      op-0
       group-hover:op-100
       @click="proseHeadingClick($event, props.id)"
     >
