@@ -19,8 +19,8 @@ const { y: scroll } = useWindowScroll()
       to="/"
       focusable="false"
     >
-      <!-- <AnimatedLogo /> -->
-       T Crawford.
+      <AnimatedLogo />
+       <!-- T. Crawford -->
     </NuxtLink>
     <button
       title="Scroll to top"
