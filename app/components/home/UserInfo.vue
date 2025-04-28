@@ -97,9 +97,9 @@ const { data: home } = await useAsyncData('home', () => {
           <span class="text-gray-11">{{ userData?.bio }}</span>
         </div>
       </div>
-      <span class="flex items-center gap-1 text-gray-11 op-80 lt-md:hidden">
+      <!-- <span class="flex items-center gap-1 text-gray-11 op-80 lt-md:hidden">
         <Icon name="i-hugeicons-location-01" /> {{ userData?.location }}
-      </span>
+      </span> -->
     </div>
     <div flex="~ col">
       <div mb text-3xl>
